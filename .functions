@@ -1,7 +1,57 @@
 # Bash functions
 
+## macOS
+
+finder() {
+    if [[ $1 == "hide" ]]; then
+        defaults write com.apple.finder AppleShowAllFiles NO && killall Finder
+    else
+        defaults write com.apple.finder AppleShowAllFiles YES && killall Finder
+    fi
+}
+
+file() {
+    if [[ $i == "hide" ]]; then
+        chflags hidden "${@:2}"
+    elif if [[ $i == "show" ]]; then
+        chflags nohidden "${@:2}"
+    fi
+}
+
 ## Utils
 
 function killport() { 
   lsof -i TCP:$1 | grep LISTEN | awk '{print $2}' | xargs kill -9 
+}
+
+## Webserver
+
+webserver() {
+	case $1 in
+	    "start")
+	        sudo apachectl start ;;
+	    "stop")
+	        sudo apachectl -k stop ;;
+        "restart")
+        	sudo apachectl -k restart ;;
+		"config")
+        	sudo /usr/local/bin/subl /usr/local/etc/apache2/2.4/httpd.conf ;;
+    	"vhosts")
+    		sudo /usr/local/bin/subl /usr/local/etc/apache2/2.4/extra/httpd-vhosts.conf /etc/hosts ;;
+		*)
+			echo "usage: webserver start | stop | restart | config | vhosts"
+			;;
+	esac
+}
+
+webdatabase() {
+	case $1 in
+	    "start")
+	        mysql.server start ;;
+	    "stop")
+	        mysql.server stop ;;
+		*)
+			echo "usage: webdatabase start | stop"
+			;;
+	esac
 }
