@@ -1,0 +1,79 @@
+[user]
+	name = Tomáš Vítek
+	email = me@tomasvitek.com
+
+[core]
+	editor = subl -n -w
+	excludesfile = ~/.gitignore_global
+
+[color]
+	ui = always	
+
+[push]
+	default = upstream
+
+[diff]
+	renames = true
+
+[alias]
+	# Aliases
+	cd = !echo "Try without the git, you git."
+	co = checkout
+	c = commit
+	ca = commit --amend
+	st = status -s
+	com = checkout master
+	r = reset
+	rh = reset --hard
+	pf = push --force
+	rb = rebase
+	rbc = rebase --continue
+	continue = rebase --continue
+	rbm = rebase master
+	cob = checkout -b
+	cp = cherry-pick
+	cm = !git add -A && git commit -m
+	
+	# Shortcuts
+	amend = commit --amend
+	wip = commit -am "WIP"
+	save = !git add -A && git commit -m 'WIP'
+	patch = !git show origin..HEAD > "~/Downloads/$(basename `git rev-parse --show-toplevel`).patch"
+	undo = reset HEAD~1 --mixed
+	wipe = reset --hard
+
+	# Branches
+	br = branch --verbose --verbose        # be very verbose (with names of tracking branches)
+	bra = branch --verbose --all           # all branches
+	brm = branch --verbose --delete        # delete branch
+	
+	# Stash
+	sl = stash list
+	ss = stash save --include-untracked # Stash untracked files too
+	sa = stash apply
+	ssp = stash show -p
+
+	# List local branches you've recently been active in
+	recent-branches = for-each-ref --sort=-committerdate --count=10 --format="%(refname:short)" refs/heads/
+
+	# Most useful for reviewing prose changes
+	wdiff = diff --word-diff=color
+
+	# Different pretty logs
+	slog = log --pretty=format:"%C(auto,yellow)%h%C(auto)%d\\ %C(auto,reset)%s\\ \\ [%C(auto,blue)%cn%C(auto,reset),\\ %C(auto,cyan)%ar%C(auto,reset)]"
+	glog = log --graph --pretty=format:"%C(auto,yellow)%h%C(auto)%d\\ %C(auto,reset)%s\\ \\ [%C(auto,blue)%cn%C(auto,reset),\\ %C(auto,cyan)%ar%C(auto,reset)]"
+	wtf = log --pretty=format:"%C(auto,yellow)%h%C(auto)%d%C(auto,reset)\\ by\\ %C(auto,blue)%cn%C(auto,reset),\\ %C(auto,cyan)%ar%C(auto,reset)%n\\ %s%n" --stat
+
+	# Only when you're really sure
+	contumacious = !git commit -C HEAD -n --amend && git push --force
+
+	# Grep with style
+	g = grep --break --heading --line-number
+
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+
+[mergetool "sourcetree"]
+	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
