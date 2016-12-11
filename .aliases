@@ -1,0 +1,21 @@
+# Bash aliases
+
+## macOS
+
+alias hidefiles="defaults write com.apple.finder AppleShowAllFiles NO && killall Finder"
+alias showfiles="defaults write com.apple.finder AppleShowAllFiles YES && killall Finder"
+alias hidefile="chflags hidden "
+alias showfile="chflags nohidden "
+
+## Sublime Text 3
+
+alias edit='subl && sleep 0.1 && subl'
+
+## Work stuff (todo)
+
+alias restartserver="sudo apachectl -k restart"
+alias stopserver="sudo apachectl -k stop"
+alias startserver="sudo apachectl start"
+
+alias startdatabase="mysql.server start"
+alias startdatabase="mysql.server stop"
