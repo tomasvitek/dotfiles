@@ -11,8 +11,7 @@ git submodule foreach --recursive git fetch;
 git submodule foreach git merge origin master;
 
 function doBootstrap() {
-	rsync --exclude ".git/" \
-		--exclude ".DS_Store" \
+	rsync --exclude ".DS_Store" \
 		--exclude "dotfiles.sh" \
 		--exclude "README.md" \
 		--exclude "LICENSE.md" \
@@ -23,8 +22,7 @@ function doBootstrap() {
 }
 
 function doBackup() {
-	rsync --exclude ".git/" \
-		--exclude ".DS_Store" \
+	rsync --exclude ".DS_Store" \
 		--exclude "dotfiles.sh" \
 		--exclude "README.md" \
 		--exclude "LICENSE.md" \
