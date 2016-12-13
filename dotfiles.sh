@@ -5,12 +5,12 @@
 
 cd "$(dirname "${BASH_SOURCE}")";
 
-git pull origin master;
-git submodule update --init --recursive;
-git submodule foreach --recursive git fetch;
-git submodule foreach git merge origin master;
-
 function doBootstrap() {
+	git pull origin master;
+	git submodule update --init --recursive;
+	git submodule foreach --recursive git fetch;
+	git submodule foreach git merge origin master;
+	
 	rsync --exclude ".DS_Store" \
 		--exclude "dotfiles.sh" \
 		--exclude "README.md" \
