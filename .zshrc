@@ -11,7 +11,7 @@ ZSH_THEME="tomorrow"
 COMPLETION_WAITING_DOTS="true"
 
 # Plugins
-plugins=(git autojump zsh-syntax-highlighting)
+plugins=(git autojump zsh-syntax-highlighting zsh-autosuggestions)
 
 # Oh my zsh export
 source $ZSH/oh-my-zsh.sh
