@@ -2,4 +2,4 @@
 
 ## Sublime Text 3
 
-alias edit='subl -w'
+alias edit='subl && sleep 0.1 && subl'
