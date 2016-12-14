@@ -21,7 +21,23 @@ file() {
 ## Utils
 
 function killport() { 
-  lsof -i TCP:$1 | grep LISTEN | awk '{print $2}' | xargs kill -9 
+	lsof -i TCP:$1 | grep LISTEN | awk '{print $2}' | xargs kill -9 
+}
+
+# Removes a symlink and replaces it with the original file
+function unlink() { 
+	if [ ! -L "$1" ]; then
+		echo "Please provide a symlink."
+	else
+		ORIGINAL=$(readlink "$1")
+	  	if [ -f "$ORIGINAL" ]; then
+			echo "Replacing by $ORIGINAL"
+			rm "$1"
+			cp "$ORIGINAL" "$1"
+		else
+			echo "Error when reading the provided symlink."
+		fi
+	fi
 }
 
 ## Webserver
