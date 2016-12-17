@@ -17,14 +17,14 @@ function doBootstrap() {
 		--exclude "dotfiles.sh" \
 		--exclude "README.md" \
 		--exclude "LICENSE.md" \
-		-avh --no-perms --update . ~;
+		-avh --no-perms --update ./ ~/;
 
 	echo "dotfiles loaded into your home directory.";
 	source ~/.bash_profile;
 }
 
 function doBackup() {
-	rsync --include ".oh-my-zsh/.git" \
+	rsync --exclude ".oh-my-zsh/.git" \
 		--exclude ".git/" \
 		--exclude ".DS_Store" \
 		--exclude "dotfiles.sh" \
@@ -44,8 +44,8 @@ function doBackup() {
 		--exclude "Trash" \
 		--exclude "Work" \
 		\
-		-avh --no-perms --existing . ~;
-
+		-avh --no-perms --existing --dry-run ~/ ./;
+		echo .
 	echo "Current dotfiles saved, you may commit changes.";
 }
 
