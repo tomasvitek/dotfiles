@@ -24,7 +24,8 @@ function doBootstrap() {
 }
 
 function doBackup() {
-	rsync --exclude ".oh-my-zsh/.git" \
+  rsync -avh --no-perms ~/.atom ./;
+  rsync --exclude ".oh-my-zsh/" \
 		--exclude ".git/" \
 		--exclude ".DS_Store" \
 		--exclude "dotfiles.sh" \
