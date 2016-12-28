@@ -10,7 +10,7 @@ function doBootstrap() {
 	git submodule update --init --recursive;
 	git submodule foreach --recursive git fetch;
 	git submodule foreach git merge origin master;
-	
+
 	rsync --include ".oh-my-zsh/.git" \
 		--exclude ".git/" \
 		--exclude ".DS_Store" \
@@ -44,14 +44,14 @@ function doBackup() {
 		--exclude "Trash" \
 		--exclude "Work" \
 		\
-		-avh --no-perms --existing --dry-run ~/ ./;
+		-avh --no-perms --existing ~/ ./;
 		echo .
 	echo "Current dotfiles saved, you may commit changes.";
 }
 
 case $1 in
     "bootstrap")
-    
+
     	if [ "$2" == "--force" -o "$2" == "-f" ]; then
 			doBootstrap;
 		else
@@ -73,6 +73,3 @@ esac
 
 unset doBootstrap;
 unset doBackup;
-
-
-
