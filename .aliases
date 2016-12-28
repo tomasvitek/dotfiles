@@ -1,8 +1,7 @@
 # Bash aliases
 
-## Sublime Text 3
-
-alias edit='subl && sleep 0.1 && subl'
+## Editor
+alias edit='atom'
 
 ## Github tool
 eval "$(hub alias -s)"

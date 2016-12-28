@@ -3,11 +3,11 @@
 	email = me@tomasvitek.com
 
 [core]
-	editor = subl && sleep 0.1 && subl -n -w
+	editor = atom --wait
 	excludesfile = ~/.gitignore_global
 
 [color]
-	ui = always	
+	ui = always
 
 [push]
 	default = upstream
@@ -33,7 +33,7 @@
 	cob = checkout -b
 	cp = cherry-pick
 	cm = !git add -A && git commit -m
-	
+
 	# Shortcuts
 	amend = commit --amend
 	wip = commit -am "WIP"
@@ -46,7 +46,7 @@
 	br = branch --verbose --verbose        # be very verbose (with names of tracking branches)
 	bra = branch --verbose --all           # all branches
 	brm = branch --verbose --delete        # delete branch
-	
+
 	# Stash
 	sl = stash list
 	ss = stash save --include-untracked # Stash untracked files too
@@ -72,7 +72,7 @@
 
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path = 
+	path =
 
 [mergetool "sourcetree"]
 	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
