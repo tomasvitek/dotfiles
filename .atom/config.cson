@@ -1,5 +1,5 @@
 "*":
-  core:
-    telemetryConsent: "no"
+  editor:
+    fontFamily: "Fira Code"
   "exception-reporting":
-    userId: "e094b4ed-1f46-b051-4867-e845d25ce646"
+    userId: "fe949da8-8184-a355-12eb-64e0e37c2344"
