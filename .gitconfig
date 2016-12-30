@@ -16,14 +16,17 @@
 	renames = true
 
 [alias]
+
 	# Aliases
 	cd = !echo "Try without the git, you git."
 	co = checkout
 	c = commit
 	ca = commit --amend
 	st = status -s
+  s = status -s
 	com = checkout master
 	r = reset
+  l = log
 	rh = reset --hard
 	pf = push --force
 	rb = rebase
