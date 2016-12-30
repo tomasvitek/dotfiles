@@ -1,7 +1,7 @@
 # Bash aliases
 
 ## Editor
-alias edit='atom'
+alias e='edit'
 
 ## Github tool
 eval "$(hub alias -s)"
