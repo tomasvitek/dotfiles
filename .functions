@@ -12,20 +12,28 @@ finder() {
 
 file() {
     if [[ $i == "hide" ]]; then
-        chflags hidden "${@:2}"
+        sudo chflags hidden "${@:2}"
     elif if [[ $i == "show" ]]; then
-        chflags nohidden "${@:2}"
+        sudo chflags nohidden "${@:2}"
+    fi
+}
+
+edit() {
+    if [ "$#" -eq 0 ]; then
+      atom .
+    else
+      atom ${@}
     fi
 }
 
 ## Utils
 
-function killport() { 
-	lsof -i TCP:$1 | grep LISTEN | awk '{print $2}' | xargs kill -9 
+function killport() {
+	lsof -i TCP:$1 | grep LISTEN | awk '{print $2}' | xargs kill -9
 }
 
 # Removes a symlink and replaces it with the original file
-function unlink() { 
+function unlink() {
 	if [ ! -L "$1" ]; then
 		echo "Please provide a symlink."
 	else
