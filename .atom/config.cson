@@ -1,4 +1,9 @@
 "*":
+  core:
+    themes: [
+      "atom-material-ui"
+      "one-dark-syntax"
+    ]
   editor:
     fontFamily: "Fira Code"
   "exception-reporting":
