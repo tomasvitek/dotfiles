@@ -95,3 +95,21 @@ webdatabase() {
 			;;
 	esac
 }
+
+## Dotfiles
+
+dotfiles() {
+	case $1 in
+    "backup")
+      cd $DOTFILES
+      ./dotfiles.sh backup
+      ;;
+    "bootstrap")
+      cd $DOTFILES
+      ./dotfiles.sh bootstrap
+      ;;
+		*)
+			echo "usage: dotfiles backup | bootstrap"
+			;;
+	esac
+}

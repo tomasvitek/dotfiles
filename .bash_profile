@@ -10,6 +10,7 @@ export PATH=/usr/local/bin:/usr/local/sbin:$PATH
 # Project shortcuts
 export WORK="${HOME}/Work"
 export RESEARCH="${HOME}/Dropbox/University/Research/Code"
+export DOTFILES="${HOME}/Dropbox/Backup/Setup/macOS/dotfiles"
 
 alias work="cd $WORK"
 alias research="cd $RESEARCH"
