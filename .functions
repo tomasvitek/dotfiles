@@ -75,9 +75,9 @@ webserver() {
         "restart")
         	sudo apachectl -k restart ;;
 		"config")
-        	sudo /usr/local/bin/subl /usr/local/etc/apache2/2.4/httpd.conf ;;
+        	sudo /usr/local/bin/atom /usr/local/etc/apache2/2.4/httpd.conf ;;
     	"vhosts")
-    		sudo /usr/local/bin/subl /usr/local/etc/apache2/2.4/extra/httpd-vhosts.conf /etc/hosts ;;
+    		sudo /usr/local/bin/atom /usr/local/etc/apache2/2.4/extra/httpd-vhosts.conf /etc/hosts ;;
 		*)
 			echo "usage: webserver start | stop | restart | config | vhosts"
 			;;
