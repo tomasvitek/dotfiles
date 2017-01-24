@@ -79,10 +79,12 @@ webserver() {
     	sudo apachectl -k restart ;;
 	  "config")
     	sudo /usr/local/bin/atom /usr/local/etc/apache2/2.4/httpd.conf ;;
+    "logs")
+      e /usr/local/var/log/apache2/error_log ;;
   	"vhosts")
 		  sudo /usr/local/bin/atom /usr/local/etc/apache2/2.4/extra/httpd-vhosts.conf /etc/hosts ;;
 	  *)
-	    echo "usage: webserver start | stop | restart | config | vhosts" ;;
+	    echo "usage: webserver start | stop | restart | config | vhosts | logs" ;;
 	esac
 }
 
