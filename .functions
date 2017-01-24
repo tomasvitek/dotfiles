@@ -68,31 +68,32 @@ function unlinkdir() {
 
 webserver() {
 	case $1 in
-	    "start")
-	        sudo apachectl start ;;
-	    "stop")
-	        sudo apachectl -k stop ;;
-        "restart")
-        	sudo apachectl -k restart ;;
-		"config")
-        	sudo /usr/local/bin/atom /usr/local/etc/apache2/2.4/httpd.conf ;;
-    	"vhosts")
-    		sudo /usr/local/bin/atom /usr/local/etc/apache2/2.4/extra/httpd-vhosts.conf /etc/hosts ;;
-		*)
-			echo "usage: webserver start | stop | restart | config | vhosts"
-			;;
+    "start")
+      mysql.server start
+      sudo apachectl start ;;
+    "stop")
+      mysql.server stop
+      sudo apachectl -k stop ;;
+    "restart")
+      mysql.server restart
+    	sudo apachectl -k restart ;;
+	  "config")
+    	sudo /usr/local/bin/atom /usr/local/etc/apache2/2.4/httpd.conf ;;
+  	"vhosts")
+		  sudo /usr/local/bin/atom /usr/local/etc/apache2/2.4/extra/httpd-vhosts.conf /etc/hosts ;;
+	  *)
+	    echo "usage: webserver start | stop | restart | config | vhosts" ;;
 	esac
 }
 
 webdatabase() {
 	case $1 in
-	    "start")
-	        mysql.server start ;;
-	    "stop")
-	        mysql.server stop ;;
-		*)
-			echo "usage: webdatabase start | stop"
-			;;
+    "start")
+      mysql.server start ;;
+    "stop")
+      mysql.server stop ;;
+	  *)
+	    echo "usage: webdatabase start | stop";;
 	esac
 }
 
