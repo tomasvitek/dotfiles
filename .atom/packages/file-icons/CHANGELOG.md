@@ -4,6 +4,33 @@ All notable changes to the project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
 
+[2.0.12] - 2017-01-24
+---------------------
+### Fixed
+- Regression introduced in 2.0.11 for Nuclide users
+
+
+[2.0.11] - 2017-01-24
+---------------------
+### Fixed
+- [[`#525`][]] Breakage at startup on Windows
+
+[`#525`]: https://github.com/file-icons/atom/issues/525
+
+
+[2.0.10] - 2017-01-20
+---------------------
+### Fixed
+- [[`#502`][]] Sporadic breakage with fixing tab-classes
+- [[`#518`][]] Repo icons missing on Windows
+- [[`#519`][]] Error thrown at startup or when installed
+- Icon cache resetting between sessions on Windows
+
+[`#502`]: https://github.com/file-icons/atom/issues/502
+[`#518`]: https://github.com/file-icons/atom/issues/518
+[`#519`]: https://github.com/file-icons/atom/issues/519
+
+
 [2.0.9] - 2017-01-13
 --------------------
 ### Fixed
@@ -1033,7 +1060,10 @@ Contributors should take heed of the new [submission process](https://github.com
 Initial release.
 
 
-[Unpublished]: https://github.com/file-icons/atom/compare/v2.0.9...HEAD
+[Unpublished]: https://github.com/file-icons/atom/compare/v2.0.12...HEAD
+[2.0.12]: https://github.com/file-icons/atom/releases/tag/v2.0.12
+[2.0.11]: https://github.com/file-icons/atom/releases/tag/v2.0.11
+[2.0.10]: https://github.com/file-icons/atom/releases/tag/v2.0.10
 [2.0.9]:  https://github.com/file-icons/atom/releases/tag/v2.0.9
 [2.0.8]:  https://github.com/file-icons/atom/releases/tag/v2.0.8
 [2.0.7]:  https://github.com/file-icons/atom/releases/tag/v2.0.7
