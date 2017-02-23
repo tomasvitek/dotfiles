@@ -1,5 +1,8 @@
 "*":
   core:
+    disabledPackages: [
+      "file-icons"
+    ]
     telemetryConsent: "no"
     themes: [
       "atom-material-ui"
@@ -7,6 +10,7 @@
     ]
   editor:
     fontFamily: "Fira Code"
+    fontSize: 17
   "exception-reporting":
     userId: "fe949da8-8184-a355-12eb-64e0e37c2344"
   "file-icons":
