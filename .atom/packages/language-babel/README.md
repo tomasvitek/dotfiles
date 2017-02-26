@@ -1,7 +1,5 @@
 # language-babel
 
-Please note that this package is no longer supported.
-
 [![Build Status](https://travis-ci.org/gandm/language-babel.svg?branch=master)](https://travis-ci.org/gandm/language-babel)
 [![Build status](https://ci.appveyor.com/api/projects/status/ef32qrj8iplnbqm2/branch/master?svg=true)](https://ci.appveyor.com/project/gandm/language-babel/branch/master)
 [![Build Dependencies](https://david-dm.org/gandm/language-babel.svg)](https://david-dm.org/gandm/language-babel)
@@ -17,11 +15,11 @@ The package also provides
  - Babel [transpilation on file saves](https://github.com/gandm/language-babel#interface-to-babel-v6--v5) (optional).
  - Babel transpile of all files in a directory or directories.
  - Babel transpiled [code preview](https://github.com/gandm/language-babel#interface-to-babel-v6--v5).
- - Support for [styled-components](https://github.com/styled-components/styled-components) CSS inside tagged template strings.
+ - Support for [styled-components](https://github.com/styled-components/styled-components) CSS inside tagged template strings including auto-completion.
  - Support for [GraphQL code highlighting](https://github.com/gandm/language-babel#graphql-code-highlighting)
  - [Support for adding other language grammars to highlight code inside template literal strings](https://github.com/gandm/language-babel#javascript-tagged-template-literal-grammar-extensions).
 
-By default the language-babel package will detect file types `.js`,`.babel`,`.jsx`, `es`, `es6` and `.flow`. Use the standard ATOM interface to enable it for other file types. This provides a grammar that scopes the file in order to colour the text in a meaningful way. If other JavaScript grammars are enabled these may take precedence over language-babel. Look at the bottom right status bar indicator to determine the language grammar of a file being edited. language-babel will be shown as `Babel ES6 JavaScript`
+By default the language-babel package will detect file types `.js`,`.babel`,`.jsx`, `es`, `es6` and `.flow`. Use the standard ATOM interface to enable it for other file types. This provides a grammar that scopes the file in order to colour the text in a meaningful way. If other JavaScript grammars are enabled these may take precedence over language-babel. Look at the bottom right status bar indicator to determine the language grammar of a file being edited. language-babel will be shown as either `Babel` or `Babel ES6 JavaScript`. Clicking the name will allow the grammar for a file to be changed.
 
 language-babel provides [Babel](http://babeljs.io/) V6 & V5 transpiler support. If you only require grammar/syntax highlighting ensure that the package settings `Transpile On Save` and `Allow Local Override` are both off.
 
@@ -243,12 +241,12 @@ For most projects, it is better to configure `language-babel` via project-based 
 
 	If we use the Atom provided languages [language-css](https://atom.io/packages/language-css), [language-html](https://atom.io/packages/language-html) and [language-sql](https://atom.io/packages/language-sql) in our example above to highlight the template code, then this field would look like.
 
-  ```"css\\.([a-z])+":source.css, /* @html */:text.html.basic, sql:source.sql```
+  ```"(?:css\.(?:[a-z])+)":source.css, /* @html */:text.html.basic, sql:source.sql```
 
 	In other words, the package settings for this field is an array of strings, with each string in the form of `template-prefix:grammar-scopename#optional-include`.
 
   where:
-    - `template-prefix` is a literal string or an Oniguruma regular expression ( Oniguruma is the regular expression engine for TextMate grammars used by Atom) that comes before the opening back-tick of a template. It may contain any characters except a comma but including colons. A regular expression is denoted by being enclosed by double quote marks `"RegExp Here"`. Also, regular expressions must conform to being used inside a JSON object, so for example, `\s*`, which skips any number of white-space characters, should be entered as `\\s*`, whereas embedded double quotes must be escaped `\"`
+    - `template-prefix` is a literal string or an Oniguruma regular expression ( Oniguruma is the regular expression engine for TextMate grammars used by Atom) that comes before the opening back-tick of a template. A literal string may contain any characters except a comma but including colons. A regular expression is denoted by being enclosed by double quote marks `"RegExp Here"`. **Most importantly, a regular expression should create no capturing groups.**
     - `:`The last colon in the string signifies the start of the embedded grammars scopeName.
     - `grammar-scopename` is the scopeName of the grammar used to highlight the template.
     - `#optional-include` if present, will use that include block in the grammars repository.
@@ -282,7 +280,7 @@ A `.languagebabel` file may contain one or more of the following properties.
 
 ## GraphQL Code Highlighting
 
-language-babel supports highlighting of GraphQL code within JavaScript files. For highlighting `.graphql` and `.gql` files see it's sister grammar - [language-graphql-lb](https://atom.io/packages/language-graphql-lb).
+language-babel supports highlighting of GraphQL code within JavaScript files. For highlighting `.graphql` and `.gql` files see its sister grammar - [language-graphql](https://atom.io/packages/language-graphql).
 
  Inside JavaScript, GraphQL enclosed in back-ticks, a.k.a. Quasi or template strings are highlighted. Other GraphQL structures, notably types, are supported by the Flow component of this package.
 

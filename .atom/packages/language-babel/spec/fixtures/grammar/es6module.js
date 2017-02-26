@@ -118,6 +118,18 @@ import type {UserID, User} , typeof something from "module-name"
 //                                                  ^^^^^^^^^^^   string.quoted.module.js
 //                                                             ^  punctuation.definition.string.end.js
 
+import {someValue, type someType, typeof someOtherValue} from 'foo'
+// <- keyword.control.module.js
+ // <- keyword.control.module.js
+//^^^^                                                   ^^^^        keyword.control.module.js
+//     ^                                               ^             meta.brace.curly.js
+//      ^^^^^^^^^       ^^^^^^^^         ^^^^^^^^^^^^^^              variable.other.readwrite.js
+//               ^              ^                                    meta.delimiter.comma.js
+//                 ^^^^           ^^^^^^                             keyword.other.typedef.flowtype
+//                                                            ^      punctuation.definition.string.begin.js
+//                                                             ^^^   string.quoted.module.js
+//                                                                ^  punctuation.definition.string.end.js
+
 import defaultMember
 // <- keyword.control.module.js
  // <- keyword.control.module.js
@@ -206,7 +218,7 @@ export let name1: {a: string} = {a: "aaa"}
 //                          ^               meta.brace.curly.close.flowtype
 //                            ^             keyword.operator.assignment.js
 //                              ^        ^  meta.brace.curly.litobj.js
-//                               ^^         constant.other.object.key.js
+//                               ^          constant.other.object.key.js
 //                               ^          string.unquoted.js
 //                                ^         punctuation.separator.key-value.js
 //                                  ^^^^^   string.quoted.double.js

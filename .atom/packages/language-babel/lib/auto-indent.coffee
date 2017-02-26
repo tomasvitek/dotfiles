@@ -2,7 +2,7 @@
 fs = require 'fs-plus'
 path = require 'path'
 autoCompleteJSX = require './auto-complete-jsx'
-InsertNl = require './insert-nl'
+DidInsertText = require './did-insert-text'
 stripJsonComments = require 'strip-json-comments'
 YAML = require 'js-yaml'
 
@@ -40,7 +40,7 @@ PROPSALIGNED  = 'props-aligned'
 module.exports =
 class AutoIndent
   constructor: (@editor) ->
-    @InsertNl = new InsertNl(@editor)
+    @DidInsertText = new DidInsertText(@editor)
     @autoJsx = atom.config.get('language-babel').autoIndentJSX
     # regex to search for tag open/close tag and close tag
     @JSXREGEXP = /(<)([$_A-Za-z](?:[$_.:\-A-Za-z0-9])*)|(\/>)|(<\/)([$_A-Za-z](?:[$._:\-A-Za-z0-9])*)(>)|(>)|({)|(})|(\?)|(:)|(if)|(else)|(case)|(default)|(return)|(\()|(\))|(`)/g
@@ -48,6 +48,8 @@ class AutoIndent
     @multipleCursorTrigger = 1
     @disposables = new CompositeDisposable()
     @eslintIndentOptions = @getIndentOptions()
+    @templateDepth = 0 # track depth of any embedded back-tick templates
+
 
     @disposables.add atom.commands.add 'atom-text-editor',
       'language-babel:auto-indent-jsx-on': (event) =>
@@ -165,6 +167,7 @@ class AutoIndent
     indent =  0
     isFirstTagOfBlock = true
     @JSXREGEXP.lastIndex = 0
+    @templateDepth = 0
 
     for row in [range.start.row..range.end.row]
       isFirstTokenOfLine = true
@@ -408,6 +411,7 @@ class AutoIndent
           # Javascript brace Start { or switch brace start { or paren ( or back-tick `start
           when BRACE_OPEN, SWITCH_BRACE_OPEN, PAREN_OPEN, TEMPLATE_START
             tokenOnThisLine = true
+            if token is TEMPLATE_START then @templateDepth++
             if isFirstTokenOfLine
               stackOfTokensStillOpen.push parentTokenIdx = stackOfTokensStillOpen.pop()
               if isFirstTagOfBlock and
@@ -476,6 +480,8 @@ class AutoIndent
                 parentTokenIdx: parentTokenIdx         # ptr to <tag
               if parentTokenIdx >=0 then tokenStack[parentTokenIdx].termsThisTagIdx = idxOfToken
               idxOfToken++
+
+            if token is TEMPLATE_END then @templateDepth--
 
           # case, default statement of switch
           when SWITCH_CASE, SWITCH_DEFAULT
@@ -553,10 +559,8 @@ class AutoIndent
         @indentRow({row: row, blockIndent: tokenStack[token.parentTokenIdx].firstCharIndentation, jsxIndent: 1, allowAdditionalIndents: true })
       when SWITCH_CASE, SWITCH_DEFAULT
         @indentRow({row: row, blockIndent: token.firstCharIndentation, jsxIndent: 1 })
-      when TEMPLATE_START
+      when TEMPLATE_START, TEMPLATE_END
         return; # don't touch templates
-      when TEMPLATE_END
-        @indentRow({row: row, blockIndent: token.firstCharIndentation, jsxIndent: 1 })
 
   # get the token at the given match position or return truthy false
   getToken: (bufferRow, match) ->
@@ -774,6 +778,7 @@ class AutoIndent
   # option contains row to indent and allowAdditionalIndents flag
   indentRow: (options) ->
     { row, allowAdditionalIndents, blockIndent, jsxIndent, jsxIndentProps } = options
+    if @templateDepth > 0 then return false # don't indent inside a template
     # calc overall indent
     if jsxIndent
       if @eslintIndentOptions.jsxIndent[0]

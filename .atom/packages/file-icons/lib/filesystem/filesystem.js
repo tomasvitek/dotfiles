@@ -2,7 +2,7 @@
 
 const {CompositeDisposable, Disposable, Emitter} = require("atom");
 const {lstat, realpath, statify} = require("../utils/fs.js");
-const {isString, normalisePath} = require("../utils/general.js");
+const {isRegExp, normalisePath} = require("../utils/general.js");
 const Storage       = require("../storage.js");
 const UI            = require("../ui.js");
 const Directory     = require("./directory.js");
@@ -39,10 +39,10 @@ class FileSystem {
 		this.emitter.dispose();
 		this.paths.forEach(path => path.destroy());
 		this.inodes.clear();
-		this.inodes = null;
-		this.paths = null;
-		this.emitter = null;
-		this.disposables = null;
+		this.inodes = new Map();
+		this.paths = new Map();
+		this.emitter = new Emitter();
+		this.disposables = new CompositeDisposable();
 	}
 	
 	
@@ -113,6 +113,7 @@ class FileSystem {
 				resource.onDidChangeRealPath(path => this.fixSymlink(resource, path.to)),
 				new Disposable(() => {
 					this.paths.delete(resource.path);
+					this.paths.delete(resource.path.replace(/\//g, "\\"));
 					if(inode && resource.stats.nlink < 2)
 						this.inodes.delete(inode);
 				})
@@ -184,6 +185,31 @@ class FileSystem {
 			this.emitter.emit("did-register", resource);
 		});
 		return output;
+	}
+	
+	
+	/**
+	 * Retrieve a list of registered {Resources} whose paths match a pattern.
+	 *
+	 * No system paths are searched; this method only exists to assist debugging.
+	 * @param {String|RegExp} pattern
+	 * @return {Resource[]}
+	 */
+	grep(pattern){
+		if(!pattern) return [];
+		
+		if(!isRegExp(pattern)){
+			pattern = (pattern + "")
+				.split(/[\\\/]+/g)
+				.map(s => s.replace(/[/\\^$*+?{}\[\]().|]/g, "\\$&"))
+				.join("[\\\\\\/]") + "$";
+			pattern = new RegExp(pattern, "i");
+		}
+		
+		const results = [];
+		for(const [path, resource] of this.paths)
+			pattern.test(path) && results.push(resource);
+		return results;
 	}
 }
 

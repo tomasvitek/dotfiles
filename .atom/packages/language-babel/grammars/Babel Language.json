@@ -226,11 +226,11 @@
           ]
         },
         {
-          "name": "constant.other.object.key.js",
-          "match": "(?<!\\.|\\?)\\s*+((?:[$_\\p{L}\\p{Nl}]|\\\\u\\h{4}|\\\\u{\\h+})(?:[$_\\p{L}\\p{Mn}\\p{Mc}\\p{Nd}\\p{Nl}\\p{Pc}\\x{200C}\\x{200D}]|\\\\u\\h{4}|\\\\u{\\h+})*+)\\s*+(:)",
+          "match": "(?<!\\.|\\?)\\s*+(((?:[$_\\p{L}\\p{Nl}]|\\\\u\\h{4}|\\\\u{\\h+})(?:[$_\\p{L}\\p{Mn}\\p{Mc}\\p{Nd}\\p{Nl}\\p{Pc}\\x{200C}\\x{200D}]|\\\\u\\h{4}|\\\\u{\\h+})*+))\\s*+(:)",
           "captures": {
-            "1": { "name": "string.unquoted.js" },
-            "2": { "name": "punctuation.separator.key-value.js" }
+            "1": { "name": "constant.other.object.key.js" },
+            "2": { "name": "string.unquoted.js" },
+            "3": { "name": "punctuation.separator.key-value.js" }
           }
         }
       ]
@@ -353,7 +353,7 @@
         {
           "comment": "Assume flow typecasts start with a newline( or a :( or a =( or a ;(",
           "comment": "try to avoid ternary operators which have a '? some chars :'",
-          "begin": "(^|:|;|=|(?<=:|;|=))\\s*+(\\((?=((\"|').*?(?<=[^\\\\])\\k<-1>|[^?:])*(:|\\?\\s*+:)))",
+          "begin": "(^|:|;|=|(?<=:|;|=))\\s*+(\\((?=(?:((['\"])([^\\\"']*)(\\k<-3>))*+|[^?:\"'])*(\\s*:|\\?\\s*+:)))",
           "end": "\\s*(\\))",
           "beginCaptures": {
             "2": { "name": "meta.brace.round.js" }
@@ -418,15 +418,18 @@
     },
     "jsdoc": {
       "patterns": [
+        { "include": "#jsdoc-inline-tags" },
+        { "include": "#jsdoc-access" },
+        { "include": "#jsdoc-as-namepath" },
+        { "include": "#jsdoc-simple" },
+        { "include": "#jsdoc-simple-namepath" },
+        { "include": "#jsdoc-module" },
+        { "include": "#jsdoc-type-name" },
+        { "include": "#jsdoc-type-noname" },
         {
-          "comment": "common doc @ keywords",
-          "match": "(?<!\\w)@(abstract|alias|author|class|constructor|deprecated|enum|event|example|extends|fires|ignore|inheritdoc|member|method|param|private|property|protected|readonly|requires|return|since|static|throws|type|var)\\b",
-          "name": "storage.type.class.doc"
-        },
-        {
-          "comment": "additional jsdoc keywords",
-          "match": "(?<!\\w)@(access|also|arg|arguments|augments|borrows|borrowsThis|callback|callbackDocument|classdesc|constant|const|constructs|copyright|default|defaultvalue|desc|description|emits|exception|exports|external|file|fileoverview|function|func|global|host|implements|inner|instance|interface|kind|lends|license|listens|link|linkcode|linkplain|memberof|mixes|mixin|module|name|namespace|overview|prop|public|returns|see|summary|this|todo|tutorial|typedef|undocumented|variation|version|virtual)\\b",
-          "name": "storage.type.class.jsdoc"
+          "comment": "additional jsdoc V2 keywords",
+          "match": "(?<!\\w)@(add|api|body|codeend|codestart|demo|download|group|hide|iframe|image|inherits|option|outline|page|parent|signature|tag)\\b",
+          "name": "storage.type.class.jsduck"
         },
         {
           "comment": "additional jsduck keywords",
@@ -435,13 +438,231 @@
         }
       ]
     },
+    "jsdoc-access": {
+      "comment": "@tag protected....",
+      "match": "(?:^[\\s*]*|(?<=/\\*\\*)\\s*)(@(access))\\s*(private|protected|public)?(?=\\s|$)",
+      "captures": {
+        "1": { "name": "storage.type.class.jsdoc"},
+        "3": { "name": "storage.modifier.jsdoc"}
+      }
+    },
+    "jsdoc-module": {
+      "comment": "@tag {optional type} module:file",
+      "begin": "(?:^[\\s*]*|(?<=/\\*\\*)\\s*)(@(exports|module|listens|requires)\\b)\\s*(?=({(?:(?>[^{}]+)|\\g<-1>)*\\})?\\s*(\\S*)([\\S\\s]*))",
+      "end": "^|(?=\\*/)|(?=\\5$)",
+      "beginCaptures": {
+        "1": { "name": "storage.type.class.jsdoc"}
+      },
+      "patterns": [
+        { "include": "#jsdoc-typedef-scopes"},
+        {
+          "match": "(?:(module)(:))?(((?!\\*/)\\S)+)",
+          "captures": {
+            "1": { "name": "keyword.module.jsdoc"},
+            "2": { "name": "punctuation.jsdoc"},
+            "3": { "name": "string.modulename.jsdoc"}
+          }
+        }
+      ]
+    },
+    "jsdoc-as-namepath": {
+      "comment": "look for @tag namespace as namespace",
+      "comment": "to terminate the block",
+      "begin": "(?:^[\\s*]*|(?<=/\\*\\*)\\s*)(@(borrows|lends)\\b)\\s*(?=(?!\\*/)\\S+(?:(?:\\s*\\bas\\b\\s*(?!\\*/)\\S+)?)?([\\S\\s]*))",
+      "end": "^|(?=\\*/)|(?=\\3$)",
+      "beginCaptures": {
+        "1": { "name": "storage.type.class.jsdoc"}
+      },
+      "patterns": [
+        { "include": "#jsdoc-namepath-scopes"}
+      ]
+    },
+    "jsdoc-simple": {
+      "comment": "@tag",
+      "match": "(?:^[\\s*]*|(?<=/\\*\\*)\\s*)(@(abstract|author|classdesc|copyright|default|defaultvalue|deprecated|description|desc|example|external|fileoverview|file|global|host|ignore|inheritdoc|inner|instance|license|override|overview|readonly|see|since|static|summary|todo|tutorial|virtual|variation|version)\\b)(?=$|\\s)",
+      "captures": {
+        "1": { "name": "storage.type.class.jsdoc"}
+      }
+    },
+    "jsdoc-simple-namepath": {
+      "comment": "@tag {opt type} Class#xxx or Class#Event:aaaa etc",
+      "begin": "(?:^[\\s*]*|(?<=/\\*\\*)\\s*)(@(alias|augments|callback|extends|emits|event|fires|interface|memberof|mixes|name|property|prop|this|typedef)\\b)\\s*(?=({(?:(?>[^{}]+)|\\g<-1>)*\\})?\\s*\\S*([\\S*\\s]*))",
+      "end": "^|(?=\\*/)|(?=\\4$)",
+      "beginCaptures": {
+        "1": { "name": "storage.type.class.jsdoc"}
+      },
+      "patterns": [
+        { "include": "#jsdoc-typedef-scopes"},
+        { "include": "#jsdoc-namepath-scopes"}
+      ]
+    },
+    "jsdoc-type-name": {
+      "comment": "@tag {optional type} name",
+      "begin": "(?:^[\\s*]*|(?<=/\\*\\*)\\s*)(@(arg|argument|class|constant|constructor|constructs|const|function|func|kind|member|method|mixin|namespace|param|var)\\b)\\s*(?=({(?:(?>[^{}]+)|\\g<-1>)*\\})?\\s*(((\\[(?:(?>[^\\[\\]]+)|\\g<-1>)*\\])|\\S)+)?([\\S\\s]*))",
+      "end": "^|(?=\\*/)|(?=\\7$)",
+      "beginCaptures": {
+        "1": { "name": "storage.type.class.jsdoc"}
+      },
+      "patterns": [
+        { "include": "#jsdoc-typedef-scopes"},
+        { "include": "#jsdoc-name-scopes"}
+      ]
+    },
+    "jsdoc-type-noname": {
+      "comment": "@tag {types}",
+      "begin": "(?:^[\\s*]*|(?<=/\\*\\*)\\s*)(@(enum|exception|implements|private|protected|public|returns|return|throws|type)\\b)\\s*(?=({(?:(?>[^{}]+)|\\g<-1>)*\\})?\\s*([\\S\\s]*))",
+      "end": "^|(?=\\*/)|(?=\\4$)",
+      "beginCaptures": {
+        "1": { "name": "storage.type.class.jsdoc"}
+      },
+      "patterns": [
+        { "include": "#jsdoc-typedef-scopes"}
+      ]
+    },
+    "jsdoc-inline-tags": {
+      "name": "meta.tag.inline.jsdoc",
+      "begin": "(\\[(?:(?>[^\\[\\]]+)|\\g<-1>)*\\])?({)(?=@)",
+      "end": "(})",
+      "beginCaptures": {
+        "1": { "name": "string.linktext.jsdoc"},
+        "2": { "name": "meta.brace.curly.jsdoc"}
+      },
+      "endCaptures": {
+        "1": { "name": "meta.brace.curly.jsdoc"}
+      },
+      "patterns": [
+        {
+          "match": "(@(link|tutorial))\\b([^}]*)",
+          "captures": {
+            "1": { "name": "storage.type.class.jsdoc"},
+            "3": { "name": "string.jsdoc"}
+          }
+        }
+      ]
+    },
+    "jsdoc-typedef-scopes": {
+      "name": "entity.name.type.instance.jsdoc",
+      "begin": "{",
+      "end": "}|^",
+      "captures": {
+        "0": {"name": "meta.brace.curly.jsdoc"}
+      },
+      "patterns": [
+        { "include": "#jsdoc-typedef-primitives"},
+        { "include": "#jsdoc-namepath-scopes"},
+        { "include": "#jsdoc-typedef-obj"}
+      ]
+    },
+    "jsdoc-typedef-primitives":   {
+      "match": "\\b(null|undefined|boolean|string|number)\\b",
+      "captures": {
+        "1": { "name": "support.type.builtin.primitive.jsdoc"}
+      }
+    },
+    "jsdoc-typedef-obj": {
+      "comment": "typedef object",
+      "begin": "{",
+      "end": "}|^",
+      "captures": {
+        "0": {"name": "meta.brace.curly.jsdoc"}
+      },
+      "patterns": [
+        { "include": "#jsdoc-typedef-primitives"},
+        {
+          "match": "\\b([$_A-Za-z][$_A-Za-z0-9]*)\\s*(:)",
+          "captures": {
+            "1": { "name": "variable.other.readwrite.jsdoc"}
+          }
+        },
+        { "include": "#jsdoc-namepath-scopes"},
+        { "include": "#jsdoc-typedef-obj"}
+      ]
+    },
+    "jsdoc-name-scopes": {
+      "patterns": [
+        {
+          "match": "((?!\\*/)[\\S&&[^\\[\\]\"']])+",
+          "captures": {
+            "0": { "name": "variable.other.jsdoc"}
+          }
+        },
+        {
+          "name": "variable.other.jsdoc",
+          "begin": "\\[",
+          "end": "\\]|^",
+          "patterns": [
+            { "include": "#jsdoc-string" },
+            { "include": "#jsdoc-name-scopes" }
+          ]
+        }
+      ]
+    },
+    "jsdoc-namepath-scopes": {
+      "patterns": [
+        {
+          "match": "\\s*\\b(as)\\b\\s*(?=[$_A-Za-z])",
+          "captures": {
+            "1": { "name": "keyword.as.jsdoc"}
+          }
+        },
+        {
+          "match": "\\s*(?:([A-Z][$_A-Za-z0-9]*)|([$_A-Za-z][$_A-Za-z0-9]*))(?=[\\s\\-~.#]|$)",
+          "captures": {
+            "1": { "name": "entity.name.class.jsdoc"},
+            "2": { "name": "entity.name.function.jsdoc"}
+          }
+        },
+        {
+          "match": "(\\.)([$_A-Za-z][$_A-Za-z0-9]*)(?=\\s|$|\\\")",
+          "captures": {
+            "1": { "name": "keyword.operator.accessor.jsdoc"},
+            "2": { "name": "entity.name.function.method.static.jsdoc"}
+          }
+        },
+        {
+          "match": "(#)([$_A-Za-z][$_A-Za-z0-9]*)(?=\\s|$|\\\")",
+          "captures": {
+            "1": { "name": "keyword.operator.accessor.jsdoc"},
+            "2": { "name": "entity.name.function.method.instance.jsdoc"}
+          }
+        },
+        {
+          "match": "(~|-)([$_A-Za-z][$_A-Za-z0-9]*)(?=\\s|$|\\\")",
+          "captures": {
+            "1": { "name": "keyword.operator.accessor.jsdoc"},
+            "2": { "name": "entity.name.function.method.inner.jsdoc"}
+          }
+        },
+        {
+          "match": "(#)(event)(:)",
+          "captures": {
+            "1": { "name": "keyword.operator.accessor.jsdoc"},
+            "2": { "name": "keyword.event.jsdoc"},
+            "3": { "name": "keyword.operator.jsdoc"}
+          }
+        },
+        {
+          "name": "string.method.jsdoc",
+          "begin": "\\.(?=\"|')",
+          "end": "(?=.)",
+          "applyEndPatternLast": 1,
+          "patterns": [
+            { "include": "#jsdoc-string"}
+          ]
+        }
+      ]
+    },
+    "jsdoc-string": {
+      "name": "string.jsdoc",
+      "match": "\"(\\\\\"|[^\"])*\"|'(\\\\'|[^'])*'"
+    },
     "comments": {
       "patterns": [
         { "include": "#flowtype-comments" },
         { "include": "#special-comments-conditional-compilation" },
         {
           "contentName": "comment.block.documentation.js",
-          "begin": "\\s*+((/\\*\\*))(?!/)",
+          "begin": "\\s*+((/\\*\\*))(?!/|\\*)",
           "end": "(\\s*(\\*/))",
           "captures": {
             "1": { "name": "comment.block.documentation.js" },
@@ -832,19 +1053,22 @@
       ]
     },
     "literal-object-prop-shorthand": {
+      "comment": "give an alternate scope name to shorthand object literals",
       "patterns": [
         {
-          "comment": "dont scope uppercase shorthand properties as these we treat as constants",
-          "name": "constant.other.object.key.js",
-          "match": "(?<=^|,|{)(?<!:|\\.)\\s*+((?:[$_\\p{Lu}\\p{Nl}]|\\\\u\\h{4}|\\\\u{\\h+})(?:[$_\\p{Lu}\\p{Nl}\\x{200C}\\x{200D}]|\\\\u\\h{4}|\\\\u{\\h+})*+)\\s*+(?=$|,|})",
+          "match": "(?<=^|,|{)(?<!:|\\.)\\s*+(((?:[$_\\p{Lu}\\p{Nl}]|\\\\u\\h{4}|\\\\u{\\h+})(?:[$_\\p{Lu}\\p{Nl}\\x{200C}\\x{200D}]|\\\\u\\h{4}|\\\\u{\\h+})*+))\\s*+(?=$|,|})",
           "captures": {
-            "1": { "name": "string.unquoted.js" }
+            "1": { "name": "constant.other.object.key.js"},
+            "2": { "name": "variable.other.constant.shorthandpropertyname.js"}
+
           }
         },
         {
-          "comment": "give an alternate scope name to shorthand object literals",
-          "name": "variable.other.readwrite.shorthandpropertyname.js",
-          "match": "(?<=^|,|{)(?<!:|\\.)\\s*+((?:[$_\\p{L}\\p{Nl}]|\\\\u\\h{4}|\\\\u{\\h+})(?:[$_\\p{L}\\p{Mn}\\p{Mc}\\p{Nd}\\p{Nl}\\p{Pc}\\x{200C}\\x{200D}]|\\\\u\\h{4}|\\\\u{\\h+})*+)\\s*+(?=$|,|})"
+          "match": "(?<=^|,|{)(?<!:|\\.)\\s*+(((?:[$_\\p{L}\\p{Nl}]|\\\\u\\h{4}|\\\\u{\\h+})(?:[$_\\p{L}\\p{Mn}\\p{Mc}\\p{Nd}\\p{Nl}\\p{Pc}\\x{200C}\\x{200D}]|\\\\u\\h{4}|\\\\u{\\h+})*+))\\s*+(?=$|,|})",
+          "captures": {
+            "1": { "name": "constant.other.object.key.js"},
+            "1": { "name": "variable.other.readwrite.shorthandpropertyname.js"}
+          }
         }
       ]
     },
@@ -1700,12 +1924,7 @@
                 "1": { "name": "keyword.control.module.js" }
               }
             },
-            {
-              "match": "\\s*\\b(typeof|type)\\b\\s++(?={|(?:[$_\\p{L}\\p{Nl}]|\\\\u\\h{4}|\\\\u{\\h+}))(?!\\b(instanceof|in|as)\\b|,)",
-              "captures": {
-                "1": { "name": "keyword.other.typedef.flowtype" }
-              }
-            },
+            { "include": "#literal-module-typeof" },
             { "include": "#literal-module-as" },
             {
               "name": "keyword.operator.module.all.js",
@@ -1791,6 +2010,7 @@
               "name": "keyword.operator.module.all.js",
               "match": "\\*"
             },
+            { "include": "#literal-module-typeof" },
             { "include": "#literal-module-as" },
             { "include": "#literal-module-brackets" },
             { "include": "#literal-variable" },
@@ -1800,6 +2020,12 @@
           ]
         }
       ]
+    },
+    "literal-module-typeof": {
+        "match": "\\s*\\b(typeof|type)\\b\\s++(?={|(?:[$_\\p{L}\\p{Nl}]|\\\\u\\h{4}|\\\\u{\\h+}))(?!\\b(instanceof|in|as)\\b|,)",
+        "captures": {
+          "1": { "name": "keyword.other.typedef.flowtype" }
+        }
     },
     "literal-variable": {
       "patterns": [
@@ -1877,18 +2103,15 @@
       "patterns": [
         { "comment": "http://tc39.github.io/proposal-decorators/",
           "comment": "Look for a @identifier start If unicode start uppercase e.g. @A class it as a class ",
-          "name": "meta.tag.decorator",
           "begin": "(?<!@)\\s*+(?:(@)(?:((?:[\\p{Lu}\\p{Nl}]|\\\\u\\h{4}|\\\\u{\\h+})(?:[$_\\p{L}\\p{Mn}\\p{Mc}\\p{Nd}\\p{Nl}\\p{Pc}\\x{200C}\\x{200D}]|\\\\u\\h{4}|\\\\u{\\h+})*+)|((?:[$_\\p{L}\\p{Nl}]|\\\\u\\h{4}|\\\\u{\\h+})(?:[$_\\p{L}\\p{Mn}\\p{Mc}\\p{Nd}\\p{Nl}\\p{Pc}\\x{200C}\\x{200D}]|\\\\u\\h{4}|\\\\u{\\h+})*+)))",
-          "end": "(?<=\\))|\\s*(?=.)",
+          "end": "(?=.)",
           "applyEndPatternLast": 1,
           "beginCaptures": {
-            "1": { "name": "keyword.operator.decoration.js"},
-            "2": { "name": "entity.name.class.js" },
-            "3": { "name": "variable.other.readwrite.js" }
+            "1": { "name": "keyword.operator.decorator.js"},
+            "2": { "name": "entity.name.class.decorator.js" },
+            "3": { "name": "variable.other.readwrite.decorator.js" }
           },
           "patterns": [
-            { "include": "#round-brackets" },
-            { "include": "#comments" },
             {
               "commnent": "decorator .property or .method which may be on a different line",
               "begin": "\\s*(\\.)",
@@ -1897,15 +2120,36 @@
                 "1": { "name": "keyword.operator.accessor.js"}
               },
               "endCaptures": {
-                "1": { "name": "entity.name.class.js" },
-                "2": { "name": "variable.other.property.js" }
+                "1": { "name": "entity.name.class.decorator.js" },
+                "2": { "name": "variable.other.property.decorator.js" }
               },
               "patterns": [
                 { "include": "#comments" }
               ]
             },
-            { "include": "#literal-method" },
-            { "include": "#literal-class" }
+            {
+              "comment": "arguments for decorators",
+              "include": "#round-brackets" },
+            {
+              "comment": "method that always follow decorators such as play<T,T>(arg1, arg2): Type<T> { }",
+              "name": "meta.function.method.js",
+              "begin": "(?:(?<=^|;)|(?=\\s))\\s*+(\\bstatic\\b)?\\s*+(\\basync\\b)?\\s*+(\\*?)\\s*+(?<!\\.)((?:[$_\\p{L}\\p{Nl}]|\\\\u\\h{4}|\\\\u{\\h+})(?:[$_\\p{L}\\p{Mn}\\p{Mc}\\p{Nd}\\p{Nl}\\p{Pc}\\x{200C}\\x{200D}]|\\\\u\\h{4}|\\\\u{\\h+})*+)\\s*+(?=(<(?:(?>[^<>]+)|\\g<-1>)*>)?(\\())",
+              "end": "(?<=})|(?=;|}|,)",
+              "beginCaptures": {
+                "1": { "name": "storage.modifier.js" },
+                "2": { "name": "storage.type.js" },
+                "3": { "name": "keyword.generator.asterisk.js" },
+                "4": { "name": "entity.name.function.method.js" }
+              },
+              "patterns": [
+                { "include": "#flowtype" },
+                { "include": "#curly-brackets" },
+                { "include": "#class-body" },
+                { "include": "$self" }
+              ]
+            },
+            { "include": "#comments" },
+            { "match": "\\s*\n" }
           ]
         }
       ]
@@ -2690,6 +2934,7 @@
     "flowtype-comments": {
       "patterns": [
         {
+          "name": "meta.comments.flowtype",
           "begin": "\\s*+(/\\*)\\s*(::)",
           "end": "\\s*(\\*/)",
           "beginCaptures": {
@@ -2710,6 +2955,7 @@
           ]
         },
         {
+          "name": "meta.comments.flowtype",
           "begin": "\\s*+(/\\*)\\s*(flow-include)\\b",
           "end": "\\s*(\\*/)",
           "beginCaptures": {
@@ -2730,6 +2976,7 @@
           ]
         },
         {
+          "name": "meta.comments.flowtype",
           "begin": "\\s*+(/\\*)\\s*(:)",
           "end": "\\s*(\\*/)",
           "beginCaptures": {

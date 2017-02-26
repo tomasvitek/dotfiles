@@ -1,7 +1,7 @@
 "use strict";
 
-const {dirname, join, resolve} = require("path");
-const {lstat, statify} = require("../utils/fs.js");
+const {realpath} = require("../utils/fs.js");
+const {normalisePath} = require("../utils/general.js");
 const IconDelegate = require("../service/icon-delegate.js");
 const EntityType = require("./entity-type.js");
 const Resource = require("./resource.js");
@@ -11,31 +11,44 @@ class Directory extends Resource {
 	
 	constructor(path, stats){
 		super(path, stats);
+		path = this.realPath || this.path;
 		
-		// Git repo
+		// Root directory/Project folder
+		for(const root of atom.project.rootDirectories)
+			if(root && path === normalisePath(root.path)){
+				this.isRoot = true;
+				break;
+			}
+		
+		// VCS repo
 		if(null !== this.repo){
-			this.repoPath = this.repo.getWorkingDirectory();
-			if(this.path === this.repoPath)
-				this.isRepository = true;
+			const repoType = this.repo.getType();
+			
+			if("git" === repoType){
+				const {repo} = this.repo;
+				if(repo.isWorkingDirectory(path))
+					this.isRepository = true;
+				
+				// Submodule
+				const submodule = repo.submoduleForPath(path) || null;
+				if(null !== submodule){
+					this.submodule = submodule;
+					if(submodule.isWorkingDirectory(realpath(path)))
+						this.isSubmodule = true;
+				}
+			}
+			
+			else{
+				const repoPath = this.repo.workingDirectory || this.repo.path;
+				if(path === normalisePath(repoPath))
+					this.isRepository = true;
+				if(!repoPath){
+					const {logInfo} = require("../utils/dev.js");
+					const {path, repo} = this;
+					logInfo({title: "Unknown VCS", path, repo, repoType});
+				}
+			}
 		}
-		
-		// Submodule
-		if(null !== this.submodule && this.submodule.path === this.path)
-			this.isSubmodule = true;
-	}
-	
-	
-	/**
-	 * Determine if the {Directory} is the root of an opened project.
-	 *
-	 * @return {Boolean}
-	 */
-	isProjectDirectory(){
-		const {path} = this;
-		for(const dir of atom.project.rootDirectories)
-			if(dir && path === resolve(dir.path))
-				return true;
-		return false;
 	}
 }
 
@@ -52,12 +65,11 @@ Directory.prototype.isRepository = false;
  */
 Directory.prototype.isSubmodule = false;
 
-
 /**
- * Absolute path of the directory's containing repository, if one exists.
- * @property {String} repoPath
+ * Whether the directory is the root of an opened project.
+ * @property {Boolean} isRoot
  */
-Directory.prototype.repoPath = "";
+Directory.prototype.isRoot = false;
 
 
 Directory.prototype.isDirectory = true;

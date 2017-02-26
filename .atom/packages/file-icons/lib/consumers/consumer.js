@@ -64,20 +64,22 @@ class Consumer{
 		if(this.emitter){
 			this.emitter.emit("did-destroy");
 			this.emitter.dispose();
-			this.emitter = null;
 		}
 		
 		if(this.disposables){
 			this.disposables.dispose();
-			this.disposables = null;
+			this.disposables.clear();
 		}
 		
 		this.resetNodes();
 		this.active = false;
 		this.package = null;
-		this.iconNodes = null;
 		this.packagePath = null;
 		this.packageModule = null;
+
+		this.disposables = new MappedDisposable();
+		this.iconNodes   = new Set();
+		this.emitter     = new Emitter();
 	}
 	
 	
@@ -255,5 +257,5 @@ class Consumer{
 }
 
 
-Consumer.prototype.stillNeeded = true;
+Consumer.prototype.jQueryRemoved = null;
 module.exports = Consumer;

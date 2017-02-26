@@ -1,6 +1,7 @@
 "use strict";
 
 const {CompositeDisposable, Disposable, Emitter} = require("atom");
+const {normalisePath} = require("../utils/general.js");
 const StrategyManager = require("./strategy-manager.js");
 const EntityType = require("../filesystem/entity-type.js");
 const IconTables = require("../icons/icon-tables.js");
@@ -99,9 +100,7 @@ class IconDelegate{
 		const {resource} = this;
 		
 		if(resource.type & EntityType.DIRECTORY)
-			return resource.isRepository
-				? ["icon-repo"]
-				: ["icon-file-directory"];
+			return ["icon-file-directory"];
 		
 		else if(resource.isBinary)
 			return ["icon-file-binary"];
@@ -130,7 +129,10 @@ class IconDelegate{
 	getReplacementClass(){
 		const {resource} = this;
 		
-		if(resource.isSymlink){
+		if(resource.isRepository && resource.isRoot)
+			return "icon-repo";
+		
+		else if(resource.isSymlink){
 			const type = resource.isDirectory ? "directory" : "file";
 			return "icon-file-symlink-" + type;
 		}
@@ -219,11 +221,12 @@ class IconDelegate{
 	
 	
 	deserialise(){
-		const {path, isDirectory} = this.resource;
+		const path = normalisePath(this.resource.path);
 		
 		if(!Storage.hasIcon(path))
 			return;
 		
+		const {isDirectory} = this.resource;
 		const icons = isDirectory
 			? IconTables.directoryIcons
 			: IconTables.fileIcons;
@@ -242,7 +245,7 @@ class IconDelegate{
 	
 	serialise(){
 		if(!Storage.locked){
-			const {path} = this.resource;
+			const path = normalisePath(this.resource.path);
 			const icon = this.currentIcon;
 			
 			if(icon)
