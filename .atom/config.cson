@@ -15,6 +15,7 @@
     coloured: false
   "prettier-atom":
     formatOnSave: true
+    trailingComma: "all"
   "tree-view":
     hideVcsIgnoredFiles: true
   welcome:
