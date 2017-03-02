@@ -7,6 +7,8 @@
     ]
   editor:
     fontFamily: "Fira Code"
+    invisibles:
+      space: true
   "exception-reporting":
     userId: "fe949da8-8184-a355-12eb-64e0e37c2344"
   "file-icons":
