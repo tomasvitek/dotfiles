@@ -2,202 +2,118 @@
   "_args": [
     [
       {
-        "raw": "/private/var/folders/j1/3vxq1vgj0sg8x9fbr10zwq8h0000gn/T/d-11722-93219-1g0hocj/package.tgz",
+        "raw": "/private/var/folders/j1/3vxq1vgj0sg8x9fbr10zwq8h0000gn/T/d-11725-6763-7y6jxj/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/private/var/folders/j1/3vxq1vgj0sg8x9fbr10zwq8h0000gn/T/d-11722-93219-1g0hocj/package.tgz",
-        "spec": "/private/var/folders/j1/3vxq1vgj0sg8x9fbr10zwq8h0000gn/T/d-11722-93219-1g0hocj/package.tgz",
+        "rawSpec": "/private/var/folders/j1/3vxq1vgj0sg8x9fbr10zwq8h0000gn/T/d-11725-6763-7y6jxj/package.tgz",
+        "spec": "/private/var/folders/j1/3vxq1vgj0sg8x9fbr10zwq8h0000gn/T/d-11725-6763-7y6jxj/package.tgz",
         "type": "local"
       },
-      "/private/var/folders/j1/3vxq1vgj0sg8x9fbr10zwq8h0000gn/T/apm-install-dir-11722-93219-14wc4d4"
+      "/private/var/folders/j1/3vxq1vgj0sg8x9fbr10zwq8h0000gn/T/apm-install-dir-11725-6763-1n4vo29"
     ]
   ],
-  "_from": "../d-11722-93219-1g0hocj/package.tgz",
-  "_id": "prettier-atom@0.19.0",
+  "_from": "../d-11725-6763-7y6jxj/package.tgz",
+  "_id": "prettier-atom@0.20.0",
   "_inCache": true,
   "_installable": true,
   "_location": "/prettier-atom",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/private/var/folders/j1/3vxq1vgj0sg8x9fbr10zwq8h0000gn/T/d-11722-93219-1g0hocj/package.tgz",
+    "raw": "/private/var/folders/j1/3vxq1vgj0sg8x9fbr10zwq8h0000gn/T/d-11725-6763-7y6jxj/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/private/var/folders/j1/3vxq1vgj0sg8x9fbr10zwq8h0000gn/T/d-11722-93219-1g0hocj/package.tgz",
-    "spec": "/private/var/folders/j1/3vxq1vgj0sg8x9fbr10zwq8h0000gn/T/d-11722-93219-1g0hocj/package.tgz",
+    "rawSpec": "/private/var/folders/j1/3vxq1vgj0sg8x9fbr10zwq8h0000gn/T/d-11725-6763-7y6jxj/package.tgz",
+    "spec": "/private/var/folders/j1/3vxq1vgj0sg8x9fbr10zwq8h0000gn/T/d-11725-6763-7y6jxj/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-11722-93219-1g0hocj/package.tgz",
-  "_shasum": "7ae020c185bdca75f9dfd3da1576e6e09225f2c7",
+  "_resolved": "file:../d-11725-6763-7y6jxj/package.tgz",
+  "_shasum": "d9779e55fd4accb4e79d475ed616bbff98c9f267",
   "_shrinkwrap": null,
-  "_spec": "/private/var/folders/j1/3vxq1vgj0sg8x9fbr10zwq8h0000gn/T/d-11722-93219-1g0hocj/package.tgz",
-  "_where": "/private/var/folders/j1/3vxq1vgj0sg8x9fbr10zwq8h0000gn/T/apm-install-dir-11722-93219-14wc4d4",
-  "activationCommands": [],
+  "_spec": "/private/var/folders/j1/3vxq1vgj0sg8x9fbr10zwq8h0000gn/T/d-11725-6763-7y6jxj/package.tgz",
+  "_where": "/private/var/folders/j1/3vxq1vgj0sg8x9fbr10zwq8h0000gn/T/apm-install-dir-11725-6763-1n4vo29",
   "bugs": {
     "url": "https://github.com/jlongster/prettier-atom/issues"
   },
-  "configSchema": {
-    "formatOnSave": {
-      "title": "Format on Save",
-      "description": "Format Javascript files when saving",
-      "type": "boolean",
-      "default": false,
-      "order": 1
-    },
-    "formatOnSaveSilentError": {
-      "title": "On format on Save, don't show error message",
-      "description": "Don't show error if occurred on format on save",
-      "type": "boolean",
-      "default": false,
-      "order": 2
-    },
-    "printWidth": {
-      "title": "Print Width",
-      "description": "Fit code within this line limit",
-      "type": "integer",
-      "default": 80,
-      "order": 3
-    },
-    "tabWidth": {
-      "title": "Tab Width",
-      "description": "Number of spaces it should use per tab. Use 'auto' to use your editor's tab width setting.",
-      "type": "string",
-      "default": "auto",
-      "order": 4
-    },
-    "singleQuote": {
-      "title": "Single Quote",
-      "description": "If true, will use single instead of double quotes",
-      "type": "boolean",
-      "default": false,
-      "order": 5
-    },
-    "trailingComma": {
-      "title": "Trailing Comma",
-      "description": "Controls the printing of trailing commas wherever possible",
-      "type": "string",
-      "default": "none",
-      "enum": [
-        "none",
-        "es5",
-        "all"
-      ],
-      "order": 6
-    },
-    "bracketSpacing": {
-      "title": "Bracket Spacing",
-      "description": "Controls the printing of spaces inside array and objects",
-      "type": "boolean",
-      "default": true,
-      "order": 7
-    },
-    "jsxBracketSameLine": {
-      "title": "JSX Bracket Same Line",
-      "description": "Put > on the same line in JSX",
-      "type": "boolean",
-      "default": false,
-      "order": 8
-    },
-    "parser": {
-      "title": "Parser",
-      "description": "Use either the [flow](https://github.com/facebook/flow) or [babylon](https://github.com/babel/babylon) parser.",
-      "type": "string",
-      "default": "babylon",
-      "enum": [
-        "babylon",
-        "flow"
-      ],
-      "order": 9
-    },
-    "formatOnSaveScopes": {
-      "title": "Format-on-Save Scopes",
-      "description": "List of scopes for which Pretter will automatically format on save. Note: 'Format on Save' must be enabled for this to have effect. Use `Editor: Log Cursor Scope` to determine the scopes for a file.",
-      "type": "array",
-      "default": [
-        "source.js",
-        "source.jsx",
-        "source.js.jsx",
-        "source.babel",
-        "source.js-semantic",
-        "text.html.basic",
-        "text.html.vue"
-      ],
-      "items": {
-        "type": "string"
-      },
-      "order": 10
+  "config": {
+    "commitizen": {
+      "path": "node_modules/cz-conventional-changelog"
     }
   },
   "dependencies": {
-    "find-root": "^0.1.1",
-    "prettier": "^0.19.0"
+    "atom-linter": "^9.0.0",
+    "loophole": "^1.1.0",
+    "minimatch": "^3.0.3",
+    "prettier": "^0.21.0",
+    "prettier-eslint": "^4.1.2"
   },
-  "description": "Format file contents using prettier",
+  "description": "Atom plugin for formatting JavaScript using Prettier-ESlint",
   "devDependencies": {
+    "all-contributors-cli": "^4.0.1",
+    "babel-cli": "^6.23.0",
+    "babel-eslint": "^7.1.1",
+    "babel-jest": "^19.0.0",
+    "babel-plugin-transform-flow-strip-types": "^6.22.0",
+    "babel-preset-env": "^1.1.10",
+    "babel-preset-stage-2": "^6.22.0",
+    "commitizen": "^2.9.6",
+    "cz-conventional-changelog": "^2.0.0",
     "eslint": "^3.6.0",
-    "eslint-config-airbnb-base": "^8.0.0",
-    "eslint-plugin-import": "^1.16.0"
+    "eslint-config-airbnb-base": "^11.1.1",
+    "eslint-plugin-flowtype": "^2.30.0",
+    "eslint-plugin-import": "^2.2.0",
+    "eslint-plugin-jest": "^19.0.1",
+    "flow-bin": "^0.40.0",
+    "flow-typed": "^2.0.0",
+    "husky": "^0.13.1",
+    "jest-cli": "^19.0.2",
+    "nps": "^5.0.3",
+    "nps-utils": "^1.1.2",
+    "opt-cli": "^1.5.1",
+    "prettier-eslint-cli": "^3.0.0",
+    "rimraf": "^2.6.1"
   },
   "engines": {
     "atom": ">=0.183.0 <2.0.0"
   },
-  "eslintConfig": {
-    "rules": {
-      "array-bracket-spacing": [
-        2,
-        "always"
-      ],
-      "no-console": 0,
-      "import/no-unresolved": [
-        2,
-        {
-          "ignore": [
-            "atom"
-          ]
-        }
-      ],
-      "no-confusing-arrow": 0,
-      "comma-dangle": [
-        "error",
-        {
-          "arrays": "always-multiline",
-          "objects": "always-multiline",
-          "imports": "always-multiline",
-          "exports": "always-multiline",
-          "functions": "never"
-        }
-      ]
-    },
-    "extends": "airbnb-base",
+  "homepage": "https://github.com/jlongster/prettier-atom",
+  "jest": {
     "globals": {
-      "atom": "true"
+      "atom": true
     },
-    "env": {
-      "node": true
-    }
+    "notify": true,
+    "resetMocks": true,
+    "resetModules": true,
+    "roots": [
+      "src"
+    ],
+    "testEnvironment": "node"
   },
-  "homepage": "https://github.com/jlongster/prettier-atom#readme",
   "keywords": [
+    "atom",
     "javascript",
+    "prettier",
+    "eslint",
     "formatter"
   ],
   "license": "MIT",
-  "main": "./lib/main.js",
+  "main": "./dist/main.js",
   "name": "prettier-atom",
   "optionalDependencies": {},
-  "readme": "# Prettier formatter for Atom\n\nAtom package to format your Javascript using [Prettier](https://github.com/jlongster/prettier).\n\n### Usage\n\n#### Keybindings\n\nUse `ctrl-alt-f` to format the current Javascript file. If a text selection is made, only the selected text will be formatted.\n\n#### Menu\n\n*Packages > prettier > Format*\n",
+  "readme": "# Prettier for Atom\n\nAtom package to format your JavaScript using Prettier. Comes with powerful optional ESlint integration.\n\n<!-- [![Code Coverage][coverage-badge]][coverage] TODO: Add coverage! -->\n<!-- [![Build Status][build-badge]][build] TODO: Add CI! -->\n<!-- [![Dependencies][dependencyci-badge]][dependencyci] TODO: Add dependency CI! -->\n\n[![Version][version-badge]][package]\n[![Downloads][downloads-badge]][package]\n[![MIT License][license-badge]][LICENSE]\n\n[![All Contributors](https://img.shields.io/badge/all_contributors-13-orange.svg?style=flat-square)](#contributors)\n[![PRs Welcome][prs-badge]][prs]\n[![Code of Conduct][coc-badge]][coc]\n\n[![Watch on GitHub][github-watch-badge]][github-watch]\n[![Star on GitHub][github-star-badge]][github-star]\n[![Tweet][twitter-badge]][twitter]\n\n![Demo][demo]\n\n## Installation\n\n```\napm install prettier-atom\n```\n\nOr, Settings → Install → Search for `prettier-atom`\n\n## Usage\n\nUse two ways:\n\n- Invoke manually using the keyboard shortcut (if no selection, whole file is formatted): <kbd>ctrl</kbd> + <kbd>alt</kbd> + <kbd>f</kbd>\n- Automatically format on save (requires enabling in Package → `prettier-atom` → Format)\n\nIf you use ESlint, check the \"ESLint Integration\" checkbox and poof, everything should work (we use Kent Dodds's [`prettier-eslint`][prettier-eslint] plugin under the hood). We will recursively search up the file tree for your package.json and eslint settings and use them when formatting.\n\nMore detailed descriptions of each option can be found in the Atom settings for this plugin.\n\nPlease open a pull request or file an issue if you notice bugs or something doesn't work as it should!\n\n## Inspiration\n\nThis repository was created by [James Long][james-long] to go along with his Prettier project. [Kent Dodds][kent-dodds] forked that project and created prettier-eslint and an accompanying atom plugin. Because it became clear that the projects were very similar and thus maintenance made easier by combining the two, prettier-eslint-atom was merged back into prettier-atom.\n\n## Contributors\n\nThanks goes to these people ([emoji key][emojis]):\n\n<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->\n| [<img src=\"https://avatars.githubusercontent.com/u/17031?v=3\" width=\"100px;\"/><br /><sub>James Long</sub>](http://jlongster.com)<br />💬 [💻](https://github.com/jlongster/prettier-atom/commits?author=jlongster) [📖](https://github.com/jlongster/prettier-atom/commits?author=jlongster) 🔌 👀 | [<img src=\"https://avatars.githubusercontent.com/u/6173488?v=3\" width=\"100px;\"/><br /><sub>Rob Wise</sub>](https://robwise.github.io)<br />[💻](https://github.com/jlongster/prettier-atom/commits?author=robwise) [📖](https://github.com/jlongster/prettier-atom/commits?author=robwise) | [<img src=\"https://avatars.githubusercontent.com/u/1500684?v=3\" width=\"100px;\"/><br /><sub>Kent C. Dodds</sub>](https://kentcdodds.com)<br />[💻](https://github.com/jlongster/prettier-atom/commits?author=kentcdodds) [📖](https://github.com/jlongster/prettier-atom/commits?author=kentcdodds) 🚇 | [<img src=\"https://avatars.githubusercontent.com/u/1144075?v=3\" width=\"100px;\"/><br /><sub>Luca Barone</sub>](https://github.com/cloud-walker)<br /> | [<img src=\"https://avatars.githubusercontent.com/u/4514159?v=3\" width=\"100px;\"/><br /><sub>Arnar Þór Sveinsson</sub>](https://github.com/arnarthor)<br />[💻](https://github.com/jlongster/prettier-atom/commits?author=arnarthor) | [<img src=\"https://avatars.githubusercontent.com/u/131916?v=3\" width=\"100px;\"/><br /><sub>Adam Miskiewicz</sub>](http://www.adammiskiewicz.com/)<br />[💻](https://github.com/jlongster/prettier-atom/commits?author=skevy) | [<img src=\"https://avatars.githubusercontent.com/u/2685242?v=3\" width=\"100px;\"/><br /><sub>Ori Livni</sub>](http://www.orilivni.com)<br />[💻](https://github.com/jlongster/prettier-atom/commits?author=oriSomething) |\n| :---: | :---: | :---: | :---: | :---: | :---: | :---: |\n| [<img src=\"https://avatars.githubusercontent.com/u/6182852?v=3\" width=\"100px;\"/><br /><sub>Leon Chen</sub>](https://transcranial.github.io)<br />[💻](https://github.com/jlongster/prettier-atom/commits?author=transcranial) | [<img src=\"https://avatars.githubusercontent.com/u/197597?v=3\" width=\"100px;\"/><br /><sub>Christopher Chedeau</sub>](http://blog.vjeux.com/)<br />💬 [💻](https://github.com/jlongster/prettier-atom/commits?author=vjeux) 🔌 | [<img src=\"https://avatars.githubusercontent.com/u/646693?v=3\" width=\"100px;\"/><br /><sub>Christoph Geschwind</sub>](http://christoph-geschwind.de)<br />[💻](https://github.com/jlongster/prettier-atom/commits?author=1st8) | [<img src=\"https://avatars.githubusercontent.com/u/35026?v=3\" width=\"100px;\"/><br /><sub>Andrew Hutchings</sub>](https://andrewhutchings.com)<br />[💻](https://github.com/jlongster/prettier-atom/commits?author=ahutchings) | [<img src=\"https://avatars.githubusercontent.com/u/875591?v=3\" width=\"100px;\"/><br /><sub>David Schnurr</sub>](http://davidschnurr.com)<br />[💻](https://github.com/jlongster/prettier-atom/commits?author=schnerd) | [<img src=\"https://avatars.githubusercontent.com/u/484801?v=3\" width=\"100px;\"/><br /><sub>Ryan Cole</sub>](http://rycole.com/)<br />[💻](https://github.com/jlongster/prettier-atom/commits?author=ryancole) |\n<!-- ALL-CONTRIBUTORS-LIST:END -->\n\nThis project follows the [all-contributors][all-contributors] specification. Contributions of any kind welcome!\n\n## LICENSE\n\n[MIT](./LICENSE.md)\n\n[npm]: https://www.npmjs.com/\n[node]: https://nodejs.org\n[build-badge]: https://img.shields.io/travis/jlongster/prettier-atom.svg?style=flat-square\n[build]: https://travis-ci.org/jlongster/prettier-atom\n[coverage-badge]: https://img.shields.io/codecov/c/github/jlongster/prettier-atom.svg?style=flat-square\n[coverage]: https://codecov.io/github/jlongster/prettier-atom\n[dependencyci-badge]: https://dependencyci.com/github/jlongster/prettier-atom/badge?style=flat-square\n[dependencyci]: https://dependencyci.com/github/jlongster/prettier-atom\n[version-badge]: https://img.shields.io/apm/v/prettier-atom.svg?style=flat-square\n[package]: https://atom.io/packages/prettier-atom\n[downloads-badge]: https://img.shields.io/apm/dm/prettier-atom.svg?style=flat-square\n[license-badge]: https://img.shields.io/apm/l/prettier-atom.svg?style=flat-square\n[license]: https://github.com/jlongster/prettier-atom/blob/master/LICENSE\n[prs-badge]: https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square\n[prs]: http://makeapullrequest.com\n[coc-badge]: https://img.shields.io/badge/code%20of-conduct-ff69b4.svg?style=flat-square\n[coc]: https://github.com/jlongster/prettier-atom/blob/master/other/CODE_OF_CONDUCT.md\n[roadmap-badge]: https://img.shields.io/badge/%F0%9F%93%94-roadmap-CD9523.svg?style=flat-square\n[roadmap]: https://github.com/jlongster/prettier-atom/blob/master/other/ROADMAP.md\n[github-watch-badge]: https://img.shields.io/github/watchers/jlongster/prettier-atom.svg?style=social\n[github-watch]: https://github.com/jlongster/prettier-atom/watchers\n[github-star-badge]: https://img.shields.io/github/stars/jlongster/prettier-atom.svg?style=social\n[github-star]: https://github.com/jlongster/prettier-atom/stargazers\n[twitter]: https://twitter.com/intent/tweet?text=Check%20out%20prettier-atom!%20https://github.com/robwawise/prettier-atom%20%F0%9F%91%8D\n[twitter-badge]: https://img.shields.io/twitter/url/https/github.com/jlongster/prettier-atom.svg?style=social\n[emojis]: https://github.com/jlongster/all-contributors#emoji-key\n[all-contributors]: https://github.com/jlongster/all-contributors\n[prettier]: https://github.com/jlongster/prettier\n[prettier-eslint]: https://github.com/jlongster/prettier-atom\n[kent-dodds]: https://github.com/kentcdodds\n[james-long]: https://github.com/jlongster\n[demo]: https://github.com/jlongster/prettier-atom/raw/master/plugin.gif\n",
   "readmeFilename": "README.md",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/jlongster/prettier-atom.git"
   },
   "scripts": {
-    "lint": "eslint .",
-    "lint:fix": "eslint . --fix"
+    "precommit": "opt --in pre-commit --exec \"npm start validate\"",
+    "start": "nps",
+    "test": "nps test"
   },
-  "version": "0.19.0"
+  "version": "0.20.0"
 }

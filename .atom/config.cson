@@ -1,5 +1,8 @@
 "*":
   core:
+    disabledPackages: [
+      "file-icons"
+    ]
     telemetryConsent: "no"
     themes: [
       "atom-material-ui"
@@ -15,7 +18,6 @@
     coloured: false
   "prettier-atom":
     formatOnSave: true
-    trailingComma: "all"
   "tree-view":
     hideVcsIgnoredFiles: true
   welcome:
