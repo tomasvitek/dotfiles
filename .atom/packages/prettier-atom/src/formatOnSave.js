@@ -6,13 +6,26 @@ const {
   getCurrentFilePath,
   isCurrentScopeEmbeddedScope,
   isFilePathEslintignored,
+  isFilePathExcluded,
   isInScope,
+  isFilePathWhitelisted,
+  isWhitelistProvided,
 } = require('./helpers');
 
-const formatOnSaveIfAppropriate = (editor: TextEditor, filePath: FilePath = getCurrentFilePath(editor)) => {
+const formatOnSaveIfAppropriate = (editor: TextEditor) => {
   if (!isFormatOnSaveEnabled()) return;
-  if (!isInScope(editor)) return;
-  if (shouldRespectEslintignore() && isFilePathEslintignored(filePath)) return;
+
+  const filePath = getCurrentFilePath(editor);
+
+  if (filePath && isWhitelistProvided() && !isFilePathWhitelisted(filePath)) {
+    return;
+  }
+
+  if (filePath && !isFilePathWhitelisted(filePath)) {
+    if (!isInScope(editor)) return;
+    if (filePath && isFilePathExcluded(filePath)) return;
+  }
+  if (filePath && shouldRespectEslintignore() && isFilePathEslintignored(filePath)) return;
 
   if (isCurrentScopeEmbeddedScope(editor)) {
     executePrettierOnEmbeddedScripts(editor);

@@ -18,7 +18,7 @@ Atom package to format your JavaScript using Prettier. Comes with powerful optio
 [![Star on GitHub][github-star-badge]][github-star]
 [![Tweet][twitter-badge]][twitter]
 
-![Demo][demo]
+![prettier demo][prettier-demo]
 
 ## Installation
 
@@ -37,20 +37,22 @@ Use two ways:
 
 If you use ESlint, check the "ESLint Integration" checkbox and poof, everything should work (we use Kent Dodds's [`prettier-eslint`][prettier-eslint] plugin under the hood). We will recursively search up the file tree for your package.json and eslint settings and use them when formatting.
 
+![prettier-eslint demo][prettier-eslint-demo]
+
 More detailed descriptions of each option can be found in the Atom settings for this plugin.
 
 Please open a pull request or file an issue if you notice bugs or something doesn't work as it should!
 
 ## Inspiration
 
-This repository was created by [James Long][james-long] to go along with his Prettier project. [Kent Dodds][kent-dodds] forked that project and created prettier-eslint and an accompanying atom plugin. Because it became clear that the projects were very similar and thus maintenance made easier by combining the two, prettier-eslint-atom was merged back into prettier-atom.
+This repository was created by [James Long][james-long] to go along with his Prettier project. [Kent C. Dodds][kentcdodds] extended Prettier to add `eslint --fix` integration as [prettier-eslint][prettier-eslint] and forked the original prettier-atom plugin to create the prettier-eslint-atom plugin. Because it became clear that the plugins were very similar and thus maintenance made easier by combining the two, prettier-eslint-atom was merged back into prettier-atom.
 
 ## Contributors
 
 Thanks goes to these people ([emoji key][emojis]):
 
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
-| [<img src="https://avatars.githubusercontent.com/u/17031?v=3" width="100px;"/><br /><sub>James Long</sub>](http://jlongster.com)<br />💬 [💻](https://github.com/jlongster/prettier-atom/commits?author=jlongster) [📖](https://github.com/jlongster/prettier-atom/commits?author=jlongster) 🔌 👀 | [<img src="https://avatars.githubusercontent.com/u/6173488?v=3" width="100px;"/><br /><sub>Rob Wise</sub>](https://robwise.github.io)<br />[💻](https://github.com/jlongster/prettier-atom/commits?author=robwise) [📖](https://github.com/jlongster/prettier-atom/commits?author=robwise) | [<img src="https://avatars.githubusercontent.com/u/1500684?v=3" width="100px;"/><br /><sub>Kent C. Dodds</sub>](https://kentcdodds.com)<br />[💻](https://github.com/jlongster/prettier-atom/commits?author=kentcdodds) [📖](https://github.com/jlongster/prettier-atom/commits?author=kentcdodds) 🚇 | [<img src="https://avatars.githubusercontent.com/u/1144075?v=3" width="100px;"/><br /><sub>Luca Barone</sub>](https://github.com/cloud-walker)<br /> | [<img src="https://avatars.githubusercontent.com/u/4514159?v=3" width="100px;"/><br /><sub>Arnar Þór Sveinsson</sub>](https://github.com/arnarthor)<br />[💻](https://github.com/jlongster/prettier-atom/commits?author=arnarthor) | [<img src="https://avatars.githubusercontent.com/u/131916?v=3" width="100px;"/><br /><sub>Adam Miskiewicz</sub>](http://www.adammiskiewicz.com/)<br />[💻](https://github.com/jlongster/prettier-atom/commits?author=skevy) | [<img src="https://avatars.githubusercontent.com/u/2685242?v=3" width="100px;"/><br /><sub>Ori Livni</sub>](http://www.orilivni.com)<br />[💻](https://github.com/jlongster/prettier-atom/commits?author=oriSomething) |
+| [<img src="https://avatars.githubusercontent.com/u/17031?v=3" width="100px;"/><br /><sub>James Long</sub>](http://jlongster.com)<br />💬 [💻](https://github.com/jlongster/prettier-atom/commits?author=jlongster) [📖](https://github.com/jlongster/prettier-atom/commits?author=jlongster) 🔌 👀 | [<img src="https://avatars.githubusercontent.com/u/6173488?v=3" width="100px;"/><br /><sub>Rob Wise</sub>](https://robwise.github.io)<br />[💻](https://github.com/jlongster/prettier-atom/commits?author=robwise) [📖](https://github.com/jlongster/prettier-atom/commits?author=robwise) 💬 💡 👀 [⚠️](https://github.com/jlongster/prettier-atom/commits?author=robwise) | [<img src="https://avatars.githubusercontent.com/u/1500684?v=3" width="100px;"/><br /><sub>Kent C. Dodds</sub>](https://kentcdodds.com)<br />[💻](https://github.com/jlongster/prettier-atom/commits?author=kentcdodds) [📖](https://github.com/jlongster/prettier-atom/commits?author=kentcdodds) 🚇 | [<img src="https://avatars.githubusercontent.com/u/1144075?v=3" width="100px;"/><br /><sub>Luca Barone</sub>](https://github.com/cloud-walker)<br /> | [<img src="https://avatars.githubusercontent.com/u/4514159?v=3" width="100px;"/><br /><sub>Arnar Þór Sveinsson</sub>](https://github.com/arnarthor)<br />[💻](https://github.com/jlongster/prettier-atom/commits?author=arnarthor) | [<img src="https://avatars.githubusercontent.com/u/131916?v=3" width="100px;"/><br /><sub>Adam Miskiewicz</sub>](http://www.adammiskiewicz.com/)<br />[💻](https://github.com/jlongster/prettier-atom/commits?author=skevy) | [<img src="https://avatars.githubusercontent.com/u/2685242?v=3" width="100px;"/><br /><sub>Ori Livni</sub>](http://www.orilivni.com)<br />[💻](https://github.com/jlongster/prettier-atom/commits?author=oriSomething) |
 | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
 | [<img src="https://avatars.githubusercontent.com/u/6182852?v=3" width="100px;"/><br /><sub>Leon Chen</sub>](https://transcranial.github.io)<br />[💻](https://github.com/jlongster/prettier-atom/commits?author=transcranial) | [<img src="https://avatars.githubusercontent.com/u/197597?v=3" width="100px;"/><br /><sub>Christopher Chedeau</sub>](http://blog.vjeux.com/)<br />💬 [💻](https://github.com/jlongster/prettier-atom/commits?author=vjeux) 🔌 | [<img src="https://avatars.githubusercontent.com/u/646693?v=3" width="100px;"/><br /><sub>Christoph Geschwind</sub>](http://christoph-geschwind.de)<br />[💻](https://github.com/jlongster/prettier-atom/commits?author=1st8) | [<img src="https://avatars.githubusercontent.com/u/35026?v=3" width="100px;"/><br /><sub>Andrew Hutchings</sub>](https://andrewhutchings.com)<br />[💻](https://github.com/jlongster/prettier-atom/commits?author=ahutchings) | [<img src="https://avatars.githubusercontent.com/u/875591?v=3" width="100px;"/><br /><sub>David Schnurr</sub>](http://davidschnurr.com)<br />[💻](https://github.com/jlongster/prettier-atom/commits?author=schnerd) | [<img src="https://avatars.githubusercontent.com/u/484801?v=3" width="100px;"/><br /><sub>Ryan Cole</sub>](http://rycole.com/)<br />[💻](https://github.com/jlongster/prettier-atom/commits?author=ryancole) |
 <!-- ALL-CONTRIBUTORS-LIST:END -->
@@ -86,10 +88,11 @@ This project follows the [all-contributors][all-contributors] specification. Con
 [github-star]: https://github.com/jlongster/prettier-atom/stargazers
 [twitter]: https://twitter.com/intent/tweet?text=Check%20out%20prettier-atom!%20https://github.com/robwawise/prettier-atom%20%F0%9F%91%8D
 [twitter-badge]: https://img.shields.io/twitter/url/https/github.com/jlongster/prettier-atom.svg?style=social
-[emojis]: https://github.com/jlongster/all-contributors#emoji-key
-[all-contributors]: https://github.com/jlongster/all-contributors
+[emojis]: https://github.com/kentcdodds/all-contributors#emoji-key
+[all-contributors]: https://github.com/kentcdodds/all-contributors
 [prettier]: https://github.com/jlongster/prettier
 [prettier-eslint]: https://github.com/jlongster/prettier-atom
-[kent-dodds]: https://github.com/kentcdodds
+[kentcdodds]: https://github.com/kentcdodds
 [james-long]: https://github.com/jlongster
-[demo]: https://github.com/jlongster/prettier-atom/raw/master/plugin.gif
+[prettier-demo]: https://github.com/jlongster/prettier-atom/raw/master/prettier-demo.gif
+[prettier-eslint-demo]: https://github.com/jlongster/prettier-atom/raw/master/prettier-eslint-demo.gif

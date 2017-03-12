@@ -18,12 +18,18 @@ const flow = (func: Function, ...funcs: Array<Function>) =>
 
 const getDirFromFilePath = (filePath: FilePath): FilePath => path.parse(filePath).dir;
 
-const getNearestEslintignorePath = (filePath: FilePath): FilePath =>
+const getNearestEslintignorePath = (filePath: FilePath): ?FilePath =>
   findCached(getDirFromFilePath(filePath), '.eslintignore');
 
-const getFilePathRelativeToEslintignore = (filePath: FilePath): FilePath =>
-  flow(getNearestEslintignorePath, getDirFromFilePath, eslintignoreDir =>
-    path.relative(eslintignoreDir, filePath))(filePath);
+const getFilePathRelativeToEslintignore = (filePath: FilePath): ?FilePath => {
+  const nearestEslintignorePath = getNearestEslintignorePath(filePath);
+
+  if (!nearestEslintignorePath) return undefined;
+
+  const eslintignoreDir = getDirFromFilePath(nearestEslintignorePath);
+
+  return path.relative(eslintignoreDir, filePath);
+};
 
 const getLinesFromFilePath = (filePath: FilePath) =>
   fs.readFileSync(filePath, 'utf8').split(LINE_SEPERATOR_REGEX);
@@ -49,7 +55,7 @@ const shouldDisplayErrors = () => !getConfigOption('silenceErrors');
 
 const getPrettierOption = (key: string) => getConfigOption(`prettierOptions.${key}`);
 
-const getCurrentFilePath = (editor: TextEditor) => editor.buffer.file.path;
+const getCurrentFilePath = (editor: TextEditor) => editor.buffer.file ? editor.buffer.file.path : undefined;
 
 const isInScope = (editor: TextEditor) =>
   getConfigOption('formatOnSaveOptions.scopes').includes(getCurrentScope(editor));
@@ -58,15 +64,30 @@ const isCurrentScopeEmbeddedScope = (editor: TextEditor) => EMBEDDED_SCOPES.incl
 
 const shouldUseEslint = () => getConfigOption('useEslint');
 
-const isFilePathEslintignored = (filePath: FilePath) =>
-  someGlobsMatchFilePath(
+const isFilePathEslintignored = (filePath: FilePath) => {
+  const filePathRelativeToEslintignore = getFilePathRelativeToEslintignore(filePath);
+
+  if (!filePathRelativeToEslintignore) return false;
+
+  return someGlobsMatchFilePath(
     getIgnoredGlobsFromNearestEslintIgnore(filePath),
-    getFilePathRelativeToEslintignore(filePath),
+    filePathRelativeToEslintignore,
   );
+};
 
 const isFormatOnSaveEnabled = () => getConfigOption('formatOnSaveOptions.enabled');
 
 const shouldRespectEslintignore = () => getConfigOption('formatOnSaveOptions.respectEslintignore');
+
+const isLinterEslintAutofixEnabled = () => atom.config.get('linter-eslint.fixOnSave');
+
+const isFilePathExcluded = (filePath: FilePath) =>
+  someGlobsMatchFilePath(getConfigOption('formatOnSaveOptions.excludedGlobs'), filePath);
+
+const isFilePathWhitelisted = (filePath: FilePath) =>
+  someGlobsMatchFilePath(getConfigOption('formatOnSaveOptions.whitelistedGlobs'), filePath);
+
+const isWhitelistProvided = () => getConfigOption('formatOnSaveOptions.whitelistedGlobs').length > 0;
 
 const getPrettierOptions = (editor: TextEditor) => ({
   printWidth: getPrettierOption('printWidth'),
@@ -86,7 +107,11 @@ module.exports = {
   isInScope,
   isCurrentScopeEmbeddedScope,
   isFilePathEslintignored,
+  isFilePathExcluded,
+  isFilePathWhitelisted,
+  isWhitelistProvided,
   isFormatOnSaveEnabled,
+  isLinterEslintAutofixEnabled,
   shouldUseEslint,
   shouldRespectEslintignore,
   getPrettierOptions,

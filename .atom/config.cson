@@ -18,6 +18,7 @@
     coloured: false
   "prettier-atom":
     formatOnSave: true
+    formatOnSaveOptions: {}
   "tree-view":
     hideVcsIgnoredFiles: true
   welcome:

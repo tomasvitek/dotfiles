@@ -2,40 +2,40 @@
   "_args": [
     [
       {
-        "raw": "/private/var/folders/j1/3vxq1vgj0sg8x9fbr10zwq8h0000gn/T/d-1161128-38374-1ohit1p/package.tgz",
+        "raw": "/private/var/folders/j1/3vxq1vgj0sg8x9fbr10zwq8h0000gn/T/d-11726-40834-1a1h2gy/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/private/var/folders/j1/3vxq1vgj0sg8x9fbr10zwq8h0000gn/T/d-1161128-38374-1ohit1p/package.tgz",
-        "spec": "/private/var/folders/j1/3vxq1vgj0sg8x9fbr10zwq8h0000gn/T/d-1161128-38374-1ohit1p/package.tgz",
+        "rawSpec": "/private/var/folders/j1/3vxq1vgj0sg8x9fbr10zwq8h0000gn/T/d-11726-40834-1a1h2gy/package.tgz",
+        "spec": "/private/var/folders/j1/3vxq1vgj0sg8x9fbr10zwq8h0000gn/T/d-11726-40834-1a1h2gy/package.tgz",
         "type": "local"
       },
-      "/private/var/folders/j1/3vxq1vgj0sg8x9fbr10zwq8h0000gn/T/apm-install-dir-1161128-38374-14ymtb4"
+      "/private/var/folders/j1/3vxq1vgj0sg8x9fbr10zwq8h0000gn/T/apm-install-dir-11726-40834-1ocxocp"
     ]
   ],
-  "_from": "../d-1161128-38374-1ohit1p/package.tgz",
-  "_id": "git-blame@0.4.11",
+  "_from": "../d-11726-40834-1a1h2gy/package.tgz",
+  "_id": "git-blame@0.4.12",
   "_inCache": true,
   "_installable": true,
   "_location": "/git-blame",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/private/var/folders/j1/3vxq1vgj0sg8x9fbr10zwq8h0000gn/T/d-1161128-38374-1ohit1p/package.tgz",
+    "raw": "/private/var/folders/j1/3vxq1vgj0sg8x9fbr10zwq8h0000gn/T/d-11726-40834-1a1h2gy/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/private/var/folders/j1/3vxq1vgj0sg8x9fbr10zwq8h0000gn/T/d-1161128-38374-1ohit1p/package.tgz",
-    "spec": "/private/var/folders/j1/3vxq1vgj0sg8x9fbr10zwq8h0000gn/T/d-1161128-38374-1ohit1p/package.tgz",
+    "rawSpec": "/private/var/folders/j1/3vxq1vgj0sg8x9fbr10zwq8h0000gn/T/d-11726-40834-1a1h2gy/package.tgz",
+    "spec": "/private/var/folders/j1/3vxq1vgj0sg8x9fbr10zwq8h0000gn/T/d-11726-40834-1a1h2gy/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-1161128-38374-1ohit1p/package.tgz",
-  "_shasum": "94f6bcd92e5c8f369c4a08808807cd0326805674",
+  "_resolved": "file:../d-11726-40834-1a1h2gy/package.tgz",
+  "_shasum": "d58b07493a8dab01e23aaf92e7624f1c34c478cd",
   "_shrinkwrap": null,
-  "_spec": "/private/var/folders/j1/3vxq1vgj0sg8x9fbr10zwq8h0000gn/T/d-1161128-38374-1ohit1p/package.tgz",
-  "_where": "/private/var/folders/j1/3vxq1vgj0sg8x9fbr10zwq8h0000gn/T/apm-install-dir-1161128-38374-14ymtb4",
+  "_spec": "/private/var/folders/j1/3vxq1vgj0sg8x9fbr10zwq8h0000gn/T/d-11726-40834-1a1h2gy/package.tgz",
+  "_where": "/private/var/folders/j1/3vxq1vgj0sg8x9fbr10zwq8h0000gn/T/apm-install-dir-11726-40834-1ocxocp",
   "activationCommands": {
     "atom-text-editor": [
       "git-blame:toggle"
@@ -71,5 +71,5 @@
     "type": "git",
     "url": "git+https://github.com/alexcorre/git-blame.git"
   },
-  "version": "0.4.11"
+  "version": "0.4.12"
 }

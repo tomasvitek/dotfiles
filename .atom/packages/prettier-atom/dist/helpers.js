@@ -37,9 +37,13 @@ var getNearestEslintignorePath = function getNearestEslintignorePath(filePath) {
 };
 
 var getFilePathRelativeToEslintignore = function getFilePathRelativeToEslintignore(filePath) {
-  return flow(getNearestEslintignorePath, getDirFromFilePath, function (eslintignoreDir) {
-    return path.relative(eslintignoreDir, filePath);
-  })(filePath);
+  var nearestEslintignorePath = getNearestEslintignorePath(filePath);
+
+  if (!nearestEslintignorePath) return undefined;
+
+  var eslintignoreDir = getDirFromFilePath(nearestEslintignorePath);
+
+  return path.relative(eslintignoreDir, filePath);
 };
 
 var getLinesFromFilePath = function getLinesFromFilePath(filePath) {
@@ -78,7 +82,7 @@ var getPrettierOption = function getPrettierOption(key) {
 };
 
 var getCurrentFilePath = function getCurrentFilePath(editor) {
-  return editor.buffer.file.path;
+  return editor.buffer.file ? editor.buffer.file.path : undefined;
 };
 
 var isInScope = function isInScope(editor) {
@@ -94,7 +98,11 @@ var shouldUseEslint = function shouldUseEslint() {
 };
 
 var isFilePathEslintignored = function isFilePathEslintignored(filePath) {
-  return someGlobsMatchFilePath(getIgnoredGlobsFromNearestEslintIgnore(filePath), getFilePathRelativeToEslintignore(filePath));
+  var filePathRelativeToEslintignore = getFilePathRelativeToEslintignore(filePath);
+
+  if (!filePathRelativeToEslintignore) return false;
+
+  return someGlobsMatchFilePath(getIgnoredGlobsFromNearestEslintIgnore(filePath), filePathRelativeToEslintignore);
 };
 
 var isFormatOnSaveEnabled = function isFormatOnSaveEnabled() {
@@ -103,6 +111,22 @@ var isFormatOnSaveEnabled = function isFormatOnSaveEnabled() {
 
 var shouldRespectEslintignore = function shouldRespectEslintignore() {
   return getConfigOption('formatOnSaveOptions.respectEslintignore');
+};
+
+var isLinterEslintAutofixEnabled = function isLinterEslintAutofixEnabled() {
+  return atom.config.get('linter-eslint.fixOnSave');
+};
+
+var isFilePathExcluded = function isFilePathExcluded(filePath) {
+  return someGlobsMatchFilePath(getConfigOption('formatOnSaveOptions.excludedGlobs'), filePath);
+};
+
+var isFilePathWhitelisted = function isFilePathWhitelisted(filePath) {
+  return someGlobsMatchFilePath(getConfigOption('formatOnSaveOptions.whitelistedGlobs'), filePath);
+};
+
+var isWhitelistProvided = function isWhitelistProvided() {
+  return getConfigOption('formatOnSaveOptions.whitelistedGlobs').length > 0;
 };
 
 var getPrettierOptions = function getPrettierOptions(editor) {
@@ -125,7 +149,11 @@ module.exports = {
   isInScope: isInScope,
   isCurrentScopeEmbeddedScope: isCurrentScopeEmbeddedScope,
   isFilePathEslintignored: isFilePathEslintignored,
+  isFilePathExcluded: isFilePathExcluded,
+  isFilePathWhitelisted: isFilePathWhitelisted,
+  isWhitelistProvided: isWhitelistProvided,
   isFormatOnSaveEnabled: isFormatOnSaveEnabled,
+  isLinterEslintAutofixEnabled: isLinterEslintAutofixEnabled,
   shouldUseEslint: shouldUseEslint,
   shouldRespectEslintignore: shouldRespectEslintignore,
   getPrettierOptions: getPrettierOptions

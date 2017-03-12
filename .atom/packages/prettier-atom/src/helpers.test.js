@@ -1,5 +1,6 @@
 // @flow
 const path = require('path');
+const atomLinter = require('atom-linter');
 
 const textEditor = require('../tests/mocks/textEditor');
 const {
@@ -9,10 +10,16 @@ const {
   getCurrentFilePath,
   isInScope,
   isFilePathEslintignored,
+  isFilePathExcluded,
+  isFilePathWhitelisted,
+  isWhitelistProvided,
   isCurrentScopeEmbeddedScope,
+  isLinterEslintAutofixEnabled,
   shouldUseEslint,
   getPrettierOptions,
 } = require('./helpers');
+
+jest.mock('atom-linter');
 
 describe('getConfigOption', () => {
   test('retrieves a config option from the prettier-atom config', () => {
@@ -62,6 +69,15 @@ describe('getCurrentFilePath', () => {
 
     expect(actual).toBe(expected);
   });
+
+  test('returns undefined if there is no file', () => {
+    const editor = textEditor({ buffer: { file: null } });
+
+    const actual = getCurrentFilePath(editor);
+    const expected = undefined;
+
+    expect(actual).toBe(expected);
+  });
 });
 
 describe('isInScope', () => {
@@ -94,6 +110,18 @@ describe('isInScope', () => {
   });
 });
 
+describe('isLinterEslintAutofixEnabled', () => {
+  test('returns the value from the linter-eslint config', () => {
+    atom = { config: { get: jest.fn(() => true) } };
+
+    const actual = isLinterEslintAutofixEnabled();
+    const expected = true;
+
+    expect(atom.config.get).toHaveBeenCalledWith('linter-eslint.fixOnSave');
+    expect(actual).toBe(expected);
+  });
+});
+
 describe('shouldUseEslint', () => {
   test('is true if the config option is enabled', () => {
     const mockGet = jest.fn(() => true);
@@ -119,8 +147,9 @@ describe('shouldUseEslint', () => {
 });
 
 describe('isFilePathEslintignored', () => {
-  test('is false if the filePath does not match a glob in the nearest eslintignore', () => {
-    const filePath = path.join(__dirname, '..', 'tests', 'fixtures', 'doesNotMatchEslintignore.js');
+  test('is false if no .eslintignore file can be found', () => {
+    atomLinter.findCached.mockImplementation(() => null);
+    const filePath = path.join(__dirname, '..', 'tests', 'fixtures', 'matchesEslintignore.js');
 
     const actual = isFilePathEslintignored(filePath);
     const expected = false;
@@ -128,12 +157,95 @@ describe('isFilePathEslintignored', () => {
     expect(actual).toBe(expected);
   });
 
+  test('is false if the filePath does not match a glob in the nearest eslintignore', () => {
+    atomLinter.findCached.mockImplementation(() =>
+      path.join(__dirname, '..', 'tests', 'fixtures', '.eslintignore'));
+    const filePath = path.join(__dirname, '..', 'tests', 'fixtures', 'doesNotMatchEslintignore.js');
+
+    const actual = isFilePathEslintignored(filePath);
+    const expected = false;
+
+    expect(atomLinter.findCached).toHaveBeenCalledWith(
+      path.join(__dirname, '..', 'tests', 'fixtures'),
+      '.eslintignore',
+    );
+    expect(actual).toBe(expected);
+  });
+
   test('is true if the filePath does match a glob in the nearest eslintignore', () => {
+    atomLinter.findCached.mockImplementation(() =>
+      path.join(__dirname, '..', 'tests', 'fixtures', '.eslintignore'));
     const filePath = path.join(__dirname, '..', 'tests', 'fixtures', 'matchesEslintignore.js');
 
     const actual = isFilePathEslintignored(filePath);
     const expected = true;
 
+    expect(atomLinter.findCached).toHaveBeenCalledWith(
+      path.join(__dirname, '..', 'tests', 'fixtures'),
+      '.eslintignore',
+    );
+    expect(actual).toBe(expected);
+  });
+});
+
+describe('isFilePathExcluded', () => {
+  test('returns false if filePath is not listed in the globs', () => {
+    atom = { config: { get: jest.fn(() => []) } };
+
+    const actual = isFilePathExcluded('foo.js');
+    const expected = false;
+
+    expect(atom.config.get).toHaveBeenCalledWith('prettier-atom.formatOnSaveOptions.excludedGlobs');
+    expect(actual).toBe(expected);
+  });
+
+  test('returns true if filePath is listed in the globs', () => {
+    atom = { config: { get: jest.fn(() => ['*.js']) } };
+
+    const actual = isFilePathExcluded('foo.js');
+    const expected = true;
+
+    expect(atom.config.get).toHaveBeenCalledWith('prettier-atom.formatOnSaveOptions.excludedGlobs');
+    expect(actual).toBe(expected);
+  });
+});
+
+describe('isFilePathWhitelisted', () => {
+  test('returns false if filePath is not listed in the globs', () => {
+    atom = { config: { get: jest.fn(() => []) } };
+
+    const actual = isFilePathWhitelisted('foo.js');
+    const expected = false;
+
+    expect(atom.config.get).toHaveBeenCalledWith('prettier-atom.formatOnSaveOptions.whitelistedGlobs');
+    expect(actual).toBe(expected);
+  });
+
+  test('returns true if filePath is not listed in the globs', () => {
+    atom = { config: { get: jest.fn(() => ['*.js']) } };
+
+    const actual = isFilePathWhitelisted('foo.js');
+    const expected = true;
+
+    expect(atom.config.get).toHaveBeenCalledWith('prettier-atom.formatOnSaveOptions.whitelistedGlobs');
+    expect(actual).toBe(expected);
+  });
+});
+
+describe('isWhitelistProvided', () => {
+  test('returns true if there are whitelist items provided', () => {
+    atom = { config: { get: jest.fn(() => ['*.js']) } };
+    const actual = isWhitelistProvided();
+    const expected = true;
+    expect(atom.config.get).toHaveBeenCalledWith('prettier-atom.formatOnSaveOptions.whitelistedGlobs');
+    expect(actual).toBe(expected);
+  });
+
+  test('returns false if the whitelist is empty', () => {
+    atom = { config: { get: jest.fn(() => []) } };
+    const actual = isWhitelistProvided();
+    const expected = false;
+    expect(atom.config.get).toHaveBeenCalledWith('prettier-atom.formatOnSaveOptions.whitelistedGlobs');
     expect(actual).toBe(expected);
   });
 });

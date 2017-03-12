@@ -1,10 +1,13 @@
 const config = require('./config-schema.json');
+// eslint-disable-next-line import/no-extraneous-dependencies, import/no-unresolved
+const { CompositeDisposable } = require('atom');
 
 // local helpers
 let commands = null;
 let editorObserver = null;
 let format = null;
 let formatOnSave = null;
+let warnAboutLinterEslintFixOnSave = null;
 
 // HACK: lazy load most of the code we need for performance
 const lazyFormat = () => {
@@ -22,21 +25,45 @@ const lazyFormatOnSave = () => {
   if (editor) formatOnSave(editor);
 };
 
+// HACK: lazy load most of the code we need for performance
+const lazyWarnAboutLinterEslintFixOnSave = () => {
+  if (!warnAboutLinterEslintFixOnSave) {
+    // eslint-disable-next-line global-require
+    warnAboutLinterEslintFixOnSave = require('./warnAboutLinterEslintFixOnSave');
+  }
+  warnAboutLinterEslintFixOnSave();
+};
+
 const setEventHandlers = editor => editor.getBuffer().onWillSave(() => lazyFormatOnSave(editor));
+
+const subscriptions = new CompositeDisposable();
 
 // public API
 const activate = () => {
   commands = atom.commands.add('atom-workspace', 'prettier:format', lazyFormat);
   editorObserver = atom.workspace.observeTextEditors(setEventHandlers);
+  subscriptions.add(
+    atom.config.observe('linter-eslint.fixOnSave', () => lazyWarnAboutLinterEslintFixOnSave()),
+  );
+  subscriptions.add(
+    atom.config.observe('prettier-atom.useEslint', () => lazyWarnAboutLinterEslintFixOnSave()),
+  );
+
+  // HACK: an Atom bug seems to be causing old configuration settings to linger for some users
+  //       https://github.com/jlongster/prettier-atom/issues/72
+  atom.config.unset('prettier-atom.singleQuote');
+  atom.config.unset('prettier-atom.trailingComma');
 };
 
 const deactivate = () => {
   if (commands) commands.dispose();
   if (editorObserver) editorObserver.dispose();
+  subscriptions.dispose();
 };
 
 module.exports = {
   activate,
   deactivate,
   config,
+  subscriptions,
 };
