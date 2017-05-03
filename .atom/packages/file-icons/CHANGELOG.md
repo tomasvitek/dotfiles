@@ -3,7 +3,80 @@ Change Log
 All notable changes to the project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
-[Unpublished]: https://github.com/file-icons/atom/compare/v2.0.17...HEAD
+[Unpublished]: https://github.com/file-icons/atom/compare/v2.1.4...HEAD
+
+
+[v2.1.4] - 2017-04-26
+---------------------
+### Added
+- **New icons:** Jolie (`.ol`, `.iol`), Nano (`.nanorc`), PegJS (`.pegjs`, `.pegcoffee`), Xamarin (`.workbook`)
+- **Support:** 3D Assets (`.cginc`, `.shader`), Circle CI (`.circleci` directories), Jest (`.js.snap`), Markdown (`.mdwn`), Python (`.pyi`), Visual Studio (`.vsixmanifest`, `.vstemplate`)
+
+### Fixed
+- [[`#559`][]]: Occasional error thrown when opening `fuzzy-finder`
+- [[`#586`][]]: Classes not removed when disposing of `addIconToElement` disposable
+- [[`#590`][]]: Unhandled exception thrown from [`project-plus`][`Tabs`] fix.
+
+[v2.1.4]: https://github.com/file-icons/atom/releases/tag/v2.1.4
+[`#559`]: https://github.com/file-icons/atom/issues/559
+[`#586`]: https://github.com/file-icons/atom/issues/586
+[`#590`]: https://github.com/file-icons/atom/issues/590
+
+
+
+[v2.1.3] - 2017-04-13
+---------------------
+### Added
+- **New icons:** BinTray (`.bintray.json`), Brotli (`.br`), DOM, MJML (`.mjml`), NASM (`.nasm`), NXC (`.nxc`), WebAssembly (`.wasm`, `.wast`, `.wat`), Yasm
+- **Support:** Stylelint (`.stylelintcache`), Webpack (`webpack.*.conf`)
+
+### Fixed
+- [[`#580`][]]: Obscure conflict with [`tree-view-autoresize`](https://github.com/lexcast/tree-view-autoresize) package
+- [[`#581`][]]: Errors thrown when opening remote directories containing a `.gitattributes` file
+
+[v2.1.3]: https://github.com/file-icons/atom/releases/tag/v2.1.3
+[`#580`]: https://github.com/file-icons/atom/issues/580
+[`#581`]: https://github.com/file-icons/atom/issues/581
+
+
+
+[v2.1.2] - 2017-03-30
+---------------------
+### Fixed
+- [[`#568`][]]: Exception thrown when installing package
+- [[`#571`][]]: Test-icons not applied to files in test-folder subdirectories
+
+[v2.1.2]: https://github.com/file-icons/atom/releases/tag/v2.1.2
+[`#568`]: https://github.com/file-icons/atom/issues/568
+[`#571`]: https://github.com/file-icons/atom/issues/571
+
+
+[v2.1.1] - 2017-03-22
+---------------------
+Replaced scoped dependency with [unscoped and republished version](https://www.npmjs.com/package/alhadis.utils).
+
+An `apm` bug with handling scoped NPM modules [`#702`](https://github.com/atom/apm/issues/702) blocked [v2.1.0][] from submission to [atom.io](https://atom.io/packages/file-icons).
+
+[v2.1.1]: https://github.com/file-icons/atom/releases/tag/v2.1.1
+
+
+
+[v2.1.0] - 2017-03-21
+---------------------
+### Added
+- **New icons:** Alex (`.alexrc`, `.alexignore`), Antwar (`antwar.{conf|config}.`), CodeShip (`codeship-*.yml`), MarkdownLint (`.markdownlintrc`), PM2 (`ecosystem.{config|conf}.*`), Proselint (`.proselintrc`), Tests folder (unassigned), Test-files (CoffeeScript: , Generic code, JavaScript, Perl, Python, React/JSX/TSX, Ruby, and TypeScript) (`{spec|test}/*.{spec|test}.{js|rb|pl…}`), Webpack (updated logo)
+- **Support:** GitLab (`.gitlab`), Jinja2 (`.j2`), Karma (`karma.config.*`), Protractor (`protractor.config.*`), SourcePawn (`.inc`), Stylus (`.stylus`), Webpack (`webpack.conf.*`)
+
+### Changed
+- Filesystem APIs moved to [a dedicated repository](https://github.com/Alhadis/Atom-FS) for further development. Users should continue to report errors to `file-icons` as normal.
+- Webpack icon updated to use [official branding][Webpack-Logo]. The old icon is retained at [`U+E91E`](https://github.com/file-icons/source/blob/master/charmap.md#E91E).
+
+### Fixed
+- Character maps, borked by some recent change to GitHub Markdown's HTML-parsing
+
+[v2.1.0]:       https://github.com/file-icons/atom/releases/tag/v2.1.0
+[Webpack-Logo]: https://github.com/webpack/webpack.js.org/blob/7370b06/assets/icon-square-big.svg
+
 
 
 [2.0.17] - 2017-03-01

@@ -1,5 +1,70 @@
 // SYNTAX TEST "source.js.jsx"
 
+// Issue 349
+let obj= {
+  [a[1+2]]: { x: 'a' }
+//^ ^   ^^              meta.brace.square.js
+// ^                    variable.other.object.js
+//   ^ ^                constant.numeric.js
+//    ^                 keyword.operator.arithmetic.js
+//        ^    ^        punctuation.separator.key-value.js
+//          ^        ^  meta.brace.curly.litobj.js
+//            ^         constant.other.object.key.js
+//            ^         string.unquoted.js
+//               ^^^    string.quoted.single.js
+//               ^      punctuation.definition.string.begin.js
+//                 ^    punctuation.definition.string.end.js
+}
+
+// ISSUE 342
+const setShapeState = (
+// <- storage.type.js
+ // <- storage.type.js
+//^^^                    storage.type.js
+//    ^^^^^^^^^^^^^      variable.other.readwrite.js
+//                  ^    keyword.operator.assignment.js
+//                    ^  meta.brace.round.js
+  state : ShapeDataState,
+//^^^^^                    variable.other.readwrite.js
+//        ^^^^^^^^^^^^^^   support.type.class.flowtype
+//                      ^  meta.delimiter.comma.js
+  newShapeData : ShapeData,
+//^^^^^^^^^^^^               variable.other.readwrite.js
+//               ^^^^^^^^^   support.type.class.flowtype
+//                        ^  meta.delimiter.comma.js
+) => ({
+// <- meta.brace.round.js
+//   ^   meta.brace.round.js
+//^^     storage.type.function.arrow.js
+//    ^  meta.brace.curly.litobj.js
+  ...state,
+//^^^        keyword.operator.spread.js
+//   ^^^^^   meta.property.object.js
+//   ^^^^^   variable.other.property.js
+//        ^  meta.delimiter.comma.js
+  [cId]: {
+//^   ^     meta.brace.square.js
+// ^^^      variable.other.readwrite.js
+//     ^    punctuation.separator.key-value.js
+//       ^  meta.brace.curly.litobj.js
+    ...state[cId],
+//  ^^^             keyword.operator.spread.js
+//     ^^^^^        meta.property.object.js
+//     ^^^^^        variable.other.property.js
+//          ^   ^   meta.brace.square.js
+//           ^^^    variable.other.readwrite.js
+//               ^  meta.delimiter.comma.js
+    [shapeId]: newShapeData,
+//  ^       ^                 meta.brace.square.js
+//   ^^^^^^^   ^^^^^^^^^^^^   variable.other.readwrite.js
+//           ^                punctuation.separator.key-value.js
+//                         ^  meta.delimiter.comma.js
+  }
+//^  meta.brace.curly.litobj.js
+})
+// <- meta.brace.curly.litobj.js
+ // <- meta.brace.round.js
+
 // ISSUE 332
 const a={
 // <- storage.type.js

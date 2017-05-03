@@ -1,5 +1,4 @@
 // @flow
-const prettier = require('prettier');
 const prettierEslint = require('prettier-eslint');
 
 const { executePrettierOnBufferRange, executePrettierOnEmbeddedScripts } = require('./executePrettier');
@@ -7,13 +6,16 @@ const textEditor = require('../tests/mocks/textEditor');
 const helpers = require('./helpers');
 
 jest.mock('./helpers');
-jest.mock('prettier');
 jest.mock('prettier-eslint');
 
 let editor;
 const bufferRangeFixture = { start: { column: 0, row: 0 }, end: { column: 20, row: 0 } };
 
+const prettier = { format: jest.fn(() => 'some transformed text') };
+
 beforeEach(() => {
+  // $FlowFixMe
+  helpers.getPrettier.mockImplementation(() => prettier);
   prettier.format.mockImplementation(() => 'some transformed text');
   prettierEslint.mockImplementation(() => 'some transformed text');
   editor = textEditor({ getTextInBufferRange: jest.fn(() => 'untransformed text') });
@@ -43,15 +45,52 @@ describe('executePrettierOnBufferRange()', () => {
     expect(editor.setCursorScreenPosition).toHaveBeenCalledWith(startCursorScreenPosition);
   });
 
+  test('runs linter:lint if available to refresh linter highlighting', () => {
+    executePrettierOnBufferRange(editor, bufferRangeFixture);
+
+    expect(helpers.runLinter).toHaveBeenCalled();
+  });
+
   test('transforms the given buffer range using prettier-eslint if config enables it', () => {
     // $FlowFixMe
     helpers.shouldUseEslint.mockImplementation(() => true);
+    // $FlowFixMe
+    helpers.shouldUseEslint.mockImplementation(() => true);
+    // $FlowFixMe
+    helpers.getPrettierEslintOptions.mockImplementation(() => ({ prettierLast: true }));
+    // $FlowFixMe
+    helpers.getPrettierOptions.mockImplementation(() => ({ semi: true }));
     // $FlowFixMe
     helpers.getCurrentFilePath.mockImplementation(() => 'foo.js');
 
     executePrettierOnBufferRange(editor, bufferRangeFixture);
 
-    expect(prettierEslint).toHaveBeenCalledWith({ filePath: 'foo.js', text: 'untransformed text' });
+    expect(prettierEslint).toHaveBeenCalledWith({
+      filePath: 'foo.js',
+      text: 'untransformed text',
+      prettierLast: true,
+      fallbackPrettierOptions: {
+        semi: true,
+      },
+    });
+  });
+
+  describe('when text in buffer range is already pretty', () => {
+    beforeEach(() => {
+      prettier.format.mockImplementation(() => 'untransformed text');
+    });
+
+    test("does not change the text in the editor's buffer range", () => {
+      executePrettierOnBufferRange(editor, bufferRangeFixture);
+
+      expect(editor.setTextInBufferRange).not.toHaveBeenCalled();
+    });
+
+    test("does not change the editor's cursor position", () => {
+      executePrettierOnBufferRange(editor, bufferRangeFixture);
+
+      expect(editor.setCursorScreenPosition).not.toHaveBeenCalled();
+    });
   });
 
   describe('when prettier throws an error', () => {
@@ -101,7 +140,8 @@ describe('executePrettierOnEmbeddedScripts()', () => {
     const fileBufferRange = { range: { start: { row: 0, column: 0 }, end: { row: 4, column: 5 } } };
     editor.getBuffer.mockImplementation(() => ({ getRange: () => fileBufferRange }));
     editor.backwardsScanInBufferRange.mockImplementation((regex, range, iterator) =>
-      iterator(fileBufferRange));
+      iterator(fileBufferRange),
+    );
 
     executePrettierOnEmbeddedScripts(editor);
 

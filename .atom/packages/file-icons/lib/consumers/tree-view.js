@@ -2,7 +2,7 @@
 
 const {isAbsolute, join, sep} = require("path");
 const {CompositeDisposable, Disposable, Emitter} = require("atom");
-const FileSystem    = require("../filesystem/filesystem.js");
+const {FileSystem}  = require("atom-fs");
 const TreeEntry     = require("./tree-entry.js");
 const Consumer      = require("./consumer.js");
 const UI            = require("../ui.js");
@@ -37,13 +37,15 @@ class TreeView extends Consumer {
 		this.element       = treeView;
 		this.entryElements = (treeView[0] || treeView.element).getElementsByClassName("entry");
 		
-		// TODO: Remove check when/if atom/tree-view#966 is merged/shipped
+		// TODO: 1. Move following block to Atom-FS module.
+		// TODO: 2. Add remaining handlers for callbacks added by atom/tree-view#1049.
 		if("function" === typeof this.element.onEntryMoved){
 			const onMove = this.element.onEntryMoved(paths => {
-				FileSystem.fixPath(paths.oldPath, paths.newPath);
+				FileSystem.updatePath(paths.initialPath, paths.newPath);
 			});
 			this.disposables.add(onMove);
 		}
+		
 		this.disposables.add(
 			atom.project.onDidChangePaths(() => this.rebuild()),
 			atom.config.onDidChange("tree-view.hideIgnoredNames", () => this.rebuild()),
@@ -61,6 +63,14 @@ class TreeView extends Consumer {
 				this.rebuild();
 				return result;
 			});
+	}
+	
+	
+	updateStatus(){
+		const pkg = atom.packages.activePackages[this.name];
+		const seemsActive = pkg && !this.active && pkg.mainModule && pkg.mainModule.treeView;
+		if(!seemsActive) return false;
+		return super.updateStatus();
 	}
 	
 	

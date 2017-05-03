@@ -3,9 +3,8 @@
 const path = require("path");
 const Micromatch = require("micromatch");
 const {CompositeDisposable, Disposable} = require("atom");
-const {PatternMap, PatternSet} = require("../../utils/pattern-lists.js");
-const MappedDisposable = require("../../utils/mapped-disposable.js");
-const FileSystem = require("../../filesystem/filesystem.js");
+const {MappedDisposable, PatternMap, PatternSet} = require("alhadis.utils");
+const {FileSystem} = require("atom-fs");
 const IconTables = require("../../icons/icon-tables.js");
 const Strategy = require("../strategy.js");
 
@@ -71,7 +70,7 @@ class LinguistStrategy extends Strategy {
 	registerResource(file){
 		const isNew = super.registerResource(file);
 		
-		if(isNew && /^\.gitattributes$/.test(file.name)){
+		if(isNew && !file.unreadable && /^\.gitattributes$/.test(file.name)){
 			this.sources.set(file, new PatternMap());
 			
 			const disposables = this.resourceEvents.get(file);

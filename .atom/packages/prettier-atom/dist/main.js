@@ -6,14 +6,22 @@ var config = require('./config-schema.json');
 var _require = require('atom'),
     CompositeDisposable = _require.CompositeDisposable;
 
+var _require2 = require('./statusTile'),
+    createStatusTile = _require2.createStatusTile,
+    updateStatusTile = _require2.updateStatusTile,
+    disposeTooltip = _require2.disposeTooltip;
+
 // local helpers
 
 
-var commands = null;
-var editorObserver = null;
 var format = null;
 var formatOnSave = null;
 var warnAboutLinterEslintFixOnSave = null;
+var displayDebugInfo = null;
+var toggleFormatOnSave = null;
+var subscriptions = null;
+var statusBarTile = null;
+var tileElement = null;
 
 // HACK: lazy load most of the code we need for performance
 var lazyFormat = function lazyFormat() {
@@ -40,18 +48,36 @@ var lazyWarnAboutLinterEslintFixOnSave = function lazyWarnAboutLinterEslintFixOn
   warnAboutLinterEslintFixOnSave();
 };
 
-var setEventHandlers = function setEventHandlers(editor) {
-  return editor.getBuffer().onWillSave(function () {
-    return lazyFormatOnSave(editor);
-  });
+// HACK: lazy load most of the code we need for performance
+var lazyDisplayDebugInfo = function lazyDisplayDebugInfo() {
+  if (!displayDebugInfo) {
+    // eslint-disable-next-line global-require
+    displayDebugInfo = require('./displayDebugInfo');
+  }
+  displayDebugInfo();
 };
 
-var subscriptions = new CompositeDisposable();
+var lazyToggleFormatOnSave = function lazyToggleFormatOnSave() {
+  if (!toggleFormatOnSave) {
+    // eslint-disable-next-line global-require
+    toggleFormatOnSave = require('./toggleFormatOnSave');
+  }
+  toggleFormatOnSave();
+};
 
 // public API
 var activate = function activate() {
-  commands = atom.commands.add('atom-workspace', 'prettier:format', lazyFormat);
-  editorObserver = atom.workspace.observeTextEditors(setEventHandlers);
+  subscriptions = new CompositeDisposable();
+
+  subscriptions.add(atom.commands.add('atom-workspace', 'prettier:format', lazyFormat));
+  subscriptions.add(atom.commands.add('atom-workspace', 'prettier:debug', lazyDisplayDebugInfo));
+  subscriptions.add(atom.commands.add('atom-workspace', 'prettier:toggle-format-on-save', lazyToggleFormatOnSave));
+
+  subscriptions.add(atom.workspace.observeTextEditors(function (editor) {
+    return subscriptions.add(editor.getBuffer().onWillSave(function () {
+      return lazyFormatOnSave(editor);
+    }));
+  }));
   subscriptions.add(atom.config.observe('linter-eslint.fixOnSave', function () {
     return lazyWarnAboutLinterEslintFixOnSave();
   }));
@@ -66,14 +92,30 @@ var activate = function activate() {
 };
 
 var deactivate = function deactivate() {
-  if (commands) commands.dispose();
-  if (editorObserver) editorObserver.dispose();
   subscriptions.dispose();
+  disposeTooltip();
+  if (statusBarTile) {
+    statusBarTile.destroy();
+  }
+};
+
+var consumeStatusBar = function consumeStatusBar(statusBar) {
+  tileElement = createStatusTile();
+  statusBarTile = statusBar.addLeftTile({
+    item: tileElement,
+    priority: 1000
+  });
+  updateStatusTile(subscriptions, tileElement);
+
+  subscriptions.add(atom.config.observe('prettier-atom.formatOnSaveOptions.enabled', function () {
+    return updateStatusTile(subscriptions, tileElement);
+  }));
 };
 
 module.exports = {
   activate: activate,
   deactivate: deactivate,
   config: config,
-  subscriptions: subscriptions
+  subscriptions: subscriptions,
+  consumeStatusBar: consumeStatusBar
 };

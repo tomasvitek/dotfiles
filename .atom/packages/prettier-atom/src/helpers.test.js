@@ -1,13 +1,16 @@
 // @flow
 const path = require('path');
 const atomLinter = require('atom-linter');
+const prettier = require('prettier');
 
 const textEditor = require('../tests/mocks/textEditor');
 const {
   getConfigOption,
   shouldDisplayErrors,
   getPrettierOption,
+  getPrettierEslintOption,
   getCurrentFilePath,
+  getPrettier,
   isInScope,
   isFilePathEslintignored,
   isFilePathExcluded,
@@ -17,9 +20,13 @@ const {
   isLinterEslintAutofixEnabled,
   shouldUseEslint,
   getPrettierOptions,
+  getPrettierEslintOptions,
+  runLinter,
+  getDebugInfo,
 } = require('./helpers');
 
 jest.mock('atom-linter');
+jest.mock('prettier');
 
 describe('getConfigOption', () => {
   test('retrieves a config option from the prettier-atom config', () => {
@@ -60,6 +67,19 @@ describe('getPrettierOption', () => {
   });
 });
 
+describe('getPrettierEslintOption', () => {
+  test('retrieves the given prettier-eslint option from the prettier-atom config', () => {
+    const mockGet = jest.fn(() => true);
+    atom = { config: { get: mockGet } };
+
+    const actual = getPrettierEslintOption('prettierLast');
+    const expected = true;
+
+    expect(mockGet).lastCalledWith('prettier-atom.prettierEslintOptions.prettierLast');
+    expect(actual).toBe(expected);
+  });
+});
+
 describe('getCurrentFilePath', () => {
   test("returns the editor's current filePath", () => {
     const editor = textEditor();
@@ -75,6 +95,31 @@ describe('getCurrentFilePath', () => {
 
     const actual = getCurrentFilePath(editor);
     const expected = undefined;
+
+    expect(actual).toBe(expected);
+  });
+});
+
+describe('getPrettier', () => {
+  test('returns default prettier if no prettier package can be found', () => {
+    atomLinter.findCached.mockImplementation(() => undefined);
+    const filePath = path.join(__dirname, 'sourceFile.js');
+
+    const actual = getPrettier(filePath);
+    const expected = prettier;
+
+    expect(actual).toEqual(expected);
+  });
+
+  test('returns local prettier instance when it exists', () => {
+    const prettierLib = path.join(__dirname, '..', 'tests', 'fixtures', 'prettier.js');
+    atomLinter.findCached.mockImplementation(() => prettierLib);
+
+    const filePath = path.join(__dirname, '..', 'tests', 'fixtures', 'sourceFile.js');
+
+    const actual = getPrettier(filePath);
+    // $FlowFixMe
+    const expected = require(prettierLib); // eslint-disable-line
 
     expect(actual).toBe(expected);
   });
@@ -159,7 +204,8 @@ describe('isFilePathEslintignored', () => {
 
   test('is false if the filePath does not match a glob in the nearest eslintignore', () => {
     atomLinter.findCached.mockImplementation(() =>
-      path.join(__dirname, '..', 'tests', 'fixtures', '.eslintignore'));
+      path.join(__dirname, '..', 'tests', 'fixtures', '.eslintignore'),
+    );
     const filePath = path.join(__dirname, '..', 'tests', 'fixtures', 'doesNotMatchEslintignore.js');
 
     const actual = isFilePathEslintignored(filePath);
@@ -174,7 +220,8 @@ describe('isFilePathEslintignored', () => {
 
   test('is true if the filePath does match a glob in the nearest eslintignore', () => {
     atomLinter.findCached.mockImplementation(() =>
-      path.join(__dirname, '..', 'tests', 'fixtures', '.eslintignore'));
+      path.join(__dirname, '..', 'tests', 'fixtures', '.eslintignore'),
+    );
     const filePath = path.join(__dirname, '..', 'tests', 'fixtures', 'matchesEslintignore.js');
 
     const actual = isFilePathEslintignored(filePath);
@@ -270,15 +317,18 @@ describe('isCurrentScopeEmbeddedScope', () => {
 
 describe('getPrettierOptions', () => {
   test('returns all prettier options', () => {
-    const mockGet = option => ({
-      'prettier-atom.prettierOptions.printWidth': 80,
-      'prettier-atom.prettierOptions.tabWidth': 2,
-      'prettier-atom.prettierOptions.parser': 'flow',
-      'prettier-atom.prettierOptions.singleQuote': true,
-      'prettier-atom.prettierOptions.trailingComma': true,
-      'prettier-atom.prettierOptions.bracketSpacing': true,
-      'prettier-atom.prettierOptions.jsxBracketSameLine': true,
-    })[option];
+    const mockGet = option =>
+      ({
+        'prettier-atom.prettierOptions.printWidth': 80,
+        'prettier-atom.prettierOptions.tabWidth': 2,
+        'prettier-atom.prettierOptions.parser': 'flow',
+        'prettier-atom.prettierOptions.singleQuote': true,
+        'prettier-atom.prettierOptions.trailingComma': true,
+        'prettier-atom.prettierOptions.bracketSpacing': true,
+        'prettier-atom.prettierOptions.semi': true,
+        'prettier-atom.prettierOptions.useTabs': true,
+        'prettier-atom.prettierOptions.jsxBracketSameLine': true,
+      }[option]);
     atom = { config: { get: mockGet } };
     const editor = textEditor();
 
@@ -288,17 +338,20 @@ describe('getPrettierOptions', () => {
   });
 
   test('uses the editor tab width if config is set to "auto"', () => {
-    const mockGet = option => option === 'editor.tabLength'
-      ? 8
-      : ({
-        'prettier-atom.prettierOptions.printWidth': 80,
-        'prettier-atom.prettierOptions.tabWidth': 'auto',
-        'prettier-atom.prettierOptions.parser': 'flow',
-        'prettier-atom.prettierOptions.singleQuote': true,
-        'prettier-atom.prettierOptions.trailingComma': true,
-        'prettier-atom.prettierOptions.bracketSpacing': true,
-        'prettier-atom.prettierOptions.jsxBracketSameLine': true,
-      })[option];
+    const mockGet = option =>
+      option === 'editor.tabLength'
+        ? 8
+        : {
+          'prettier-atom.prettierOptions.printWidth': 80,
+          'prettier-atom.prettierOptions.tabWidth': 'auto',
+          'prettier-atom.prettierOptions.parser': 'flow',
+          'prettier-atom.prettierOptions.singleQuote': true,
+          'prettier-atom.prettierOptions.trailingComma': true,
+          'prettier-atom.prettierOptions.bracketSpacing': true,
+          'prettier-atom.prettierOptions.semi': true,
+          'prettier-atom.prettierOptions.useTabs': true,
+          'prettier-atom.prettierOptions.jsxBracketSameLine': true,
+        }[option];
     atom = { config: { get: mockGet } };
     const editor = textEditor({ getLastCursor: () => ({ getScopeDescriptor: () => 'source.js.jsx' }) });
 
@@ -306,5 +359,75 @@ describe('getPrettierOptions', () => {
     const expected = 8;
 
     expect(actual).toEqual(expected);
+  });
+});
+
+describe('getPrettierEslintOptions', () => {
+  test('returns all prettier-eslint options', () => {
+    const mockGet = option =>
+      ({
+        'prettier-atom.prettierEslintOptions.prettierLast': true,
+      }[option]);
+    atom = { config: { get: mockGet } };
+    const actual = getPrettierEslintOptions();
+
+    expect(actual).toMatchSnapshot();
+  });
+});
+
+describe('runLinter()', () => {
+  test('runs `linter:lint` command', () => {
+    const editor = textEditor();
+    const viewMock = { isViewMock: true };
+    const commandsMock = [{ name: 'linter:lint', displayName: 'Linter: Lint' }];
+    atom = {
+      commands: { dispatch: jest.fn(), findCommands: jest.fn(() => commandsMock) },
+      views: { getView: jest.fn(() => viewMock) },
+    };
+
+    runLinter(editor);
+
+    expect(atom.views.getView).toHaveBeenCalledWith(editor);
+    expect(atom.commands.dispatch).toHaveBeenCalledWith(viewMock, 'linter:lint');
+  });
+
+  test('does nothing if `linter:lint` command does not exist', () => {
+    const editor = textEditor();
+    const viewMock = { isViewMock: true };
+    const commandsMock = [];
+    atom = {
+      commands: { dispatch: jest.fn(), findCommands: jest.fn(() => commandsMock) },
+      views: { getView: jest.fn(() => viewMock) },
+    };
+
+    runLinter(editor);
+
+    expect(atom.commands.findCommands).toHaveBeenCalledWith({ target: viewMock });
+    expect(atom.commands.dispatch).not.toHaveBeenCalled();
+  });
+});
+
+describe('getDebugInfo()', () => {
+  test('returns versions of prettier-atom + dependencies, and its configuration', () => {
+    const expectedAtomVersion = '4.44.44';
+    const expectedConfig = 'config';
+    const mockGetVersion = jest.fn(() => expectedAtomVersion);
+    const mockGet = jest.fn(() => expectedConfig);
+    atom = {
+      getVersion: mockGetVersion,
+      config: { get: mockGet },
+    };
+
+    const minVersionLength = '0.0.0'.length;
+    const info = getDebugInfo();
+
+    expect(info.atomVersion).toBe(expectedAtomVersion);
+    expect(typeof info.prettierVersion).toBe('string');
+    expect(typeof info.prettierAtomVersion).toBe('string');
+    expect(typeof info.prettierESLintVersion).toBe('string');
+    expect(info.prettierVersion.length).toBeGreaterThanOrEqual(minVersionLength);
+    expect(info.prettierAtomVersion.length).toBeGreaterThanOrEqual(minVersionLength);
+    expect(info.prettierESLintVersion.length).toBeGreaterThanOrEqual(minVersionLength);
+    expect(info.prettierAtomConfig).toBe(expectedConfig);
   });
 });

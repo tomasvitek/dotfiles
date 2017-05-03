@@ -2,9 +2,8 @@
 
 const {join, sep}  = require("path");
 const {CompositeDisposable, Disposable, Emitter} = require("atom");
-const MappedDisposable = require("../utils/mapped-disposable.js");
-const {punch}      = require("../utils/general.js");
-const FileSystem   = require("../filesystem/filesystem.js");
+const {MappedDisposable, punch} = require("alhadis.utils");
+const {FileSystem} = require("atom-fs");
 const IconNode     = require("../service/icon-node.js");
 
 
@@ -32,10 +31,6 @@ class Consumer{
 		if(!pkg || !pkg.metadata) return true;
 		
 		const services = pkg.metadata.consumedServices;
-		
-		// For Nuclide, anything is better than nothing. Take whatever we can get.
-		if("nuclide" === packageName && services && services["atom.file-icons"])
-			return false;
 		
 		return !(services && services["file-icons.element-icons"]);
 	}

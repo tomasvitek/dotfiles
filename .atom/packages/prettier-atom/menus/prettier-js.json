@@ -1,8 +1,8 @@
 {
   "context-menu": {
-    "atom-text-editor[data-grammar='source js']": [
+    "atom-text-editor[data-grammar='source js'], atom-text-editor[data-grammar='source js jsx']": [
       {
-        "label": "Format With prettier",
+        "label": "Format With Prettier",
         "command": "prettier:format"
       }
     ]
@@ -12,11 +12,19 @@
       "label": "Packages",
       "submenu": [
         {
-          "label": "prettier",
+          "label": "Prettier",
           "submenu": [
             {
               "label": "Format",
               "command": "prettier:format"
+            },
+            {
+              "label": "Debug",
+              "command": "prettier:debug"
+            },
+            {
+              "label": "Toggle Format on Save",
+              "command": "prettier:toggle-format-on-save"
             }
           ]
         }

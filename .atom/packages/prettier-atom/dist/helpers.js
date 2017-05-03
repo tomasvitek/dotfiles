@@ -4,12 +4,15 @@ var _require = require('atom-linter'),
     findCached = _require.findCached;
 
 var fs = require('fs');
-var minimatch = require('minimatch');
+var ignore = require('ignore');
 var path = require('path');
+var bundledPrettier = require('prettier');
+var readPkg = require('read-pkg');
 
 // constants
 var LINE_SEPERATOR_REGEX = /(\r|\n|\r\n)/;
 var EMBEDDED_SCOPES = ['text.html.vue', 'text.html.basic'];
+var LINTER_LINT_COMMAND = 'linter:lint';
 
 // local helpers
 var getCurrentScope = function getCurrentScope(editor) {
@@ -36,6 +39,28 @@ var getNearestEslintignorePath = function getNearestEslintignorePath(filePath) {
   return findCached(getDirFromFilePath(filePath), '.eslintignore');
 };
 
+var getLocalPrettierPath = function getLocalPrettierPath(filePath) {
+  if (!filePath) return null;
+
+  var indexPath = path.join('node_modules', 'prettier', 'index.js');
+  var dirPath = getDirFromFilePath(filePath);
+
+  return dirPath ? findCached(dirPath, indexPath) : null;
+};
+
+var getPrettier = function getPrettier(filePath) {
+  var prettierPath = getLocalPrettierPath(filePath);
+
+  // charypar: This is currently the best way to use local prettier instance.
+  // Using the CLI introduces a noticeable delay and there is currently no
+  // way to use prettier as a long-running process for formatting files as needed
+  //
+  // See https://github.com/prettier/prettier/issues/918
+  //
+  // $FlowFixMe when possible, don't use dynamic require
+  return prettierPath ? require(prettierPath) : bundledPrettier; // eslint-disable-line
+};
+
 var getFilePathRelativeToEslintignore = function getFilePathRelativeToEslintignore(filePath) {
   var nearestEslintignorePath = getNearestEslintignorePath(filePath);
 
@@ -55,9 +80,7 @@ var getIgnoredGlobsFromNearestEslintIgnore = flow(getNearestEslintignorePath, fu
 });
 
 var someGlobsMatchFilePath = function someGlobsMatchFilePath(globs, filePath) {
-  return globs.some(function (glob) {
-    return minimatch(filePath, glob);
-  });
+  return ignore().add(globs).ignores(filePath);
 };
 
 var getAtomTabLength = function getAtomTabLength(editor) {
@@ -68,9 +91,23 @@ var useAtomTabLengthIfAuto = function useAtomTabLengthIfAuto(editor, tabLength) 
   return tabLength === 'auto' ? getAtomTabLength(editor) : Number(tabLength);
 };
 
+var isLinterLintCommandDefined = function isLinterLintCommandDefined(editor) {
+  return atom.commands.findCommands({ target: atom.views.getView(editor) }).some(function (command) {
+    return command.name === LINTER_LINT_COMMAND;
+  });
+};
+
+var getDepPath = function getDepPath(dep) {
+  return path.join(__dirname, '../node_modules', dep);
+};
+
 // public helpers
 var getConfigOption = function getConfigOption(key) {
   return atom.config.get('prettier-atom.' + key);
+};
+
+var setConfigOption = function setConfigOption(key, value) {
+  return atom.config.set('prettier-atom.' + key, value);
 };
 
 var shouldDisplayErrors = function shouldDisplayErrors() {
@@ -79,6 +116,10 @@ var shouldDisplayErrors = function shouldDisplayErrors() {
 
 var getPrettierOption = function getPrettierOption(key) {
   return getConfigOption('prettierOptions.' + key);
+};
+
+var getPrettierEslintOption = function getPrettierEslintOption(key) {
+  return getConfigOption('prettierEslintOptions.' + key);
 };
 
 var getCurrentFilePath = function getCurrentFilePath(editor) {
@@ -137,15 +178,40 @@ var getPrettierOptions = function getPrettierOptions(editor) {
     singleQuote: getPrettierOption('singleQuote'),
     trailingComma: getPrettierOption('trailingComma'),
     bracketSpacing: getPrettierOption('bracketSpacing'),
+    semi: getPrettierOption('semi'),
+    useTabs: getPrettierOption('useTabs'),
     jsxBracketSameLine: getPrettierOption('jsxBracketSameLine')
+  };
+};
+
+var getPrettierEslintOptions = function getPrettierEslintOptions() {
+  return {
+    prettierLast: getPrettierEslintOption('prettierLast')
+  };
+};
+
+var runLinter = function runLinter(editor) {
+  return isLinterLintCommandDefined(editor) ? atom.commands.dispatch(atom.views.getView(editor), LINTER_LINT_COMMAND) : undefined;
+};
+
+var getDebugInfo = function getDebugInfo() {
+  return {
+    atomVersion: atom.getVersion(),
+    prettierAtomVersion: readPkg.sync().version,
+    prettierVersion: readPkg.sync(getDepPath('prettier')).version,
+    prettierESLintVersion: readPkg.sync(getDepPath('prettier-eslint')).version,
+    prettierAtomConfig: atom.config.get('prettier-atom')
   };
 };
 
 module.exports = {
   getConfigOption: getConfigOption,
+  setConfigOption: setConfigOption,
   shouldDisplayErrors: shouldDisplayErrors,
   getPrettierOption: getPrettierOption,
+  getPrettierEslintOption: getPrettierEslintOption,
   getCurrentFilePath: getCurrentFilePath,
+  getPrettier: getPrettier,
   isInScope: isInScope,
   isCurrentScopeEmbeddedScope: isCurrentScopeEmbeddedScope,
   isFilePathEslintignored: isFilePathEslintignored,
@@ -156,5 +222,8 @@ module.exports = {
   isLinterEslintAutofixEnabled: isLinterEslintAutofixEnabled,
   shouldUseEslint: shouldUseEslint,
   shouldRespectEslintignore: shouldRespectEslintignore,
-  getPrettierOptions: getPrettierOptions
+  getPrettierOptions: getPrettierOptions,
+  getPrettierEslintOptions: getPrettierEslintOptions,
+  runLinter: runLinter,
+  getDebugInfo: getDebugInfo
 };

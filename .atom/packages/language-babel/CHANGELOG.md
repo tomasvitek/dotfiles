@@ -1,3 +1,33 @@
+### 2.58.0
+  - Add new template syntax for Relay.
+  
+### 2.57.7
+  - ASI grammar also missing terminators for default.
+
+### 2.57.6
+  - ASI grammar was missing terminators for break and case keywords. Issue #354
+
+### 2.57.5
+  - Fixing grammar in 2.57.4 [commit](https://github.com/gandm/language-babel/commit/6db89e3c13415a17382962fe1aa5064a271725c7) caused some themes to highlight non-constant shorthand object keys as constants.
+
+### 2.57.4
+  - Flow type definition not highlighting arrow operator. Fixes #351
+
+### 2.57.3
+  - Grammar incorrectly parsed object key expression containing array. Fixes #349
+
+### 2.57.2
+  - Bump depedency to Atom 1.15 to fix fs-plus now on v3 needing Node 6. (#343)
+  - PR #343 from AlexyRaspopov to support yield returning JSX expression.
+  - Remove grammar regex detecting certain comment types inside JSX. Fixes #345 .
+
+### 2.57.1
+  - Fix multiline arrow functions containing flow types. Issue #342
+
+### 2.57.0
+  - Add support for SVG attributes used as CSS properties inside styled-components. Issue #339
+  - Remove grammar 1000 character/line parsing restriction introduced in Atom 1.15 for this grammar. Issue #340
+
 ### 2.56.2
   - Allow tagged template grammar extension grammars to override object properties named template which are currently handled by language-mustache as no default Atom grammar exists for Angular.
 

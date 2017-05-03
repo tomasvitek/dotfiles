@@ -1,6 +1,6 @@
 {
   "projectName": "prettier-atom",
-  "projectOwner": "jlongster",
+  "projectOwner": "prettier",
   "files": [
     "README.md"
   ],
@@ -131,6 +131,81 @@
       "name": "Ryan Cole",
       "avatar_url": "https://avatars.githubusercontent.com/u/484801?v=3",
       "profile": "http://rycole.com/",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "darahak",
+      "name": "Dara Hak",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/11488612?v=3",
+      "profile": "https://github.com/darahak",
+      "contributions": [
+        "code",
+        "doc"
+      ]
+    },
+    {
+      "login": "spudly",
+      "name": "Stephen John Sorensen",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/487068?v=3",
+      "profile": "http://www.stephenjohnsorensen.com/",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "lgeiger",
+      "name": "Lukas Geiger",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/13285808?v=3",
+      "profile": "https://github.com/lgeiger",
+      "contributions": [
+        "code",
+        "test"
+      ]
+    },
+    {
+      "login": "charypar",
+      "name": "Viktor Charypar",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/1517854?v=3",
+      "profile": "https://github.com/charypar",
+      "contributions": [
+        "code",
+        "test"
+      ]
+    },
+    {
+      "login": "mhgbrg",
+      "name": "Mats Högberg",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/1007436?v=3",
+      "profile": "http://mats.hgbrg.se",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "da-vaibhav",
+      "name": "vaibhav",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/1468518?v=3",
+      "profile": "https://vaibhavchatarkar.com",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "karlhorky",
+      "name": "Karl Horky",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/1935696?v=3",
+      "profile": "https://work.karlhorky.com",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "gaearon",
+      "name": "Dan Abramov",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/810438?v=3",
+      "profile": "http://twitter.com/dan_abramov",
       "contributions": [
         "code"
       ]

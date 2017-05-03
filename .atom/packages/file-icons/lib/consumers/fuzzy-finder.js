@@ -1,7 +1,7 @@
 "use strict";
 
 const {CompositeDisposable} = require("atom");
-const {normalisePath} = require("../utils/general.js");
+const {normalisePath} = require("alhadis.utils");
 const Consumer = require("./consumer.js");
 
 
@@ -161,6 +161,7 @@ class FuzzyFinder extends Consumer{
 			const element = this.jQueryRemoved
 				? list.element.querySelector("ol.list-group")
 				: list.list[0];
+			if(!element) return;
 			const items = Array.from(element.children);
 			for(const item of items){
 				const iconElement = item.querySelector(".primary-line.file");

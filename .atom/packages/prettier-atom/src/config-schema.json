@@ -8,7 +8,7 @@
   },
   "useEslint": {
     "title": "ESlint Integration",
-    "description": "Use [prettier-eslint](https://github.com/prettier/prettier-eslint). If you enable *Format on Save*, we recommend disabling ESlint's auto-fix to prevent fixing your code twice.<br /><br />**Note:** This will override any options you choose in the *Prettier Options* section.",
+    "description": "Use [prettier-eslint](https://github.com/prettier/prettier-eslint) to infer your prettier settings based on your eslint config. If we cannot infer a prettier setting from your eslint config (or if there is no eslint config in the current project), we will fallback to using your settings in the *Prettier Options* section.<br /><br />**Note:** If you enable *Format on Save*, we recommend disabling ESlint's auto-fix to prevent fixing your code twice.",
     "type": "boolean",
     "default": false,
     "order": 2
@@ -19,7 +19,7 @@
     "type": "object",
     "properties": {
       "enabled": {
-        "title": "Enabled",
+        "title": "Format Files on Save",
         "description": "Automatically format entire file when saving.",
         "type": "boolean",
         "default": false,
@@ -79,31 +79,45 @@
       },
       "bracketSpacing": {
         "title": "Bracket Spacing",
-        "description": "Print spaces inside of arrays and objects.",
+        "description": "Print spaces inside of object literals.",
         "type": "boolean",
         "default": true,
         "order": 2
+      },
+      "semi": {
+        "title": "Semicolons",
+        "description": "Add semicolons at the end of lines.",
+        "type": "boolean",
+        "default": true,
+        "order": 3
+      },
+      "useTabs": {
+        "title": "Use Tabs",
+        "description": "Use tabs instead of spaces.",
+        "type": "boolean",
+        "default": false,
+        "order": 4
       },
       "jsxBracketSameLine": {
         "title": "JSX Bracket Same Line",
         "description": "Put > on the same line in JSX.",
         "type": "boolean",
         "default": false,
-        "order": 3
+        "order": 5
       },
       "printWidth": {
         "title": "Print Width",
         "description": "Fit code within this line limit",
         "type": "integer",
         "default": 80,
-        "order": 4
+        "order": 6
       },
       "tabWidth": {
         "title": "Tab Width",
         "description": "Number of spaces to use per tab. Use 'auto' to use your editor's tab width setting.",
         "type": "string",
         "default": "auto",
-        "order": 5
+        "order": 7
       },
       "trailingComma": {
         "title": "Trailing Comma",
@@ -115,7 +129,7 @@
           "es5",
           "all"
         ],
-        "order": 6
+        "order": 8
       },
       "parser": {
         "title": "Parser",
@@ -126,7 +140,20 @@
           "babylon",
           "flow"
         ],
-        "order": 7
+        "order": 9
+      }
+    }
+  },
+  "prettierEslintOptions": {
+    "type": "object",
+    "order": 5,
+    "properties": {
+      "prettierLast": {
+        "title": "Run Prettier Last",
+        "description": "Run eslint => prettier (instead of prettier => eslint)",
+        "type": "boolean",
+        "default": false,
+        "order": 1
       }
     }
   }
