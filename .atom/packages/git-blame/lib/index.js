@@ -1,11 +1,10 @@
 'use babel';
 
-import { Directory } from 'pathwatcher';
 import path from 'path';
 import { CompositeDisposable } from 'atom';
 
 import config from './config';
-import Blamer from './util/blamer';
+import Blamer from './util/Blamer';
 import BlameGutter from './util/BlameGutter';
 import errorController from './controllers/errorController';
 

@@ -3,7 +3,29 @@ Change Log
 All notable changes to the project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
-[Unpublished]: https://github.com/file-icons/atom/compare/v2.1.4...HEAD
+[Unpublished]: https://github.com/file-icons/atom/compare/v2.1.6...HEAD
+
+
+[v2.1.6] - 2017-05-18
+---------------------
+### Added
+- **New icons:** Browserslist (`browserslist`, `.browserslistrc`), Dragula (`dragula.{js,css}`), Moment (`moment.js`), Moment Timezone (`moment-timezone.js`)
+- **Support:** Docker (`.docker` directories), jQuery (`jquery.slim.js`)
+
+### Fixed
+- Tab-icons squashed by [`atom/one-light-ui#100`](https://github.com/atom/one-light-ui/pull/100)
+
+[v2.1.6]: https://github.com/file-icons/atom/releases/tag/v2.1.6
+
+
+[v2.1.5] - 2017-05-13
+---------------------
+### Added
+- **New icons:** Edge (`.edge`), Firebase (`.firebaserc`, `firebase.json`), GLSL (`.glsl`, `.glslv`, `.gsh`, `.gshader`), Vertex/Fragment Shader (`.fp`, `.frag`, `.frg`, `.fsh`, `.fshader`, `.vert`, `.vertex`, `.vrx`, `.vsh`), SketchUp LayOut (`.layout`), SketchUp Make (`.skp`), SketchUp Style Builder (`.style`), WebGL (`.webgl`)
+- **Support:** 3D Asset (`.comp`, `.geo{m,metry}`, `.tesc`, `.tese`), ChartJS (`chart.{bundle,min}.js`), NPM (`package-lock.json`)
+
+[v2.1.5]: https://github.com/file-icons/atom/releases/tag/v2.1.5
+
 
 
 [v2.1.4] - 2017-04-26

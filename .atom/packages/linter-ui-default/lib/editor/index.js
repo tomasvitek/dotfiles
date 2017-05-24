@@ -21,6 +21,7 @@ class Editor {
   subscriptions: CompositeDisposable;
   cursorPosition: ?Point;
   gutterPosition: boolean;
+  tooltipFollows: string;
   showDecorations: boolean;
   showProviderName: boolean;
 
@@ -35,6 +36,9 @@ class Editor {
     this.subscriptions.add(this.emitter)
     this.subscriptions.add(atom.config.observe('linter-ui-default.showTooltip', (showTooltip) => {
       this.showTooltip = showTooltip
+      if (!this.showTooltip && this.tooltip) {
+        this.removeTooltip()
+      }
     }))
     this.subscriptions.add(atom.config.observe('linter-ui-default.showProviderName', (showProviderName) => {
       this.showProviderName = showProviderName
@@ -59,14 +63,30 @@ class Editor {
 
     let tooltipSubscription
     this.subscriptions.add(atom.config.observe('linter-ui-default.tooltipFollows', (tooltipFollows) => {
+      this.tooltipFollows = tooltipFollows
       if (tooltipSubscription) {
         tooltipSubscription.dispose()
       }
-      tooltipSubscription = tooltipFollows === 'Mouse' ? this.listenForMouseMovement() : this.listenForKeyboardMovement()
+      tooltipSubscription = new CompositeDisposable()
+      if (tooltipFollows === 'Mouse' || tooltipFollows === 'Both') {
+        tooltipSubscription.add(this.listenForMouseMovement())
+      }
+      if (tooltipFollows === 'Keyboard' || tooltipFollows === 'Both') {
+        tooltipSubscription.add(this.listenForKeyboardMovement())
+      }
       this.removeTooltip()
     }))
     this.subscriptions.add(new Disposable(function() {
       tooltipSubscription.dispose()
+    }))
+    // NOTE: The reason we are watching cursor position and not some text change event is that
+    // Some programs like gofmt setText all the time, so text changes but because they set about
+    // the same text as before so cursor position doesn't change, unless the cursor is in changed
+    // text area in which case it changes, that's why we remove the tooltip then
+    this.subscriptions.add(textEditor.onDidChangeCursorPosition(() => {
+      if (this.tooltipFollows === 'Mouse') {
+        this.removeTooltip()
+      }
     }))
     this.updateGutter()
     this.listenForCurrentLine()
@@ -156,7 +176,7 @@ class Editor {
     return this.textEditor.onDidChangeCursorPosition(debounce(({ newBufferPosition }) => {
       this.cursorPosition = newBufferPosition
       this.updateTooltip(newBufferPosition)
-    }, 60))
+    }, 16))
   }
   updateGutter() {
     this.removeGutter()

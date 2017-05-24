@@ -17,6 +17,7 @@ export const severityNames = {
   warning: 'Warning',
   info: 'Info',
 }
+export const WORKSPACE_URI = 'atom://linter-ui-default'
 
 export function $range(message: LinterMessage): ?Object {
   return message.version === 1 ? message.range : message.location.position
@@ -105,24 +106,7 @@ export function visitMessage(message: LinterMessage, reference: boolean = false)
   })
 }
 
-// NOTE: Code Point 160 === &nbsp;
-const replacementRegex = new RegExp(String.fromCodePoint(160), 'g')
-export function htmlToText(html: any): string {
-  const element = document.createElement('div')
-  if (typeof html === 'string') {
-    element.innerHTML = html
-  } else {
-    element.appendChild(html.cloneNode(true))
-  }
-  // NOTE: Convert &nbsp; to regular whitespace
-  return element.textContent.replace(replacementRegex, ' ')
-}
 export function openExternally(message: LinterMessage): void {
-  if (message.version === 1 && message.type.toLowerCase() === 'trace') {
-    visitMessage(message)
-    return
-  }
-
   if (message.version === 2 && message.url) {
     shell.openExternal(message.url)
   }

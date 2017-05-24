@@ -13,7 +13,13 @@ module.exports = class PHPCSFixer extends Beautifier
   isPreInstalled: false
 
   options:
-    PHP: true
+    PHP:
+      rules: true
+      cs_fixer_path: true
+      cs_fixer_version: true
+      allow_risky: true
+      level: true
+      fixers: true
 
   beautify: (text, language, options, context) ->
     @debug('php-cs-fixer', options)
@@ -24,6 +30,7 @@ module.exports = class PHPCSFixer extends Beautifier
       "fix"
       "--rules=#{options.rules}" if options.rules
       "--config=#{configFile}" if configFile
+      "--allow-risky=#{options.allow_risky}" if options.allow_risky
       "--using-cache=no"
     ]
     if version is 1

@@ -93,6 +93,11 @@ directoryIcons:
 		icon: "circleci"
 		match: /^\.circleci$/
 
+	Docker:
+		icon: "docker"
+		match: /^\.docker$/
+		colour: "dark-blue"
+
 	Dropbox:
 		icon: "dropbox"
 		match: /^(Dropbox|\.dropbox\.cache)$/
@@ -620,6 +625,11 @@ fileIcons:
 		match: ".br"
 		colour: "medium-orange"
 
+	Browserslist:
+		icon: "browserslist"
+		match: /^(browserslist|\.browserslistrc)$/i
+		colour: "medium-orange"
+
 	Brunch:
 		icon: "brunch"
 		priority: 2
@@ -737,7 +747,7 @@ fileIcons:
 	ChartJS:
 		icon: "chartjs"
 		priority: 2
-		match: /^Chart\.js$/i
+		match: /^Chart(\.bundle)?(\.min)?\.js$/i
 		colour: "dark-pink"
 
 	Checklist:
@@ -1073,6 +1083,7 @@ fileIcons:
 			[".ttl", "medium-cyan", scope: "turtle"]
 			[".rviz", "dark-blue"]
 			[".syntax", "medium-blue"]
+			[/^pkginfo$/, "medium-blue"]
 			[/^mime\.types$/i, "medium-maroon"]
 			[/^METADATA\.pb$/, "medium-red", priority: 2]
 			[/[\/\\](?:magic[\/\\]Magdir|file[\/\\]magic)[\/\\][-.\w]+$/i, "dark-red", matchPath: true]
@@ -1163,6 +1174,12 @@ fileIcons:
 		match: /^Doxyfile$/
 		colour: "medium-blue"
 
+	Dragula:
+		icon: "dragula"
+		priority: 2
+		match: /^dragula(\.min)?\.(js|css)$/i
+		colour: "dark-purple"
+
 	Drone:
 		icon: "drone"
 		priority: 2
@@ -1217,6 +1234,12 @@ fileIcons:
 		match: ".editorconfig"
 		colour: "medium-orange"
 		scope: "editorconfig"
+
+	Edge:
+		icon: "edge"
+		match: ".edge"
+		colour: "dark-orange"
+		scope: /\.html.edge$/
 
 	Eiffel:
 		icon: "eiffel"
@@ -1357,6 +1380,13 @@ fileIcons:
 		match: [
 			[/^Icon\r$/, "medium-blue"]
 			[".rsrc", "dark-blue"]
+		]
+
+	Firebase:
+		icon: "firebase"
+		match: [
+			[/^firebase\.json$/i, "medium-yellow", priority: 2]
+			[".firebaserc", "medium-orange"]
 		]
 
 	Flow:
@@ -1546,7 +1576,6 @@ fileIcons:
 			[".fo", "medium-red", "fasto"]
 			[".forth", "medium-blue"]
 			[".frt", "dark-purple"]
-			[".fsh", "dark-red"]
 			[".fsproj", "dark-red"]
 			[".fth", "dark-blue"]
 			[".fun", "medium-orange"]
@@ -1608,7 +1637,6 @@ fileIcons:
 			[".ui", "medium-blue"]
 			[".urdf", "dark-orange"]
 			[".ux", "light-orange"]
-			[".vsh", "medium-cyan"]
 			[".vxml", "light-purple"]
 			[".webidl", "medium-red"]
 			[".wisp", "dark-cyan"]
@@ -2074,7 +2102,7 @@ fileIcons:
 	jQuery:
 		icon: "jquery"
 		priority: 2
-		match: /^jquery([-.](min|latest|\d\.\d+(\.\d+)?))*\.([jt]sx?|es6?|coffee|map)$/i
+		match: /^jquery([-.](min|latest|slim|\d\.\d+(\.\d+)?))*\.([jt]sx?|es6?|coffee|map)$/i
 		colour: "dark-blue"
 
 	"jQuery UI":
@@ -2299,6 +2327,7 @@ fileIcons:
 		icon: "checklist"
 		match: [
 			[/^Makefile/, "medium-yellow", scope: "makefile", alias: /^(bsdmake|make|mf)$/i, interpreter: "make"]
+			[/^mk\.config$/, "medium-green", priority: 2]
 			[/\.(mk|mak|make)$/i, "medium-yellow"]
 			[/^BSDmakefile$/i, "medium-red"]
 			[/^GNUmakefile$/i, "medium-green"]
@@ -2324,14 +2353,14 @@ fileIcons:
 	"Manual Page":
 		icon: "manpage"
 		match: [
-			[/\.(1([bcmstx]|has|in)?|[24568]|3(avl|bsm|cfgadm|in|[cmx]|qt)?|7(d|fs|i|ipp|m|p)?|9[efps]?|chem|eqn|groff|man|mandoc|mdoc|me|mom|n|nroff|pic|roff?|tmac|tmac-u|tr|troff)$/i, "dark-green"
-				scope: /\.[gt]?roff$/i
-				alias: /^([gtn]?roff|manpage)$/i
+			[/\.(1([bcmstx]|has|in)?|[24568]|3(avl|bsm|cfgadm|in|[cmx]|qt)?|7(d|fs|i|ipp|m|p)?|9[efps]?|chem|eqn|groff|man|mandoc|mdoc|me|mom|nr?|nroff|pic|roff?|tmac|tmac-u|tr|troff)$/i, "dark-green"
+				scope: /\.[gtn]?roff$/i
+				alias: /^([gtn]?roff|man(page|doc)?|mdoc)$/i
 				interpreter: /man|mandoc|([gnt]|dit)roff/i
-				signature: /^\.TH[ \t]+(?:\S+)|^'\\" [tre]+(?=\s|$)|^\.so[ \t]+man(\w+)\/.+\.\1(?=\s|$)/]
+				signature: /^\.TH[ \t]+(?:\S+)|^'\\" [tre]+(?=\s|$)|^\.so[ \t]+man(\w+)\/.+\.\1(?=\s|$)|^\.(EQ|PS|cstart)\n|^\x27{3}\t\\\x22 /]
 			[/\.(rnh|rno|run|runoff)$/i, "dark-maroon", "runoff"]
 			[/^tmac\.|^(mmn|mmt)$/i, "dark-green", priority: 2]
-			[/([\\\/])man(\w+)\1[^\\\/]+\.\2$/, "dark-green", matchPath: true]
+			[/([\\\/])(?:man(\w+)\1[^\\\/]+\.\2|(?:tmac|eqnchar)\.d\1(?:ms\.)?[^\\\/.]+(?:\.in)?)$/, "dark-green", matchPath: true]
 		]
 
 	Mapbox:
@@ -2563,6 +2592,10 @@ fileIcons:
 			[".obj", "medium-red", scope: "wavefront.obj"]
 			[".mtl", "dark-blue",  scope: "wavefront.mtl"]
 			[".shader", "medium-cyan", alias: "ShaderLab", scope: /\.(shader(code|lab)|cg)(?=\.|$)/i]
+			[/\.geo(m|metry)?$/i, "medium-red"]
+			[".comp", "medium-purple"]
+			[".tesc", "medium-green"]
+			[".tese", "medium-green"]
 			[".cginc", "dark-cyan"]
 			[".stl", "dark-green"]
 			[".u3d", "medium-orange"]
@@ -2587,6 +2620,18 @@ fileIcons:
 			[".def", "medium-green"]
 			[".m2", "medium-red"]
 		]
+
+	Moment:
+		icon: "moment"
+		priority: 2
+		match: /^moment(-with-locales)?(\.min)?\.js$/i
+		colour: "medium-cyan"
+
+	"Moment Timezone":
+		icon: "moment-tz"
+		priority: 2
+		match: /^moment-timezone(-with-data)?(-\d{4}-\d{4})?(\.min)?\.js$/i
+		colour: "dark-blue"
 
 	Monkey:
 		icon: "monkey"
@@ -2768,7 +2813,7 @@ fileIcons:
 	NPM:
 		icon: "npm"
 		priority: 2
-		match: /^(package\.json|\.npmignore|\.?npmrc|npm-debug\.log|npm-shrinkwrap\.json)$/i
+		match: /^(package\.json|\.npmignore|\.?npmrc|npm-debug\.log|npm-shrinkwrap\.json|package-lock\.json)$/i
 		colour: "medium-red"
 
 	NSIS:
@@ -2868,6 +2913,20 @@ fileIcons:
 		alias: /^(progress|openedge|abl)$/i
 		match: ".p"
 		colour: "medium-red"
+
+	"OpenGL Shading Language":
+		icon: "opengl"
+		alias: /^(GLSL|GLslang)$/i
+		match: /\.(glslv?|gsh|gshader)$/i
+		colour: "dark-cyan"
+		scope: "glsl"
+
+	"OpenGL Vertex Shader":
+		icon: "vertex"
+		match: [
+			[/\.(vert|vrx|vertex|vsh(ader)?)$/i, "medium-blue", alias: /^Vertex[-_\s]*(Shader|Program)?$/i]
+			[/\.(fra?g|fp|fsh|fshader)$/i, "medium-red", alias: /^Fragment[-_\s]*(Shader|Program)?$/i]
+		]
 
 	OpenOffice:
 		icon: "openoffice"
@@ -2993,7 +3052,7 @@ fileIcons:
 	Perl:
 		icon: "perl"
 		match: [
-			[/\.p(er)?l$/i, "medium-blue", "perl"]
+			[/\.p(er)?l$/i, "medium-blue", alias: /^C?Perl$/i, scope: "perl", interpreter: /^c?perl[\d.]*$/]
 			[".ph", "dark-purple"]
 			[".plx", "medium-purple"]
 			[".pm", "dark-blue"]
@@ -3279,8 +3338,8 @@ fileIcons:
 	Readme:
 		icon: "book"
 		match: [
-			[/^README(\b|_)|^(licen[sc]es?(\.mysql)?|(read|readme|click|delete|keep|test)\.me)$|\.(readme|1st)$/i, "medium-blue", priority: 2]
-			[/^(notice|bugs|changes|change[-_]?log([-._]?\d+)?|contribute|contributing|contributors|copying(\.regex)?|hacking|history|install|maintainers|manifest|more\.stuff|projects|revision|terms|thanks)$/i, "dark-blue", priority: 2]
+			[/^README(\b|_)|^(licen[sc]es?(\.mysql)?|(read|readme|click|delete|keep|test)\.me)$|\.(readme|1st|licen[sc]es?)$/i, "medium-blue", priority: 2]
+			[/^(notice|bugs|changes|change[-_]?log([-._]?\d+)?|contribute|contributing|contributors|copying(\.regex)?|hacking|history|install|maintainers|manifest|more\.stuff|notes|problems|projects|revision|terms|thanks)(_gr)?$/i, "dark-blue", priority: 2]
 			[/\b(changelog|copying(v?\d)?|install|read[-_]?me)\b|^licen[sc]es?[-._]/i, "medium-blue", priority: 0]
 			[/^news([-_.]?[-\d]+)?$/i, "dark-blue", priority: 0]
 		]
@@ -3582,6 +3641,21 @@ fileIcons:
 		icon: "sketch"
 		match: ".sketch"
 		colour: "medium-orange"
+
+	"SketchUp LayOut":
+		icon: "sketchup-lo"
+		match: ".layout"
+		colour: "auto-red"
+
+	"SketchUp Make":
+		icon: "sketchup-mk"
+		match: ".skp"
+		colour: "medium-red"
+
+	"SketchUp Style Builder":
+		icon: "sketchup-sb"
+		match: ".style"
+		colour: "auto-red"
 
 	Slash:
 		icon: "slash"
@@ -4172,6 +4246,11 @@ fileIcons:
 			[/\.was?t$/i, "medium-blue", scope: /(^|\.)was[mt](\.|$)/i, alias: /^was[mt]$/i]
 			[".wasm", "medium-red"]
 		]
+
+	WebGL:
+		icon: "webgl"
+		match: ".webgl"
+		colour: "dark-red"
 
 	"Web Ontology Language":
 		icon: "owl"

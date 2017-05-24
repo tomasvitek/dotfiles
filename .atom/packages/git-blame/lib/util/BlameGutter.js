@@ -89,7 +89,8 @@ export default class BlameGutter {
   }
 
   updateLineMarkers(filePath) {
-    repositoryForEditorPath(filePath)
+    const showOnlyLastNames = atom.config.get('git-blame.showOnlyLastNames');
+    return repositoryForEditorPath(filePath)
       .then(repo => {
         const blamer = new Blamer(repo);
         return new Promise((resolve, reject) => {
@@ -99,6 +100,8 @@ export default class BlameGutter {
         });
       })
       .then(([repo, blameData]) => {
+        const remoteRevision = new RemoteRevision(repo.getOriginURL(filePath));
+        const hasUrlTemplate = !!remoteRevision.getTemplate();
         let lastHash = null;
         let className = null;
 
@@ -115,13 +118,14 @@ export default class BlameGutter {
           lastHash = lineData.hash;
 
           // generate a link to the commit
-          const viewCommitUrl = RemoteRevision.create(repo.getOriginURL(filePath)).url(lineData.hash);
+          const viewCommitUrl = hasUrlTemplate ? remoteRevision.url(lineData.hash) : '#';
 
           // construct props for BlameLine component
           const lineProps = {
             ...lineData,
             className,
             viewCommitUrl,
+            showOnlyLastNames,
           };
 
           // adding one marker to the first line
@@ -227,7 +231,7 @@ export default class BlameGutter {
   }
 
   dispose() {
-    gutter().destroy();
+    this.gutter().destroy();
   }
 
 }

@@ -141,7 +141,18 @@
         "1": { "name": "meta.brace.round.css"}
       },
       "patterns": [
+        { "include": "#css-comment-and-interpolate"},
         { "include": "#string"}
+      ]
+    },
+    "css-line-names": {
+      "begin": "\\[",
+      "end": "\\]",
+      "captures": {
+        "0": { "name": "meta.brace.square.css" }
+      },
+      "patterns": [
+        { "include": "#identifier"}
       ]
     },
     "css-math": {
@@ -188,7 +199,7 @@
       }
     },
     "css-<length>": {
-      "match": "(?i)(vw|vmin|vmax|vh|rem|q|px|pt|pc|mozmm|mm|in|ex|em|cm|ch)\\b",
+      "match": "(?i)(vw|vmin|vmax|vh|rem|q|px|pt|pc|mozmm|mm|in|fr|ex|em|cm|ch)\\b",
       "captures": {
         "1": { "name": "constant.length.units.css"}
       }
@@ -746,6 +757,7 @@
       "patterns": [
         { "include": "#css-comment-and-interpolate"},
         { "include": "#important"},
+        { "include": "#css-line-names"},
         { "include": "#css-functions"},
         { "include": "#css-property-values"},
         { "include": "#css-color"},

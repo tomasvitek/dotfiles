@@ -2,40 +2,40 @@
   "_args": [
     [
       {
-        "raw": "/private/var/folders/j1/3vxq1vgj0sg8x9fbr10zwq8h0000gn/T/d-117126-70250-x84ob8/package.tgz",
+        "raw": "/private/var/folders/c9/qq12c1lj6c16d183jjx7_gg80000gn/T/d-117223-14992-q77inq/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/private/var/folders/j1/3vxq1vgj0sg8x9fbr10zwq8h0000gn/T/d-117126-70250-x84ob8/package.tgz",
-        "spec": "/private/var/folders/j1/3vxq1vgj0sg8x9fbr10zwq8h0000gn/T/d-117126-70250-x84ob8/package.tgz",
+        "rawSpec": "/private/var/folders/c9/qq12c1lj6c16d183jjx7_gg80000gn/T/d-117223-14992-q77inq/package.tgz",
+        "spec": "/private/var/folders/c9/qq12c1lj6c16d183jjx7_gg80000gn/T/d-117223-14992-q77inq/package.tgz",
         "type": "local"
       },
-      "/private/var/folders/j1/3vxq1vgj0sg8x9fbr10zwq8h0000gn/T/apm-install-dir-117126-70250-1vtr4hu"
+      "/private/var/folders/c9/qq12c1lj6c16d183jjx7_gg80000gn/T/apm-install-dir-117223-14992-11uubi6"
     ]
   ],
-  "_from": "../d-117126-70250-x84ob8/package.tgz",
+  "_from": "../d-117223-14992-q77inq/package.tgz",
   "_id": "editorconfig@2.2.2",
   "_inCache": true,
   "_installable": true,
   "_location": "/editorconfig",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/private/var/folders/j1/3vxq1vgj0sg8x9fbr10zwq8h0000gn/T/d-117126-70250-x84ob8/package.tgz",
+    "raw": "/private/var/folders/c9/qq12c1lj6c16d183jjx7_gg80000gn/T/d-117223-14992-q77inq/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/private/var/folders/j1/3vxq1vgj0sg8x9fbr10zwq8h0000gn/T/d-117126-70250-x84ob8/package.tgz",
-    "spec": "/private/var/folders/j1/3vxq1vgj0sg8x9fbr10zwq8h0000gn/T/d-117126-70250-x84ob8/package.tgz",
+    "rawSpec": "/private/var/folders/c9/qq12c1lj6c16d183jjx7_gg80000gn/T/d-117223-14992-q77inq/package.tgz",
+    "spec": "/private/var/folders/c9/qq12c1lj6c16d183jjx7_gg80000gn/T/d-117223-14992-q77inq/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-117126-70250-x84ob8/package.tgz",
+  "_resolved": "file:../d-117223-14992-q77inq/package.tgz",
   "_shasum": "6e3c13162ce72800a0775b8a576754357f9e92df",
   "_shrinkwrap": null,
-  "_spec": "/private/var/folders/j1/3vxq1vgj0sg8x9fbr10zwq8h0000gn/T/d-117126-70250-x84ob8/package.tgz",
-  "_where": "/private/var/folders/j1/3vxq1vgj0sg8x9fbr10zwq8h0000gn/T/apm-install-dir-117126-70250-1vtr4hu",
+  "_spec": "/private/var/folders/c9/qq12c1lj6c16d183jjx7_gg80000gn/T/d-117223-14992-q77inq/package.tgz",
+  "_where": "/private/var/folders/c9/qq12c1lj6c16d183jjx7_gg80000gn/T/apm-install-dir-117223-14992-11uubi6",
   "author": {
     "name": "Sindre Sorhus",
     "email": "sindresorhus@gmail.com",
