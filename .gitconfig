@@ -3,7 +3,7 @@
 	email = me@tomasvitek.com
 
 [core]
-	editor = atom --wait
+	editor = subl -n -w
 	excludesfile = ~/.gitignore_global
 
 [color]
