@@ -21,8 +21,6 @@
       "patterns": [
         { "include": "#ignore-long-lines" },
         { "include": "#flowtype-keywords" },
-        { "include": "#literal-function-labels" },
-        { "include": "#literal-arrow-function-labels" },
         { "include": "#literal-labels" },
         { "include": "#literal-for" },
         { "include": "#literal-switch" },
@@ -37,8 +35,6 @@
         { "include": "#jsx" },
         { "include": "#es7-decorators" },
         { "include": "#support" },
-        { "include": "#literal-function-labels" },
-        { "include": "#literal-arrow-function-labels" },
         { "include": "#literal-function" },
         { "include": "#literal-arrow-function" },
         { "include": "#literal-prototype", "comment": "after literal-function, which includes some prototype strings" },
@@ -190,29 +186,6 @@
           },
           "patterns": [
             { "include": "#fat-arrow-braced-body" },
-            { "include": "#flowtype-polymorphs" },
-            { "include": "#flowtype-variable" }
-          ]
-        }
-      ]
-    },
-    "literal-probable-arrow-func": {
-      "patterns": [
-        {
-          "comment": "Trap possible args of an multiline arrow function starting arg:type, where the , ends the line",
-          "comment": "or a , followed by comment",
-          "contentName": "meta.function.parameters.js",
-          "begin": "(?<=[^=]=)\\s*((\\())(?=(?:(?:/\\*[^*]*\\*/|'[^']*'|\"[^\"]*\"|\\s+|[^,/'\"]*)*+,)++\\s*($|//))",
-          "end": "\\s*((\\)))",
-          "beginCaptures": {
-            "1": { "name": "punctuation.definition.parameters.begin.js" },
-            "2": { "name": "meta.brace.round.js" }
-          },
-          "endCaptures": {
-            "1": { "name": "punctuation.definition.parameters.end.js" },
-            "2": { "name": "meta.brace.round.js" }
-          },
-          "patterns": [
             { "include": "#flowtype-polymorphs" },
             { "include": "#flowtype-variable" }
           ]
@@ -371,7 +344,6 @@
     },
     "round-brackets": {
       "patterns": [
-        { "include": "#flowtype-typecast"},
         {
           "begin": "\\s*+(\\()",
           "end": "\\s*(\\))",
@@ -382,6 +354,50 @@
             "1": { "name": "meta.brace.round.js" }
           },
           "patterns": [
+            {
+              "comment": "need to check for ternary's",
+              "include": "literal-operators"
+            },
+            {
+              "comment": "Assume this is a flow typed var",
+              "name": "meta.function.parameters.js",
+              "begin": "(?<=^|,|\\()\\s*+(?=((?:[$_\\p{L}\\p{Nl}]|\\\\u\\h{4}|\\\\u{\\h+})(?:[$_\\p{L}\\p{Mn}\\p{Mc}\\p{Nd}\\p{Nl}\\p{Pc}\\x{200C}\\x{200D}]|\\\\u\\h{4}|\\\\u{\\h+})*+)\\s*\\??\\s*(:|\\)|$))",
+              "end": "(?=.)",
+              "applyEndPatternLast": 1,
+              "patterns": [
+                {"include": "#flowtype-variable"}
+              ]
+            },
+            {
+              "comment": "Assume this is a var",
+              "name": "meta.function.parameters.js",
+              "begin": "(?<=^|,|\\()\\s*+(?=((?:[$_\\p{L}\\p{Nl}]|\\\\u\\h{4}|\\\\u{\\h+})(?:[$_\\p{L}\\p{Mn}\\p{Mc}\\p{Nd}\\p{Nl}\\p{Pc}\\x{200C}\\x{200D}]|\\\\u\\h{4}|\\\\u{\\h+})*+)\\s*(,|\\)|$))",
+              "end": "(?=.)",
+              "applyEndPatternLast": 1,
+              "patterns": [
+                {"include": "#flowtype-variable"}
+              ]
+            },
+            {
+              "comment": "Assume this is a flow typed var",
+              "name": "meta.function.parameters.js",
+              "begin": "(?<=^|,|\\()\\s*+(?=\"[^\"]\"\\s*:)",
+              "end": "(?=.)",
+              "applyEndPatternLast": 1,
+              "patterns": [
+                {"include": "#flowtype-variable"}
+              ]
+            },
+            {
+              "comment": "Assume this is a flow typed var",
+              "name": "meta.function.parameters.js",
+              "begin": "(?<=^|,|\\()\\s*+(?='[^']'\\s*:)",
+              "end": "(?=.)",
+              "applyEndPatternLast": 1,
+              "patterns": [
+                {"include": "#flowtype-variable"}
+              ]
+            },
             { "include": "#expression" }
           ]
         }
@@ -914,17 +930,73 @@
           ]
         },
         {
-          "comment": "Styled CSS tag functions",
+          "comment": "Styled CSS tags",
           "contentName": "source.inside-js.css.styled",
-          "begin": "\\s*+(?:(\\bstyled))\\s*(?=((\\((?:(?>[^()]+)|\\g<-1>)*\\))*\\s*(`)))",
+          "begin": "(?<!\\.)\\s*+(?:((?:[$_\\p{L}\\p{Nl}]|\\\\u\\h{4}|\\\\u{\\h+})(?:[$_\\p{L}\\p{Mn}\\p{Mc}\\p{Nd}\\p{Nl}\\p{Pc}\\x{200C}\\x{200D}]|\\\\u\\h{4}|\\\\u{\\h+})*+)\\s*(\\.)\\s*(extend))\\s*((`))",
+          "end": "\\s*((`))",
+          "beginCaptures": {
+            "1": { "name": "variable.other.class.js" },
+            "2": { "name": "keyword.operator.accessor.js" },
+            "3": { "name": "entity.name.tag.styledcss.js" },
+            "4": { "name": "string.quoted.template.styled.start.js" },
+            "5": { "name": "punctuation.definition.quasi.begin.js" }
+          },
+          "endCaptures": {
+            "1": { "name": "string.quoted.template.styled.end.js" },
+            "2": { "name": "punctuation.definition.quasi.end.js" }
+          },
+          "patterns": [
+            { "include": "source.css.styled" }
+          ]
+        },
+        {
+          "comment": "Styled CSS tag functions",
+          "begin": "(?<!\\.)\\s*+(?:(\\bstyled)|((?:[$_\\p{L}\\p{Nl}]|\\\\u\\h{4}|\\\\u{\\h+})(?:[$_\\p{L}\\p{Mn}\\p{Mc}\\p{Nd}\\p{Nl}\\p{Pc}\\x{200C}\\x{200D}]|\\\\u\\h{4}|\\\\u{\\h+})*+)\\s*(\\.)\\s*(withComponent))\\s*(?=((\\((?:(?>[^()]+)|\\g<-1>)*\\))*\\s*(`)))",
           "end": "(?<=`)",
           "beginCaptures": {
-            "1": { "name": "entity.name.tag.styledcss.js" }
+            "1": { "name": "entity.name.tag.styledcss.js" },
+            "2": { "name": "variable.other.class.js" },
+            "3": { "name": "keyword.operator.accessor.js" },
+            "4": { "name": "entity.name.function.js" }
+
           },
           "patterns": [
             { "include": "#round-brackets" },
             {
-              "contentName": "source.css.styled",
+              "contentName": "source.inside-js.css.styled",
+              "begin": "\\s*((`))",
+              "end": "\\s*((`))",
+              "beginCaptures": {
+                "1": { "name": "string.quoted.template.styled.start.js" },
+                "2": { "name": "punctuation.definition.quasi.begin.js" }
+              },
+              "endCaptures": {
+                "1": { "name": "string.quoted.template.styled.end.js" },
+                "2": { "name": "punctuation.definition.quasi.end.js" }
+              },
+              "patterns": [
+                { "include": "source.css.styled" }
+              ]
+            }
+          ]
+        },
+        {
+          "comment": "Styled CSS tag functions",
+          "begin": "(?<!\\.)\\s*+(?:(\\bstyled)\\s*(\\.)\\s*((?:[$_\\p{L}\\p{Nl}]|\\\\u\\h{4}|\\\\u{\\h+})(?:[$_\\p{L}\\p{Mn}\\p{Mc}\\p{Nd}\\p{Nl}\\p{Pc}\\x{200C}\\x{200D}]|\\\\u\\h{4}|\\\\u{\\h+})*+)\\s*(\\.)\\s*(attrs))\\s*(?=\\()",
+          "end": "(?=.|\\n)",
+          "applyEndPatternLast": 1,
+          "beginCaptures": {
+            "1": { "name": "entity.name.tag.styledcss.js" },
+            "2": { "name": "keyword.operator.accessor.js" },
+            "3": { "name": "entity.name.tag.styledcss.js" },
+            "4": { "name": "keyword.operator.accessor.js" },
+            "5": { "name": "entity.name.function.js" }
+
+          },
+          "patterns": [
+            { "include": "#round-brackets" },
+            {
+              "contentName": "source.inside-js.css.styled",
               "begin": "\\s*((`))",
               "end": "\\s*((`))",
               "beginCaptures": {
@@ -2939,33 +3011,6 @@
         { "include": "#flowtype-declare" },
         { "include": "#flowtype-type-aliases" },
         { "include": "#flowtype-interface"}
-      ]
-    },
-    "flowtype-typecast": {
-      "patterns": [
-        { "include": "#literal-probable-arrow-func"},
-        {
-          "comment": "Assume flow typecasts start with a newline( or a :( or a =( or a ;(",
-          "comment": "try to avoid ternary operators which have a '? some chars :'",
-          "begin": "(^|:|;|=|(?<=:|;|=))\\s*+(\\((?=(?:((['\"])([^\\\"']*)(\\k<-3>))*+|[^?:\"'])*(\\s*:|\\?\\s*+:)))",
-          "end": "\\s*(\\))",
-          "beginCaptures": {
-            "2": { "name": "meta.brace.round.js" }
-          },
-          "endCaptures": {
-            "1": { "name": "meta.brace.round.js" }
-          },
-          "patterns": [
-            {
-              "begin": "\\s*+(?=:)",
-              "end": "(?=\\s*+\\))",
-              "patterns": [
-                { "include": "#flowtype-parse-types" }
-              ]
-            },
-            { "include": "#expression" }
-          ]
-        }
       ]
     },
     "flowtype-comments": {
