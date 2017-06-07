@@ -53,6 +53,7 @@
         { "include": "#brackets" },
         { "include": "#flowtype-trap"},
         { "include": "#literal-operators" },
+        { "include": "#literal-variable-flowtype" },
         { "include": "#literal-variable" },
         { "include": "#literal-comma" },
         { "include": "#fat-arrow"}
@@ -354,50 +355,6 @@
             "1": { "name": "meta.brace.round.js" }
           },
           "patterns": [
-            {
-              "comment": "need to check for ternary's",
-              "include": "literal-operators"
-            },
-            {
-              "comment": "Assume this is a flow typed var",
-              "name": "meta.function.parameters.js",
-              "begin": "(?<=^|,|\\()\\s*+(?=((?:[$_\\p{L}\\p{Nl}]|\\\\u\\h{4}|\\\\u{\\h+})(?:[$_\\p{L}\\p{Mn}\\p{Mc}\\p{Nd}\\p{Nl}\\p{Pc}\\x{200C}\\x{200D}]|\\\\u\\h{4}|\\\\u{\\h+})*+)\\s*\\??\\s*(:|\\)|$))",
-              "end": "(?=.)",
-              "applyEndPatternLast": 1,
-              "patterns": [
-                {"include": "#flowtype-variable"}
-              ]
-            },
-            {
-              "comment": "Assume this is a var",
-              "name": "meta.function.parameters.js",
-              "begin": "(?<=^|,|\\()\\s*+(?=((?:[$_\\p{L}\\p{Nl}]|\\\\u\\h{4}|\\\\u{\\h+})(?:[$_\\p{L}\\p{Mn}\\p{Mc}\\p{Nd}\\p{Nl}\\p{Pc}\\x{200C}\\x{200D}]|\\\\u\\h{4}|\\\\u{\\h+})*+)\\s*(,|\\)|$))",
-              "end": "(?=.)",
-              "applyEndPatternLast": 1,
-              "patterns": [
-                {"include": "#flowtype-variable"}
-              ]
-            },
-            {
-              "comment": "Assume this is a flow typed var",
-              "name": "meta.function.parameters.js",
-              "begin": "(?<=^|,|\\()\\s*+(?=\"[^\"]\"\\s*:)",
-              "end": "(?=.)",
-              "applyEndPatternLast": 1,
-              "patterns": [
-                {"include": "#flowtype-variable"}
-              ]
-            },
-            {
-              "comment": "Assume this is a flow typed var",
-              "name": "meta.function.parameters.js",
-              "begin": "(?<=^|,|\\()\\s*+(?='[^']'\\s*:)",
-              "end": "(?=.)",
-              "applyEndPatternLast": 1,
-              "patterns": [
-                {"include": "#flowtype-variable"}
-              ]
-            },
             { "include": "#expression" }
           ]
         }
@@ -951,10 +908,10 @@
         },
         {
           "comment": "Styled CSS tag functions",
-          "begin": "(?<!\\.)\\s*+(?:(\\bstyled)|((?:[$_\\p{L}\\p{Nl}]|\\\\u\\h{4}|\\\\u{\\h+})(?:[$_\\p{L}\\p{Mn}\\p{Mc}\\p{Nd}\\p{Nl}\\p{Pc}\\x{200C}\\x{200D}]|\\\\u\\h{4}|\\\\u{\\h+})*+)\\s*(\\.)\\s*(withComponent))\\s*(?=((\\((?:(?>[^()]+)|\\g<-1>)*\\))*\\s*(`)))",
+          "begin": "(?<!\\.)\\s*+(?:(\\bstyled)|((?:[$_\\p{L}\\p{Nl}]|\\\\u\\h{4}|\\\\u{\\h+})(?:[$_\\p{L}\\p{Mn}\\p{Mc}\\p{Nd}\\p{Nl}\\p{Pc}\\x{200C}\\x{200D}]|\\\\u\\h{4}|\\\\u{\\h+})*+)\\s*(\\.)\\s*(withComponent))\\s*(?=((\\((?:(?>[^()]+)|\\g<-1>)*\\))*\\s*`))",
           "end": "(?<=`)",
           "beginCaptures": {
-            "1": { "name": "entity.name.tag.styledcss.js" },
+            "1": { "name": "entity.name.function.js" },
             "2": { "name": "variable.other.class.js" },
             "3": { "name": "keyword.operator.accessor.js" },
             "4": { "name": "entity.name.function.js" }
@@ -962,6 +919,44 @@
           },
           "patterns": [
             { "include": "#round-brackets" },
+            {
+              "contentName": "source.inside-js.css.styled",
+              "begin": "\\s*((`))",
+              "end": "\\s*((`))",
+              "beginCaptures": {
+                "1": { "name": "string.quoted.template.styled.start.js" },
+                "2": { "name": "punctuation.definition.quasi.begin.js" }
+              },
+              "endCaptures": {
+                "1": { "name": "string.quoted.template.styled.end.js" },
+                "2": { "name": "punctuation.definition.quasi.end.js" }
+              },
+              "patterns": [
+                { "include": "source.css.styled" }
+              ]
+            }
+          ]
+        },
+        {
+          "comment": "Styled CSS tag functions",
+          "begin": "(?<!\\.)\\s*+(?:(\\bstyled))\\s*(?=((\\((?:(?>[^()]+)|\\g<-1>)*\\))*\\s*\\.\\s*attrs\\s*\\())",
+          "end": "(?<=`)",
+          "beginCaptures": {
+            "1": { "name": "entity.name.function.js" },
+            "2": { "name": "variable.other.class.js" },
+            "3": { "name": "keyword.operator.accessor.js" },
+            "4": { "name": "entity.name.function.js" }
+
+          },
+          "patterns": [
+            { "include": "#round-brackets" },
+            {
+              "match": "\\s*(\\.)\\s*(attrs)",
+              "captures": {
+                "1": { "name": "keyword.operator.accessor.js" },
+                "2": { "name": "entity.name.function.js" }
+              }
+            },
             {
               "contentName": "source.inside-js.css.styled",
               "begin": "\\s*((`))",
@@ -1212,6 +1207,14 @@
             "1": { "name": "keyword.operator.ternary.js" }
           },
           "patterns": [
+            {
+              "begin": "\\s*+(?=((?:[$_\\p{L}\\p{Nl}]|\\\\u\\h{4}|\\\\u{\\h+})(?:[$_\\p{L}\\p{Mn}\\p{Mc}\\p{Nd}\\p{Nl}\\p{Pc}\\x{200C}\\x{200D}]|\\\\u\\h{4}|\\\\u{\\h+})*+)\\s*:)",
+              "end": "\\s*(?=:)",
+              "patterns": [
+                { "include": "#literal-language-constant" },
+                { "include": "#literal-variable"}
+              ]
+            },
             { "include": "#expression" }
           ]
         },
@@ -1696,11 +1699,12 @@
         {
           "comment": "e.g. arg => { }",
           "name": "meta.function.arrow.js",
-          "match": "\\s*+(\\basync\\b)?\\s*+((?:[$_\\p{L}\\p{Nl}]|\\\\u\\h{4}|\\\\u{\\h+})(?:[$_\\p{L}\\p{Mn}\\p{Mc}\\p{Nd}\\p{Nl}\\p{Pc}\\x{200C}\\x{200D}]|\\\\u\\h{4}|\\\\u{\\h+})*+)\\s*(=>)",
+          "match": "\\s*+(\\basync\\b)?\\s*+(((?:[$_\\p{L}\\p{Nl}]|\\\\u\\h{4}|\\\\u{\\h+})(?:[$_\\p{L}\\p{Mn}\\p{Mc}\\p{Nd}\\p{Nl}\\p{Pc}\\x{200C}\\x{200D}]|\\\\u\\h{4}|\\\\u{\\h+})*+))\\s*(=>)",
           "captures": {
             "1": { "name": "storage.type.js" },
-            "2": { "name": "variable.other.readwrite.js" },
-            "3": { "name": "storage.type.function.arrow.js" }
+            "2": { "name": "meta.function.parameters.js" },
+            "3": { "name": "variable.other.readwrite.js" },
+            "4": { "name": "storage.type.function.arrow.js" }
           }
         },
         { "include": "#literal-arrow-function-simple-assignments" },
@@ -2151,6 +2155,34 @@
         {
           "name": "variable.other.readwrite.js",
           "match": "\\s*+((?:[$_\\p{L}\\p{Nl}]|\\\\u\\h{4}|\\\\u{\\h+})(?:[$_\\p{L}\\p{Mn}\\p{Mc}\\p{Nd}\\p{Nl}\\p{Pc}\\x{200C}\\x{200D}]|\\\\u\\h{4}|\\\\u{\\h+})*+)"
+        }
+      ]
+    },
+    "literal-variable-flowtype": {
+      "patterns": [
+        {
+          "comment": "Assume this is a flow typed var",
+          "begin": "(?<=^|,|\\()\\s*+(?=((?:[$_\\p{L}\\p{Nl}]|\\\\u\\h{4}|\\\\u{\\h+})(?:[$_\\p{L}\\p{Mn}\\p{Mc}\\p{Nd}\\p{Nl}\\p{Pc}\\x{200C}\\x{200D}]|\\\\u\\h{4}|\\\\u{\\h+})*+)\\s*\\??\\s*:)",
+          "end": "\\s*(?=,|\\))",
+          "patterns": [
+            {"include": "#flowtype-variable"}
+          ]
+        },
+        {
+          "comment": "Assume this is a flow typed var",
+          "begin": "(?<=^|,|\\()\\s*+(?=\"[^\"]\"\\s*:)",
+          "end": "\\s*(?>=|\\))",
+          "patterns": [
+            {"include": "#flowtype-variable"}
+          ]
+        },
+        {
+          "comment": "Assume this is a flow typed var",
+          "begin": "(?<=^|,|\\()\\s*+(?='[^']'\\s*:)",
+          "end": "\\s*(?>=|\\))",
+          "patterns": [
+            {"include": "#flowtype-variable"}
+          ]
         }
       ]
     },

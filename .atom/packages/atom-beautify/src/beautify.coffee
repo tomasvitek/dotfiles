@@ -1,6 +1,6 @@
 # global atom
 "use strict"
-pkg = require('../package.json')
+pkg = require('../package')
 
 # Dependencies
 plugin = module.exports
@@ -117,7 +117,7 @@ beautify = ({ editor, onSave, language }) ->
           else
 
             # console.log "setText"
-            editor.setText text
+            editor.getBuffer().setTextViaDiff(text)
 
           # console.log "setCursors"
           setCursors editor, posArray
@@ -615,7 +615,7 @@ plugin.addLanguageCommands = ->
       )
     )(language)
 
-plugin.config = _.merge(require('./config.coffee'), defaultLanguageOptions)
+plugin.config = _.merge(require('./config'), defaultLanguageOptions)
 plugin.activate = ->
   @subscriptions = new CompositeDisposable
   @subscriptions.add handleSaveEvent()
