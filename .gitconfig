@@ -4,7 +4,7 @@
 
 [core]
 	editor = subl -n -w
-	excludesfile = ~/.gitignore_global
+	excludesfile = /Users/tomik/.gitignore_global
 
 [color]
 	ui = always
