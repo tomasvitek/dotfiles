@@ -2,7 +2,7 @@
 
 import { CompositeDisposable, Disposable, Emitter, Range } from 'atom'
 
-import { filterMessages, filterMessagesByRangeOrPoint } from '../helpers'
+import { getActiveTextEditor, filterMessages, filterMessagesByRangeOrPoint } from '../helpers'
 import type { LinterMessage } from '../types'
 
 class PanelDelegate {
@@ -26,18 +26,18 @@ class PanelDelegate {
       }
     }))
     let changeSubscription
-    this.subscriptions.add(atom.workspace.observeActivePaneItem((paneItem) => {
+    this.subscriptions.add(atom.workspace.getCenter().observeActivePaneItem(() => {
       if (changeSubscription) {
         changeSubscription.dispose()
         changeSubscription = null
       }
-      const isTextEditor = atom.workspace.isTextEditor(paneItem)
-      if (isTextEditor) {
+      const textEditor = getActiveTextEditor()
+      if (textEditor) {
         if (this.panelRepresents !== 'Entire Project') {
           this.update()
         }
         let oldRow = -1
-        changeSubscription = paneItem.onDidChangeCursorPosition(({ newBufferPosition }) => {
+        changeSubscription = textEditor.onDidChangeCursorPosition(({ newBufferPosition }) => {
           if (oldRow !== newBufferPosition.row && this.panelRepresents === 'Current Line') {
             oldRow = newBufferPosition.row
             this.update()
@@ -45,7 +45,7 @@ class PanelDelegate {
         })
       }
 
-      if (this.panelRepresents !== 'Entire Project' || isTextEditor) {
+      if (this.panelRepresents !== 'Entire Project' || textEditor) {
         this.update()
       }
     }))
@@ -60,11 +60,11 @@ class PanelDelegate {
     if (this.panelRepresents === 'Entire Project') {
       filteredMessages = this.messages
     } else if (this.panelRepresents === 'Current File') {
-      const activeEditor = atom.workspace.getActiveTextEditor()
+      const activeEditor = getActiveTextEditor()
       if (!activeEditor) return []
       filteredMessages = filterMessages(this.messages, activeEditor.getPath())
     } else if (this.panelRepresents === 'Current Line') {
-      const activeEditor = atom.workspace.getActiveTextEditor()
+      const activeEditor = getActiveTextEditor()
       if (!activeEditor) return []
       const activeLine = activeEditor.getCursors()[0].getBufferRow()
       filteredMessages = filterMessagesByRangeOrPoint(this.messages, activeEditor.getPath(), Range.fromObject([[activeLine, 0], [activeLine, Infinity]]))

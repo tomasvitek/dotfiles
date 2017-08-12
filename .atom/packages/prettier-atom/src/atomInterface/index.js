@@ -21,13 +21,30 @@ const shouldUseEslint = () => getConfigOption('useEslint');
 
 const shouldUseEditorConfig = () => getConfigOption('useEditorConfig');
 
-const shouldDisplayErrors = () => !getConfigOption('silenceErrors');
-
 const isFormatOnSaveEnabled = () => getConfigOption('formatOnSaveOptions.enabled');
+
+const isDisabledIfNotInPackageJson = () =>
+  getConfigOption('formatOnSaveOptions.isDisabledIfNotInPackageJson');
 
 const shouldRespectEslintignore = () => getConfigOption('formatOnSaveOptions.respectEslintignore');
 
-const getScopes = () => getConfigOption('formatOnSaveOptions.scopes');
+const getJavascriptScopes = () => getConfigOption('formatOnSaveOptions.javascriptScopes');
+
+const getTypescriptScopes = () => getConfigOption('formatOnSaveOptions.typescriptScopes');
+
+const getCssScopes = () => getConfigOption('formatOnSaveOptions.cssScopes');
+
+const getJsonScopes = () => getConfigOption('formatOnSaveOptions.jsonScopes');
+
+const getGraphQlScopes = () => getConfigOption('formatOnSaveOptions.graphQlScopes');
+
+const getAllScopes = () => [
+  ...getJavascriptScopes(),
+  ...getTypescriptScopes(),
+  ...getCssScopes(),
+  ...getJsonScopes(),
+  ...getGraphQlScopes(),
+];
 
 const getWhitelistedGlobs = () => getConfigOption('formatOnSaveOptions.whitelistedGlobs');
 
@@ -58,6 +75,14 @@ const addWarningNotification = (message: string, options?: Atom$Notifications$Op
 const addErrorNotification = (message: string, options?: Atom$Notifications$Options) =>
   atom.notifications.addError(message, options);
 
+const attemptWithErrorNotification = (func: Function, ...args: Array<any>) => {
+  try {
+    func(...args);
+  } catch (e) {
+    addErrorNotification(e.message, { dismissable: true, stack: e.stack });
+  }
+};
+
 const runLinter = (editor: TextEditor) =>
   isLinterLintCommandDefined(editor) &&
   atom.commands.dispatch(atom.views.getView(editor), LINTER_LINT_COMMAND);
@@ -73,14 +98,20 @@ module.exports = {
   getPrettierAtomConfig,
   getPrettierEslintOptions,
   getPrettierOptions,
-  getScopes,
+  getJavascriptScopes,
+  getTypescriptScopes,
+  getCssScopes,
+  getJsonScopes,
+  getGraphQlScopes,
+  getAllScopes,
   getWhitelistedGlobs,
+  isDisabledIfNotInPackageJson,
   isFormatOnSaveEnabled,
   isLinterEslintAutofixEnabled,
   runLinter,
-  shouldDisplayErrors,
   shouldRespectEslintignore,
   shouldUseEditorConfig,
   shouldUseEslint,
   toggleFormatOnSave,
+  attemptWithErrorNotification,
 };

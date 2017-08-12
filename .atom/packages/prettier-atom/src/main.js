@@ -1,7 +1,8 @@
 const config = require('./config-schema.json');
 // eslint-disable-next-line import/no-extraneous-dependencies, import/no-unresolved
 const { CompositeDisposable } = require('atom');
-const { createStatusTile, updateStatusTile, disposeTooltip } = require('./statusTile');
+const { createStatusTile, updateStatusTile, updateStatusTileScope, disposeTooltip } = require('./statusTile');
+const linterInterface = require('./linterInterface');
 
 // local helpers
 let format = null;
@@ -23,10 +24,8 @@ const lazyFormat = () => {
 };
 
 // HACK: lazy load most of the code we need for performance
-const lazyFormatOnSave = () => {
+const lazyFormatOnSave = (editor) => {
   if (!formatOnSave) formatOnSave = require('./formatOnSave'); // eslint-disable-line global-require
-
-  const editor = atom.workspace.getActiveTextEditor();
   if (editor) formatOnSave(editor);
 };
 
@@ -70,6 +69,14 @@ const attachStatusTile = () => {
         updateStatusTile(subscriptions, tileElement),
       ),
     );
+    subscriptions.add(
+      // onDidChangeActiveTextEditor is only available in Atom 1.18.0+.
+      atom.workspace.onDidChangeActiveTextEditor
+        ? atom.workspace.onDidChangeActiveTextEditor(editor => updateStatusTileScope(tileElement, editor))
+        : atom.workspace.onDidChangeActivePaneItem(() =>
+          updateStatusTileScope(tileElement, atom.workspace.getActiveTextEditor()),
+        ),
+    );
   }
 };
 
@@ -80,8 +87,17 @@ const detachStatusTile = () => {
   }
 };
 
+const loadPackageDeps = () =>
+  // eslint-disable-next-line global-require
+  require('atom-package-deps')
+    .install('prettier-atom')
+    // eslint-disable-next-line no-console
+    .then(() => console.log('All dependencies installed, good to go'));
+
 // public API
 const activate = () => {
+  loadPackageDeps();
+
   subscriptions = new CompositeDisposable();
 
   subscriptions.add(atom.commands.add('atom-workspace', 'prettier:format', lazyFormat));
@@ -128,10 +144,34 @@ const consumeStatusBar = (statusBar) => {
   }
 };
 
+const consumeIndie = (registerIndie) => {
+  const linter = registerIndie({ name: 'Prettier' });
+  subscriptions.add(linter);
+  linterInterface.set(linter);
+
+  // Setting and clearing messages per filePath
+  subscriptions.add(
+    atom.workspace.observeTextEditors((textEditor) => {
+      const editorPath = textEditor.getPath();
+      if (!editorPath) {
+        return;
+      }
+
+      const subscription = textEditor.onDidDestroy(() => {
+        subscriptions.remove(subscription);
+        linter.setMessages(editorPath, []);
+        linterInterface.set(null);
+      });
+      subscriptions.add(subscription);
+    }),
+  );
+};
+
 module.exports = {
   activate,
   deactivate,
   config,
   subscriptions,
   consumeStatusBar,
+  consumeIndie,
 };

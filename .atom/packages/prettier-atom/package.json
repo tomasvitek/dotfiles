@@ -2,40 +2,39 @@
   "_args": [
     [
       {
-        "raw": "/private/var/folders/j1/3vxq1vgj0sg8x9fbr10zwq8h0000gn/T/d-11757-46446-1rlytor.nx07ctyb9/package.tgz",
+        "raw": "/private/var/folders/j1/3vxq1vgj0sg8x9fbr10zwq8h0000gn/T/d-117712-22309-kfoprp.1nal2l0udi/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/private/var/folders/j1/3vxq1vgj0sg8x9fbr10zwq8h0000gn/T/d-11757-46446-1rlytor.nx07ctyb9/package.tgz",
-        "spec": "/private/var/folders/j1/3vxq1vgj0sg8x9fbr10zwq8h0000gn/T/d-11757-46446-1rlytor.nx07ctyb9/package.tgz",
+        "rawSpec": "/private/var/folders/j1/3vxq1vgj0sg8x9fbr10zwq8h0000gn/T/d-117712-22309-kfoprp.1nal2l0udi/package.tgz",
+        "spec": "/private/var/folders/j1/3vxq1vgj0sg8x9fbr10zwq8h0000gn/T/d-117712-22309-kfoprp.1nal2l0udi/package.tgz",
         "type": "local"
       },
-      "/private/var/folders/j1/3vxq1vgj0sg8x9fbr10zwq8h0000gn/T/apm-install-dir-11757-46446-1t4apl7.jj9nzjv2t9"
+      "/private/var/folders/j1/3vxq1vgj0sg8x9fbr10zwq8h0000gn/T/apm-install-dir-117712-22309-plxc2t.3gp72satt9"
     ]
   ],
-  "_from": "../d-11757-46446-1rlytor.nx07ctyb9/package.tgz",
-  "_id": "prettier-atom@0.32.0",
+  "_from": "../d-117712-22309-kfoprp.1nal2l0udi/package.tgz",
+  "_id": "prettier-atom@0.37.0",
   "_inCache": true,
-  "_installable": true,
   "_location": "/prettier-atom",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/private/var/folders/j1/3vxq1vgj0sg8x9fbr10zwq8h0000gn/T/d-11757-46446-1rlytor.nx07ctyb9/package.tgz",
+    "raw": "/private/var/folders/j1/3vxq1vgj0sg8x9fbr10zwq8h0000gn/T/d-117712-22309-kfoprp.1nal2l0udi/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/private/var/folders/j1/3vxq1vgj0sg8x9fbr10zwq8h0000gn/T/d-11757-46446-1rlytor.nx07ctyb9/package.tgz",
-    "spec": "/private/var/folders/j1/3vxq1vgj0sg8x9fbr10zwq8h0000gn/T/d-11757-46446-1rlytor.nx07ctyb9/package.tgz",
+    "rawSpec": "/private/var/folders/j1/3vxq1vgj0sg8x9fbr10zwq8h0000gn/T/d-117712-22309-kfoprp.1nal2l0udi/package.tgz",
+    "spec": "/private/var/folders/j1/3vxq1vgj0sg8x9fbr10zwq8h0000gn/T/d-117712-22309-kfoprp.1nal2l0udi/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-11757-46446-1rlytor.nx07ctyb9/package.tgz",
-  "_shasum": "f1c2eaef1ea4bd76b81ec0c08b41cd275e8293ad",
+  "_resolved": "file:../d-117712-22309-kfoprp.1nal2l0udi/package.tgz",
+  "_shasum": "9a142dcd5a00693b9b9461c7f8744f42ebd0038f",
   "_shrinkwrap": null,
-  "_spec": "/private/var/folders/j1/3vxq1vgj0sg8x9fbr10zwq8h0000gn/T/d-11757-46446-1rlytor.nx07ctyb9/package.tgz",
-  "_where": "/private/var/folders/j1/3vxq1vgj0sg8x9fbr10zwq8h0000gn/T/apm-install-dir-11757-46446-1t4apl7.jj9nzjv2t9",
+  "_spec": "/private/var/folders/j1/3vxq1vgj0sg8x9fbr10zwq8h0000gn/T/d-117712-22309-kfoprp.1nal2l0udi/package.tgz",
+  "_where": "/private/var/folders/j1/3vxq1vgj0sg8x9fbr10zwq8h0000gn/T/apm-install-dir-117712-22309-plxc2t.3gp72satt9",
   "bugs": {
     "url": "https://github.com/prettier/prettier-atom/issues"
   },
@@ -49,17 +48,25 @@
       "versions": {
         "^1.0.0": "consumeStatusBar"
       }
+    },
+    "linter-indie": {
+      "versions": {
+        "2.0.0": "consumeIndie"
+      }
     }
   },
   "dependencies": {
     "atom-linter": "^10.0.0",
+    "atom-package-deps": "^4.6.0",
+    "atom-text-buffer-point": "^1.0.0",
+    "atom-text-buffer-range": "^1.0.0",
     "editorconfig": "^0.13.2",
     "ignore": "^3.3.3",
     "lodash": "^4.17.4",
     "loophole": "^1.1.0",
-    "prettier": "^1.4.1",
-    "prettier-eslint": "^6.2.3",
-    "read-pkg": "^2.0.0"
+    "prettier": "^1.5.3",
+    "prettier-eslint": "^6.4.2",
+    "read-pkg-up": "^2.0.0"
   },
   "description": "Atom plugin for formatting JavaScript using prettier with (optional) prettier-eslint integration",
   "devDependencies": {
@@ -68,23 +75,23 @@
     "babel-eslint": "^7.2.3",
     "babel-jest": "^20.0.3",
     "babel-plugin-transform-flow-strip-types": "^6.22.0",
-    "babel-preset-env": "^1.5.1",
+    "babel-preset-env": "^1.6.0",
     "babel-preset-stage-2": "^6.24.1",
     "codecov": "^2.2.0",
     "commitizen": "^2.9.6",
     "cz-conventional-changelog": "^2.0.0",
-    "eslint": "^3.19.0",
+    "eslint": "^4.3.0",
     "eslint-config-airbnb-base": "^11.2.0",
-    "eslint-plugin-flowtype": "^2.34.0",
-    "eslint-plugin-import": "^2.3.0",
+    "eslint-plugin-flowtype": "^2.35.0",
+    "eslint-plugin-import": "^2.7.0",
     "eslint-plugin-jest": "^20.0.3",
-    "flow-bin": "^0.47.0",
-    "flow-typed": "^2.1.2",
-    "husky": "^0.13.4",
+    "flow-bin": "^0.51.0",
+    "flow-typed": "^2.1.5",
+    "husky": "^0.14.3",
     "jest-cli": "^20.0.4",
-    "nps": "^5.3.1",
+    "nps": "^5.6.0",
     "opt-cli": "^1.5.1",
-    "prettier-eslint-cli": "^4.0.2",
+    "prettier-eslint-cli": "^4.1.1",
     "rimraf": "^2.6.1"
   },
   "engines": {
@@ -118,7 +125,10 @@
   "main": "./dist/main.js",
   "name": "prettier-atom",
   "optionalDependencies": {},
-  "readme": "# Prettier for Atom [![Watch on GitHub][github-watch-badge]][github-watch][![Star on GitHub][github-star-badge]][github-star][![Tweet][twitter-badge]][twitter]\n\n<!-- [![Dependencies][dependencyci-badge]][dependencyci] TODO: Add dependency CI! -->\n<!-- [![Code of Conduct][coc-badge]][coc] -->\n\n[![Version][version-badge]][package]\n[![Downloads][downloads-badge]][package]\n[![Build Status][build-badge]][build]\n[![Code Coverage][coverage-badge]][coverage]\n[![MIT License][license-badge]][LICENSE]\n[![All Contributors][all-contributors-badge]](#contributors)\n[![PRs Welcome][prs-badge]][prs]\n\nAtom package to format your JavaScript using [Prettier](https://github.com/prettier/prettier).\nComes with powerful optional [ESLint](http://eslint.org/) integration.\n\n## Demo\n\n![prettier demo][prettier-demo]\n\n## Installation\n\n```\napm install prettier-atom\n```\n\nOr go to *Settings → Install* and search for `prettier-atom`.\n\nMake sure to restart Atom after the package is installed.\n\n## Usage\n\nThere are two modes you can use:\n\n- Invoke manually using the **keyboard shortcut** (if no selection, whole file is formatted): <kbd>CTRL</kbd> + <kbd>ALT</kbd> + <kbd>F</kbd>\n- Automatically **format on save** (requires enabling in *Packages → Prettier → Toggle Format on Save*)\n\nIf you use ESLint, check the \"ESLint Integration\" checkbox and \\*poof\\*, everything should work (we use Kent Dodds's [`prettier-eslint`][prettier-eslint] plugin under the hood).\nWe will recursively search up the file tree for your `package.json` and ESLint settings, and use them when formatting.\n\n![prettier-eslint demo][prettier-eslint-demo]\n\nMore detailed descriptions of each option can be found in the Atom settings for this plugin.\n\nPlease open a pull request or file an issue if you notice bugs or something doesn't work as it should!\n\n## Troubleshooting\nIf prettier (or prettier-eslint, if eslint integration is enabled) is not formatting something properly, please make an issue on the relevant GitHub repo. This package is just the Atom integration of those projects.\n\nSome users have reported getting the following error after updating:\n\n```\nValidation Error:\n Option \"tabWidth\" must be of type:\n   number\n but instead received:\n   string\n Example:\n {\n   \"tabWidth\": 2\n }\n ```\n\n To fix the problem, open you configuration file and manually ensure that there are no quotation marks around the setting. We suspect this may be a bug with Atom.\n\n## Inspiration\n\nThis repository was created by [James Long][james-long] to go along with his Prettier project. [Kent C. Dodds][kentcdodds] extended Prettier to add `eslint --fix` integration as [prettier-eslint][prettier-eslint] and forked the original `prettier-atom` plugin to create the `prettier-eslint-atom` plugin. Because it became clear that the plugins were very similar and thus maintenance made easier by combining the two, [Rob Wise][robwise] merged `prettier-eslint-atom` back into `prettier-atom`.\n\n## Maintainers\n\n[Rob Wise][robwise]\n\n## Contributors\n\nThanks goes to these people ([emoji key][emojis]):\n\n<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->\n| [<img src=\"https://avatars.githubusercontent.com/u/17031?v=3\" width=\"100px;\"/><br /><sub>James Long</sub>](http://jlongster.com)<br />[💬](#question-jlongster \"Answering Questions\") [💻](https://github.com/prettier/prettier-atom/commits?author=jlongster \"Code\") [📖](https://github.com/prettier/prettier-atom/commits?author=jlongster \"Documentation\") [🔌](#plugin-jlongster \"Plugin/utility libraries\") [👀](#review-jlongster \"Reviewed Pull Requests\") | [<img src=\"https://avatars.githubusercontent.com/u/6173488?v=3\" width=\"100px;\"/><br /><sub>Rob Wise</sub>](https://robwise.github.io)<br />[💻](https://github.com/prettier/prettier-atom/commits?author=robwise \"Code\") [📖](https://github.com/prettier/prettier-atom/commits?author=robwise \"Documentation\") [💬](#question-robwise \"Answering Questions\") [💡](#example-robwise \"Examples\") [👀](#review-robwise \"Reviewed Pull Requests\") [⚠️](https://github.com/prettier/prettier-atom/commits?author=robwise \"Tests\") | [<img src=\"https://avatars.githubusercontent.com/u/1500684?v=3\" width=\"100px;\"/><br /><sub>Kent C. Dodds</sub>](https://kentcdodds.com)<br />[💻](https://github.com/prettier/prettier-atom/commits?author=kentcdodds \"Code\") [📖](https://github.com/prettier/prettier-atom/commits?author=kentcdodds \"Documentation\") [🚇](#infra-kentcdodds \"Infrastructure (Hosting, Build-Tools, etc)\") | [<img src=\"https://avatars.githubusercontent.com/u/1144075?v=3\" width=\"100px;\"/><br /><sub>Luca Barone</sub>](https://github.com/cloud-walker)<br /> | [<img src=\"https://avatars.githubusercontent.com/u/4514159?v=3\" width=\"100px;\"/><br /><sub>Arnar Þór Sveinsson</sub>](https://github.com/arnarthor)<br />[💻](https://github.com/prettier/prettier-atom/commits?author=arnarthor \"Code\") | [<img src=\"https://avatars.githubusercontent.com/u/131916?v=3\" width=\"100px;\"/><br /><sub>Adam Miskiewicz</sub>](http://www.adammiskiewicz.com/)<br />[💻](https://github.com/prettier/prettier-atom/commits?author=skevy \"Code\") | [<img src=\"https://avatars.githubusercontent.com/u/2685242?v=3\" width=\"100px;\"/><br /><sub>Ori Livni</sub>](http://www.orilivni.com)<br />[💻](https://github.com/prettier/prettier-atom/commits?author=oriSomething \"Code\") |\n| :---: | :---: | :---: | :---: | :---: | :---: | :---: |\n| [<img src=\"https://avatars.githubusercontent.com/u/6182852?v=3\" width=\"100px;\"/><br /><sub>Leon Chen</sub>](https://transcranial.github.io)<br />[💻](https://github.com/prettier/prettier-atom/commits?author=transcranial \"Code\") | [<img src=\"https://avatars.githubusercontent.com/u/197597?v=3\" width=\"100px;\"/><br /><sub>Christopher Chedeau</sub>](http://blog.vjeux.com/)<br />[💬](#question-vjeux \"Answering Questions\") [💻](https://github.com/prettier/prettier-atom/commits?author=vjeux \"Code\") [🔌](#plugin-vjeux \"Plugin/utility libraries\") | [<img src=\"https://avatars.githubusercontent.com/u/646693?v=3\" width=\"100px;\"/><br /><sub>Christoph Geschwind</sub>](http://christoph-geschwind.de)<br />[💻](https://github.com/prettier/prettier-atom/commits?author=1st8 \"Code\") | [<img src=\"https://avatars.githubusercontent.com/u/35026?v=3\" width=\"100px;\"/><br /><sub>Andrew Hutchings</sub>](https://andrewhutchings.com)<br />[💻](https://github.com/prettier/prettier-atom/commits?author=ahutchings \"Code\") | [<img src=\"https://avatars.githubusercontent.com/u/875591?v=3\" width=\"100px;\"/><br /><sub>David Schnurr</sub>](http://davidschnurr.com)<br />[💻](https://github.com/prettier/prettier-atom/commits?author=schnerd \"Code\") | [<img src=\"https://avatars.githubusercontent.com/u/484801?v=3\" width=\"100px;\"/><br /><sub>Ryan Cole</sub>](http://rycole.com/)<br />[💻](https://github.com/prettier/prettier-atom/commits?author=ryancole \"Code\") | [<img src=\"https://avatars0.githubusercontent.com/u/11488612?v=3\" width=\"100px;\"/><br /><sub>Dara Hak</sub>](https://github.com/darahak)<br />[💻](https://github.com/prettier/prettier-atom/commits?author=darahak \"Code\") [📖](https://github.com/prettier/prettier-atom/commits?author=darahak \"Documentation\") |\n| [<img src=\"https://avatars3.githubusercontent.com/u/487068?v=3\" width=\"100px;\"/><br /><sub>Stephen John Sorensen</sub>](http://www.stephenjohnsorensen.com/)<br />[💻](https://github.com/prettier/prettier-atom/commits?author=spudly \"Code\") | [<img src=\"https://avatars2.githubusercontent.com/u/13285808?v=3\" width=\"100px;\"/><br /><sub>Lukas Geiger</sub>](https://github.com/lgeiger)<br />[💻](https://github.com/prettier/prettier-atom/commits?author=lgeiger \"Code\") [⚠️](https://github.com/prettier/prettier-atom/commits?author=lgeiger \"Tests\") | [<img src=\"https://avatars2.githubusercontent.com/u/1517854?v=3\" width=\"100px;\"/><br /><sub>Viktor Charypar</sub>](https://github.com/charypar)<br />[💻](https://github.com/prettier/prettier-atom/commits?author=charypar \"Code\") [⚠️](https://github.com/prettier/prettier-atom/commits?author=charypar \"Tests\") | [<img src=\"https://avatars0.githubusercontent.com/u/1007436?v=3\" width=\"100px;\"/><br /><sub>Mats Högberg</sub>](http://mats.hgbrg.se)<br />[💻](https://github.com/prettier/prettier-atom/commits?author=mhgbrg \"Code\") | [<img src=\"https://avatars0.githubusercontent.com/u/2602767?v=3\" width=\"100px;\"/><br /><sub>Roman</sub>](https://github.com/RoM4iK)<br />[💻](https://github.com/prettier/prettier-atom/commits?author=RoM4iK \"Code\") | [<img src=\"https://avatars2.githubusercontent.com/u/1468518?v=3\" width=\"100px;\"/><br /><sub>vaibhav</sub>](https://vaibhavchatarkar.com)<br />[💻](https://github.com/prettier/prettier-atom/commits?author=da-vaibhav \"Code\") | [<img src=\"https://avatars1.githubusercontent.com/u/1935696?v=3\" width=\"100px;\"/><br /><sub>Karl Horky</sub>](https://work.karlhorky.com)<br />[💻](https://github.com/prettier/prettier-atom/commits?author=karlhorky \"Code\") |\n| [<img src=\"https://avatars3.githubusercontent.com/u/810438?v=3\" width=\"100px;\"/><br /><sub>Dan Abramov</sub>](http://twitter.com/dan_abramov)<br />[💻](https://github.com/prettier/prettier-atom/commits?author=gaearon \"Code\") |\n<!-- ALL-CONTRIBUTORS-LIST:END -->\n\nThis project follows the [all-contributors][all-contributors] specification. Contributions of any kind are welcome!\n\n## LICENSE\n\n[MIT](./LICENSE.md)\n\n[npm]: https://www.npmjs.com/\n[node]: https://nodejs.org\n[build-badge]: https://img.shields.io/travis/prettier/prettier-atom.svg?style=flat-square\n[build]: https://travis-ci.org/prettier/prettier-atom\n[coverage-badge]: https://img.shields.io/codecov/c/github/prettier/prettier-atom.svg?style=flat-square\n[coverage]: https://codecov.io/github/prettier/prettier-atom\n[dependencyci-badge]: https://dependencyci.com/github/prettier/prettier-atom/badge?style=flat-square\n[dependencyci]: https://dependencyci.com/github/prettier/prettier-atom\n[version-badge]: https://img.shields.io/apm/v/prettier-atom.svg?style=flat-square\n[package]: https://atom.io/packages/prettier-atom\n[downloads-badge]: https://img.shields.io/apm/dm/prettier-atom.svg?style=flat-square\n[license-badge]: https://img.shields.io/apm/l/prettier-atom.svg?style=flat-square\n[license]: https://github.com/prettier/prettier-atom/blob/master/LICENSE\n[prs-badge]: https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square\n[prs]: http://makeapullrequest.com\n[coc-badge]: https://img.shields.io/badge/code%20of-conduct-ff69b4.svg?style=flat-square\n[coc]: https://github.com/prettier/prettier-atom/blob/master/other/CODE_OF_CONDUCT.md\n[roadmap-badge]: https://img.shields.io/badge/%F0%9F%93%94-roadmap-CD9523.svg?style=flat-square\n[roadmap]: https://github.com/prettier/prettier-atom/blob/master/other/ROADMAP.md\n[github-watch-badge]: https://img.shields.io/github/watchers/prettier/prettier-atom.svg?style=social\n[github-watch]: https://github.com/prettier/prettier-atom/watchers\n[github-star-badge]: https://img.shields.io/github/stars/prettier/prettier-atom.svg?style=social\n[github-star]: https://github.com/prettier/prettier-atom/stargazers\n[twitter]: https://twitter.com/intent/tweet?text=Check%20out%20prettier-atom!%20https://github.com/prettier/prettier-atom%20%F0%9F%91%8D\n[twitter-badge]: https://img.shields.io/twitter/url/https/github.com/prettier/prettier-atom.svg?style=social\n[emojis]: https://github.com/kentcdodds/all-contributors#emoji-key\n[all-contributors]: https://github.com/kentcdodds/all-contributors\n[all-contributors-badge]: https://img.shields.io/badge/all_contributors-13-orange.svg?style=flat-square\n[prettier]: https://github.com/prettier/prettier\n[prettier-eslint]: https://github.com/prettier/prettier-eslint\n[kentcdodds]: https://github.com/kentcdodds\n[james-long]: https://github.com/jlongster\n[robwise]: https://github.com/robwise\n[prettier-demo]: https://github.com/prettier/prettier-atom/raw/master/prettier-demo.gif\n[prettier-eslint-demo]: https://github.com/prettier/prettier-atom/raw/master/prettier-eslint-demo.gif\n",
+  "package-deps": [
+    "linter:2.0.0"
+  ],
+  "readme": "# Prettier for Atom [![Watch on GitHub][github-watch-badge]][github-watch][![Star on GitHub][github-star-badge]][github-star][![Tweet][twitter-badge]][twitter]\n\n<!-- [![Dependencies][dependencyci-badge]][dependencyci] TODO: Add dependency CI! -->\n<!-- [![Code of Conduct][coc-badge]][coc] -->\n\n[![Version][version-badge]][package]\n[![Downloads][downloads-badge]][package]\n[![Build Status][build-badge]][build]\n[![Code Coverage][coverage-badge]][coverage]\n[![MIT License][license-badge]][LICENSE]\n[![All Contributors][all-contributors-badge]](#contributors)\n[![PRs Welcome][prs-badge]][prs]\n\nAtom package to format your JavaScript, Typescript, CSS, Sass, and JSON using [Prettier](https://github.com/prettier/prettier).\nComes with powerful optional [ESLint](http://eslint.org/) integration.\n\n## Demo\n\n![prettier demo][prettier-demo]\n\n## Installation\n\n```\napm install prettier-atom\n```\n\nOr go to *Settings → Install* and search for `prettier-atom`.\n\nMake sure to restart Atom after the package is installed.\n\n## Usage\n\nThere are two modes you can use:\n\n- Invoke manually using the **keyboard shortcut** (if no selection, whole file is formatted): <kbd>CTRL</kbd> + <kbd>ALT</kbd> + <kbd>F</kbd>\n- Automatically **format on save** (requires enabling in *Packages → Prettier → Toggle Format on Save*)\n\nIf you use ESLint, check the \"ESLint Integration\" checkbox and \\*poof\\*, everything should work (we use Kent Dodds's [`prettier-eslint`][prettier-eslint] plugin under the hood).\nWe will recursively search up the file tree for your `package.json` and ESLint settings, and use them when formatting.\n\n![prettier-eslint demo][prettier-eslint-demo]\n\nMore detailed descriptions of each option can be found in the Atom settings for this plugin.\n\nPlease open a pull request or file an issue if you notice bugs or something doesn't work as it should!\n\n## Troubleshooting\nIf prettier (or prettier-eslint, if eslint integration is enabled) is not formatting something properly, please make an issue on the relevant GitHub repo. This package is just the Atom integration of those projects.\n\nSome users have reported getting the following error after updating:\n\n```\nValidation Error:\n Option \"tabWidth\" must be of type:\n   number\n but instead received:\n   string\n Example:\n {\n   \"tabWidth\": 2\n }\n ```\n\n To fix the problem, open your configuration file and manually ensure that there are no quotation marks around the \"tabWidth\" setting. We suspect this may be a bug with Atom.\n\n## Inspiration\n\nThis repository was created by [James Long][james-long] to go along with his Prettier project. [Kent C. Dodds][kentcdodds] extended Prettier to add `eslint --fix` integration as [prettier-eslint][prettier-eslint] and forked the original `prettier-atom` plugin to create the `prettier-eslint-atom` plugin. Because it became clear that the plugins were very similar and thus maintenance made easier by combining the two, [Rob Wise][robwise] merged `prettier-eslint-atom` back into `prettier-atom`.\n\n## Maintainers\n\n[Rob Wise][robwise]\n\n## Contributors\n\nThanks goes to these people ([emoji key][emojis]):\n\n<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->\n| [<img src=\"https://avatars.githubusercontent.com/u/17031?v=3\" width=\"100px;\"/><br /><sub>James Long</sub>](http://jlongster.com)<br />[💬](#question-jlongster \"Answering Questions\") [💻](https://github.com/prettier/prettier-atom/commits?author=jlongster \"Code\") [📖](https://github.com/prettier/prettier-atom/commits?author=jlongster \"Documentation\") [🔌](#plugin-jlongster \"Plugin/utility libraries\") [👀](#review-jlongster \"Reviewed Pull Requests\") | [<img src=\"https://avatars.githubusercontent.com/u/6173488?v=3\" width=\"100px;\"/><br /><sub>Rob Wise</sub>](https://robwise.github.io)<br />[💻](https://github.com/prettier/prettier-atom/commits?author=robwise \"Code\") [📖](https://github.com/prettier/prettier-atom/commits?author=robwise \"Documentation\") [💬](#question-robwise \"Answering Questions\") [💡](#example-robwise \"Examples\") [👀](#review-robwise \"Reviewed Pull Requests\") [⚠️](https://github.com/prettier/prettier-atom/commits?author=robwise \"Tests\") | [<img src=\"https://avatars.githubusercontent.com/u/1500684?v=3\" width=\"100px;\"/><br /><sub>Kent C. Dodds</sub>](https://kentcdodds.com)<br />[💻](https://github.com/prettier/prettier-atom/commits?author=kentcdodds \"Code\") [📖](https://github.com/prettier/prettier-atom/commits?author=kentcdodds \"Documentation\") [🚇](#infra-kentcdodds \"Infrastructure (Hosting, Build-Tools, etc)\") | [<img src=\"https://avatars.githubusercontent.com/u/1144075?v=3\" width=\"100px;\"/><br /><sub>Luca Barone</sub>](https://github.com/cloud-walker)<br /> | [<img src=\"https://avatars.githubusercontent.com/u/4514159?v=3\" width=\"100px;\"/><br /><sub>Arnar Þór Sveinsson</sub>](https://github.com/arnarthor)<br />[💻](https://github.com/prettier/prettier-atom/commits?author=arnarthor \"Code\") | [<img src=\"https://avatars.githubusercontent.com/u/131916?v=3\" width=\"100px;\"/><br /><sub>Adam Miskiewicz</sub>](http://www.adammiskiewicz.com/)<br />[💻](https://github.com/prettier/prettier-atom/commits?author=skevy \"Code\") | [<img src=\"https://avatars.githubusercontent.com/u/2685242?v=3\" width=\"100px;\"/><br /><sub>Ori Livni</sub>](http://www.orilivni.com)<br />[💻](https://github.com/prettier/prettier-atom/commits?author=oriSomething \"Code\") |\n| :---: | :---: | :---: | :---: | :---: | :---: | :---: |\n| [<img src=\"https://avatars.githubusercontent.com/u/6182852?v=3\" width=\"100px;\"/><br /><sub>Leon Chen</sub>](https://transcranial.github.io)<br />[💻](https://github.com/prettier/prettier-atom/commits?author=transcranial \"Code\") | [<img src=\"https://avatars.githubusercontent.com/u/197597?v=3\" width=\"100px;\"/><br /><sub>Christopher Chedeau</sub>](http://blog.vjeux.com/)<br />[💬](#question-vjeux \"Answering Questions\") [💻](https://github.com/prettier/prettier-atom/commits?author=vjeux \"Code\") [🔌](#plugin-vjeux \"Plugin/utility libraries\") | [<img src=\"https://avatars.githubusercontent.com/u/646693?v=3\" width=\"100px;\"/><br /><sub>Christoph Geschwind</sub>](http://christoph-geschwind.de)<br />[💻](https://github.com/prettier/prettier-atom/commits?author=1st8 \"Code\") | [<img src=\"https://avatars.githubusercontent.com/u/35026?v=3\" width=\"100px;\"/><br /><sub>Andrew Hutchings</sub>](https://andrewhutchings.com)<br />[💻](https://github.com/prettier/prettier-atom/commits?author=ahutchings \"Code\") | [<img src=\"https://avatars.githubusercontent.com/u/875591?v=3\" width=\"100px;\"/><br /><sub>David Schnurr</sub>](http://davidschnurr.com)<br />[💻](https://github.com/prettier/prettier-atom/commits?author=schnerd \"Code\") | [<img src=\"https://avatars.githubusercontent.com/u/484801?v=3\" width=\"100px;\"/><br /><sub>Ryan Cole</sub>](http://rycole.com/)<br />[💻](https://github.com/prettier/prettier-atom/commits?author=ryancole \"Code\") | [<img src=\"https://avatars0.githubusercontent.com/u/11488612?v=3\" width=\"100px;\"/><br /><sub>Dara Hak</sub>](https://github.com/darahak)<br />[💻](https://github.com/prettier/prettier-atom/commits?author=darahak \"Code\") [📖](https://github.com/prettier/prettier-atom/commits?author=darahak \"Documentation\") |\n| [<img src=\"https://avatars3.githubusercontent.com/u/487068?v=3\" width=\"100px;\"/><br /><sub>Stephen John Sorensen</sub>](http://www.stephenjohnsorensen.com/)<br />[💻](https://github.com/prettier/prettier-atom/commits?author=spudly \"Code\") | [<img src=\"https://avatars2.githubusercontent.com/u/13285808?v=3\" width=\"100px;\"/><br /><sub>Lukas Geiger</sub>](https://github.com/lgeiger)<br />[💻](https://github.com/prettier/prettier-atom/commits?author=lgeiger \"Code\") [⚠️](https://github.com/prettier/prettier-atom/commits?author=lgeiger \"Tests\") | [<img src=\"https://avatars2.githubusercontent.com/u/1517854?v=3\" width=\"100px;\"/><br /><sub>Viktor Charypar</sub>](https://github.com/charypar)<br />[💻](https://github.com/prettier/prettier-atom/commits?author=charypar \"Code\") [⚠️](https://github.com/prettier/prettier-atom/commits?author=charypar \"Tests\") | [<img src=\"https://avatars0.githubusercontent.com/u/1007436?v=3\" width=\"100px;\"/><br /><sub>Mats Högberg</sub>](http://mats.hgbrg.se)<br />[💻](https://github.com/prettier/prettier-atom/commits?author=mhgbrg \"Code\") | [<img src=\"https://avatars0.githubusercontent.com/u/2602767?v=3\" width=\"100px;\"/><br /><sub>Roman</sub>](https://github.com/RoM4iK)<br />[💻](https://github.com/prettier/prettier-atom/commits?author=RoM4iK \"Code\") | [<img src=\"https://avatars2.githubusercontent.com/u/1468518?v=3\" width=\"100px;\"/><br /><sub>vaibhav</sub>](https://vaibhavchatarkar.com)<br />[💻](https://github.com/prettier/prettier-atom/commits?author=da-vaibhav \"Code\") | [<img src=\"https://avatars1.githubusercontent.com/u/1935696?v=3\" width=\"100px;\"/><br /><sub>Karl Horky</sub>](https://work.karlhorky.com)<br />[💻](https://github.com/prettier/prettier-atom/commits?author=karlhorky \"Code\") |\n| [<img src=\"https://avatars3.githubusercontent.com/u/810438?v=3\" width=\"100px;\"/><br /><sub>Dan Abramov</sub>](http://twitter.com/dan_abramov)<br />[💻](https://github.com/prettier/prettier-atom/commits?author=gaearon \"Code\") | [<img src=\"https://avatars3.githubusercontent.com/u/1227109?v=3\" width=\"100px;\"/><br /><sub>Murphy Randle</sub>](https://sploding.rocks)<br />[💻](https://github.com/prettier/prettier-atom/commits?author=splodingsocks \"Code\") [🐛](https://github.com/prettier/prettier-atom/issues?q=author%3Asplodingsocks \"Bug reports\") | [<img src=\"https://avatars3.githubusercontent.com/u/8517072?v=3\" width=\"100px;\"/><br /><sub>Matthieu Lemoine</sub>](https://matthieulemoine.com)<br />[💻](https://github.com/prettier/prettier-atom/commits?author=MatthieuLemoine \"Code\") |\n<!-- ALL-CONTRIBUTORS-LIST:END -->\n\nThis project follows the [all-contributors][all-contributors] specification. Contributions of any kind are welcome!\n\n## LICENSE\n\n[MIT](./LICENSE.md)\n\n[npm]: https://www.npmjs.com/\n[node]: https://nodejs.org\n[build-badge]: https://img.shields.io/travis/prettier/prettier-atom.svg?style=flat-square\n[build]: https://travis-ci.org/prettier/prettier-atom\n[coverage-badge]: https://img.shields.io/codecov/c/github/prettier/prettier-atom.svg?style=flat-square\n[coverage]: https://codecov.io/github/prettier/prettier-atom\n[dependencyci-badge]: https://dependencyci.com/github/prettier/prettier-atom/badge?style=flat-square\n[dependencyci]: https://dependencyci.com/github/prettier/prettier-atom\n[version-badge]: https://img.shields.io/apm/v/prettier-atom.svg?style=flat-square\n[package]: https://atom.io/packages/prettier-atom\n[downloads-badge]: https://img.shields.io/apm/dm/prettier-atom.svg?style=flat-square\n[license-badge]: https://img.shields.io/apm/l/prettier-atom.svg?style=flat-square\n[license]: https://github.com/prettier/prettier-atom/blob/master/LICENSE\n[prs-badge]: https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square\n[prs]: http://makeapullrequest.com\n[coc-badge]: https://img.shields.io/badge/code%20of-conduct-ff69b4.svg?style=flat-square\n[coc]: https://github.com/prettier/prettier-atom/blob/master/other/CODE_OF_CONDUCT.md\n[roadmap-badge]: https://img.shields.io/badge/%F0%9F%93%94-roadmap-CD9523.svg?style=flat-square\n[roadmap]: https://github.com/prettier/prettier-atom/blob/master/other/ROADMAP.md\n[github-watch-badge]: https://img.shields.io/github/watchers/prettier/prettier-atom.svg?style=social\n[github-watch]: https://github.com/prettier/prettier-atom/watchers\n[github-star-badge]: https://img.shields.io/github/stars/prettier/prettier-atom.svg?style=social\n[github-star]: https://github.com/prettier/prettier-atom/stargazers\n[twitter]: https://twitter.com/intent/tweet?text=Check%20out%20prettier-atom!%20https://github.com/prettier/prettier-atom%20%F0%9F%91%8D\n[twitter-badge]: https://img.shields.io/twitter/url/https/github.com/prettier/prettier-atom.svg?style=social\n[emojis]: https://github.com/kentcdodds/all-contributors#emoji-key\n[all-contributors]: https://github.com/kentcdodds/all-contributors\n[all-contributors-badge]: https://img.shields.io/badge/all_contributors-13-orange.svg?style=flat-square\n[prettier]: https://github.com/prettier/prettier\n[prettier-eslint]: https://github.com/prettier/prettier-eslint\n[kentcdodds]: https://github.com/kentcdodds\n[james-long]: https://github.com/jlongster\n[robwise]: https://github.com/robwise\n[prettier-demo]: https://github.com/prettier/prettier-atom/raw/master/prettier-demo.gif\n[prettier-eslint-demo]: https://github.com/prettier/prettier-atom/raw/master/prettier-eslint-demo.gif\n",
   "readmeFilename": "README.md",
   "repository": {
     "type": "git",
@@ -129,13 +139,13 @@
     "start": "nps",
     "test": "nps test"
   },
-  "version": "0.32.0",
+  "version": "0.37.0",
   "_atomModuleCache": {
     "version": 1,
     "dependencies": [
       {
         "name": "acorn",
-        "version": "5.0.3",
+        "version": "5.1.1",
         "path": "node_modules/acorn/dist/acorn.js"
       },
       {
@@ -199,13 +209,38 @@
         "path": "node_modules/atom-linter/lib/index.js"
       },
       {
+        "name": "atom-package-deps",
+        "version": "4.6.0",
+        "path": "node_modules/atom-package-deps/lib/index.js"
+      },
+      {
+        "name": "sb-exec",
+        "version": "3.1.0",
+        "path": "node_modules/atom-package-deps/node_modules/sb-exec/lib/index.js"
+      },
+      {
+        "name": "atom-package-path",
+        "version": "1.1.0",
+        "path": "node_modules/atom-package-path/lib/index.js"
+      },
+      {
+        "name": "atom-text-buffer-point",
+        "version": "1.0.0",
+        "path": "node_modules/atom-text-buffer-point/point.js"
+      },
+      {
+        "name": "atom-text-buffer-range",
+        "version": "1.0.0",
+        "path": "node_modules/atom-text-buffer-range/range.js"
+      },
+      {
         "name": "babel-code-frame",
         "version": "6.22.0",
         "path": "node_modules/babel-code-frame/lib/index.js"
       },
       {
         "name": "balanced-match",
-        "version": "0.4.2",
+        "version": "1.0.0",
         "path": "node_modules/balanced-match/index.js"
       },
       {
@@ -215,7 +250,7 @@
       },
       {
         "name": "brace-expansion",
-        "version": "1.1.7",
+        "version": "1.1.8",
         "path": "node_modules/brace-expansion/index.js"
       },
       {
@@ -240,7 +275,7 @@
       },
       {
         "name": "circular-json",
-        "version": "0.3.1",
+        "version": "0.3.3",
         "path": "node_modules/circular-json/build/circular-json.node.js"
       },
       {
@@ -270,12 +305,12 @@
       },
       {
         "name": "color-name",
-        "version": "1.1.2",
+        "version": "1.1.3",
         "path": "node_modules/color-name/index.js"
       },
       {
         "name": "commander",
-        "version": "2.9.0",
+        "version": "2.11.0",
         "path": "node_modules/commander/index.js"
       },
       {
@@ -300,7 +335,7 @@
       },
       {
         "name": "core-js",
-        "version": "2.4.1",
+        "version": "2.5.0",
         "path": "node_modules/core-js/index.js"
       },
       {
@@ -350,7 +385,7 @@
       },
       {
         "name": "es5-ext",
-        "version": "0.10.23",
+        "version": "0.10.27",
         "path": "node_modules/es5-ext/index.js"
       },
       {
@@ -395,12 +430,12 @@
       },
       {
         "name": "espree",
-        "version": "3.4.3",
+        "version": "3.5.0",
         "path": "node_modules/espree/espree.js"
       },
       {
         "name": "esprima",
-        "version": "3.1.3",
+        "version": "4.0.0",
         "path": "node_modules/esprima/dist/esprima.js"
       },
       {
@@ -410,13 +445,8 @@
       },
       {
         "name": "esrecurse",
-        "version": "4.1.0",
+        "version": "4.2.0",
         "path": "node_modules/esrecurse/esrecurse.js"
-      },
-      {
-        "name": "estraverse",
-        "version": "4.1.1",
-        "path": "node_modules/esrecurse/node_modules/estraverse/estraverse.js"
       },
       {
         "name": "estraverse",
@@ -452,6 +482,11 @@
         "name": "file-entry-cache",
         "version": "2.0.0",
         "path": "node_modules/file-entry-cache/cache.js"
+      },
+      {
+        "name": "find-up",
+        "version": "2.1.0",
+        "path": "node_modules/find-up/index.js"
       },
       {
         "name": "flat-cache",
@@ -494,18 +529,13 @@
         "path": "node_modules/graceful-fs/graceful-fs.js"
       },
       {
-        "name": "graceful-readlink",
-        "version": "1.0.1",
-        "path": "node_modules/graceful-readlink/index.js"
-      },
-      {
         "name": "has-ansi",
         "version": "2.0.0",
         "path": "node_modules/has-ansi/index.js"
       },
       {
         "name": "hosted-git-info",
-        "version": "2.4.2",
+        "version": "2.5.0",
         "path": "node_modules/hosted-git-info/index.js"
       },
       {
@@ -520,7 +550,7 @@
       },
       {
         "name": "indent-string",
-        "version": "3.1.0",
+        "version": "3.2.0",
         "path": "node_modules/indent-string/index.js"
       },
       {
@@ -589,18 +619,23 @@
         "path": "node_modules/is-resolvable/index.js"
       },
       {
+        "name": "is-utf8",
+        "version": "0.2.1",
+        "path": "node_modules/is-utf8/is-utf8.js"
+      },
+      {
         "name": "isarray",
         "version": "1.0.0",
         "path": "node_modules/isarray/index.js"
       },
       {
         "name": "js-tokens",
-        "version": "3.0.1",
+        "version": "3.0.2",
         "path": "node_modules/js-tokens/index.js"
       },
       {
         "name": "js-yaml",
-        "version": "3.8.4",
+        "version": "3.9.1",
         "path": "node_modules/js-yaml/index.js"
       },
       {
@@ -627,6 +662,11 @@
         "name": "load-json-file",
         "version": "2.0.0",
         "path": "node_modules/load-json-file/index.js"
+      },
+      {
+        "name": "locate-path",
+        "version": "2.0.0",
+        "path": "node_modules/locate-path/index.js"
       },
       {
         "name": "lodash",
@@ -700,7 +740,7 @@
       },
       {
         "name": "normalize-package-data",
-        "version": "2.3.8",
+        "version": "2.4.0",
         "path": "node_modules/normalize-package-data/lib/normalize.js"
       },
       {
@@ -739,9 +779,24 @@
         "path": "node_modules/os-tmpdir/index.js"
       },
       {
+        "name": "p-limit",
+        "version": "1.1.0",
+        "path": "node_modules/p-limit/index.js"
+      },
+      {
+        "name": "p-locate",
+        "version": "2.0.0",
+        "path": "node_modules/p-locate/index.js"
+      },
+      {
         "name": "parse-json",
         "version": "2.2.0",
         "path": "node_modules/parse-json/index.js"
+      },
+      {
+        "name": "path-exists",
+        "version": "3.0.0",
+        "path": "node_modules/path-exists/index.js"
       },
       {
         "name": "path-is-absolute",
@@ -790,12 +845,12 @@
       },
       {
         "name": "prettier",
-        "version": "1.4.2",
+        "version": "1.5.3",
         "path": "node_modules/prettier/index.js"
       },
       {
         "name": "prettier-eslint",
-        "version": "6.3.0",
+        "version": "6.4.2",
         "path": "node_modules/prettier-eslint/dist/index.js"
       },
       {
@@ -805,7 +860,7 @@
       },
       {
         "name": "ansi-styles",
-        "version": "3.0.0",
+        "version": "3.2.0",
         "path": "node_modules/pretty-format/node_modules/ansi-styles/index.js"
       },
       {
@@ -829,8 +884,13 @@
         "path": "node_modules/read-pkg/index.js"
       },
       {
+        "name": "read-pkg-up",
+        "version": "2.0.0",
+        "path": "node_modules/read-pkg-up/index.js"
+      },
+      {
         "name": "readable-stream",
-        "version": "2.2.11",
+        "version": "2.3.3",
         "path": "node_modules/readable-stream/readable.js"
       },
       {
@@ -860,7 +920,7 @@
       },
       {
         "name": "resolve",
-        "version": "1.3.3",
+        "version": "1.4.0",
         "path": "node_modules/resolve/index.js"
       },
       {
@@ -890,13 +950,23 @@
       },
       {
         "name": "safe-buffer",
-        "version": "5.0.1",
+        "version": "5.1.1",
         "path": "node_modules/safe-buffer/index.js"
+      },
+      {
+        "name": "sb-callsite",
+        "version": "1.1.2",
+        "path": "node_modules/sb-callsite/lib/main.js"
       },
       {
         "name": "sb-exec",
         "version": "4.0.0",
         "path": "node_modules/sb-exec/lib/index.js"
+      },
+      {
+        "name": "sb-fs",
+        "version": "3.0.0",
+        "path": "node_modules/sb-fs/lib/index.js"
       },
       {
         "name": "sb-memoize",
@@ -915,7 +985,7 @@
       },
       {
         "name": "semver",
-        "version": "5.3.0",
+        "version": "5.4.1",
         "path": "node_modules/semver/semver.js"
       },
       {
@@ -955,7 +1025,7 @@
       },
       {
         "name": "string_decoder",
-        "version": "1.0.2",
+        "version": "1.0.3",
         "path": "node_modules/string_decoder/lib/string_decoder.js"
       },
       {
@@ -974,6 +1044,11 @@
         "path": "node_modules/strip-bom/index.js"
       },
       {
+        "name": "strip-bom-buf",
+        "version": "1.0.0",
+        "path": "node_modules/strip-bom-buf/index.js"
+      },
+      {
         "name": "strip-json-comments",
         "version": "2.0.1",
         "path": "node_modules/strip-json-comments/index.js"
@@ -989,14 +1064,24 @@
         "path": "node_modules/table/dist/index.js"
       },
       {
+        "name": "ansi-regex",
+        "version": "3.0.0",
+        "path": "node_modules/table/node_modules/ansi-regex/index.js"
+      },
+      {
         "name": "is-fullwidth-code-point",
         "version": "2.0.0",
         "path": "node_modules/table/node_modules/is-fullwidth-code-point/index.js"
       },
       {
         "name": "string-width",
-        "version": "2.0.0",
+        "version": "2.1.1",
         "path": "node_modules/table/node_modules/string-width/index.js"
+      },
+      {
+        "name": "strip-ansi",
+        "version": "4.0.0",
+        "path": "node_modules/table/node_modules/strip-ansi/index.js"
       },
       {
         "name": "text-table",
@@ -1010,7 +1095,7 @@
       },
       {
         "name": "tmp",
-        "version": "0.0.31",
+        "version": "0.0.33",
         "path": "node_modules/tmp/lib/tmp.js"
       },
       {
@@ -1072,31 +1157,6 @@
         "node_modules/acorn/dist/acorn_loose.js",
         "node_modules/acorn/dist/walk.es.js",
         "node_modules/acorn/dist/walk.js",
-        "node_modules/acorn/src/bin/acorn.js",
-        "node_modules/acorn/src/expression.js",
-        "node_modules/acorn/src/identifier.js",
-        "node_modules/acorn/src/index.js",
-        "node_modules/acorn/src/location.js",
-        "node_modules/acorn/src/locutil.js",
-        "node_modules/acorn/src/loose/expression.js",
-        "node_modules/acorn/src/loose/index.js",
-        "node_modules/acorn/src/loose/parseutil.js",
-        "node_modules/acorn/src/loose/state.js",
-        "node_modules/acorn/src/loose/statement.js",
-        "node_modules/acorn/src/loose/tokenize.js",
-        "node_modules/acorn/src/lval.js",
-        "node_modules/acorn/src/node.js",
-        "node_modules/acorn/src/options.js",
-        "node_modules/acorn/src/parseutil.js",
-        "node_modules/acorn/src/scope.js",
-        "node_modules/acorn/src/state.js",
-        "node_modules/acorn/src/statement.js",
-        "node_modules/acorn/src/tokencontext.js",
-        "node_modules/acorn/src/tokenize.js",
-        "node_modules/acorn/src/tokentype.js",
-        "node_modules/acorn/src/util.js",
-        "node_modules/acorn/src/walk/index.js",
-        "node_modules/acorn/src/whitespace.js",
         "node_modules/acorn-jsx/index.js",
         "node_modules/acorn-jsx/inject.js",
         "node_modules/acorn-jsx/node_modules/acorn/bin/generate-identifier-regex.js",
@@ -1233,6 +1293,17 @@
         "node_modules/atom-linter/lib/helpers.js",
         "node_modules/atom-linter/lib/index.js",
         "node_modules/atom-linter/lib/types.js",
+        "node_modules/atom-package-deps/lib/helpers.js",
+        "node_modules/atom-package-deps/lib/index.js",
+        "node_modules/atom-package-deps/lib/types.js",
+        "node_modules/atom-package-deps/lib/view.js",
+        "node_modules/atom-package-deps/node_modules/sb-exec/decls/jasmine.js",
+        "node_modules/atom-package-deps/node_modules/sb-exec/lib/helpers.js",
+        "node_modules/atom-package-deps/node_modules/sb-exec/lib/index.js",
+        "node_modules/atom-package-deps/node_modules/sb-exec/lib/types.js",
+        "node_modules/atom-package-path/lib/index.js",
+        "node_modules/atom-text-buffer-point/point.js",
+        "node_modules/atom-text-buffer-range/range.js",
         "node_modules/babel-code-frame/lib/index.js",
         "node_modules/babel-runtime/core-js/array/concat.js",
         "node_modules/babel-runtime/core-js/array/copy-within.js",
@@ -1533,6 +1604,7 @@
         "node_modules/color-convert/index.js",
         "node_modules/color-convert/route.js",
         "node_modules/color-name/index.js",
+        "node_modules/color-name/test.js",
         "node_modules/commander/index.js",
         "node_modules/common-tags/es/TemplateTag/TemplateTag.js",
         "node_modules/common-tags/es/TemplateTag/index.js",
@@ -1680,16 +1752,20 @@
         "node_modules/core-js/es7/array.js",
         "node_modules/core-js/es7/asap.js",
         "node_modules/core-js/es7/error.js",
+        "node_modules/core-js/es7/global.js",
         "node_modules/core-js/es7/index.js",
         "node_modules/core-js/es7/map.js",
         "node_modules/core-js/es7/math.js",
         "node_modules/core-js/es7/object.js",
         "node_modules/core-js/es7/observable.js",
+        "node_modules/core-js/es7/promise.js",
         "node_modules/core-js/es7/reflect.js",
         "node_modules/core-js/es7/set.js",
         "node_modules/core-js/es7/string.js",
         "node_modules/core-js/es7/symbol.js",
         "node_modules/core-js/es7/system.js",
+        "node_modules/core-js/es7/weak-map.js",
+        "node_modules/core-js/es7/weak-set.js",
         "node_modules/core-js/fn/_.js",
         "node_modules/core-js/fn/array/concat.js",
         "node_modules/core-js/fn/array/copy-within.js",
@@ -1699,6 +1775,8 @@
         "node_modules/core-js/fn/array/filter.js",
         "node_modules/core-js/fn/array/find-index.js",
         "node_modules/core-js/fn/array/find.js",
+        "node_modules/core-js/fn/array/flat-map.js",
+        "node_modules/core-js/fn/array/flatten.js",
         "node_modules/core-js/fn/array/for-each.js",
         "node_modules/core-js/fn/array/from.js",
         "node_modules/core-js/fn/array/includes.js",
@@ -1730,6 +1808,8 @@
         "node_modules/core-js/fn/array/virtual/filter.js",
         "node_modules/core-js/fn/array/virtual/find-index.js",
         "node_modules/core-js/fn/array/virtual/find.js",
+        "node_modules/core-js/fn/array/virtual/flat-map.js",
+        "node_modules/core-js/fn/array/virtual/flatten.js",
         "node_modules/core-js/fn/array/virtual/for-each.js",
         "node_modules/core-js/fn/array/virtual/includes.js",
         "node_modules/core-js/fn/array/virtual/index-of.js",
@@ -1769,18 +1849,26 @@
         "node_modules/core-js/fn/function/virtual/part.js",
         "node_modules/core-js/fn/get-iterator-method.js",
         "node_modules/core-js/fn/get-iterator.js",
+        "node_modules/core-js/fn/global.js",
         "node_modules/core-js/fn/is-iterable.js",
         "node_modules/core-js/fn/json/index.js",
         "node_modules/core-js/fn/json/stringify.js",
+        "node_modules/core-js/fn/map/from.js",
+        "node_modules/core-js/fn/map/index.js",
+        "node_modules/core-js/fn/map/of.js",
         "node_modules/core-js/fn/map.js",
         "node_modules/core-js/fn/math/acosh.js",
         "node_modules/core-js/fn/math/asinh.js",
         "node_modules/core-js/fn/math/atanh.js",
         "node_modules/core-js/fn/math/cbrt.js",
+        "node_modules/core-js/fn/math/clamp.js",
         "node_modules/core-js/fn/math/clz32.js",
         "node_modules/core-js/fn/math/cosh.js",
+        "node_modules/core-js/fn/math/deg-per-rad.js",
+        "node_modules/core-js/fn/math/degrees.js",
         "node_modules/core-js/fn/math/expm1.js",
         "node_modules/core-js/fn/math/fround.js",
+        "node_modules/core-js/fn/math/fscale.js",
         "node_modules/core-js/fn/math/hypot.js",
         "node_modules/core-js/fn/math/iaddh.js",
         "node_modules/core-js/fn/math/imul.js",
@@ -1790,7 +1878,11 @@
         "node_modules/core-js/fn/math/log10.js",
         "node_modules/core-js/fn/math/log1p.js",
         "node_modules/core-js/fn/math/log2.js",
+        "node_modules/core-js/fn/math/rad-per-deg.js",
+        "node_modules/core-js/fn/math/radians.js",
+        "node_modules/core-js/fn/math/scale.js",
         "node_modules/core-js/fn/math/sign.js",
+        "node_modules/core-js/fn/math/signbit.js",
         "node_modules/core-js/fn/math/sinh.js",
         "node_modules/core-js/fn/math/tanh.js",
         "node_modules/core-js/fn/math/trunc.js",
@@ -1845,6 +1937,9 @@
         "node_modules/core-js/fn/observable.js",
         "node_modules/core-js/fn/parse-float.js",
         "node_modules/core-js/fn/parse-int.js",
+        "node_modules/core-js/fn/promise/finally.js",
+        "node_modules/core-js/fn/promise/index.js",
+        "node_modules/core-js/fn/promise/try.js",
         "node_modules/core-js/fn/promise.js",
         "node_modules/core-js/fn/reflect/apply.js",
         "node_modules/core-js/fn/reflect/construct.js",
@@ -1879,6 +1974,9 @@
         "node_modules/core-js/fn/regexp/search.js",
         "node_modules/core-js/fn/regexp/split.js",
         "node_modules/core-js/fn/regexp/to-string.js",
+        "node_modules/core-js/fn/set/from.js",
+        "node_modules/core-js/fn/set/index.js",
+        "node_modules/core-js/fn/set/of.js",
         "node_modules/core-js/fn/set-immediate.js",
         "node_modules/core-js/fn/set-interval.js",
         "node_modules/core-js/fn/set-timeout.js",
@@ -1977,7 +2075,13 @@
         "node_modules/core-js/fn/typed/uint32-array.js",
         "node_modules/core-js/fn/typed/uint8-array.js",
         "node_modules/core-js/fn/typed/uint8-clamped-array.js",
+        "node_modules/core-js/fn/weak-map/from.js",
+        "node_modules/core-js/fn/weak-map/index.js",
+        "node_modules/core-js/fn/weak-map/of.js",
         "node_modules/core-js/fn/weak-map.js",
+        "node_modules/core-js/fn/weak-set/from.js",
+        "node_modules/core-js/fn/weak-set/index.js",
+        "node_modules/core-js/fn/weak-set/of.js",
         "node_modules/core-js/fn/weak-set.js",
         "node_modules/core-js/index.js",
         "node_modules/core-js/library/core/_.js",
@@ -2012,16 +2116,20 @@
         "node_modules/core-js/library/es7/array.js",
         "node_modules/core-js/library/es7/asap.js",
         "node_modules/core-js/library/es7/error.js",
+        "node_modules/core-js/library/es7/global.js",
         "node_modules/core-js/library/es7/index.js",
         "node_modules/core-js/library/es7/map.js",
         "node_modules/core-js/library/es7/math.js",
         "node_modules/core-js/library/es7/object.js",
         "node_modules/core-js/library/es7/observable.js",
+        "node_modules/core-js/library/es7/promise.js",
         "node_modules/core-js/library/es7/reflect.js",
         "node_modules/core-js/library/es7/set.js",
         "node_modules/core-js/library/es7/string.js",
         "node_modules/core-js/library/es7/symbol.js",
         "node_modules/core-js/library/es7/system.js",
+        "node_modules/core-js/library/es7/weak-map.js",
+        "node_modules/core-js/library/es7/weak-set.js",
         "node_modules/core-js/library/fn/_.js",
         "node_modules/core-js/library/fn/array/concat.js",
         "node_modules/core-js/library/fn/array/copy-within.js",
@@ -2031,6 +2139,8 @@
         "node_modules/core-js/library/fn/array/filter.js",
         "node_modules/core-js/library/fn/array/find-index.js",
         "node_modules/core-js/library/fn/array/find.js",
+        "node_modules/core-js/library/fn/array/flat-map.js",
+        "node_modules/core-js/library/fn/array/flatten.js",
         "node_modules/core-js/library/fn/array/for-each.js",
         "node_modules/core-js/library/fn/array/from.js",
         "node_modules/core-js/library/fn/array/includes.js",
@@ -2062,6 +2172,8 @@
         "node_modules/core-js/library/fn/array/virtual/filter.js",
         "node_modules/core-js/library/fn/array/virtual/find-index.js",
         "node_modules/core-js/library/fn/array/virtual/find.js",
+        "node_modules/core-js/library/fn/array/virtual/flat-map.js",
+        "node_modules/core-js/library/fn/array/virtual/flatten.js",
         "node_modules/core-js/library/fn/array/virtual/for-each.js",
         "node_modules/core-js/library/fn/array/virtual/includes.js",
         "node_modules/core-js/library/fn/array/virtual/index-of.js",
@@ -2101,18 +2213,26 @@
         "node_modules/core-js/library/fn/function/virtual/part.js",
         "node_modules/core-js/library/fn/get-iterator-method.js",
         "node_modules/core-js/library/fn/get-iterator.js",
+        "node_modules/core-js/library/fn/global.js",
         "node_modules/core-js/library/fn/is-iterable.js",
         "node_modules/core-js/library/fn/json/index.js",
         "node_modules/core-js/library/fn/json/stringify.js",
+        "node_modules/core-js/library/fn/map/from.js",
+        "node_modules/core-js/library/fn/map/index.js",
+        "node_modules/core-js/library/fn/map/of.js",
         "node_modules/core-js/library/fn/map.js",
         "node_modules/core-js/library/fn/math/acosh.js",
         "node_modules/core-js/library/fn/math/asinh.js",
         "node_modules/core-js/library/fn/math/atanh.js",
         "node_modules/core-js/library/fn/math/cbrt.js",
+        "node_modules/core-js/library/fn/math/clamp.js",
         "node_modules/core-js/library/fn/math/clz32.js",
         "node_modules/core-js/library/fn/math/cosh.js",
+        "node_modules/core-js/library/fn/math/deg-per-rad.js",
+        "node_modules/core-js/library/fn/math/degrees.js",
         "node_modules/core-js/library/fn/math/expm1.js",
         "node_modules/core-js/library/fn/math/fround.js",
+        "node_modules/core-js/library/fn/math/fscale.js",
         "node_modules/core-js/library/fn/math/hypot.js",
         "node_modules/core-js/library/fn/math/iaddh.js",
         "node_modules/core-js/library/fn/math/imul.js",
@@ -2122,7 +2242,11 @@
         "node_modules/core-js/library/fn/math/log10.js",
         "node_modules/core-js/library/fn/math/log1p.js",
         "node_modules/core-js/library/fn/math/log2.js",
+        "node_modules/core-js/library/fn/math/rad-per-deg.js",
+        "node_modules/core-js/library/fn/math/radians.js",
+        "node_modules/core-js/library/fn/math/scale.js",
         "node_modules/core-js/library/fn/math/sign.js",
+        "node_modules/core-js/library/fn/math/signbit.js",
         "node_modules/core-js/library/fn/math/sinh.js",
         "node_modules/core-js/library/fn/math/tanh.js",
         "node_modules/core-js/library/fn/math/trunc.js",
@@ -2177,6 +2301,9 @@
         "node_modules/core-js/library/fn/observable.js",
         "node_modules/core-js/library/fn/parse-float.js",
         "node_modules/core-js/library/fn/parse-int.js",
+        "node_modules/core-js/library/fn/promise/finally.js",
+        "node_modules/core-js/library/fn/promise/index.js",
+        "node_modules/core-js/library/fn/promise/try.js",
         "node_modules/core-js/library/fn/promise.js",
         "node_modules/core-js/library/fn/reflect/apply.js",
         "node_modules/core-js/library/fn/reflect/construct.js",
@@ -2211,6 +2338,9 @@
         "node_modules/core-js/library/fn/regexp/search.js",
         "node_modules/core-js/library/fn/regexp/split.js",
         "node_modules/core-js/library/fn/regexp/to-string.js",
+        "node_modules/core-js/library/fn/set/from.js",
+        "node_modules/core-js/library/fn/set/index.js",
+        "node_modules/core-js/library/fn/set/of.js",
         "node_modules/core-js/library/fn/set-immediate.js",
         "node_modules/core-js/library/fn/set-interval.js",
         "node_modules/core-js/library/fn/set-timeout.js",
@@ -2309,7 +2439,13 @@
         "node_modules/core-js/library/fn/typed/uint32-array.js",
         "node_modules/core-js/library/fn/typed/uint8-array.js",
         "node_modules/core-js/library/fn/typed/uint8-clamped-array.js",
+        "node_modules/core-js/library/fn/weak-map/from.js",
+        "node_modules/core-js/library/fn/weak-map/index.js",
+        "node_modules/core-js/library/fn/weak-map/of.js",
         "node_modules/core-js/library/fn/weak-map.js",
+        "node_modules/core-js/library/fn/weak-set/from.js",
+        "node_modules/core-js/library/fn/weak-set/index.js",
+        "node_modules/core-js/library/fn/weak-set/of.js",
         "node_modules/core-js/library/fn/weak-set.js",
         "node_modules/core-js/library/index.js",
         "node_modules/core-js/library/modules/_a-function.js",
@@ -2335,6 +2471,7 @@
         "node_modules/core-js/library/modules/_core.js",
         "node_modules/core-js/library/modules/_create-property.js",
         "node_modules/core-js/library/modules/_ctx.js",
+        "node_modules/core-js/library/modules/_date-to-iso-string.js",
         "node_modules/core-js/library/modules/_date-to-primitive.js",
         "node_modules/core-js/library/modules/_defined.js",
         "node_modules/core-js/library/modules/_descriptors.js",
@@ -2347,6 +2484,7 @@
         "node_modules/core-js/library/modules/_fails.js",
         "node_modules/core-js/library/modules/_fix-re-wks.js",
         "node_modules/core-js/library/modules/_flags.js",
+        "node_modules/core-js/library/modules/_flatten-into-array.js",
         "node_modules/core-js/library/modules/_for-of.js",
         "node_modules/core-js/library/modules/_global.js",
         "node_modules/core-js/library/modules/_has.js",
@@ -2370,11 +2508,14 @@
         "node_modules/core-js/library/modules/_keyof.js",
         "node_modules/core-js/library/modules/_library.js",
         "node_modules/core-js/library/modules/_math-expm1.js",
+        "node_modules/core-js/library/modules/_math-fround.js",
         "node_modules/core-js/library/modules/_math-log1p.js",
+        "node_modules/core-js/library/modules/_math-scale.js",
         "node_modules/core-js/library/modules/_math-sign.js",
         "node_modules/core-js/library/modules/_meta.js",
         "node_modules/core-js/library/modules/_metadata.js",
         "node_modules/core-js/library/modules/_microtask.js",
+        "node_modules/core-js/library/modules/_new-promise-capability.js",
         "node_modules/core-js/library/modules/_object-assign.js",
         "node_modules/core-js/library/modules/_object-create.js",
         "node_modules/core-js/library/modules/_object-define.js",
@@ -2396,11 +2537,15 @@
         "node_modules/core-js/library/modules/_parse-int.js",
         "node_modules/core-js/library/modules/_partial.js",
         "node_modules/core-js/library/modules/_path.js",
+        "node_modules/core-js/library/modules/_perform.js",
+        "node_modules/core-js/library/modules/_promise-resolve.js",
         "node_modules/core-js/library/modules/_property-desc.js",
         "node_modules/core-js/library/modules/_redefine-all.js",
         "node_modules/core-js/library/modules/_redefine.js",
         "node_modules/core-js/library/modules/_replacer.js",
         "node_modules/core-js/library/modules/_same-value.js",
+        "node_modules/core-js/library/modules/_set-collection-from.js",
+        "node_modules/core-js/library/modules/_set-collection-of.js",
         "node_modules/core-js/library/modules/_set-proto.js",
         "node_modules/core-js/library/modules/_set-species.js",
         "node_modules/core-js/library/modules/_set-to-string-tag.js",
@@ -2416,6 +2561,7 @@
         "node_modules/core-js/library/modules/_string-trim.js",
         "node_modules/core-js/library/modules/_string-ws.js",
         "node_modules/core-js/library/modules/_task.js",
+        "node_modules/core-js/library/modules/_to-absolute-index.js",
         "node_modules/core-js/library/modules/_to-index.js",
         "node_modules/core-js/library/modules/_to-integer.js",
         "node_modules/core-js/library/modules/_to-iobject.js",
@@ -2426,6 +2572,7 @@
         "node_modules/core-js/library/modules/_typed-buffer.js",
         "node_modules/core-js/library/modules/_typed.js",
         "node_modules/core-js/library/modules/_uid.js",
+        "node_modules/core-js/library/modules/_validate-collection.js",
         "node_modules/core-js/library/modules/_wks-define.js",
         "node_modules/core-js/library/modules/_wks-ext.js",
         "node_modules/core-js/library/modules/_wks.js",
@@ -2581,25 +2728,37 @@
         "node_modules/core-js/library/modules/es6.typed.uint8-clamped-array.js",
         "node_modules/core-js/library/modules/es6.weak-map.js",
         "node_modules/core-js/library/modules/es6.weak-set.js",
+        "node_modules/core-js/library/modules/es7.array.flat-map.js",
+        "node_modules/core-js/library/modules/es7.array.flatten.js",
         "node_modules/core-js/library/modules/es7.array.includes.js",
         "node_modules/core-js/library/modules/es7.asap.js",
         "node_modules/core-js/library/modules/es7.error.is-error.js",
+        "node_modules/core-js/library/modules/es7.global.js",
+        "node_modules/core-js/library/modules/es7.map.from.js",
+        "node_modules/core-js/library/modules/es7.map.of.js",
         "node_modules/core-js/library/modules/es7.map.to-json.js",
+        "node_modules/core-js/library/modules/es7.math.clamp.js",
+        "node_modules/core-js/library/modules/es7.math.deg-per-rad.js",
+        "node_modules/core-js/library/modules/es7.math.degrees.js",
+        "node_modules/core-js/library/modules/es7.math.fscale.js",
         "node_modules/core-js/library/modules/es7.math.iaddh.js",
         "node_modules/core-js/library/modules/es7.math.imulh.js",
         "node_modules/core-js/library/modules/es7.math.isubh.js",
+        "node_modules/core-js/library/modules/es7.math.rad-per-deg.js",
+        "node_modules/core-js/library/modules/es7.math.radians.js",
+        "node_modules/core-js/library/modules/es7.math.scale.js",
+        "node_modules/core-js/library/modules/es7.math.signbit.js",
         "node_modules/core-js/library/modules/es7.math.umulh.js",
         "node_modules/core-js/library/modules/es7.object.define-getter.js",
         "node_modules/core-js/library/modules/es7.object.define-setter.js",
         "node_modules/core-js/library/modules/es7.object.entries.js",
-        "node_modules/core-js/library/modules/es7.object.enumerable-entries.js",
-        "node_modules/core-js/library/modules/es7.object.enumerable-keys.js",
-        "node_modules/core-js/library/modules/es7.object.enumerable-values.js",
         "node_modules/core-js/library/modules/es7.object.get-own-property-descriptors.js",
         "node_modules/core-js/library/modules/es7.object.lookup-getter.js",
         "node_modules/core-js/library/modules/es7.object.lookup-setter.js",
         "node_modules/core-js/library/modules/es7.object.values.js",
         "node_modules/core-js/library/modules/es7.observable.js",
+        "node_modules/core-js/library/modules/es7.promise.finally.js",
+        "node_modules/core-js/library/modules/es7.promise.try.js",
         "node_modules/core-js/library/modules/es7.reflect.define-metadata.js",
         "node_modules/core-js/library/modules/es7.reflect.delete-metadata.js",
         "node_modules/core-js/library/modules/es7.reflect.get-metadata-keys.js",
@@ -2609,6 +2768,8 @@
         "node_modules/core-js/library/modules/es7.reflect.has-metadata.js",
         "node_modules/core-js/library/modules/es7.reflect.has-own-metadata.js",
         "node_modules/core-js/library/modules/es7.reflect.metadata.js",
+        "node_modules/core-js/library/modules/es7.set.from.js",
+        "node_modules/core-js/library/modules/es7.set.of.js",
         "node_modules/core-js/library/modules/es7.set.to-json.js",
         "node_modules/core-js/library/modules/es7.string.at.js",
         "node_modules/core-js/library/modules/es7.string.match-all.js",
@@ -2619,6 +2780,10 @@
         "node_modules/core-js/library/modules/es7.symbol.async-iterator.js",
         "node_modules/core-js/library/modules/es7.symbol.observable.js",
         "node_modules/core-js/library/modules/es7.system.global.js",
+        "node_modules/core-js/library/modules/es7.weak-map.from.js",
+        "node_modules/core-js/library/modules/es7.weak-map.of.js",
+        "node_modules/core-js/library/modules/es7.weak-set.from.js",
+        "node_modules/core-js/library/modules/es7.weak-set.of.js",
         "node_modules/core-js/library/modules/web.dom.iterable.js",
         "node_modules/core-js/library/modules/web.immediate.js",
         "node_modules/core-js/library/modules/web.timers.js",
@@ -2657,6 +2822,7 @@
         "node_modules/core-js/modules/_core.js",
         "node_modules/core-js/modules/_create-property.js",
         "node_modules/core-js/modules/_ctx.js",
+        "node_modules/core-js/modules/_date-to-iso-string.js",
         "node_modules/core-js/modules/_date-to-primitive.js",
         "node_modules/core-js/modules/_defined.js",
         "node_modules/core-js/modules/_descriptors.js",
@@ -2669,6 +2835,7 @@
         "node_modules/core-js/modules/_fails.js",
         "node_modules/core-js/modules/_fix-re-wks.js",
         "node_modules/core-js/modules/_flags.js",
+        "node_modules/core-js/modules/_flatten-into-array.js",
         "node_modules/core-js/modules/_for-of.js",
         "node_modules/core-js/modules/_global.js",
         "node_modules/core-js/modules/_has.js",
@@ -2692,11 +2859,14 @@
         "node_modules/core-js/modules/_keyof.js",
         "node_modules/core-js/modules/_library.js",
         "node_modules/core-js/modules/_math-expm1.js",
+        "node_modules/core-js/modules/_math-fround.js",
         "node_modules/core-js/modules/_math-log1p.js",
+        "node_modules/core-js/modules/_math-scale.js",
         "node_modules/core-js/modules/_math-sign.js",
         "node_modules/core-js/modules/_meta.js",
         "node_modules/core-js/modules/_metadata.js",
         "node_modules/core-js/modules/_microtask.js",
+        "node_modules/core-js/modules/_new-promise-capability.js",
         "node_modules/core-js/modules/_object-assign.js",
         "node_modules/core-js/modules/_object-create.js",
         "node_modules/core-js/modules/_object-define.js",
@@ -2718,11 +2888,15 @@
         "node_modules/core-js/modules/_parse-int.js",
         "node_modules/core-js/modules/_partial.js",
         "node_modules/core-js/modules/_path.js",
+        "node_modules/core-js/modules/_perform.js",
+        "node_modules/core-js/modules/_promise-resolve.js",
         "node_modules/core-js/modules/_property-desc.js",
         "node_modules/core-js/modules/_redefine-all.js",
         "node_modules/core-js/modules/_redefine.js",
         "node_modules/core-js/modules/_replacer.js",
         "node_modules/core-js/modules/_same-value.js",
+        "node_modules/core-js/modules/_set-collection-from.js",
+        "node_modules/core-js/modules/_set-collection-of.js",
         "node_modules/core-js/modules/_set-proto.js",
         "node_modules/core-js/modules/_set-species.js",
         "node_modules/core-js/modules/_set-to-string-tag.js",
@@ -2738,6 +2912,7 @@
         "node_modules/core-js/modules/_string-trim.js",
         "node_modules/core-js/modules/_string-ws.js",
         "node_modules/core-js/modules/_task.js",
+        "node_modules/core-js/modules/_to-absolute-index.js",
         "node_modules/core-js/modules/_to-index.js",
         "node_modules/core-js/modules/_to-integer.js",
         "node_modules/core-js/modules/_to-iobject.js",
@@ -2748,6 +2923,7 @@
         "node_modules/core-js/modules/_typed-buffer.js",
         "node_modules/core-js/modules/_typed.js",
         "node_modules/core-js/modules/_uid.js",
+        "node_modules/core-js/modules/_validate-collection.js",
         "node_modules/core-js/modules/_wks-define.js",
         "node_modules/core-js/modules/_wks-ext.js",
         "node_modules/core-js/modules/_wks.js",
@@ -2903,25 +3079,37 @@
         "node_modules/core-js/modules/es6.typed.uint8-clamped-array.js",
         "node_modules/core-js/modules/es6.weak-map.js",
         "node_modules/core-js/modules/es6.weak-set.js",
+        "node_modules/core-js/modules/es7.array.flat-map.js",
+        "node_modules/core-js/modules/es7.array.flatten.js",
         "node_modules/core-js/modules/es7.array.includes.js",
         "node_modules/core-js/modules/es7.asap.js",
         "node_modules/core-js/modules/es7.error.is-error.js",
+        "node_modules/core-js/modules/es7.global.js",
+        "node_modules/core-js/modules/es7.map.from.js",
+        "node_modules/core-js/modules/es7.map.of.js",
         "node_modules/core-js/modules/es7.map.to-json.js",
+        "node_modules/core-js/modules/es7.math.clamp.js",
+        "node_modules/core-js/modules/es7.math.deg-per-rad.js",
+        "node_modules/core-js/modules/es7.math.degrees.js",
+        "node_modules/core-js/modules/es7.math.fscale.js",
         "node_modules/core-js/modules/es7.math.iaddh.js",
         "node_modules/core-js/modules/es7.math.imulh.js",
         "node_modules/core-js/modules/es7.math.isubh.js",
+        "node_modules/core-js/modules/es7.math.rad-per-deg.js",
+        "node_modules/core-js/modules/es7.math.radians.js",
+        "node_modules/core-js/modules/es7.math.scale.js",
+        "node_modules/core-js/modules/es7.math.signbit.js",
         "node_modules/core-js/modules/es7.math.umulh.js",
         "node_modules/core-js/modules/es7.object.define-getter.js",
         "node_modules/core-js/modules/es7.object.define-setter.js",
         "node_modules/core-js/modules/es7.object.entries.js",
-        "node_modules/core-js/modules/es7.object.enumerable-entries.js",
-        "node_modules/core-js/modules/es7.object.enumerable-keys.js",
-        "node_modules/core-js/modules/es7.object.enumerable-values.js",
         "node_modules/core-js/modules/es7.object.get-own-property-descriptors.js",
         "node_modules/core-js/modules/es7.object.lookup-getter.js",
         "node_modules/core-js/modules/es7.object.lookup-setter.js",
         "node_modules/core-js/modules/es7.object.values.js",
         "node_modules/core-js/modules/es7.observable.js",
+        "node_modules/core-js/modules/es7.promise.finally.js",
+        "node_modules/core-js/modules/es7.promise.try.js",
         "node_modules/core-js/modules/es7.reflect.define-metadata.js",
         "node_modules/core-js/modules/es7.reflect.delete-metadata.js",
         "node_modules/core-js/modules/es7.reflect.get-metadata-keys.js",
@@ -2931,6 +3119,8 @@
         "node_modules/core-js/modules/es7.reflect.has-metadata.js",
         "node_modules/core-js/modules/es7.reflect.has-own-metadata.js",
         "node_modules/core-js/modules/es7.reflect.metadata.js",
+        "node_modules/core-js/modules/es7.set.from.js",
+        "node_modules/core-js/modules/es7.set.of.js",
         "node_modules/core-js/modules/es7.set.to-json.js",
         "node_modules/core-js/modules/es7.string.at.js",
         "node_modules/core-js/modules/es7.string.match-all.js",
@@ -2941,6 +3131,10 @@
         "node_modules/core-js/modules/es7.symbol.async-iterator.js",
         "node_modules/core-js/modules/es7.symbol.observable.js",
         "node_modules/core-js/modules/es7.system.global.js",
+        "node_modules/core-js/modules/es7.weak-map.from.js",
+        "node_modules/core-js/modules/es7.weak-map.of.js",
+        "node_modules/core-js/modules/es7.weak-set.from.js",
+        "node_modules/core-js/modules/es7.weak-set.of.js",
         "node_modules/core-js/modules/library/_add-to-unscopables.js",
         "node_modules/core-js/modules/library/_collection.js",
         "node_modules/core-js/modules/library/_export.js",
@@ -2949,6 +3143,7 @@
         "node_modules/core-js/modules/library/_redefine-all.js",
         "node_modules/core-js/modules/library/_redefine.js",
         "node_modules/core-js/modules/library/_set-species.js",
+        "node_modules/core-js/modules/library/es6.date.to-json.js",
         "node_modules/core-js/modules/library/es6.date.to-primitive.js",
         "node_modules/core-js/modules/library/es6.date.to-string.js",
         "node_modules/core-js/modules/library/es6.function.name.js",
@@ -3257,6 +3452,7 @@
         "node_modules/es5-ext/object/copy.js",
         "node_modules/es5-ext/object/count.js",
         "node_modules/es5-ext/object/create.js",
+        "node_modules/es5-ext/object/ensure-finite-number.js",
         "node_modules/es5-ext/object/ensure-natural-number-value.js",
         "node_modules/es5-ext/object/ensure-natural-number.js",
         "node_modules/es5-ext/object/ensure-promise.js",
@@ -3275,6 +3471,7 @@
         "node_modules/es5-ext/object/is-copy-deep.js",
         "node_modules/es5-ext/object/is-copy.js",
         "node_modules/es5-ext/object/is-empty.js",
+        "node_modules/es5-ext/object/is-finite-number.js",
         "node_modules/es5-ext/object/is-number-value.js",
         "node_modules/es5-ext/object/is-object.js",
         "node_modules/es5-ext/object/is-plain-object.js",
@@ -3308,6 +3505,7 @@
         "node_modules/es5-ext/object/validate-array-like.js",
         "node_modules/es5-ext/object/validate-stringifiable-value.js",
         "node_modules/es5-ext/object/validate-stringifiable.js",
+        "node_modules/es5-ext/optional-chaining.js",
         "node_modules/es5-ext/reg-exp/#/index.js",
         "node_modules/es5-ext/reg-exp/#/is-sticky.js",
         "node_modules/es5-ext/reg-exp/#/is-unicode.js",
@@ -3817,8 +4015,7 @@
         "node_modules/esquery/esquery.js",
         "node_modules/esquery/parser.js",
         "node_modules/esrecurse/esrecurse.js",
-        "node_modules/esrecurse/node_modules/estraverse/estraverse.js",
-        "node_modules/esrecurse/node_modules/estraverse/gulpfile.js",
+        "node_modules/esrecurse/gulpfile.babel.js",
         "node_modules/estraverse/estraverse.js",
         "node_modules/estraverse/gulpfile.js",
         "node_modules/esutils/lib/ast.js",
@@ -3837,6 +4034,7 @@
         "node_modules/fast-levenshtein/levenshtein.js",
         "node_modules/figures/index.js",
         "node_modules/file-entry-cache/cache.js",
+        "node_modules/find-up/index.js",
         "node_modules/flat-cache/cache.js",
         "node_modules/flat-cache/utils.js",
         "node_modules/fs.realpath/index.js",
@@ -3855,7 +4053,6 @@
         "node_modules/graceful-fs/graceful-fs.js",
         "node_modules/graceful-fs/legacy-streams.js",
         "node_modules/graceful-fs/polyfills.js",
-        "node_modules/graceful-readlink/index.js",
         "node_modules/has-ansi/index.js",
         "node_modules/hosted-git-info/git-host-info.js",
         "node_modules/hosted-git-info/git-host.js",
@@ -3900,6 +4097,7 @@
         "node_modules/is-path-inside/index.js",
         "node_modules/is-property/is-property.js",
         "node_modules/is-resolvable/index.js",
+        "node_modules/is-utf8/is-utf8.js",
         "node_modules/isarray/index.js",
         "node_modules/isarray/test.js",
         "node_modules/js-tokens/index.js",
@@ -3951,6 +4149,7 @@
         "node_modules/levn/lib/parse-string.js",
         "node_modules/levn/lib/parse.js",
         "node_modules/load-json-file/index.js",
+        "node_modules/locate-path/index.js",
         "node_modules/lodash/_DataView.js",
         "node_modules/lodash/_Hash.js",
         "node_modules/lodash/_LazyWrapper.js",
@@ -5033,9 +5232,12 @@
         "node_modules/optionator/lib/util.js",
         "node_modules/os-homedir/index.js",
         "node_modules/os-tmpdir/index.js",
+        "node_modules/p-limit/index.js",
+        "node_modules/p-locate/index.js",
         "node_modules/parse-json/index.js",
         "node_modules/parse-json/vendor/parse.js",
         "node_modules/parse-json/vendor/unicode.js",
+        "node_modules/path-exists/index.js",
         "node_modules/path-is-absolute/index.js",
         "node_modules/path-is-inside/lib/path-is-inside.js",
         "node_modules/path-parse/index.js",
@@ -5055,10 +5257,13 @@
         "node_modules/prelude-ls/lib/index.js",
         "node_modules/prettier/bin/prettier.js",
         "node_modules/prettier/index.js",
-        "node_modules/prettier/src/parser-babylon.js",
-        "node_modules/prettier/src/parser-flow.js",
-        "node_modules/prettier/src/parser-postcss.js",
-        "node_modules/prettier/src/parser-typescript.js",
+        "node_modules/prettier/parser-babylon.js",
+        "node_modules/prettier/parser-flow.js",
+        "node_modules/prettier/parser-graphql.js",
+        "node_modules/prettier/parser-json.js",
+        "node_modules/prettier/parser-parse5.js",
+        "node_modules/prettier/parser-postcss.js",
+        "node_modules/prettier/parser-typescript.js",
         "node_modules/prettier-eslint/dist/index.js",
         "node_modules/prettier-eslint/dist/utils.js",
         "node_modules/pretty-format/build/index.js",
@@ -5100,6 +5305,7 @@
         "node_modules/pseudomap/map.js",
         "node_modules/pseudomap/pseudomap.js",
         "node_modules/read-pkg/index.js",
+        "node_modules/read-pkg-up/index.js",
         "node_modules/readable-stream/duplex-browser.js",
         "node_modules/readable-stream/duplex.js",
         "node_modules/readable-stream/lib/_stream_duplex.js",
@@ -5108,6 +5314,7 @@
         "node_modules/readable-stream/lib/_stream_transform.js",
         "node_modules/readable-stream/lib/_stream_writable.js",
         "node_modules/readable-stream/lib/internal/streams/BufferList.js",
+        "node_modules/readable-stream/lib/internal/streams/destroy.js",
         "node_modules/readable-stream/lib/internal/streams/stream-browser.js",
         "node_modules/readable-stream/lib/internal/streams/stream.js",
         "node_modules/readable-stream/passthrough.js",
@@ -5142,12 +5349,13 @@
         "node_modules/run-async/test.js",
         "node_modules/rx-lite/rx.lite.js",
         "node_modules/rx-lite/rx.lite.min.js",
-        "node_modules/safe-buffer/browser.js",
         "node_modules/safe-buffer/index.js",
         "node_modules/safe-buffer/test.js",
+        "node_modules/sb-callsite/lib/main.js",
         "node_modules/sb-exec/lib/helpers.js",
         "node_modules/sb-exec/lib/index.js",
         "node_modules/sb-exec/lib/types.js",
+        "node_modules/sb-fs/lib/index.js",
         "node_modules/sb-memoize/lib/index.js",
         "node_modules/sb-npm-path/decls/jasmine.js",
         "node_modules/sb-npm-path/lib/helpers.js",
@@ -5205,6 +5413,7 @@
         "node_modules/string_decoder/lib/string_decoder.js",
         "node_modules/strip-ansi/index.js",
         "node_modules/strip-bom/index.js",
+        "node_modules/strip-bom-buf/index.js",
         "node_modules/strip-json-comments/index.js",
         "node_modules/supports-color/index.js",
         "node_modules/table/dist/alignString.js",
@@ -5231,8 +5440,10 @@
         "node_modules/table/dist/validateTableData.js",
         "node_modules/table/dist/wrapString.js",
         "node_modules/table/dist/wrapWord.js",
+        "node_modules/table/node_modules/ansi-regex/index.js",
         "node_modules/table/node_modules/is-fullwidth-code-point/index.js",
         "node_modules/table/node_modules/string-width/index.js",
+        "node_modules/table/node_modules/strip-ansi/index.js",
         "node_modules/text-table/example/align.js",
         "node_modules/text-table/example/center.js",
         "node_modules/text-table/example/dotalign.js",
@@ -5284,9 +5495,12 @@
         "src/formatOnSave/index.test.js",
         "src/formatOnSave/isFilePathEslintIgnored.js",
         "src/formatOnSave/isFilePathEslintIgnored.test.js",
+        "src/formatOnSave/isPrettierInPackageJson.js",
+        "src/formatOnSave/isPrettierInPackageJson.test.js",
         "src/formatOnSave/shouldFormatOnSave.js",
         "src/formatOnSave/shouldFormatOnSave.test.js",
         "src/helpers/index.js",
+        "src/linterInterface/index.js",
         "src/main.js",
         "src/manualFormat/index.js",
         "src/manualFormat/index.test.js",
@@ -5298,6 +5512,8 @@
         "src/statusTile/tooltip.js",
         "src/statusTile/updateStatusTile.js",
         "src/statusTile/updateStatusTile.test.js",
+        "src/statusTile/updateStatusTileScope.js",
+        "src/statusTile/updateStatusTileScope.test.js",
         "src/warnAboutLinterEslintFixOnSave/index.js",
         "src/warnAboutLinterEslintFixOnSave/index.test.js"
       ],
@@ -5318,6 +5534,13 @@
         "node_modules/arrify/package.json",
         "node_modules/atom-linter/.eslintrc.json",
         "node_modules/atom-linter/package.json",
+        "node_modules/atom-package-deps/.eslintrc.json",
+        "node_modules/atom-package-deps/node_modules/sb-exec/.eslintrc.json",
+        "node_modules/atom-package-deps/node_modules/sb-exec/package.json",
+        "node_modules/atom-package-deps/package.json",
+        "node_modules/atom-package-path/package.json",
+        "node_modules/atom-text-buffer-point/package.json",
+        "node_modules/atom-text-buffer-range/package.json",
         "node_modules/babel-code-frame/package.json",
         "node_modules/babel-runtime/package.json",
         "node_modules/balanced-match/package.json",
@@ -5335,6 +5558,7 @@
         "node_modules/co/package.json",
         "node_modules/code-point-at/package.json",
         "node_modules/color-convert/package.json",
+        "node_modules/color-name/.eslintrc.json",
         "node_modules/color-name/package.json",
         "node_modules/commander/package.json",
         "node_modules/common-tags/package.json",
@@ -5371,7 +5595,7 @@
         "node_modules/espree/package.json",
         "node_modules/esprima/package.json",
         "node_modules/esquery/package.json",
-        "node_modules/esrecurse/node_modules/estraverse/package.json",
+        "node_modules/esrecurse/package-lock.json",
         "node_modules/esrecurse/package.json",
         "node_modules/estraverse/package.json",
         "node_modules/esutils/package.json",
@@ -5380,6 +5604,7 @@
         "node_modules/fast-levenshtein/package.json",
         "node_modules/figures/package.json",
         "node_modules/file-entry-cache/package.json",
+        "node_modules/find-up/package.json",
         "node_modules/flat-cache/package.json",
         "node_modules/fs.realpath/package.json",
         "node_modules/generate-function/package.json",
@@ -5389,7 +5614,6 @@
         "node_modules/globals/package.json",
         "node_modules/globby/package.json",
         "node_modules/graceful-fs/package.json",
-        "node_modules/graceful-readlink/package.json",
         "node_modules/has-ansi/package.json",
         "node_modules/hosted-git-info/package.json",
         "node_modules/ignore/package.json",
@@ -5408,6 +5632,7 @@
         "node_modules/is-path-inside/package.json",
         "node_modules/is-property/package.json",
         "node_modules/is-resolvable/package.json",
+        "node_modules/is-utf8/package.json",
         "node_modules/isarray/component.json",
         "node_modules/isarray/package.json",
         "node_modules/js-tokens/package.json",
@@ -5417,6 +5642,7 @@
         "node_modules/jsonpointer/package.json",
         "node_modules/levn/package.json",
         "node_modules/load-json-file/package.json",
+        "node_modules/locate-path/package.json",
         "node_modules/lodash/package.json",
         "node_modules/lodash.merge/package.json",
         "node_modules/lodash.uniq/package.json",
@@ -5442,7 +5668,10 @@
         "node_modules/optionator/package.json",
         "node_modules/os-homedir/package.json",
         "node_modules/os-tmpdir/package.json",
+        "node_modules/p-limit/package.json",
+        "node_modules/p-locate/package.json",
         "node_modules/parse-json/package.json",
+        "node_modules/path-exists/package.json",
         "node_modules/path-is-absolute/package.json",
         "node_modules/path-is-inside/package.json",
         "node_modules/path-parse/package.json",
@@ -5461,6 +5690,7 @@
         "node_modules/progress/package.json",
         "node_modules/pseudomap/package.json",
         "node_modules/read-pkg/package.json",
+        "node_modules/read-pkg-up/package.json",
         "node_modules/readable-stream/package.json",
         "node_modules/readline2/package.json",
         "node_modules/rechoir/package.json",
@@ -5475,8 +5705,10 @@
         "node_modules/run-async/package.json",
         "node_modules/rx-lite/package.json",
         "node_modules/safe-buffer/package.json",
+        "node_modules/sb-callsite/package.json",
         "node_modules/sb-exec/.eslintrc.json",
         "node_modules/sb-exec/package.json",
+        "node_modules/sb-fs/package.json",
         "node_modules/sb-memoize/.eslintrc.json",
         "node_modules/sb-memoize/package.json",
         "node_modules/sb-npm-path/.eslintrc.json",
@@ -5496,12 +5728,15 @@
         "node_modules/string_decoder/package.json",
         "node_modules/strip-ansi/package.json",
         "node_modules/strip-bom/package.json",
+        "node_modules/strip-bom-buf/package.json",
         "node_modules/strip-json-comments/package.json",
         "node_modules/supports-color/package.json",
         "node_modules/table/dist/schemas/config.json",
         "node_modules/table/dist/schemas/streamConfig.json",
+        "node_modules/table/node_modules/ansi-regex/package.json",
         "node_modules/table/node_modules/is-fullwidth-code-point/package.json",
         "node_modules/table/node_modules/string-width/package.json",
+        "node_modules/table/node_modules/strip-ansi/package.json",
         "node_modules/table/package.json",
         "node_modules/text-table/package.json",
         "node_modules/through/package.json",
@@ -5518,9 +5753,6 @@
         "node_modules/xtend/package.json",
         "package.json",
         "src/config-schema.json"
-      ],
-      ".coffee": [
-        "node_modules/esrecurse/gulpfile.coffee"
       ]
     },
     "folders": [
@@ -5534,6 +5766,7 @@
           "dist/executePrettier",
           "dist/formatOnSave",
           "dist/helpers",
+          "dist/linterInterface",
           "dist/manualFormat",
           "dist/statusTile",
           "dist/warnAboutLinterEslintFixOnSave",
@@ -5548,6 +5781,7 @@
           "src/executePrettier",
           "src/formatOnSave",
           "src/helpers",
+          "src/linterInterface",
           "src/manualFormat",
           "src/statusTile",
           "src/warnAboutLinterEslintFixOnSave",
@@ -5556,13 +5790,16 @@
         ],
         "dependencies": {
           "atom-linter": "^10.0.0",
+          "atom-package-deps": "^4.6.0",
+          "atom-text-buffer-point": "^1.0.0",
+          "atom-text-buffer-range": "^1.0.0",
           "editorconfig": "^0.13.2",
           "ignore": "^3.3.3",
           "lodash": "^4.17.4",
           "loophole": "^1.1.0",
-          "prettier": "^1.4.1",
-          "prettier-eslint": "^6.2.3",
-          "read-pkg": "^2.0.0"
+          "prettier": "^1.5.3",
+          "prettier-eslint": "^6.4.2",
+          "read-pkg-up": "^2.0.0"
         }
       },
       {
@@ -5624,6 +5861,48 @@
       },
       {
         "paths": [
+          "node_modules/atom-package-deps",
+          "node_modules/atom-package-deps/lib"
+        ],
+        "dependencies": {
+          "atom-package-path": "^1.1.0",
+          "sb-exec": "^3.0.1",
+          "sb-fs": "^3.0.0",
+          "semver": "^5.3.0"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/atom-package-deps/node_modules/sb-exec",
+          "node_modules/atom-package-deps/node_modules/sb-exec/decls",
+          "node_modules/atom-package-deps/node_modules/sb-exec/lib"
+        ],
+        "dependencies": {
+          "consistent-env": "^1.2.0",
+          "lodash.uniq": "^4.5.0",
+          "sb-npm-path": "^2.0.0"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/atom-package-path/lib",
+          "node_modules/atom-package-path",
+          "node_modules/atom-package-path/spec"
+        ],
+        "dependencies": {
+          "sb-callsite": "^1.1.2"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/atom-text-buffer-range"
+        ],
+        "dependencies": {
+          "atom-text-buffer-point": "^1.0.0"
+        }
+      },
+      {
+        "paths": [
           "node_modules/babel-code-frame/lib",
           "node_modules/babel-code-frame"
         ],
@@ -5661,7 +5940,7 @@
           "node_modules/brace-expansion"
         ],
         "dependencies": {
-          "balanced-match": "^0.4.1",
+          "balanced-match": "^1.0.0",
           "concat-map": "0.0.1"
         }
       },
@@ -5699,14 +5978,6 @@
         ],
         "dependencies": {
           "color-name": "^1.1.1"
-        }
-      },
-      {
-        "paths": [
-          "node_modules/commander"
-        ],
-        "dependencies": {
-          "graceful-readlink": ">= 1.0.0"
         }
       },
       {
@@ -6162,7 +6433,7 @@
           "node_modules/espree/lib"
         ],
         "dependencies": {
-          "acorn": "^5.0.1",
+          "acorn": "^5.1.1",
           "acorn-jsx": "^3.0.0"
         }
       },
@@ -6179,7 +6450,7 @@
           "node_modules/esrecurse"
         ],
         "dependencies": {
-          "estraverse": "~4.1.0",
+          "estraverse": "^4.1.0",
           "object-assign": "^4.0.1"
         }
       },
@@ -6210,6 +6481,14 @@
         "dependencies": {
           "flat-cache": "^1.2.1",
           "object-assign": "^4.0.1"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/find-up"
+        ],
+        "dependencies": {
+          "locate-path": "^2.0.0"
         }
       },
       {
@@ -6366,7 +6645,7 @@
         ],
         "dependencies": {
           "argparse": "^1.0.7",
-          "esprima": "^3.1.1"
+          "esprima": "^4.0.0"
         }
       },
       {
@@ -6398,6 +6677,15 @@
           "parse-json": "^2.2.0",
           "pify": "^2.0.0",
           "strip-bom": "^3.0.0"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/locate-path"
+        ],
+        "dependencies": {
+          "p-locate": "^2.0.0",
+          "path-exists": "^3.0.0"
         }
       },
       {
@@ -6475,6 +6763,14 @@
       },
       {
         "paths": [
+          "node_modules/p-locate"
+        ],
+        "dependencies": {
+          "p-limit": "^1.1.0"
+        }
+      },
+      {
+        "paths": [
           "node_modules/parse-json",
           "node_modules/parse-json/vendor"
         ],
@@ -6510,7 +6806,7 @@
           "indent-string": "^3.1.0",
           "lodash.merge": "^4.6.0",
           "loglevel-colored-level-prefix": "^1.0.0",
-          "prettier": "^1.4.2",
+          "prettier": "^1.5.0",
           "pretty-format": "^20.0.3",
           "require-relative": "^0.8.7"
         }
@@ -6536,7 +6832,7 @@
           "node_modules/pretty-format/node_modules/ansi-styles"
         ],
         "dependencies": {
-          "color-convert": "^1.0.0"
+          "color-convert": "^1.9.0"
         }
       },
       {
@@ -6551,17 +6847,26 @@
       },
       {
         "paths": [
+          "node_modules/read-pkg-up"
+        ],
+        "dependencies": {
+          "find-up": "^2.0.0",
+          "read-pkg": "^2.0.0"
+        }
+      },
+      {
+        "paths": [
           "node_modules/readable-stream",
           "node_modules/readable-stream/lib",
           "node_modules/readable-stream/lib/internal/streams"
         ],
         "dependencies": {
           "core-util-is": "~1.0.0",
-          "inherits": "~2.0.1",
+          "inherits": "~2.0.3",
           "isarray": "~1.0.0",
           "process-nextick-args": "~1.0.6",
-          "safe-buffer": "~5.0.1",
-          "string_decoder": "~1.0.0",
+          "safe-buffer": "~5.1.1",
+          "string_decoder": "~1.0.3",
           "util-deprecate": "~1.0.1"
         }
       },
@@ -6614,6 +6919,8 @@
           "node_modules/resolve/test/precedence/bbb",
           "node_modules/resolve/test/resolver/baz",
           "node_modules/resolve/test/resolver",
+          "node_modules/resolve/test/resolver/dot_main",
+          "node_modules/resolve/test/resolver/dot_slash_main",
           "node_modules/resolve/test/resolver/incorrect_main",
           "node_modules/resolve/test/resolver/other_path/lib",
           "node_modules/resolve/test/resolver/other_path",
@@ -6664,6 +6971,16 @@
       },
       {
         "paths": [
+          "node_modules/sb-fs/lib",
+          "node_modules/sb-fs"
+        ],
+        "dependencies": {
+          "sb-promisify": "^2.0.1",
+          "strip-bom-buf": "^1.0.0"
+        }
+      },
+      {
+        "paths": [
           "node_modules/sb-npm-path",
           "node_modules/sb-npm-path/decls",
           "node_modules/sb-npm-path/lib"
@@ -6698,7 +7015,7 @@
           "node_modules/string_decoder"
         ],
         "dependencies": {
-          "safe-buffer": "~5.0.1"
+          "safe-buffer": "~5.1.0"
         }
       },
       {
@@ -6717,6 +7034,14 @@
         ],
         "dependencies": {
           "ansi-regex": "^2.0.0"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/strip-bom-buf"
+        ],
+        "dependencies": {
+          "is-utf8": "^0.2.1"
         }
       },
       {
@@ -6742,7 +7067,15 @@
         ],
         "dependencies": {
           "is-fullwidth-code-point": "^2.0.0",
-          "strip-ansi": "^3.0.0"
+          "strip-ansi": "^4.0.0"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/table/node_modules/strip-ansi"
+        ],
+        "dependencies": {
+          "ansi-regex": "^3.0.0"
         }
       },
       {
@@ -6751,7 +7084,7 @@
           "node_modules/tmp"
         ],
         "dependencies": {
-          "os-tmpdir": "~1.0.1"
+          "os-tmpdir": "~1.0.2"
         }
       },
       {

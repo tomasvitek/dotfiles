@@ -1,16 +1,18 @@
 // @flow
-const readPkg = require('read-pkg');
+const readPkgUp = require('read-pkg-up');
 const path = require('path');
 const { getAtomVersion, getPrettierAtomConfig, addInfoNotification } = require('../atomInterface');
 
 const getDepPath = (dep: string) => path.join(__dirname, '..', '..', 'node_modules', dep);
 
+const getPackageInfo = (dir: string) => readPkgUp.sync({ cwd: dir }).pkg;
+
 const getDebugInfo = () =>
   `
 Atom version: ${getAtomVersion()}
-prettier-atom version: ${readPkg.sync(path.join(__dirname, '..', '..')).version}
-prettier version: ${readPkg.sync(getDepPath('prettier')).version}
-prettier-eslint version: ${readPkg.sync(getDepPath('prettier-eslint')).version}
+prettier-atom version: ${getPackageInfo(__dirname).version}
+prettier version: ${getPackageInfo(getDepPath('prettier')).version}
+prettier-eslint version: ${getPackageInfo(getDepPath('prettier-eslint')).version}
 prettier-atom configuration: ${JSON.stringify(getPrettierAtomConfig(), null, 2)}
 `.trim();
 

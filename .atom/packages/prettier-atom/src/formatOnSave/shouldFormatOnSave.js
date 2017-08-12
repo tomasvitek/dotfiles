@@ -4,15 +4,17 @@ const { someGlobsMatchFilePath } = require('../helpers');
 const { getCurrentFilePath, getCurrentScope } = require('../editorInterface');
 const {
   isFormatOnSaveEnabled,
-  getScopes,
+  getAllScopes,
   getExcludedGlobs,
   getWhitelistedGlobs,
+  isDisabledIfNotInPackageJson,
 } = require('../atomInterface');
 const isFilePathEslintignored = require('./isFilePathEslintIgnored');
+const isPrettierInPackageJson = require('./isPrettierInPackageJson');
 
 const hasFilePath = (editor: TextEditor) => !!getCurrentFilePath(editor);
 
-const isInScope = (editor: TextEditor) => getScopes().includes(getCurrentScope(editor));
+const isInScope = (editor: TextEditor) => getAllScopes().includes(getCurrentScope(editor));
 
 const filePathDoesNotMatchBlacklistGlobs: (
   editor: TextEditor,
@@ -42,6 +44,7 @@ const shouldFormatOnSave: (editor: TextEditor) => boolean = _.overEvery([
     _.overEvery([noWhitelistGlobsPresent, filePathDoesNotMatchBlacklistGlobs]),
   ]),
   isFilePathNotEslintignored,
+  _.overSome([_.negate(isDisabledIfNotInPackageJson), isPrettierInPackageJson]),
 ]);
 
 module.exports = shouldFormatOnSave;

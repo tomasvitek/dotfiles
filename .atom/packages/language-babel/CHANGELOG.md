@@ -1,6 +1,48 @@
+### 2.71.2
+  - Add commenting option to pipelined operators
+  - Fix bad captures in 2.71.1
+   
+### 2.71.1
+  - Fix JS keywords being parsed as pipeline functions.
+
+### 2.70.0
+  - Add support for |> [pipeline operator](https://github.com/tc39/proposal-pipeline-operator)
+
+### 2.69.0
+  - Add support for Flow's [opaque](https://flow.org/en/docs/types/opaque-types/#opaque-type-alias-syntax-a-classtoc-idtoc-opaque-type-alias-syntax-hreftoc-opaque-type-alias-syntaxa) keyword.
+  - Fix Flow type objects in grammar - Issue #392
+  - Fix highlighting/scopes for null arguments in the form `func?.()`
+
+### 2.68.0
+  - Add syntax support for null/existential/elvis `?` operator as defined at [tc39 chaining](https://github.com/tc39/proposal-optional-chaining)
+
+### 2.67.2
+  - Fix another bind :: parse error -Issue #390
+
+### 2.67.1
+  - Fix bind syntax :: not being parsed in certain cases - Issue #389
+
+### 2.67.0
+  - Add support for Styled Components internal API withConfig. PR #387
+  - Assume some forms of <IDENT> are flow functions and not JSX. Issue #388
+
+### 2.66.1
+  - Stop autoIndentJSX tokenizing characters prior to actual JSX.
+
+### 2.66.0
+  - Add meta scope to flowtype objects to allow additional themeing - Issue #382
+  - Existing editors instantiated using autoIndentJSX should observe the config for changes.
+
+### 2.65.3
+  - Fix incorrect closing tag position autoIndentJSX  
+
+### 2.65.2
+  - Fix scope on import/export to allow Atom's toggle quotes to work.
+  - Fix way ternaries inside JSX were auto indented. Fixes [#369](https://github.com/gandm/language-babel/issues/369#issuecomment-308108180)
+
 ### 2.65.1
   - Fix how we handle unexpected flowtypes that changed in 2.64.0 - Issue #376
-  
+
 ### 2.65.0
   - Add support for styled-components styled(Comp).attrs() form of template.
 

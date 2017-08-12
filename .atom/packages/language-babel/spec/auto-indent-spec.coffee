@@ -6,7 +6,7 @@ path = require 'path'
 AutoIndent = require '../lib/auto-indent'
 
 describe 'auto-indent', ->
-  [autoIndent, editor, notifications, sourceCode, sourceCodeRange] = []
+  [autoIndent, editor, notifications, sourceCode, sourceCodeRange, indentJSXRange] = []
 
   beforeEach ->
     waitsForPromise ->
@@ -173,75 +173,66 @@ describe 'auto-indent', ->
           />
           </div>
           { // tests inline JSX
-          if (a) {
-          return (
-          <div></div>
-          )
+          trainerProfile.backgroundImageLink
+          ? <Image style={styles.video} source={{uri: `${AppConfig.apiURL}${trainerProfile.backgroundImageLink}`}} />
+          : <Image style={styles.video} source={{uri: `https://placehold.it/375x140`}} />
           }
-          else (b) {
-          switch (a) {
-          case 1:
-          return (
-          <div></div>
-          )
-          default:
-          }
-          }
+          {
+          cond ?
+          <span/>:
+          <span></span>
           }
           </div>
           </div>
+
           """
         editor.insertText(sourceCode)
-        sourceCodeRange = new Range(new Point(0,0), new Point(35,6))
+        sourceCodeRange = new Range(new Point(0,0), new Point(31,0))
+        indentJSXRange = new Range(new Point(0,0), new Point(30,1))
 
       it 'should indent JSX according to eslint rules', ->
         indentedCode = """
           <div className={rootClass}>
-              {this._renderPlaceholder()}
+            {this._renderPlaceholder()}
+            <div
+              className={cx('DraftEditor/editorContainer')}
+              key={'editor' + this.state.containerKey}
+              ref="editorContainer"
+            >
               <div
-                  className={cx('DraftEditor/editorContainer')}
-                  key={'editor' + this.state.containerKey}
-                  ref="editorContainer"
+                aria-activedescendant={
+                  readOnly ? null : this.props.ariaActiveDescendantID
+                }
+                aria-autocomplete={readOnly ? null : this.props.ariaAutoComplete}
               >
-                  <div
-                      aria-activedescendant={
-                          readOnly ? null : this.props.ariaActiveDescendantID
-                      }
-                      aria-autocomplete={readOnly ? null : this.props.ariaAutoComplete}
-                  >
-                      {this._renderPlaceholder()}
-                      <Component p1
-                          p2
-                      />
-                  </div>
-                  { // tests inline JSX
-                      if (a) {
-                          return (
-                              <div></div>
-                          )
-                      }
-                      else (b) {
-                          switch (a) {
-                              case 1:
-                                  return (
-                                      <div></div>
-                                  )
-                              default:
-                          }
-                      }
-                  }
+                {this._renderPlaceholder()}
+                <Component p1
+                  p2
+                />
               </div>
+              { // tests inline JSX
+                trainerProfile.backgroundImageLink
+                  ? <Image style={styles.video} source={{uri: `${AppConfig.apiURL}${trainerProfile.backgroundImageLink}`}} />
+                  : <Image style={styles.video} source={{uri: `https://placehold.it/375x140`}} />
+              }
+              {
+                cond ?
+                  <span/>:
+                  <span></span>
+              }
+            </div>
           </div>
+
           """
         # remember this is tabs based on atom default
         autoIndent.eslintIndentOptions =
-          jsxIndent: [1, 2]
-          jsxIndentProps: [1, 2]
+          jsxIndent: [1, 1]
+          jsxIndentProps: [1, 1]
           jsxClosingBracketLocation: [ 1,
            selfClosing: 'tag-aligned'
            nonEmpty: 'tag-aligned' ]
          autoIndent.autoJsx = true
-         autoIndent.indentJSX(sourceCodeRange)
+         autoIndent.indentJSX(indentJSXRange)
          expect(editor.getTextInBufferRange(sourceCodeRange)).toEqual(indentedCode)
 
       it 'should indent JSX according to eslint rules and tag closing alignment', ->
@@ -265,23 +256,18 @@ describe 'auto-indent', ->
                           />
                   </div>
                   { // tests inline JSX
-                      if (a) {
-                          return (
-                              <div></div>
-                          )
-                      }
-                      else (b) {
-                          switch (a) {
-                              case 1:
-                                  return (
-                                      <div></div>
-                                  )
-                              default:
-                          }
-                      }
+                      trainerProfile.backgroundImageLink
+                          ? <Image style={styles.video} source={{uri: `${AppConfig.apiURL}${trainerProfile.backgroundImageLink}`}} />
+                          : <Image style={styles.video} source={{uri: `https://placehold.it/375x140`}} />
+                  }
+                  {
+                      cond ?
+                          <span/>:
+                          <span></span>
                   }
               </div>
           </div>
+
           """
         # remember this is tabs based on atom default
         autoIndent.eslintIndentOptions =
@@ -291,7 +277,7 @@ describe 'auto-indent', ->
             selfClosing: 'props-aligned'
             nonEmpty: 'props-aligned' ]
          autoIndent.autoJsx = true
-         autoIndent.indentJSX(sourceCodeRange)
+         autoIndent.indentJSX(indentJSXRange)
          expect(editor.getTextInBufferRange(sourceCodeRange)).toEqual(indentedCode)
 
     # test insert newline between opening closing JSX tags

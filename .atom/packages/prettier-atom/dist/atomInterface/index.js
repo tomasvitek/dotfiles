@@ -1,5 +1,7 @@
 'use strict';
 
+function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
+
 // constants
 var LINTER_LINT_COMMAND = 'linter:lint';
 
@@ -31,20 +33,40 @@ var shouldUseEditorConfig = function shouldUseEditorConfig() {
   return getConfigOption('useEditorConfig');
 };
 
-var shouldDisplayErrors = function shouldDisplayErrors() {
-  return !getConfigOption('silenceErrors');
-};
-
 var isFormatOnSaveEnabled = function isFormatOnSaveEnabled() {
   return getConfigOption('formatOnSaveOptions.enabled');
+};
+
+var isDisabledIfNotInPackageJson = function isDisabledIfNotInPackageJson() {
+  return getConfigOption('formatOnSaveOptions.isDisabledIfNotInPackageJson');
 };
 
 var shouldRespectEslintignore = function shouldRespectEslintignore() {
   return getConfigOption('formatOnSaveOptions.respectEslintignore');
 };
 
-var getScopes = function getScopes() {
-  return getConfigOption('formatOnSaveOptions.scopes');
+var getJavascriptScopes = function getJavascriptScopes() {
+  return getConfigOption('formatOnSaveOptions.javascriptScopes');
+};
+
+var getTypescriptScopes = function getTypescriptScopes() {
+  return getConfigOption('formatOnSaveOptions.typescriptScopes');
+};
+
+var getCssScopes = function getCssScopes() {
+  return getConfigOption('formatOnSaveOptions.cssScopes');
+};
+
+var getJsonScopes = function getJsonScopes() {
+  return getConfigOption('formatOnSaveOptions.jsonScopes');
+};
+
+var getGraphQlScopes = function getGraphQlScopes() {
+  return getConfigOption('formatOnSaveOptions.graphQlScopes');
+};
+
+var getAllScopes = function getAllScopes() {
+  return [].concat(_toConsumableArray(getJavascriptScopes()), _toConsumableArray(getTypescriptScopes()), _toConsumableArray(getCssScopes()), _toConsumableArray(getJsonScopes()), _toConsumableArray(getGraphQlScopes()));
 };
 
 var getWhitelistedGlobs = function getWhitelistedGlobs() {
@@ -95,6 +117,18 @@ var addErrorNotification = function addErrorNotification(message, options) {
   return atom.notifications.addError(message, options);
 };
 
+var attemptWithErrorNotification = function attemptWithErrorNotification(func) {
+  for (var _len = arguments.length, args = Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
+    args[_key - 1] = arguments[_key];
+  }
+
+  try {
+    func.apply(undefined, args);
+  } catch (e) {
+    addErrorNotification(e.message, { dismissable: true, stack: e.stack });
+  }
+};
+
 var runLinter = function runLinter(editor) {
   return isLinterLintCommandDefined(editor) && atom.commands.dispatch(atom.views.getView(editor), LINTER_LINT_COMMAND);
 };
@@ -110,14 +144,20 @@ module.exports = {
   getPrettierAtomConfig: getPrettierAtomConfig,
   getPrettierEslintOptions: getPrettierEslintOptions,
   getPrettierOptions: getPrettierOptions,
-  getScopes: getScopes,
+  getJavascriptScopes: getJavascriptScopes,
+  getTypescriptScopes: getTypescriptScopes,
+  getCssScopes: getCssScopes,
+  getJsonScopes: getJsonScopes,
+  getGraphQlScopes: getGraphQlScopes,
+  getAllScopes: getAllScopes,
   getWhitelistedGlobs: getWhitelistedGlobs,
+  isDisabledIfNotInPackageJson: isDisabledIfNotInPackageJson,
   isFormatOnSaveEnabled: isFormatOnSaveEnabled,
   isLinterEslintAutofixEnabled: isLinterEslintAutofixEnabled,
   runLinter: runLinter,
-  shouldDisplayErrors: shouldDisplayErrors,
   shouldRespectEslintignore: shouldRespectEslintignore,
   shouldUseEditorConfig: shouldUseEditorConfig,
   shouldUseEslint: shouldUseEslint,
-  toggleFormatOnSave: toggleFormatOnSave
+  toggleFormatOnSave: toggleFormatOnSave,
+  attemptWithErrorNotification: attemptWithErrorNotification
 };

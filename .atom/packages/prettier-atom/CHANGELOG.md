@@ -1,3 +1,92 @@
+<a name="0.37.0"></a>
+# [0.37.0](https://github.com/prettier/prettier-atom/compare/v0.36.1...v0.37.0) (2017-07-22)
+
+
+### Bug Fixes
+
+* **errors:** handle errors that aren't syntax errors ([c3d02b0](https://github.com/prettier/prettier-atom/commit/c3d02b0)), closes [#231](https://github.com/prettier/prettier-atom/issues/231)
+
+
+### Features
+
+* **graphql:** add GraphQl query support (requires language-graphql) ([c3672ca](https://github.com/prettier/prettier-atom/commit/c3672ca)), closes [#237](https://github.com/prettier/prettier-atom/issues/237)
+* **prettier:** update to 1.5.3 ([85b3d68](https://github.com/prettier/prettier-atom/commit/85b3d68))
+
+
+
+<a name="0.36.1"></a>
+## [0.36.1](https://github.com/prettier/prettier-atom/compare/v0.36.0...v0.36.1) (2017-07-07)
+
+
+### Bug Fixes
+
+* **handleError:** properly handle alternative loc in Prettier errors ([e2dce36](https://github.com/prettier/prettier-atom/commit/e2dce36)), closes [#229](https://github.com/prettier/prettier-atom/issues/229)
+
+
+
+<a name="0.36.0"></a>
+# [0.36.0](https://github.com/prettier/prettier-atom/compare/v0.35.0...v0.36.0) (2017-07-06)
+
+
+### Bug Fixes
+
+* **debug:** Fix usage of readPkgUp to fetch package info ([4c2561d](https://github.com/prettier/prettier-atom/commit/4c2561d)), closes [#217](https://github.com/prettier/prettier-atom/issues/217)
+* **formatOnSave:** don't prevent user from saving if uncaught error ([8f3bfd9](https://github.com/prettier/prettier-atom/commit/8f3bfd9)), closes [#190](https://github.com/prettier/prettier-atom/issues/190)
+* **main:** Subscribe to onDidChangeActivePaneItem when onDidChangeActiveTextEditor is not available ([2efe713](https://github.com/prettier/prettier-atom/commit/2efe713)), closes [#205](https://github.com/prettier/prettier-atom/issues/205)
+* **prettierOptions:** Always disable trailingComma option for JSON ([600cbc0](https://github.com/prettier/prettier-atom/commit/600cbc0)), closes [#212](https://github.com/prettier/prettier-atom/issues/212)
+
+
+### Features
+
+* **errors:** use linter to display errors ([fc20a8c](https://github.com/prettier/prettier-atom/commit/fc20a8c)), closes [#146](https://github.com/prettier/prettier-atom/issues/146)
+
+
+
+<a name="0.35.0"></a>
+# [0.35.0](https://github.com/prettier/prettier-atom/compare/v0.34.0...v0.35.0) (2017-06-29)
+
+
+### Features
+
+* **json:** add JSON support ([112f58a](https://github.com/prettier/prettier-atom/commit/112f58a))
+* **prettier:** bump to 1.5.2 ([3519fab](https://github.com/prettier/prettier-atom/commit/3519fab))
+
+
+
+<a name="0.34.0"></a>
+# [0.34.0](https://github.com/prettier/prettier-atom/compare/v0.33.0...v0.34.0) (2017-06-22)
+
+
+### Bug Fixes
+
+* **save:** On save, use editor provided by observer ([b93ec93](https://github.com/prettier/prettier-atom/commit/b93ec93)), closes [#96](https://github.com/prettier/prettier-atom/issues/96)
+
+
+### Features
+
+* **css:** Add LESS and SCSS to default scopes for CSS files ([d41a008](https://github.com/prettier/prettier-atom/commit/d41a008)), closes [#195](https://github.com/prettier/prettier-atom/issues/195)
+* **statusTile:** Display status bar tile only if active file matches one of the scopes (file extens ([56467b9](https://github.com/prettier/prettier-atom/commit/56467b9)), closes [#170](https://github.com/prettier/prettier-atom/issues/170)
+
+
+
+<a name="0.33.0"></a>
+# [0.33.0](https://github.com/prettier/prettier-atom/compare/v0.32.0...v0.33.0) (2017-06-08)
+
+
+### Bug Fixes
+
+* **Settings:** Add missing parser options to settings screen ([7d9f22c](https://github.com/prettier/prettier-atom/commit/7d9f22c))
+
+
+### Features
+
+* **format-on-save:** add option to not format on save if prettier not in dependencies ([1a32d47](https://github.com/prettier/prettier-atom/commit/1a32d47)), closes [#43](https://github.com/prettier/prettier-atom/issues/43)
+* **parsers:** add typescript and CSS support ([9882a0b](https://github.com/prettier/prettier-atom/commit/9882a0b)), closes [#183](https://github.com/prettier/prettier-atom/issues/183) [#184](https://github.com/prettier/prettier-atom/issues/184)
+* **prettier:** bump to 1.4.4 ([aa701a0](https://github.com/prettier/prettier-atom/commit/aa701a0))
+* **prettier-eslint:** bump to 6.3.0 ([103ca8b](https://github.com/prettier/prettier-atom/commit/103ca8b))
+
+
+
 <a name="0.32.0"></a>
 # [0.32.0](https://github.com/prettier/prettier-atom/compare/v0.31.1...v0.32.0) (2017-06-02)
 

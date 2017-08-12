@@ -1,3 +1,23 @@
+## 1.6.4
+
+* Fix a style issue on Atom v1.19.0
+* Fix incorrect times reported to Busy Signal
+* Fix behavior of file scope when Linter Panel is used inside a pane container
+
+## 1.6.3
+
+* Hide tooltip when cursor is changed and `tooltipFollows` is set to `Both`
+
+## 1.6.2
+
+* Flip default `hidePanelWhenEmpty` back to true
+* Fix a bug where clicking on other pane items (not even center) would hide status bar and panel
+
+## 1.6.1
+
+* Flip default `hidePanelWhenEmpty` to false
+* Allow opening editors from markdown links from Message v2 description
+
 ## 1.6.0
 
 * Apply panelHeight changes live

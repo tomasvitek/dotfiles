@@ -6,6 +6,7 @@ import type { Point, TextEditor } from 'atom'
 import type Editors from './editors'
 import type { LinterMessage } from './types'
 
+let lastPaneItem = null
 export const severityScore = {
   error: 3,
   warning: 2,
@@ -33,6 +34,16 @@ export function copySelection() {
 }
 export function getPathOfMessage(message: LinterMessage): string {
   return atom.project.relativizePath($file(message) || '')[1]
+}
+export function getActiveTextEditor(): ?TextEditor {
+  let paneItem = atom.workspace.getCenter().getActivePaneItem()
+  const paneIsTextEditor = atom.workspace.isTextEditor(paneItem)
+  if (!paneIsTextEditor && paneItem && lastPaneItem && paneItem.getURI && paneItem.getURI() === WORKSPACE_URI && (!lastPaneItem.isAlive || lastPaneItem.isAlive())) {
+    paneItem = lastPaneItem
+  } else {
+    lastPaneItem = paneItem
+  }
+  return atom.workspace.isTextEditor(paneItem) ? paneItem : null
 }
 
 export function getEditorsMap(editors: Editors): { editorsMap: Object, filePaths: Array<string> } {
@@ -77,6 +88,16 @@ export function filterMessagesByRangeOrPoint(messages: Set<LinterMessage> | Arra
   return filtered
 }
 
+export function openFile(file: string, position: ?Point) {
+  const options = {}
+  options.searchAllPanes = true
+  if (position) {
+    options.initialLine = position.row
+    options.initialColumn = position.column
+  }
+  atom.workspace.open(file, options)
+}
+
 export function visitMessage(message: LinterMessage, reference: boolean = false) {
   let messageFile
   let messagePosition
@@ -98,12 +119,9 @@ export function visitMessage(message: LinterMessage, reference: boolean = false)
       messagePosition = messageRange.start
     }
   }
-  atom.workspace.open(messageFile, { searchAllPanes: true }).then(function() {
-    const textEditor = atom.workspace.getActiveTextEditor()
-    if (messagePosition && textEditor && textEditor.getPath() === messageFile) {
-      textEditor.setCursorBufferPosition(messagePosition)
-    }
-  })
+  if (messageFile) {
+    openFile(messageFile, messagePosition)
+  }
 }
 
 export function openExternally(message: LinterMessage): void {

@@ -2,40 +2,39 @@
   "_args": [
     [
       {
-        "raw": "/private/var/folders/c9/qq12c1lj6c16d183jjx7_gg80000gn/T/d-117424-3952-x7zjw1.4yk1sv2t9/package.tgz",
+        "raw": "/private/var/folders/j1/3vxq1vgj0sg8x9fbr10zwq8h0000gn/T/d-117712-22290-it0wdu.mb8npwg66r/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/private/var/folders/c9/qq12c1lj6c16d183jjx7_gg80000gn/T/d-117424-3952-x7zjw1.4yk1sv2t9/package.tgz",
-        "spec": "/private/var/folders/c9/qq12c1lj6c16d183jjx7_gg80000gn/T/d-117424-3952-x7zjw1.4yk1sv2t9/package.tgz",
+        "rawSpec": "/private/var/folders/j1/3vxq1vgj0sg8x9fbr10zwq8h0000gn/T/d-117712-22290-it0wdu.mb8npwg66r/package.tgz",
+        "spec": "/private/var/folders/j1/3vxq1vgj0sg8x9fbr10zwq8h0000gn/T/d-117712-22290-it0wdu.mb8npwg66r/package.tgz",
         "type": "local"
       },
-      "/private/var/folders/c9/qq12c1lj6c16d183jjx7_gg80000gn/T/apm-install-dir-117424-3952-1tm1vm7.u6lgb3ayvi"
+      "/private/var/folders/j1/3vxq1vgj0sg8x9fbr10zwq8h0000gn/T/apm-install-dir-117712-22290-1kg8teg.u40zr529"
     ]
   ],
-  "_from": "../d-117424-3952-x7zjw1.4yk1sv2t9/package.tgz",
-  "_id": "git-blame@1.1.1",
+  "_from": "../d-117712-22290-it0wdu.mb8npwg66r/package.tgz",
+  "_id": "git-blame@1.2.1",
   "_inCache": true,
-  "_installable": true,
   "_location": "/git-blame",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/private/var/folders/c9/qq12c1lj6c16d183jjx7_gg80000gn/T/d-117424-3952-x7zjw1.4yk1sv2t9/package.tgz",
+    "raw": "/private/var/folders/j1/3vxq1vgj0sg8x9fbr10zwq8h0000gn/T/d-117712-22290-it0wdu.mb8npwg66r/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/private/var/folders/c9/qq12c1lj6c16d183jjx7_gg80000gn/T/d-117424-3952-x7zjw1.4yk1sv2t9/package.tgz",
-    "spec": "/private/var/folders/c9/qq12c1lj6c16d183jjx7_gg80000gn/T/d-117424-3952-x7zjw1.4yk1sv2t9/package.tgz",
+    "rawSpec": "/private/var/folders/j1/3vxq1vgj0sg8x9fbr10zwq8h0000gn/T/d-117712-22290-it0wdu.mb8npwg66r/package.tgz",
+    "spec": "/private/var/folders/j1/3vxq1vgj0sg8x9fbr10zwq8h0000gn/T/d-117712-22290-it0wdu.mb8npwg66r/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-117424-3952-x7zjw1.4yk1sv2t9/package.tgz",
-  "_shasum": "7d57d2f836bebb2bb504e29cbd1ad38ac5c557d8",
+  "_resolved": "file:../d-117712-22290-it0wdu.mb8npwg66r/package.tgz",
+  "_shasum": "3009241dc62060a7300141431b2690a061fbe9d8",
   "_shrinkwrap": null,
-  "_spec": "/private/var/folders/c9/qq12c1lj6c16d183jjx7_gg80000gn/T/d-117424-3952-x7zjw1.4yk1sv2t9/package.tgz",
-  "_where": "/private/var/folders/c9/qq12c1lj6c16d183jjx7_gg80000gn/T/apm-install-dir-117424-3952-1tm1vm7.u6lgb3ayvi",
+  "_spec": "/private/var/folders/j1/3vxq1vgj0sg8x9fbr10zwq8h0000gn/T/d-117712-22290-it0wdu.mb8npwg66r/package.tgz",
+  "_where": "/private/var/folders/j1/3vxq1vgj0sg8x9fbr10zwq8h0000gn/T/apm-install-dir-117712-22290-1kg8teg.u40zr529",
   "activationCommands": {
     "atom-text-editor": [
       "git-blame:toggle"
@@ -76,13 +75,13 @@
   "scripts": {
     "bump": "standard-version"
   },
-  "version": "1.1.1",
+  "version": "1.2.1",
   "_atomModuleCache": {
     "version": 1,
     "dependencies": [
       {
         "name": "asap",
-        "version": "2.0.5",
+        "version": "2.0.6",
         "path": "node_modules/asap/asap.js"
       },
       {
@@ -97,12 +96,12 @@
       },
       {
         "name": "balanced-match",
-        "version": "0.4.2",
+        "version": "1.0.0",
         "path": "node_modules/balanced-match/index.js"
       },
       {
         "name": "brace-expansion",
-        "version": "1.1.7",
+        "version": "1.1.8",
         "path": "node_modules/brace-expansion/index.js"
       },
       {
@@ -137,7 +136,7 @@
       },
       {
         "name": "es5-ext",
-        "version": "0.10.21",
+        "version": "0.10.27",
         "path": "node_modules/es5-ext/index.js"
       },
       {
@@ -172,7 +171,7 @@
       },
       {
         "name": "fbjs",
-        "version": "0.8.12",
+        "version": "0.8.14",
         "path": "node_modules/fbjs/index.js"
       },
       {
@@ -207,7 +206,7 @@
       },
       {
         "name": "iconv-lite",
-        "version": "0.4.17",
+        "version": "0.4.18",
         "path": "node_modules/iconv-lite/lib/index.js"
       },
       {
@@ -237,7 +236,7 @@
       },
       {
         "name": "js-tokens",
-        "version": "3.0.1",
+        "version": "3.0.2",
         "path": "node_modules/js-tokens/index.js"
       },
       {
@@ -282,7 +281,7 @@
       },
       {
         "name": "node-fetch",
-        "version": "1.7.0",
+        "version": "1.7.2",
         "path": "node_modules/node-fetch/index.js"
       },
       {
@@ -302,7 +301,7 @@
       },
       {
         "name": "promise",
-        "version": "7.1.1",
+        "version": "7.3.1",
         "path": "node_modules/promise/index.js"
       },
       {
@@ -407,7 +406,7 @@
       },
       {
         "name": "ua-parser-js",
-        "version": "0.7.12",
+        "version": "0.7.14",
         "path": "node_modules/ua-parser-js/src/ua-parser.js"
       },
       {
@@ -1600,6 +1599,7 @@
         "node_modules/es5-ext/object/copy.js",
         "node_modules/es5-ext/object/count.js",
         "node_modules/es5-ext/object/create.js",
+        "node_modules/es5-ext/object/ensure-finite-number.js",
         "node_modules/es5-ext/object/ensure-natural-number-value.js",
         "node_modules/es5-ext/object/ensure-natural-number.js",
         "node_modules/es5-ext/object/ensure-promise.js",
@@ -1618,6 +1618,7 @@
         "node_modules/es5-ext/object/is-copy-deep.js",
         "node_modules/es5-ext/object/is-copy.js",
         "node_modules/es5-ext/object/is-empty.js",
+        "node_modules/es5-ext/object/is-finite-number.js",
         "node_modules/es5-ext/object/is-number-value.js",
         "node_modules/es5-ext/object/is-object.js",
         "node_modules/es5-ext/object/is-plain-object.js",
@@ -1651,6 +1652,7 @@
         "node_modules/es5-ext/object/validate-array-like.js",
         "node_modules/es5-ext/object/validate-stringifiable-value.js",
         "node_modules/es5-ext/object/validate-stringifiable.js",
+        "node_modules/es5-ext/optional-chaining.js",
         "node_modules/es5-ext/reg-exp/#/index.js",
         "node_modules/es5-ext/reg-exp/#/is-sticky.js",
         "node_modules/es5-ext/reg-exp/#/is-unicode.js",
@@ -3567,7 +3569,6 @@
         "node_modules/temp/package.json",
         "node_modules/ua-parser-js/bower.json",
         "node_modules/ua-parser-js/package.json",
-        "node_modules/ua-parser-js/ua-parser-js.jquery.json",
         "node_modules/underscore/package.json",
         "node_modules/underscore-plus/package.json",
         "node_modules/whatwg-fetch/package.json",
@@ -3616,7 +3617,7 @@
           "node_modules/brace-expansion"
         ],
         "dependencies": {
-          "balanced-match": "^0.4.1",
+          "balanced-match": "^1.0.0",
           "concat-map": "0.0.1"
         }
       },

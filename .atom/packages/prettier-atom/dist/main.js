@@ -9,11 +9,12 @@ var _require = require('atom'),
 var _require2 = require('./statusTile'),
     createStatusTile = _require2.createStatusTile,
     updateStatusTile = _require2.updateStatusTile,
+    updateStatusTileScope = _require2.updateStatusTileScope,
     disposeTooltip = _require2.disposeTooltip;
 
+var linterInterface = require('./linterInterface');
+
 // local helpers
-
-
 var format = null;
 var formatOnSave = null;
 var warnAboutLinterEslintFixOnSave = null;
@@ -33,10 +34,8 @@ var lazyFormat = function lazyFormat() {
 };
 
 // HACK: lazy load most of the code we need for performance
-var lazyFormatOnSave = function lazyFormatOnSave() {
+var lazyFormatOnSave = function lazyFormatOnSave(editor) {
   if (!formatOnSave) formatOnSave = require('./formatOnSave'); // eslint-disable-line global-require
-
-  var editor = atom.workspace.getActiveTextEditor();
   if (editor) formatOnSave(editor);
 };
 
@@ -78,6 +77,13 @@ var attachStatusTile = function attachStatusTile() {
     subscriptions.add(atom.config.observe('prettier-atom.formatOnSaveOptions.enabled', function () {
       return updateStatusTile(subscriptions, tileElement);
     }));
+    subscriptions.add(
+    // onDidChangeActiveTextEditor is only available in Atom 1.18.0+.
+    atom.workspace.onDidChangeActiveTextEditor ? atom.workspace.onDidChangeActiveTextEditor(function (editor) {
+      return updateStatusTileScope(tileElement, editor);
+    }) : atom.workspace.onDidChangeActivePaneItem(function () {
+      return updateStatusTileScope(tileElement, atom.workspace.getActiveTextEditor());
+    }));
   }
 };
 
@@ -88,8 +94,21 @@ var detachStatusTile = function detachStatusTile() {
   }
 };
 
+var loadPackageDeps = function loadPackageDeps() {
+  return (
+    // eslint-disable-next-line global-require
+    require('atom-package-deps').install('prettier-atom')
+    // eslint-disable-next-line no-console
+    .then(function () {
+      return console.log('All dependencies installed, good to go');
+    })
+  );
+};
+
 // public API
 var activate = function activate() {
+  loadPackageDeps();
+
   subscriptions = new CompositeDisposable();
 
   subscriptions.add(atom.commands.add('atom-workspace', 'prettier:format', lazyFormat));
@@ -131,10 +150,32 @@ var consumeStatusBar = function consumeStatusBar(statusBar) {
   }
 };
 
+var consumeIndie = function consumeIndie(registerIndie) {
+  var linter = registerIndie({ name: 'Prettier' });
+  subscriptions.add(linter);
+  linterInterface.set(linter);
+
+  // Setting and clearing messages per filePath
+  subscriptions.add(atom.workspace.observeTextEditors(function (textEditor) {
+    var editorPath = textEditor.getPath();
+    if (!editorPath) {
+      return;
+    }
+
+    var subscription = textEditor.onDidDestroy(function () {
+      subscriptions.remove(subscription);
+      linter.setMessages(editorPath, []);
+      linterInterface.set(null);
+    });
+    subscriptions.add(subscription);
+  }));
+};
+
 module.exports = {
   activate: activate,
   deactivate: deactivate,
   config: config,
   subscriptions: subscriptions,
-  consumeStatusBar: consumeStatusBar
+  consumeStatusBar: consumeStatusBar,
+  consumeIndie: consumeIndie
 };
