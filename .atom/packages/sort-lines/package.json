@@ -2,40 +2,39 @@
   "_args": [
     [
       {
-        "raw": "/private/var/folders/j1/3vxq1vgj0sg8x9fbr10zwq8h0000gn/T/d-1161128-38902-175i4t/package.tgz",
+        "raw": "/private/var/folders/c9/qq12c1lj6c16d183jjx7_gg80000gn/T/d-11786-35413-16943lu.gekdnasjor/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/private/var/folders/j1/3vxq1vgj0sg8x9fbr10zwq8h0000gn/T/d-1161128-38902-175i4t/package.tgz",
-        "spec": "/private/var/folders/j1/3vxq1vgj0sg8x9fbr10zwq8h0000gn/T/d-1161128-38902-175i4t/package.tgz",
+        "rawSpec": "/private/var/folders/c9/qq12c1lj6c16d183jjx7_gg80000gn/T/d-11786-35413-16943lu.gekdnasjor/package.tgz",
+        "spec": "/private/var/folders/c9/qq12c1lj6c16d183jjx7_gg80000gn/T/d-11786-35413-16943lu.gekdnasjor/package.tgz",
         "type": "local"
       },
-      "/private/var/folders/j1/3vxq1vgj0sg8x9fbr10zwq8h0000gn/T/apm-install-dir-1161128-38902-56crh8"
+      "/private/var/folders/c9/qq12c1lj6c16d183jjx7_gg80000gn/T/apm-install-dir-11786-35413-xxtces.jj118j8aor"
     ]
   ],
-  "_from": "../d-1161128-38902-175i4t/package.tgz",
-  "_id": "sort-lines@0.14.0",
+  "_from": "../d-11786-35413-16943lu.gekdnasjor/package.tgz",
+  "_id": "sort-lines@0.15.0",
   "_inCache": true,
-  "_installable": true,
   "_location": "/sort-lines",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/private/var/folders/j1/3vxq1vgj0sg8x9fbr10zwq8h0000gn/T/d-1161128-38902-175i4t/package.tgz",
+    "raw": "/private/var/folders/c9/qq12c1lj6c16d183jjx7_gg80000gn/T/d-11786-35413-16943lu.gekdnasjor/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/private/var/folders/j1/3vxq1vgj0sg8x9fbr10zwq8h0000gn/T/d-1161128-38902-175i4t/package.tgz",
-    "spec": "/private/var/folders/j1/3vxq1vgj0sg8x9fbr10zwq8h0000gn/T/d-1161128-38902-175i4t/package.tgz",
+    "rawSpec": "/private/var/folders/c9/qq12c1lj6c16d183jjx7_gg80000gn/T/d-11786-35413-16943lu.gekdnasjor/package.tgz",
+    "spec": "/private/var/folders/c9/qq12c1lj6c16d183jjx7_gg80000gn/T/d-11786-35413-16943lu.gekdnasjor/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-1161128-38902-175i4t/package.tgz",
-  "_shasum": "ca019973a26ce699408c3cca7284655e6baa4915",
+  "_resolved": "file:../d-11786-35413-16943lu.gekdnasjor/package.tgz",
+  "_shasum": "712907999747e1af53185b65c08b4a6038c24db9",
   "_shrinkwrap": null,
-  "_spec": "/private/var/folders/j1/3vxq1vgj0sg8x9fbr10zwq8h0000gn/T/d-1161128-38902-175i4t/package.tgz",
-  "_where": "/private/var/folders/j1/3vxq1vgj0sg8x9fbr10zwq8h0000gn/T/apm-install-dir-1161128-38902-56crh8",
+  "_spec": "/private/var/folders/c9/qq12c1lj6c16d183jjx7_gg80000gn/T/d-11786-35413-16943lu.gekdnasjor/package.tgz",
+  "_where": "/private/var/folders/c9/qq12c1lj6c16d183jjx7_gg80000gn/T/apm-install-dir-11786-35413-xxtces.jj118j8aor",
   "activationCommands": {
     "atom-text-editor": [
       "sort-lines:sort",
@@ -48,7 +47,9 @@
   "bugs": {
     "url": "https://github.com/atom/sort-lines/issues"
   },
-  "dependencies": {},
+  "dependencies": {
+    "javascript-natural-sort": "^0.7.1"
+  },
   "description": "Sorts your lines. Never gets tired.",
   "devDependencies": {},
   "engines": {
@@ -59,11 +60,46 @@
   "main": "./lib/sort-lines",
   "name": "sort-lines",
   "optionalDependencies": {},
-  "readme": "# Sort Lines Package [![Build Status](https://travis-ci.org/atom/sort-lines.svg?branch=master)](https://travis-ci.org/atom/sort-lines)\n\nSorts your lines in Atom, never gets tired.\n\n![sort-lines-demo](https://f.cloud.github.com/assets/2988/1796891/85e69ff2-6a93-11e3-89ac-31927f604592.gif)\n",
+  "readme": "# Sort Lines Package [![Build Status](https://travis-ci.org/atom/sort-lines.svg?branch=master)](https://travis-ci.org/atom/sort-lines)\n\nSorts your lines in Atom. Never gets tired.\n\n![sort-lines-demo](https://f.cloud.github.com/assets/2988/1796891/85e69ff2-6a93-11e3-89ac-31927f604592.gif)\n\n### Installation\n\nFrom within Atom: Settings -> Install -> search for \"sort-lines\" and click \"Install\" OR\n\nFrom CLI: `apm install sort-lines` and restart Atom.\n\n### Commands and Keybindings\n\nAll of the following commands are under the `atom-text-editor` selector.\n\nIf any lines are selected in the active buffer, the commands operate on the selected lines. Otherwise, the commands operate on all lines in the active buffer.\n\n|Command|Description|Keybinding|\n|-------|-----------|----------|\n|`sort-lines:sort`|Sorts the lines (case sensitive)|<kbd>F5</kbd>\n|`sort-lines:case-insensitive-sort`|Sorts the lines (case insensitive)|\n|`sort-lines:natural`|Sorts the lines ([\"natural\" order](https://www.npmjs.com/package/javascript-natural-sort))|\n|`sort-lines:reverse-sort`|Sorts the lines in reverse order (case sensitive)|\n|`sort-lines:unique`|Removes duplicate lines|\n\nCustom keybindings can be added by referencing the above commands.  To learn more, visit the [Using Atom: Basic Customization](http://flight-manual.atom.io/using-atom/sections/basic-customization/#customizing-keybindings) or [Behind Atom: Keymaps In-Depth](http://flight-manual.atom.io/behind-atom/sections/keymaps-in-depth) sections in the flight manual.\n",
   "readmeFilename": "README.md",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/atom/sort-lines.git"
   },
-  "version": "0.14.0"
+  "version": "0.15.0",
+  "_atomModuleCache": {
+    "version": 1,
+    "dependencies": [
+      {
+        "name": "javascript-natural-sort",
+        "version": "0.7.1",
+        "path": "node_modules/javascript-natural-sort/naturalSort.js"
+      }
+    ],
+    "extensions": {
+      ".coffee": [
+        "lib/range-finder.coffee",
+        "lib/sort-lines.coffee"
+      ],
+      ".js": [
+        "node_modules/javascript-natural-sort/naturalSort.js"
+      ],
+      ".json": [
+        "node_modules/javascript-natural-sort/package.json",
+        "package.json"
+      ]
+    },
+    "folders": [
+      {
+        "paths": [
+          "lib",
+          "",
+          "spec"
+        ],
+        "dependencies": {
+          "javascript-natural-sort": "^0.7.1"
+        }
+      }
+    ]
+  }
 }

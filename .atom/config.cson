@@ -18,8 +18,7 @@
     userId: "fe949da8-8184-a355-12eb-64e0e37c2344"
   "file-icons":
     coloured: false
-  "linter-ui-default":
-    panelHeight: 81
+  "linter-ui-default": {}
   "prettier-atom":
     formatOnSave: true
     formatOnSaveOptions:

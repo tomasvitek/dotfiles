@@ -1,8 +1,27 @@
-### 2.71.2
+### 2.74.1
+  - Fix issue when break|continue labelname followed by newline stopped parsing following line
+  
+### 2.74.0
+  - Change grammar scopes to improve ligature support for null chaining and exponent operators.
+  - Add support for JavaScript label syntax. [Issue #409](https://github.com/gandm/language-babel/issues/409)
+
+### 2.73.0
+  - Add some operator scopes to align with language-javascript's usage. [Issue #405](https://github.com/gandm/language-babel/issues/405)
+  - Fix incorrect handling of for..of|in loops following flow generic var definition. [Issue #404](https://github.com/gandm/language-babel/issues/404)
+
+### 2.72.0
+  - Add `.mjs` as supported filetype for grammar. See [PR 399](https://github.com/gandm/language-babel/pull/399)
+  - Relax parsing of styled-components withComponent to allow chaining. [Issue 400](https://github.com/gandm/language-babel/issues/400)
+  - Remove redundant scoping for [+-]Infinity. [Issue 401](https://github.com/gandm/language-babel/issues/401)
+
+### 2.71.0
+  - Add support to grammar for private class fields and methods defined at [TC39 ](https://github.com/tc39/proposal-class-fields)
+
+### 2.70.2
   - Add commenting option to pipelined operators
   - Fix bad captures in 2.71.1
-   
-### 2.71.1
+
+### 2.70.1
   - Fix JS keywords being parsed as pipeline functions.
 
 ### 2.70.0

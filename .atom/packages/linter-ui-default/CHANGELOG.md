@@ -1,3 +1,15 @@
+## 1.6.7
+
+* Was missing check in another place
+
+## 1.6.6
+
+* Possible fix for steelbrain/linter-ui-default#355
+
+## 1.6.5
+
+* Fix inconsistency between panel height set by resizing and from settings
+
 ## 1.6.4
 
 * Fix a style issue on Atom v1.19.0
