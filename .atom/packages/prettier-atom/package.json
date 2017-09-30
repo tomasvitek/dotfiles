@@ -2,39 +2,39 @@
   "_args": [
     [
       {
-        "raw": "/private/var/folders/c9/qq12c1lj6c16d183jjx7_gg80000gn/T/d-11786-35411-1dc8ln3.kvateasjor/package.tgz",
+        "raw": "/private/var/folders/j1/3vxq1vgj0sg8x9fbr10zwq8h0000gn/T/d-117830-78592-k8xwdl.4avj6pqfr/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/private/var/folders/c9/qq12c1lj6c16d183jjx7_gg80000gn/T/d-11786-35411-1dc8ln3.kvateasjor/package.tgz",
-        "spec": "/private/var/folders/c9/qq12c1lj6c16d183jjx7_gg80000gn/T/d-11786-35411-1dc8ln3.kvateasjor/package.tgz",
+        "rawSpec": "/private/var/folders/j1/3vxq1vgj0sg8x9fbr10zwq8h0000gn/T/d-117830-78592-k8xwdl.4avj6pqfr/package.tgz",
+        "spec": "/private/var/folders/j1/3vxq1vgj0sg8x9fbr10zwq8h0000gn/T/d-117830-78592-k8xwdl.4avj6pqfr/package.tgz",
         "type": "local"
       },
-      "/private/var/folders/c9/qq12c1lj6c16d183jjx7_gg80000gn/T/apm-install-dir-11786-35411-ob2ftz.c9578ehfr"
+      "/private/var/folders/j1/3vxq1vgj0sg8x9fbr10zwq8h0000gn/T/apm-install-dir-117830-78592-hwozln.7rnfz2gldi"
     ]
   ],
-  "_from": "../d-11786-35411-1dc8ln3.kvateasjor/package.tgz",
-  "_id": "prettier-atom@0.38.0",
+  "_from": "../d-117830-78592-k8xwdl.4avj6pqfr/package.tgz",
+  "_id": "prettier-atom@0.40.0",
   "_inCache": true,
   "_location": "/prettier-atom",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/private/var/folders/c9/qq12c1lj6c16d183jjx7_gg80000gn/T/d-11786-35411-1dc8ln3.kvateasjor/package.tgz",
+    "raw": "/private/var/folders/j1/3vxq1vgj0sg8x9fbr10zwq8h0000gn/T/d-117830-78592-k8xwdl.4avj6pqfr/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/private/var/folders/c9/qq12c1lj6c16d183jjx7_gg80000gn/T/d-11786-35411-1dc8ln3.kvateasjor/package.tgz",
-    "spec": "/private/var/folders/c9/qq12c1lj6c16d183jjx7_gg80000gn/T/d-11786-35411-1dc8ln3.kvateasjor/package.tgz",
+    "rawSpec": "/private/var/folders/j1/3vxq1vgj0sg8x9fbr10zwq8h0000gn/T/d-117830-78592-k8xwdl.4avj6pqfr/package.tgz",
+    "spec": "/private/var/folders/j1/3vxq1vgj0sg8x9fbr10zwq8h0000gn/T/d-117830-78592-k8xwdl.4avj6pqfr/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-11786-35411-1dc8ln3.kvateasjor/package.tgz",
-  "_shasum": "fc77dc492bf3c64c758b7d8bbea60a989f819469",
+  "_resolved": "file:../d-117830-78592-k8xwdl.4avj6pqfr/package.tgz",
+  "_shasum": "28d8e07d2a310ea6a6c5c79cb93bc1061c64e9b2",
   "_shrinkwrap": null,
-  "_spec": "/private/var/folders/c9/qq12c1lj6c16d183jjx7_gg80000gn/T/d-11786-35411-1dc8ln3.kvateasjor/package.tgz",
-  "_where": "/private/var/folders/c9/qq12c1lj6c16d183jjx7_gg80000gn/T/apm-install-dir-11786-35411-ob2ftz.c9578ehfr",
+  "_spec": "/private/var/folders/j1/3vxq1vgj0sg8x9fbr10zwq8h0000gn/T/d-117830-78592-k8xwdl.4avj6pqfr/package.tgz",
+  "_where": "/private/var/folders/j1/3vxq1vgj0sg8x9fbr10zwq8h0000gn/T/apm-install-dir-117830-78592-hwozln.7rnfz2gldi",
   "bugs": {
     "url": "https://github.com/prettier/prettier-atom/issues"
   },
@@ -61,41 +61,40 @@
     "atom-text-buffer-point": "^1.0.0",
     "atom-text-buffer-range": "^1.0.0",
     "editorconfig": "^0.14.1",
-    "ignore": "^3.3.4",
+    "ignore": "^3.3.5",
     "lodash": "^4.17.4",
     "loophole": "^1.1.0",
-    "prettier": "^1.5.3",
-    "prettier-eslint": "^6.4.2",
+    "prettier": "^1.7.0",
+    "prettier-eslint": "^8.1.1",
     "read-pkg-up": "^2.0.0"
   },
   "description": "Atom plugin for formatting JavaScript using prettier with (optional) prettier-eslint integration",
   "devDependencies": {
     "all-contributors-cli": "^4.4.0",
     "babel-cli": "^6.26.0",
-    "babel-eslint": "^7.2.3",
-    "babel-jest": "^20.0.3",
+    "babel-eslint": "^8.0.0",
+    "babel-jest": "^21.0.2",
     "babel-plugin-transform-flow-strip-types": "^6.22.0",
     "babel-preset-env": "^1.6.0",
     "babel-preset-stage-2": "^6.24.1",
     "codecov": "^2.3.0",
     "commitizen": "^2.9.6",
     "cz-conventional-changelog": "^2.0.0",
-    "eslint": "^4.5.0",
-    "eslint-config-airbnb-base": "^11.3.2",
-    "eslint-plugin-flowtype": "^2.35.0",
+    "eslint": "^4.7.0",
+    "eslint-config-airbnb-base": "^12.0.0",
+    "eslint-config-prettier": "^2.4.0",
+    "eslint-plugin-flowtype": "^2.35.1",
     "eslint-plugin-import": "^2.7.0",
-    "eslint-plugin-jest": "^20.0.3",
-    "flow-bin": "^0.53.1",
+    "eslint-plugin-jest": "^21.1.0",
+    "eslint-plugin-prettier": "^2.2.0",
+    "flow-bin": "^0.54.1",
     "flow-typed": "^2.1.5",
     "husky": "^0.14.3",
-    "jest-cli": "^20.0.4",
+    "jest": "^21.1.0",
     "nps": "^5.7.1",
     "opt-cli": "^1.5.2",
-    "prettier-eslint-cli": "^4.2.1",
-    "rimraf": "^2.6.1"
-  },
-  "engines": {
-    "atom": ">=0.183.0 <2.0.0"
+    "prettier-eslint-cli": "^4.3.2",
+    "rimraf": "^2.6.2"
   },
   "homepage": "https://github.com/prettier/prettier-atom",
   "jest": {
@@ -128,7 +127,7 @@
   "package-deps": [
     "linter:2.0.0"
   ],
-  "readme": "# Prettier for Atom [![Watch on GitHub][github-watch-badge]][github-watch][![Star on GitHub][github-star-badge]][github-star][![Tweet][twitter-badge]][twitter]\n\n<!-- [![Dependencies][dependencyci-badge]][dependencyci] TODO: Add dependency CI! -->\n<!-- [![Code of Conduct][coc-badge]][coc] -->\n\n[![Version][version-badge]][package]\n[![Downloads][downloads-badge]][package]\n[![Build Status][build-badge]][build]\n[![Code Coverage][coverage-badge]][coverage]\n[![MIT License][license-badge]][LICENSE]\n[![All Contributors][all-contributors-badge]](#contributors)\n[![PRs Welcome][prs-badge]][prs]\n\nAtom package to format your JavaScript, Typescript, CSS, Sass, and JSON using [Prettier](https://github.com/prettier/prettier).\nComes with powerful optional [ESLint](http://eslint.org/) integration.\n\n## Demo\n\n![prettier demo][prettier-demo]\n\n## Installation\n\n```\napm install prettier-atom\n```\n\nOr go to *Settings → Install* and search for `prettier-atom`.\n\nMake sure to restart Atom after the package is installed.\n\n## Usage\n\nThere are two modes you can use:\n\n- Invoke manually using the **keyboard shortcut** (if no selection, whole file is formatted): <kbd>CTRL</kbd> + <kbd>ALT</kbd> + <kbd>F</kbd>\n- Automatically **format on save** (requires enabling in *Packages → Prettier → Toggle Format on Save*)\n\nIf you use ESLint, check the \"ESLint Integration\" checkbox and \\*poof\\*, everything should work (we use Kent Dodds's [`prettier-eslint`][prettier-eslint] plugin under the hood).\nWe will recursively search up the file tree for your `package.json` and ESLint settings, and use them when formatting.\n\n![prettier-eslint demo][prettier-eslint-demo]\n\nMore detailed descriptions of each option can be found in the Atom settings for this plugin.\n\nPlease open a pull request or file an issue if you notice bugs or something doesn't work as it should!\n\n## Troubleshooting\nIf prettier (or prettier-eslint, if eslint integration is enabled) is not formatting something properly, please make an issue on the relevant GitHub repo. This package is just the Atom integration of those projects.\n\nSome users have reported getting the following error after updating:\n\n```\nValidation Error:\n Option \"tabWidth\" must be of type:\n   number\n but instead received:\n   string\n Example:\n {\n   \"tabWidth\": 2\n }\n ```\n\n To fix the problem, open your configuration file and manually ensure that there are no quotation marks around the \"tabWidth\" setting. We suspect this may be a bug with Atom.\n\n## Inspiration\n\nThis repository was created by [James Long][james-long] to go along with his Prettier project. [Kent C. Dodds][kentcdodds] extended Prettier to add `eslint --fix` integration as [prettier-eslint][prettier-eslint] and forked the original `prettier-atom` plugin to create the `prettier-eslint-atom` plugin. Because it became clear that the plugins were very similar and thus maintenance made easier by combining the two, [Rob Wise][robwise] merged `prettier-eslint-atom` back into `prettier-atom`.\n\n## Maintainers\n\n[Rob Wise][robwise]\n\n## Contributors\n\nThanks goes to these people ([emoji key][emojis]):\n\n<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->\n| [<img src=\"https://avatars.githubusercontent.com/u/17031?v=3\" width=\"100px;\"/><br /><sub>James Long</sub>](http://jlongster.com)<br />[💬](#question-jlongster \"Answering Questions\") [💻](https://github.com/prettier/prettier-atom/commits?author=jlongster \"Code\") [📖](https://github.com/prettier/prettier-atom/commits?author=jlongster \"Documentation\") [🔌](#plugin-jlongster \"Plugin/utility libraries\") [👀](#review-jlongster \"Reviewed Pull Requests\") | [<img src=\"https://avatars.githubusercontent.com/u/6173488?v=3\" width=\"100px;\"/><br /><sub>Rob Wise</sub>](https://robwise.github.io)<br />[💻](https://github.com/prettier/prettier-atom/commits?author=robwise \"Code\") [📖](https://github.com/prettier/prettier-atom/commits?author=robwise \"Documentation\") [💬](#question-robwise \"Answering Questions\") [💡](#example-robwise \"Examples\") [👀](#review-robwise \"Reviewed Pull Requests\") [⚠️](https://github.com/prettier/prettier-atom/commits?author=robwise \"Tests\") | [<img src=\"https://avatars.githubusercontent.com/u/1500684?v=3\" width=\"100px;\"/><br /><sub>Kent C. Dodds</sub>](https://kentcdodds.com)<br />[💻](https://github.com/prettier/prettier-atom/commits?author=kentcdodds \"Code\") [📖](https://github.com/prettier/prettier-atom/commits?author=kentcdodds \"Documentation\") [🚇](#infra-kentcdodds \"Infrastructure (Hosting, Build-Tools, etc)\") | [<img src=\"https://avatars.githubusercontent.com/u/1144075?v=3\" width=\"100px;\"/><br /><sub>Luca Barone</sub>](https://github.com/cloud-walker)<br /> | [<img src=\"https://avatars.githubusercontent.com/u/4514159?v=3\" width=\"100px;\"/><br /><sub>Arnar Þór Sveinsson</sub>](https://github.com/arnarthor)<br />[💻](https://github.com/prettier/prettier-atom/commits?author=arnarthor \"Code\") | [<img src=\"https://avatars.githubusercontent.com/u/131916?v=3\" width=\"100px;\"/><br /><sub>Adam Miskiewicz</sub>](http://www.adammiskiewicz.com/)<br />[💻](https://github.com/prettier/prettier-atom/commits?author=skevy \"Code\") | [<img src=\"https://avatars.githubusercontent.com/u/2685242?v=3\" width=\"100px;\"/><br /><sub>Ori Livni</sub>](http://www.orilivni.com)<br />[💻](https://github.com/prettier/prettier-atom/commits?author=oriSomething \"Code\") |\n| :---: | :---: | :---: | :---: | :---: | :---: | :---: |\n| [<img src=\"https://avatars.githubusercontent.com/u/6182852?v=3\" width=\"100px;\"/><br /><sub>Leon Chen</sub>](https://transcranial.github.io)<br />[💻](https://github.com/prettier/prettier-atom/commits?author=transcranial \"Code\") | [<img src=\"https://avatars.githubusercontent.com/u/197597?v=3\" width=\"100px;\"/><br /><sub>Christopher Chedeau</sub>](http://blog.vjeux.com/)<br />[💬](#question-vjeux \"Answering Questions\") [💻](https://github.com/prettier/prettier-atom/commits?author=vjeux \"Code\") [🔌](#plugin-vjeux \"Plugin/utility libraries\") | [<img src=\"https://avatars.githubusercontent.com/u/646693?v=3\" width=\"100px;\"/><br /><sub>Christoph Geschwind</sub>](http://christoph-geschwind.de)<br />[💻](https://github.com/prettier/prettier-atom/commits?author=1st8 \"Code\") | [<img src=\"https://avatars.githubusercontent.com/u/35026?v=3\" width=\"100px;\"/><br /><sub>Andrew Hutchings</sub>](https://andrewhutchings.com)<br />[💻](https://github.com/prettier/prettier-atom/commits?author=ahutchings \"Code\") | [<img src=\"https://avatars.githubusercontent.com/u/875591?v=3\" width=\"100px;\"/><br /><sub>David Schnurr</sub>](http://davidschnurr.com)<br />[💻](https://github.com/prettier/prettier-atom/commits?author=schnerd \"Code\") | [<img src=\"https://avatars.githubusercontent.com/u/484801?v=3\" width=\"100px;\"/><br /><sub>Ryan Cole</sub>](http://rycole.com/)<br />[💻](https://github.com/prettier/prettier-atom/commits?author=ryancole \"Code\") | [<img src=\"https://avatars0.githubusercontent.com/u/11488612?v=3\" width=\"100px;\"/><br /><sub>Dara Hak</sub>](https://github.com/darahak)<br />[💻](https://github.com/prettier/prettier-atom/commits?author=darahak \"Code\") [📖](https://github.com/prettier/prettier-atom/commits?author=darahak \"Documentation\") |\n| [<img src=\"https://avatars3.githubusercontent.com/u/487068?v=3\" width=\"100px;\"/><br /><sub>Stephen John Sorensen</sub>](http://www.stephenjohnsorensen.com/)<br />[💻](https://github.com/prettier/prettier-atom/commits?author=spudly \"Code\") | [<img src=\"https://avatars2.githubusercontent.com/u/13285808?v=3\" width=\"100px;\"/><br /><sub>Lukas Geiger</sub>](https://github.com/lgeiger)<br />[💻](https://github.com/prettier/prettier-atom/commits?author=lgeiger \"Code\") [⚠️](https://github.com/prettier/prettier-atom/commits?author=lgeiger \"Tests\") | [<img src=\"https://avatars2.githubusercontent.com/u/1517854?v=3\" width=\"100px;\"/><br /><sub>Viktor Charypar</sub>](https://github.com/charypar)<br />[💻](https://github.com/prettier/prettier-atom/commits?author=charypar \"Code\") [⚠️](https://github.com/prettier/prettier-atom/commits?author=charypar \"Tests\") | [<img src=\"https://avatars0.githubusercontent.com/u/1007436?v=3\" width=\"100px;\"/><br /><sub>Mats Högberg</sub>](http://mats.hgbrg.se)<br />[💻](https://github.com/prettier/prettier-atom/commits?author=mhgbrg \"Code\") | [<img src=\"https://avatars0.githubusercontent.com/u/2602767?v=3\" width=\"100px;\"/><br /><sub>Roman</sub>](https://github.com/RoM4iK)<br />[💻](https://github.com/prettier/prettier-atom/commits?author=RoM4iK \"Code\") | [<img src=\"https://avatars2.githubusercontent.com/u/1468518?v=3\" width=\"100px;\"/><br /><sub>vaibhav</sub>](https://vaibhavchatarkar.com)<br />[💻](https://github.com/prettier/prettier-atom/commits?author=da-vaibhav \"Code\") | [<img src=\"https://avatars1.githubusercontent.com/u/1935696?v=3\" width=\"100px;\"/><br /><sub>Karl Horky</sub>](https://work.karlhorky.com)<br />[💻](https://github.com/prettier/prettier-atom/commits?author=karlhorky \"Code\") |\n| [<img src=\"https://avatars3.githubusercontent.com/u/810438?v=3\" width=\"100px;\"/><br /><sub>Dan Abramov</sub>](http://twitter.com/dan_abramov)<br />[💻](https://github.com/prettier/prettier-atom/commits?author=gaearon \"Code\") | [<img src=\"https://avatars3.githubusercontent.com/u/1227109?v=3\" width=\"100px;\"/><br /><sub>Murphy Randle</sub>](https://sploding.rocks)<br />[💻](https://github.com/prettier/prettier-atom/commits?author=splodingsocks \"Code\") [🐛](https://github.com/prettier/prettier-atom/issues?q=author%3Asplodingsocks \"Bug reports\") | [<img src=\"https://avatars3.githubusercontent.com/u/8517072?v=3\" width=\"100px;\"/><br /><sub>Matthieu Lemoine</sub>](https://matthieulemoine.com)<br />[💻](https://github.com/prettier/prettier-atom/commits?author=MatthieuLemoine \"Code\") |\n<!-- ALL-CONTRIBUTORS-LIST:END -->\n\nThis project follows the [all-contributors][all-contributors] specification. Contributions of any kind are welcome!\n\n## LICENSE\n\n[MIT](./LICENSE.md)\n\n[npm]: https://www.npmjs.com/\n[node]: https://nodejs.org\n[build-badge]: https://img.shields.io/travis/prettier/prettier-atom.svg?style=flat-square\n[build]: https://travis-ci.org/prettier/prettier-atom\n[coverage-badge]: https://img.shields.io/codecov/c/github/prettier/prettier-atom.svg?style=flat-square\n[coverage]: https://codecov.io/github/prettier/prettier-atom\n[dependencyci-badge]: https://dependencyci.com/github/prettier/prettier-atom/badge?style=flat-square\n[dependencyci]: https://dependencyci.com/github/prettier/prettier-atom\n[version-badge]: https://img.shields.io/apm/v/prettier-atom.svg?style=flat-square\n[package]: https://atom.io/packages/prettier-atom\n[downloads-badge]: https://img.shields.io/apm/dm/prettier-atom.svg?style=flat-square\n[license-badge]: https://img.shields.io/apm/l/prettier-atom.svg?style=flat-square\n[license]: https://github.com/prettier/prettier-atom/blob/master/LICENSE\n[prs-badge]: https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square\n[prs]: http://makeapullrequest.com\n[coc-badge]: https://img.shields.io/badge/code%20of-conduct-ff69b4.svg?style=flat-square\n[coc]: https://github.com/prettier/prettier-atom/blob/master/other/CODE_OF_CONDUCT.md\n[roadmap-badge]: https://img.shields.io/badge/%F0%9F%93%94-roadmap-CD9523.svg?style=flat-square\n[roadmap]: https://github.com/prettier/prettier-atom/blob/master/other/ROADMAP.md\n[github-watch-badge]: https://img.shields.io/github/watchers/prettier/prettier-atom.svg?style=social\n[github-watch]: https://github.com/prettier/prettier-atom/watchers\n[github-star-badge]: https://img.shields.io/github/stars/prettier/prettier-atom.svg?style=social\n[github-star]: https://github.com/prettier/prettier-atom/stargazers\n[twitter]: https://twitter.com/intent/tweet?text=Check%20out%20prettier-atom!%20https://github.com/prettier/prettier-atom%20%F0%9F%91%8D\n[twitter-badge]: https://img.shields.io/twitter/url/https/github.com/prettier/prettier-atom.svg?style=social\n[emojis]: https://github.com/kentcdodds/all-contributors#emoji-key\n[all-contributors]: https://github.com/kentcdodds/all-contributors\n[all-contributors-badge]: https://img.shields.io/badge/all_contributors-13-orange.svg?style=flat-square\n[prettier]: https://github.com/prettier/prettier\n[prettier-eslint]: https://github.com/prettier/prettier-eslint\n[kentcdodds]: https://github.com/kentcdodds\n[james-long]: https://github.com/jlongster\n[robwise]: https://github.com/robwise\n[prettier-demo]: https://github.com/prettier/prettier-atom/raw/master/prettier-demo.gif\n[prettier-eslint-demo]: https://github.com/prettier/prettier-atom/raw/master/prettier-eslint-demo.gif\n",
+  "readme": "# Prettier for Atom [![Watch on GitHub][github-watch-badge]][github-watch][![Star on GitHub][github-star-badge]][github-star][![Tweet][twitter-badge]][twitter]\n\n<!-- [![Dependencies][dependencyci-badge]][dependencyci] TODO: Add dependency CI! -->\n<!-- [![Code of Conduct][coc-badge]][coc] -->\n\n[![Version][version-badge]][package]\n[![Downloads][downloads-badge]][package]\n[![Build Status][build-badge]][build]\n[![Code Coverage][coverage-badge]][coverage]\n[![MIT License][license-badge]][LICENSE]\n[![All Contributors][all-contributors-badge]](#contributors)\n[![PRs Welcome][prs-badge]][prs]\n\nAtom package to format your JavaScript, Typescript, CSS, Sass, and JSON using [Prettier](https://github.com/prettier/prettier).\nComes with powerful optional [ESLint](http://eslint.org/) integration.\n\n## Demo\n\n![prettier demo][prettier-demo]\n\n## Installation\n\n```\napm install prettier-atom\n```\n\nOr go to *Settings → Install* and search for `prettier-atom`.\n\nMake sure to restart Atom after the package is installed.\n\n## Usage\n\nThere are two modes you can use:\n\n- Invoke manually using the **keyboard shortcut** (if no selection, whole file is formatted): <kbd>CTRL</kbd> + <kbd>ALT</kbd> + <kbd>F</kbd>\n- Automatically **format on save** (requires enabling in *Packages → Prettier → Toggle Format on Save*)\n\nIf you use ESLint, check the \"ESLint Integration\" checkbox and \\*poof\\*, everything should work (we use Kent Dodds's [`prettier-eslint`][prettier-eslint] plugin under the hood).\nWe will recursively search up the file tree for your `package.json` and ESLint settings, and use them when formatting.\n\n![prettier-eslint demo][prettier-eslint-demo]\n\nMore detailed descriptions of each option can be found in the Atom settings for this plugin.\n\nPlease open a pull request or file an issue if you notice bugs or something doesn't work as it should!\n\n## Troubleshooting\n\nIf Prettier (or prettier-eslint, if ESLint integration is enabled) is not formatting something properly, please open an issue on the relevant GitHub repository. This package is only integrating those projects to be used in Atom.\n\n## Inspiration\n\nThis repository was created by [James Long][james-long] to go along with his Prettier project. [Kent C. Dodds][kentcdodds] extended Prettier to add `eslint --fix` integration as [prettier-eslint][prettier-eslint] and forked the original `prettier-atom` plugin to create the `prettier-eslint-atom` plugin. Because it became clear that the plugins were very similar and thus maintenance made easier by combining the two, [Rob Wise][robwise] merged `prettier-eslint-atom` back into `prettier-atom`.\n\n## Maintainers\n\n[Rob Wise][robwise]\n\n## Contributors\n\nThanks goes to these people ([emoji key][emojis]):\n\n<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->\n| [<img src=\"https://avatars.githubusercontent.com/u/17031?v=3\" width=\"100px;\"/><br /><sub>James Long</sub>](http://jlongster.com)<br />[💬](#question-jlongster \"Answering Questions\") [💻](https://github.com/prettier/prettier-atom/commits?author=jlongster \"Code\") [📖](https://github.com/prettier/prettier-atom/commits?author=jlongster \"Documentation\") [🔌](#plugin-jlongster \"Plugin/utility libraries\") [👀](#review-jlongster \"Reviewed Pull Requests\") | [<img src=\"https://avatars.githubusercontent.com/u/6173488?v=3\" width=\"100px;\"/><br /><sub>Rob Wise</sub>](https://robwise.github.io)<br />[💻](https://github.com/prettier/prettier-atom/commits?author=robwise \"Code\") [📖](https://github.com/prettier/prettier-atom/commits?author=robwise \"Documentation\") [💬](#question-robwise \"Answering Questions\") [💡](#example-robwise \"Examples\") [👀](#review-robwise \"Reviewed Pull Requests\") [⚠️](https://github.com/prettier/prettier-atom/commits?author=robwise \"Tests\") | [<img src=\"https://avatars.githubusercontent.com/u/1500684?v=3\" width=\"100px;\"/><br /><sub>Kent C. Dodds</sub>](https://kentcdodds.com)<br />[💻](https://github.com/prettier/prettier-atom/commits?author=kentcdodds \"Code\") [📖](https://github.com/prettier/prettier-atom/commits?author=kentcdodds \"Documentation\") [🚇](#infra-kentcdodds \"Infrastructure (Hosting, Build-Tools, etc)\") | [<img src=\"https://avatars.githubusercontent.com/u/1144075?v=3\" width=\"100px;\"/><br /><sub>Luca Barone</sub>](https://github.com/cloud-walker)<br /> | [<img src=\"https://avatars.githubusercontent.com/u/4514159?v=3\" width=\"100px;\"/><br /><sub>Arnar Þór Sveinsson</sub>](https://github.com/arnarthor)<br />[💻](https://github.com/prettier/prettier-atom/commits?author=arnarthor \"Code\") | [<img src=\"https://avatars.githubusercontent.com/u/131916?v=3\" width=\"100px;\"/><br /><sub>Adam Miskiewicz</sub>](http://www.adammiskiewicz.com/)<br />[💻](https://github.com/prettier/prettier-atom/commits?author=skevy \"Code\") | [<img src=\"https://avatars.githubusercontent.com/u/2685242?v=3\" width=\"100px;\"/><br /><sub>Ori Livni</sub>](http://www.orilivni.com)<br />[💻](https://github.com/prettier/prettier-atom/commits?author=oriSomething \"Code\") |\n| :---: | :---: | :---: | :---: | :---: | :---: | :---: |\n| [<img src=\"https://avatars.githubusercontent.com/u/6182852?v=3\" width=\"100px;\"/><br /><sub>Leon Chen</sub>](https://transcranial.github.io)<br />[💻](https://github.com/prettier/prettier-atom/commits?author=transcranial \"Code\") | [<img src=\"https://avatars.githubusercontent.com/u/197597?v=3\" width=\"100px;\"/><br /><sub>Christopher Chedeau</sub>](http://blog.vjeux.com/)<br />[💬](#question-vjeux \"Answering Questions\") [💻](https://github.com/prettier/prettier-atom/commits?author=vjeux \"Code\") [🔌](#plugin-vjeux \"Plugin/utility libraries\") | [<img src=\"https://avatars.githubusercontent.com/u/646693?v=3\" width=\"100px;\"/><br /><sub>Christoph Geschwind</sub>](http://christoph-geschwind.de)<br />[💻](https://github.com/prettier/prettier-atom/commits?author=1st8 \"Code\") | [<img src=\"https://avatars.githubusercontent.com/u/35026?v=3\" width=\"100px;\"/><br /><sub>Andrew Hutchings</sub>](https://andrewhutchings.com)<br />[💻](https://github.com/prettier/prettier-atom/commits?author=ahutchings \"Code\") | [<img src=\"https://avatars.githubusercontent.com/u/875591?v=3\" width=\"100px;\"/><br /><sub>David Schnurr</sub>](http://davidschnurr.com)<br />[💻](https://github.com/prettier/prettier-atom/commits?author=schnerd \"Code\") | [<img src=\"https://avatars.githubusercontent.com/u/484801?v=3\" width=\"100px;\"/><br /><sub>Ryan Cole</sub>](http://rycole.com/)<br />[💻](https://github.com/prettier/prettier-atom/commits?author=ryancole \"Code\") | [<img src=\"https://avatars0.githubusercontent.com/u/11488612?v=3\" width=\"100px;\"/><br /><sub>Dara Hak</sub>](https://github.com/darahak)<br />[💻](https://github.com/prettier/prettier-atom/commits?author=darahak \"Code\") [📖](https://github.com/prettier/prettier-atom/commits?author=darahak \"Documentation\") |\n| [<img src=\"https://avatars3.githubusercontent.com/u/487068?v=3\" width=\"100px;\"/><br /><sub>Stephen John Sorensen</sub>](http://www.stephenjohnsorensen.com/)<br />[💻](https://github.com/prettier/prettier-atom/commits?author=spudly \"Code\") | [<img src=\"https://avatars2.githubusercontent.com/u/13285808?v=3\" width=\"100px;\"/><br /><sub>Lukas Geiger</sub>](https://github.com/lgeiger)<br />[💻](https://github.com/prettier/prettier-atom/commits?author=lgeiger \"Code\") [⚠️](https://github.com/prettier/prettier-atom/commits?author=lgeiger \"Tests\") | [<img src=\"https://avatars2.githubusercontent.com/u/1517854?v=3\" width=\"100px;\"/><br /><sub>Viktor Charypar</sub>](https://github.com/charypar)<br />[💻](https://github.com/prettier/prettier-atom/commits?author=charypar \"Code\") [⚠️](https://github.com/prettier/prettier-atom/commits?author=charypar \"Tests\") | [<img src=\"https://avatars0.githubusercontent.com/u/1007436?v=3\" width=\"100px;\"/><br /><sub>Mats Högberg</sub>](http://mats.hgbrg.se)<br />[💻](https://github.com/prettier/prettier-atom/commits?author=mhgbrg \"Code\") | [<img src=\"https://avatars0.githubusercontent.com/u/2602767?v=3\" width=\"100px;\"/><br /><sub>Roman</sub>](https://github.com/RoM4iK)<br />[💻](https://github.com/prettier/prettier-atom/commits?author=RoM4iK \"Code\") | [<img src=\"https://avatars2.githubusercontent.com/u/1468518?v=3\" width=\"100px;\"/><br /><sub>vaibhav</sub>](https://vaibhavchatarkar.com)<br />[💻](https://github.com/prettier/prettier-atom/commits?author=da-vaibhav \"Code\") | [<img src=\"https://avatars1.githubusercontent.com/u/1935696?v=3\" width=\"100px;\"/><br /><sub>Karl Horky</sub>](https://work.karlhorky.com)<br />[💻](https://github.com/prettier/prettier-atom/commits?author=karlhorky \"Code\") |\n| [<img src=\"https://avatars3.githubusercontent.com/u/810438?v=3\" width=\"100px;\"/><br /><sub>Dan Abramov</sub>](http://twitter.com/dan_abramov)<br />[💻](https://github.com/prettier/prettier-atom/commits?author=gaearon \"Code\") | [<img src=\"https://avatars3.githubusercontent.com/u/1227109?v=3\" width=\"100px;\"/><br /><sub>Murphy Randle</sub>](https://sploding.rocks)<br />[💻](https://github.com/prettier/prettier-atom/commits?author=splodingsocks \"Code\") [🐛](https://github.com/prettier/prettier-atom/issues?q=author%3Asplodingsocks \"Bug reports\") | [<img src=\"https://avatars3.githubusercontent.com/u/8517072?v=3\" width=\"100px;\"/><br /><sub>Matthieu Lemoine</sub>](https://matthieulemoine.com)<br />[💻](https://github.com/prettier/prettier-atom/commits?author=MatthieuLemoine \"Code\") |\n<!-- ALL-CONTRIBUTORS-LIST:END -->\n\nThis project follows the [all-contributors][all-contributors] specification. Contributions of any kind are welcome!\n\n## LICENSE\n\n[MIT](./LICENSE.md)\n\n[npm]: https://www.npmjs.com/\n[node]: https://nodejs.org\n[build-badge]: https://img.shields.io/travis/prettier/prettier-atom.svg?style=flat-square\n[build]: https://travis-ci.org/prettier/prettier-atom\n[coverage-badge]: https://img.shields.io/codecov/c/github/prettier/prettier-atom.svg?style=flat-square\n[coverage]: https://codecov.io/github/prettier/prettier-atom\n[dependencyci-badge]: https://dependencyci.com/github/prettier/prettier-atom/badge?style=flat-square\n[dependencyci]: https://dependencyci.com/github/prettier/prettier-atom\n[version-badge]: https://img.shields.io/apm/v/prettier-atom.svg?style=flat-square\n[package]: https://atom.io/packages/prettier-atom\n[downloads-badge]: https://img.shields.io/apm/dm/prettier-atom.svg?style=flat-square\n[license-badge]: https://img.shields.io/apm/l/prettier-atom.svg?style=flat-square\n[license]: https://github.com/prettier/prettier-atom/blob/master/LICENSE\n[prs-badge]: https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square\n[prs]: http://makeapullrequest.com\n[coc-badge]: https://img.shields.io/badge/code%20of-conduct-ff69b4.svg?style=flat-square\n[coc]: https://github.com/prettier/prettier-atom/blob/master/other/CODE_OF_CONDUCT.md\n[roadmap-badge]: https://img.shields.io/badge/%F0%9F%93%94-roadmap-CD9523.svg?style=flat-square\n[roadmap]: https://github.com/prettier/prettier-atom/blob/master/other/ROADMAP.md\n[github-watch-badge]: https://img.shields.io/github/watchers/prettier/prettier-atom.svg?style=social\n[github-watch]: https://github.com/prettier/prettier-atom/watchers\n[github-star-badge]: https://img.shields.io/github/stars/prettier/prettier-atom.svg?style=social\n[github-star]: https://github.com/prettier/prettier-atom/stargazers\n[twitter]: https://twitter.com/intent/tweet?text=Check%20out%20prettier-atom!%20https://github.com/prettier/prettier-atom%20%F0%9F%91%8D\n[twitter-badge]: https://img.shields.io/twitter/url/https/github.com/prettier/prettier-atom.svg?style=social\n[emojis]: https://github.com/kentcdodds/all-contributors#emoji-key\n[all-contributors]: https://github.com/kentcdodds/all-contributors\n[all-contributors-badge]: https://img.shields.io/badge/all_contributors-13-orange.svg?style=flat-square\n[prettier]: https://github.com/prettier/prettier\n[prettier-eslint]: https://github.com/prettier/prettier-eslint\n[kentcdodds]: https://github.com/kentcdodds\n[james-long]: https://github.com/jlongster\n[robwise]: https://github.com/robwise\n[prettier-demo]: https://github.com/prettier/prettier-atom/raw/master/prettier-demo.gif\n[prettier-eslint-demo]: https://github.com/prettier/prettier-atom/raw/master/prettier-eslint-demo.gif\n",
   "readmeFilename": "README.md",
   "repository": {
     "type": "git",
@@ -139,7 +138,7 @@
     "start": "nps",
     "test": "nps test"
   },
-  "version": "0.38.0",
+  "version": "0.40.0",
   "_atomModuleCache": {
     "version": 1,
     "dependencies": [
@@ -160,17 +159,17 @@
       },
       {
         "name": "ajv",
-        "version": "5.2.2",
+        "version": "5.2.3",
         "path": "node_modules/ajv/lib/ajv.js"
       },
       {
         "name": "ajv-keywords",
-        "version": "1.5.1",
+        "version": "2.1.0",
         "path": "node_modules/ajv-keywords/index.js"
       },
       {
         "name": "ansi-escapes",
-        "version": "2.0.0",
+        "version": "3.0.0",
         "path": "node_modules/ansi-escapes/index.js"
       },
       {
@@ -370,7 +369,7 @@
       },
       {
         "name": "debug",
-        "version": "2.6.8",
+        "version": "3.1.0",
         "path": "node_modules/debug/src/index.js"
       },
       {
@@ -410,7 +409,7 @@
       },
       {
         "name": "eslint",
-        "version": "4.6.1",
+        "version": "4.8.0",
         "path": "node_modules/eslint/lib/api.js"
       },
       {
@@ -420,7 +419,7 @@
       },
       {
         "name": "espree",
-        "version": "3.5.0",
+        "version": "3.5.1",
         "path": "node_modules/espree/espree.js"
       },
       {
@@ -450,13 +449,8 @@
       },
       {
         "name": "external-editor",
-        "version": "2.0.4",
+        "version": "2.0.5",
         "path": "node_modules/external-editor/main/index.js"
-      },
-      {
-        "name": "tmp",
-        "version": "0.0.31",
-        "path": "node_modules/external-editor/node_modules/tmp/lib/tmp.js"
       },
       {
         "name": "fast-deep-equal",
@@ -485,7 +479,7 @@
       },
       {
         "name": "flat-cache",
-        "version": "1.2.2",
+        "version": "1.3.0",
         "path": "node_modules/flat-cache/cache.js"
       },
       {
@@ -535,7 +529,7 @@
       },
       {
         "name": "iconv-lite",
-        "version": "0.4.18",
+        "version": "0.4.19",
         "path": "node_modules/iconv-lite/lib/index.js"
       },
       {
@@ -565,7 +559,7 @@
       },
       {
         "name": "inquirer",
-        "version": "3.2.3",
+        "version": "3.3.0",
         "path": "node_modules/inquirer/lib/inquirer.js"
       },
       {
@@ -630,7 +624,7 @@
       },
       {
         "name": "js-yaml",
-        "version": "3.9.1",
+        "version": "3.10.0",
         "path": "node_modules/js-yaml/index.js"
       },
       {
@@ -679,13 +673,18 @@
         "path": "node_modules/lodash.merge/index.js"
       },
       {
+        "name": "lodash.unescape",
+        "version": "4.0.1",
+        "path": "node_modules/lodash.unescape/index.js"
+      },
+      {
         "name": "lodash.uniq",
         "version": "4.5.0",
         "path": "node_modules/lodash.uniq/index.js"
       },
       {
         "name": "loglevel",
-        "version": "1.4.1",
+        "version": "1.5.0",
         "path": "node_modules/loglevel/lib/loglevel.js"
       },
       {
@@ -745,7 +744,7 @@
       },
       {
         "name": "named-js-regexp",
-        "version": "1.3.2",
+        "version": "1.3.3",
         "path": "node_modules/named-js-regexp/lib/named-js-regexp.js"
       },
       {
@@ -835,7 +834,7 @@
       },
       {
         "name": "pluralize",
-        "version": "4.0.0",
+        "version": "7.0.0",
         "path": "node_modules/pluralize/pluralize.js"
       },
       {
@@ -845,12 +844,12 @@
       },
       {
         "name": "prettier",
-        "version": "1.6.1",
+        "version": "1.7.3",
         "path": "node_modules/prettier/index.js"
       },
       {
         "name": "prettier-eslint",
-        "version": "6.4.3",
+        "version": "8.2.0",
         "path": "node_modules/prettier-eslint/dist/index.js"
       },
       {
@@ -920,7 +919,7 @@
       },
       {
         "name": "rimraf",
-        "version": "2.6.1",
+        "version": "2.6.2",
         "path": "node_modules/rimraf/rimraf.js"
       },
       {
@@ -1000,7 +999,7 @@
       },
       {
         "name": "slice-ansi",
-        "version": "0.0.4",
+        "version": "1.0.0",
         "path": "node_modules/slice-ansi/index.js"
       },
       {
@@ -1065,23 +1064,8 @@
       },
       {
         "name": "table",
-        "version": "4.0.1",
+        "version": "4.0.2",
         "path": "node_modules/table/dist/index.js"
-      },
-      {
-        "name": "ajv",
-        "version": "4.11.8",
-        "path": "node_modules/table/node_modules/ajv/lib/ajv.js"
-      },
-      {
-        "name": "chalk",
-        "version": "1.1.3",
-        "path": "node_modules/table/node_modules/chalk/index.js"
-      },
-      {
-        "name": "strip-ansi",
-        "version": "3.0.1",
-        "path": "node_modules/table/node_modules/strip-ansi/index.js"
       },
       {
         "name": "text-table",
@@ -1112,6 +1096,21 @@
         "name": "typedarray",
         "version": "0.0.6",
         "path": "node_modules/typedarray/index.js"
+      },
+      {
+        "name": "typescript",
+        "version": "2.5.3",
+        "path": "node_modules/typescript/lib/typescript.js"
+      },
+      {
+        "name": "typescript-eslint-parser",
+        "version": "7.0.0",
+        "path": "node_modules/typescript-eslint-parser/parser.js"
+      },
+      {
+        "name": "semver",
+        "version": "5.3.0",
+        "path": "node_modules/typescript-eslint-parser/node_modules/semver/semver.js"
       },
       {
         "name": "util-deprecate",
@@ -1243,6 +1242,7 @@
         "node_modules/ajv/scripts/compile-dots.js",
         "node_modules/ajv-keywords/index.js",
         "node_modules/ajv-keywords/keywords/_formatLimit.js",
+        "node_modules/ajv-keywords/keywords/_util.js",
         "node_modules/ajv-keywords/keywords/deepProperties.js",
         "node_modules/ajv-keywords/keywords/deepRequired.js",
         "node_modules/ajv-keywords/keywords/dotjs/_formatLimit.js",
@@ -1256,11 +1256,12 @@
         "node_modules/ajv-keywords/keywords/instanceof.js",
         "node_modules/ajv-keywords/keywords/patternRequired.js",
         "node_modules/ajv-keywords/keywords/prohibited.js",
-        "node_modules/ajv-keywords/keywords/propertyNames.js",
         "node_modules/ajv-keywords/keywords/range.js",
         "node_modules/ajv-keywords/keywords/regexp.js",
+        "node_modules/ajv-keywords/keywords/select.js",
         "node_modules/ajv-keywords/keywords/switch.js",
         "node_modules/ajv-keywords/keywords/typeof.js",
+        "node_modules/ajv-keywords/keywords/uniqueItemProperties.js",
         "node_modules/ansi-escapes/index.js",
         "node_modules/ansi-regex/index.js",
         "node_modules/ansi-styles/index.js",
@@ -3526,6 +3527,7 @@
         "node_modules/eslint/lib/token-store/skip-cursor.js",
         "node_modules/eslint/lib/token-store/utils.js",
         "node_modules/eslint/lib/util/ajv.js",
+        "node_modules/eslint/lib/util/apply-disable-directives.js",
         "node_modules/eslint/lib/util/fix-tracker.js",
         "node_modules/eslint/lib/util/glob-util.js",
         "node_modules/eslint/lib/util/glob.js",
@@ -3537,6 +3539,7 @@
         "node_modules/eslint/lib/util/path-util.js",
         "node_modules/eslint/lib/util/patterns/letters.js",
         "node_modules/eslint/lib/util/rule-fixer.js",
+        "node_modules/eslint/lib/util/safe-emitter.js",
         "node_modules/eslint/lib/util/source-code-fixer.js",
         "node_modules/eslint/lib/util/source-code-util.js",
         "node_modules/eslint/lib/util/source-code.js",
@@ -3576,7 +3579,6 @@
         "node_modules/external-editor/main/errors/ReadFileError.js",
         "node_modules/external-editor/main/errors/RemoveFileError.js",
         "node_modules/external-editor/main/index.js",
-        "node_modules/external-editor/node_modules/tmp/lib/tmp.js",
         "node_modules/fast-deep-equal/benchmark/index.js",
         "node_modules/fast-deep-equal/index.js",
         "node_modules/fast-levenshtein/levenshtein.js",
@@ -4797,6 +4799,7 @@
         "node_modules/lodash/zipObjectDeep.js",
         "node_modules/lodash/zipWith.js",
         "node_modules/lodash.merge/index.js",
+        "node_modules/lodash.unescape/index.js",
         "node_modules/lodash.uniq/index.js",
         "node_modules/loglevel/Gruntfile.js",
         "node_modules/loglevel/dist/loglevel.js",
@@ -4992,54 +4995,6 @@
         "node_modules/table/dist/validateTableData.js",
         "node_modules/table/dist/wrapString.js",
         "node_modules/table/dist/wrapWord.js",
-        "node_modules/table/node_modules/ajv/.tonic_example.js",
-        "node_modules/table/node_modules/ajv/dist/ajv.bundle.js",
-        "node_modules/table/node_modules/ajv/dist/ajv.min.js",
-        "node_modules/table/node_modules/ajv/dist/nodent.min.js",
-        "node_modules/table/node_modules/ajv/dist/regenerator.min.js",
-        "node_modules/table/node_modules/ajv/lib/ajv.js",
-        "node_modules/table/node_modules/ajv/lib/async.js",
-        "node_modules/table/node_modules/ajv/lib/cache.js",
-        "node_modules/table/node_modules/ajv/lib/compile/_rules.js",
-        "node_modules/table/node_modules/ajv/lib/compile/equal.js",
-        "node_modules/table/node_modules/ajv/lib/compile/formats.js",
-        "node_modules/table/node_modules/ajv/lib/compile/index.js",
-        "node_modules/table/node_modules/ajv/lib/compile/resolve.js",
-        "node_modules/table/node_modules/ajv/lib/compile/rules.js",
-        "node_modules/table/node_modules/ajv/lib/compile/schema_obj.js",
-        "node_modules/table/node_modules/ajv/lib/compile/ucs2length.js",
-        "node_modules/table/node_modules/ajv/lib/compile/util.js",
-        "node_modules/table/node_modules/ajv/lib/compile/validation_error.js",
-        "node_modules/table/node_modules/ajv/lib/dotjs/_formatLimit.js",
-        "node_modules/table/node_modules/ajv/lib/dotjs/_limit.js",
-        "node_modules/table/node_modules/ajv/lib/dotjs/_limitItems.js",
-        "node_modules/table/node_modules/ajv/lib/dotjs/_limitLength.js",
-        "node_modules/table/node_modules/ajv/lib/dotjs/_limitProperties.js",
-        "node_modules/table/node_modules/ajv/lib/dotjs/allOf.js",
-        "node_modules/table/node_modules/ajv/lib/dotjs/anyOf.js",
-        "node_modules/table/node_modules/ajv/lib/dotjs/constant.js",
-        "node_modules/table/node_modules/ajv/lib/dotjs/custom.js",
-        "node_modules/table/node_modules/ajv/lib/dotjs/dependencies.js",
-        "node_modules/table/node_modules/ajv/lib/dotjs/enum.js",
-        "node_modules/table/node_modules/ajv/lib/dotjs/format.js",
-        "node_modules/table/node_modules/ajv/lib/dotjs/items.js",
-        "node_modules/table/node_modules/ajv/lib/dotjs/multipleOf.js",
-        "node_modules/table/node_modules/ajv/lib/dotjs/not.js",
-        "node_modules/table/node_modules/ajv/lib/dotjs/oneOf.js",
-        "node_modules/table/node_modules/ajv/lib/dotjs/pattern.js",
-        "node_modules/table/node_modules/ajv/lib/dotjs/patternRequired.js",
-        "node_modules/table/node_modules/ajv/lib/dotjs/properties.js",
-        "node_modules/table/node_modules/ajv/lib/dotjs/ref.js",
-        "node_modules/table/node_modules/ajv/lib/dotjs/required.js",
-        "node_modules/table/node_modules/ajv/lib/dotjs/switch.js",
-        "node_modules/table/node_modules/ajv/lib/dotjs/uniqueItems.js",
-        "node_modules/table/node_modules/ajv/lib/dotjs/validate.js",
-        "node_modules/table/node_modules/ajv/lib/keyword.js",
-        "node_modules/table/node_modules/ajv/lib/v5.js",
-        "node_modules/table/node_modules/ajv/scripts/bundle.js",
-        "node_modules/table/node_modules/ajv/scripts/compile-dots.js",
-        "node_modules/table/node_modules/chalk/index.js",
-        "node_modules/table/node_modules/strip-ansi/index.js",
         "node_modules/text-table/example/align.js",
         "node_modules/text-table/example/center.js",
         "node_modules/text-table/example/dotalign.js",
@@ -5054,6 +5009,21 @@
         "node_modules/type-check/lib/parse-type.js",
         "node_modules/typedarray/example/tarray.js",
         "node_modules/typedarray/index.js",
+        "node_modules/typescript/lib/cancellationToken.js",
+        "node_modules/typescript/lib/tsc.js",
+        "node_modules/typescript/lib/tsserver.js",
+        "node_modules/typescript/lib/tsserverlibrary.js",
+        "node_modules/typescript/lib/typescript.js",
+        "node_modules/typescript/lib/typescriptServices.js",
+        "node_modules/typescript/lib/typingsInstaller.js",
+        "node_modules/typescript/lib/watchGuard.js",
+        "node_modules/typescript-eslint-parser/lib/ast-converter.js",
+        "node_modules/typescript-eslint-parser/lib/ast-node-types.js",
+        "node_modules/typescript-eslint-parser/lib/convert-comments.js",
+        "node_modules/typescript-eslint-parser/lib/convert.js",
+        "node_modules/typescript-eslint-parser/lib/node-utils.js",
+        "node_modules/typescript-eslint-parser/node_modules/semver/semver.js",
+        "node_modules/typescript-eslint-parser/parser.js",
         "node_modules/util-deprecate/browser.js",
         "node_modules/util-deprecate/node.js",
         "node_modules/validate-npm-package-license/index.js",
@@ -5081,8 +5051,6 @@
         "src/executePrettier/executePrettierOnBufferRange.test.js",
         "src/executePrettier/executePrettierOnEmbeddedScripts.js",
         "src/executePrettier/executePrettierOnEmbeddedScripts.test.js",
-        "src/executePrettier/getPrettierInstance.js",
-        "src/executePrettier/getPrettierInstance.test.js",
         "src/executePrettier/handleError.js",
         "src/executePrettier/handleError.test.js",
         "src/executePrettier/index.js",
@@ -5090,10 +5058,16 @@
         "src/formatOnSave/index.test.js",
         "src/formatOnSave/isFilePathEslintIgnored.js",
         "src/formatOnSave/isFilePathEslintIgnored.test.js",
+        "src/formatOnSave/isFilePathPrettierIgnored.js",
+        "src/formatOnSave/isFilePathPrettierIgnored.test.js",
         "src/formatOnSave/isPrettierInPackageJson.js",
         "src/formatOnSave/isPrettierInPackageJson.test.js",
         "src/formatOnSave/shouldFormatOnSave.js",
         "src/formatOnSave/shouldFormatOnSave.test.js",
+        "src/helpers/atomRelated.js",
+        "src/helpers/general.js",
+        "src/helpers/getPrettierInstance.js",
+        "src/helpers/getPrettierInstance.test.js",
         "src/helpers/index.js",
         "src/linterInterface/index.js",
         "src/main.js",
@@ -5172,7 +5146,6 @@
         "node_modules/core-util-is/package.json",
         "node_modules/cross-spawn/node_modules/lru-cache/package.json",
         "node_modules/cross-spawn/package.json",
-        "node_modules/debug/component.json",
         "node_modules/debug/package.json",
         "node_modules/deep-is/package.json",
         "node_modules/del/package.json",
@@ -5193,7 +5166,6 @@
         "node_modules/esrecurse/package.json",
         "node_modules/estraverse/package.json",
         "node_modules/esutils/package.json",
-        "node_modules/external-editor/node_modules/tmp/package.json",
         "node_modules/external-editor/package.json",
         "node_modules/fast-deep-equal/package.json",
         "node_modules/fast-levenshtein/package.json",
@@ -5249,6 +5221,7 @@
         "node_modules/locate-path/package.json",
         "node_modules/lodash/package.json",
         "node_modules/lodash.merge/package.json",
+        "node_modules/lodash.unescape/package.json",
         "node_modules/lodash.uniq/package.json",
         "node_modules/loglevel/bower.json",
         "node_modules/loglevel/package.json",
@@ -5339,11 +5312,6 @@
         "node_modules/supports-color/package.json",
         "node_modules/table/dist/schemas/config.json",
         "node_modules/table/dist/schemas/streamConfig.json",
-        "node_modules/table/node_modules/ajv/lib/refs/json-schema-draft-04.json",
-        "node_modules/table/node_modules/ajv/lib/refs/json-schema-v5.json",
-        "node_modules/table/node_modules/ajv/package.json",
-        "node_modules/table/node_modules/chalk/package.json",
-        "node_modules/table/node_modules/strip-ansi/package.json",
         "node_modules/table/package.json",
         "node_modules/text-table/package.json",
         "node_modules/through/package.json",
@@ -5351,6 +5319,9 @@
         "node_modules/tryit/package.json",
         "node_modules/type-check/package.json",
         "node_modules/typedarray/package.json",
+        "node_modules/typescript/package.json",
+        "node_modules/typescript-eslint-parser/node_modules/semver/package.json",
+        "node_modules/typescript-eslint-parser/package.json",
         "node_modules/util-deprecate/package.json",
         "node_modules/validate-npm-package-license/package.json",
         "node_modules/which/package.json",
@@ -5401,11 +5372,11 @@
           "atom-text-buffer-point": "^1.0.0",
           "atom-text-buffer-range": "^1.0.0",
           "editorconfig": "^0.14.1",
-          "ignore": "^3.3.4",
+          "ignore": "^3.3.5",
           "lodash": "^4.17.4",
           "loophole": "^1.1.0",
-          "prettier": "^1.5.3",
-          "prettier-eslint": "^6.4.2",
+          "prettier": "^1.7.0",
+          "prettier-eslint": "^8.1.1",
           "read-pkg-up": "^2.0.0"
         }
       },
@@ -5801,10 +5772,10 @@
           "chalk": "^2.1.0",
           "concat-stream": "^1.6.0",
           "cross-spawn": "^5.1.0",
-          "debug": "^2.6.8",
+          "debug": "^3.0.1",
           "doctrine": "^2.0.0",
           "eslint-scope": "^3.7.1",
-          "espree": "^3.5.0",
+          "espree": "^3.5.1",
           "esquery": "^1.0.0",
           "estraverse": "^4.2.0",
           "esutils": "^2.0.2",
@@ -5825,7 +5796,7 @@
           "natural-compare": "^1.4.0",
           "optionator": "^0.8.2",
           "path-is-inside": "^1.0.2",
-          "pluralize": "^4.0.0",
+          "pluralize": "^7.0.0",
           "progress": "^2.0.0",
           "require-uncached": "^1.0.3",
           "semver": "^5.3.0",
@@ -5881,16 +5852,7 @@
         "dependencies": {
           "iconv-lite": "^0.4.17",
           "jschardet": "^1.4.2",
-          "tmp": "^0.0.31"
-        }
-      },
-      {
-        "paths": [
-          "node_modules/external-editor/node_modules/tmp/lib",
-          "node_modules/external-editor/node_modules/tmp"
-        ],
-        "dependencies": {
-          "os-tmpdir": "~1.0.1"
+          "tmp": "^0.0.33"
         }
       },
       {
@@ -5982,7 +5944,7 @@
           "node_modules/inquirer"
         ],
         "dependencies": {
-          "ansi-escapes": "^2.0.0",
+          "ansi-escapes": "^3.0.0",
           "chalk": "^2.0.0",
           "cli-cursor": "^2.1.0",
           "cli-width": "^2.0.0",
@@ -6232,9 +6194,11 @@
           "indent-string": "^3.2.0",
           "lodash.merge": "^4.6.0",
           "loglevel-colored-level-prefix": "^1.0.0",
-          "prettier": "^1.6.0",
+          "prettier": "^1.7.0",
           "pretty-format": "^20.0.3",
-          "require-relative": "^0.8.7"
+          "require-relative": "^0.8.7",
+          "typescript": "^2.4.2",
+          "typescript-eslint-parser": "^7.0.0"
         }
       },
       {
@@ -6380,6 +6344,14 @@
       },
       {
         "paths": [
+          "node_modules/slice-ansi"
+        ],
+        "dependencies": {
+          "is-fullwidth-code-point": "^2.0.0"
+        }
+      },
+      {
+        "paths": [
           "node_modules/spdx-correct"
         ],
         "dependencies": {
@@ -6424,52 +6396,15 @@
         "paths": [
           "node_modules/table/dist",
           "node_modules/table/dist/schemas",
-          "node_modules/table",
-          "node_modules/table/test/README/usage",
-          "node_modules/table/test"
+          "node_modules/table"
         ],
         "dependencies": {
-          "ajv": "^4.7.0",
-          "ajv-keywords": "^1.0.0",
-          "chalk": "^1.1.1",
-          "lodash": "^4.0.0",
-          "slice-ansi": "0.0.4",
-          "string-width": "^2.0.0"
-        }
-      },
-      {
-        "paths": [
-          "node_modules/table/node_modules/ajv",
-          "node_modules/table/node_modules/ajv/dist",
-          "node_modules/table/node_modules/ajv/lib",
-          "node_modules/table/node_modules/ajv/lib/compile",
-          "node_modules/table/node_modules/ajv/lib/dotjs",
-          "node_modules/table/node_modules/ajv/lib/refs",
-          "node_modules/table/node_modules/ajv/scripts"
-        ],
-        "dependencies": {
-          "co": "^4.6.0",
-          "json-stable-stringify": "^1.0.1"
-        }
-      },
-      {
-        "paths": [
-          "node_modules/table/node_modules/chalk"
-        ],
-        "dependencies": {
-          "ansi-styles": "^2.2.1",
-          "escape-string-regexp": "^1.0.2",
-          "has-ansi": "^2.0.0",
-          "strip-ansi": "^3.0.0",
-          "supports-color": "^2.0.0"
-        }
-      },
-      {
-        "paths": [
-          "node_modules/table/node_modules/strip-ansi"
-        ],
-        "dependencies": {
-          "ansi-regex": "^2.0.0"
+          "ajv": "^5.2.3",
+          "ajv-keywords": "^2.1.0",
+          "chalk": "^2.1.0",
+          "lodash": "^4.17.4",
+          "slice-ansi": "1.0.0",
+          "string-width": "^2.1.1"
         }
       },
       {
@@ -6488,6 +6423,16 @@
         ],
         "dependencies": {
           "prelude-ls": "~1.1.2"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/typescript-eslint-parser/lib",
+          "node_modules/typescript-eslint-parser"
+        ],
+        "dependencies": {
+          "lodash.unescape": "4.0.1",
+          "semver": "5.3.0"
         }
       },
       {

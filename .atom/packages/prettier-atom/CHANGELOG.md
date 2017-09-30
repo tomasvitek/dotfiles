@@ -1,3 +1,32 @@
+<a name="0.40.0"></a>
+# [0.40.0](https://github.com/prettier/prettier-atom/compare/v0.39.0...v0.40.0) (2017-09-20)
+
+
+### Bug Fixes
+
+* **config:** Update tabWidth's type to be integer first or string ([6f8fe9b](https://github.com/prettier/prettier-atom/commit/6f8fe9b)), closes [#241](https://github.com/prettier/prettier-atom/issues/241)
+* **prettier-eslint:** gracefully handle resolveConfig.sync error ([97ed081](https://github.com/prettier/prettier-atom/commit/97ed081)), closes [#267](https://github.com/prettier/prettier-atom/issues/267)
+
+
+### Features
+
+* **error-logging:** log errors to Atom's developer tools ([eddc7bc](https://github.com/prettier/prettier-atom/commit/eddc7bc))
+
+
+
+<a name="0.39.0"></a>
+# [0.39.0](https://github.com/prettier/prettier-atom/compare/v0.38.0...v0.39.0) (2017-09-15)
+
+
+### Features
+
+* **prettier:** bump bundled version to 1.7.0 ([20281be](https://github.com/prettier/prettier-atom/commit/20281be))
+* **prettier-config:** use options from prettier-config if present ([881bd09](https://github.com/prettier/prettier-atom/commit/881bd09))
+* **prettier-eslint:** bump bundled version to 8.1.0 ([142de95](https://github.com/prettier/prettier-atom/commit/142de95))
+* **settings:** add ability not to format on save if a prettier config is not present ([97bdf8e](https://github.com/prettier/prettier-atom/commit/97bdf8e))
+
+
+
 <a name="0.38.0"></a>
 # [0.38.0](https://github.com/prettier/prettier-atom/compare/v0.37.0...v0.38.0) (2017-08-27)
 

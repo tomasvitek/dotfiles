@@ -41,6 +41,10 @@ var isDisabledIfNotInPackageJson = function isDisabledIfNotInPackageJson() {
   return getConfigOption('formatOnSaveOptions.isDisabledIfNotInPackageJson');
 };
 
+var isDisabledIfNoConfigFile = function isDisabledIfNoConfigFile() {
+  return getConfigOption('formatOnSaveOptions.isDisabledIfNoConfigFile');
+};
+
 var shouldRespectEslintignore = function shouldRespectEslintignore() {
   return getConfigOption('formatOnSaveOptions.respectEslintignore');
 };
@@ -125,6 +129,7 @@ var attemptWithErrorNotification = function attemptWithErrorNotification(func) {
   try {
     func.apply(undefined, args);
   } catch (e) {
+    console.error(e); // eslint-disable-line no-console
     addErrorNotification(e.message, { dismissable: true, stack: e.stack });
   }
 };
@@ -152,6 +157,7 @@ module.exports = {
   getAllScopes: getAllScopes,
   getWhitelistedGlobs: getWhitelistedGlobs,
   isDisabledIfNotInPackageJson: isDisabledIfNotInPackageJson,
+  isDisabledIfNoConfigFile: isDisabledIfNoConfigFile,
   isFormatOnSaveEnabled: isFormatOnSaveEnabled,
   isLinterEslintAutofixEnabled: isLinterEslintAutofixEnabled,
   runLinter: runLinter,

@@ -2,39 +2,39 @@
   "_args": [
     [
       {
-        "raw": "/private/var/folders/c9/qq12c1lj6c16d183jjx7_gg80000gn/T/d-11786-35400-1unpwi2.cneraa714i/package.tgz",
+        "raw": "/private/var/folders/j1/3vxq1vgj0sg8x9fbr10zwq8h0000gn/T/d-117830-78577-o3x1r5.xclbqn0zfr/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/private/var/folders/c9/qq12c1lj6c16d183jjx7_gg80000gn/T/d-11786-35400-1unpwi2.cneraa714i/package.tgz",
-        "spec": "/private/var/folders/c9/qq12c1lj6c16d183jjx7_gg80000gn/T/d-11786-35400-1unpwi2.cneraa714i/package.tgz",
+        "rawSpec": "/private/var/folders/j1/3vxq1vgj0sg8x9fbr10zwq8h0000gn/T/d-117830-78577-o3x1r5.xclbqn0zfr/package.tgz",
+        "spec": "/private/var/folders/j1/3vxq1vgj0sg8x9fbr10zwq8h0000gn/T/d-117830-78577-o3x1r5.xclbqn0zfr/package.tgz",
         "type": "local"
       },
-      "/private/var/folders/c9/qq12c1lj6c16d183jjx7_gg80000gn/T/apm-install-dir-11786-35400-1r1ovzg.5t27zoxbt9"
+      "/private/var/folders/j1/3vxq1vgj0sg8x9fbr10zwq8h0000gn/T/apm-install-dir-117830-78577-ej14c1.sniy7m0a4i"
     ]
   ],
-  "_from": "../d-11786-35400-1unpwi2.cneraa714i/package.tgz",
-  "_id": "language-babel@2.74.1",
+  "_from": "../d-117830-78577-o3x1r5.xclbqn0zfr/package.tgz",
+  "_id": "language-babel@2.74.4",
   "_inCache": true,
   "_location": "/language-babel",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/private/var/folders/c9/qq12c1lj6c16d183jjx7_gg80000gn/T/d-11786-35400-1unpwi2.cneraa714i/package.tgz",
+    "raw": "/private/var/folders/j1/3vxq1vgj0sg8x9fbr10zwq8h0000gn/T/d-117830-78577-o3x1r5.xclbqn0zfr/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/private/var/folders/c9/qq12c1lj6c16d183jjx7_gg80000gn/T/d-11786-35400-1unpwi2.cneraa714i/package.tgz",
-    "spec": "/private/var/folders/c9/qq12c1lj6c16d183jjx7_gg80000gn/T/d-11786-35400-1unpwi2.cneraa714i/package.tgz",
+    "rawSpec": "/private/var/folders/j1/3vxq1vgj0sg8x9fbr10zwq8h0000gn/T/d-117830-78577-o3x1r5.xclbqn0zfr/package.tgz",
+    "spec": "/private/var/folders/j1/3vxq1vgj0sg8x9fbr10zwq8h0000gn/T/d-117830-78577-o3x1r5.xclbqn0zfr/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-11786-35400-1unpwi2.cneraa714i/package.tgz",
-  "_shasum": "38ff26689fd1ce27e886ddea7783eb32c7988782",
+  "_resolved": "file:../d-117830-78577-o3x1r5.xclbqn0zfr/package.tgz",
+  "_shasum": "d688b977f34a2ce8da58c25c2f28103625bf7eb7",
   "_shrinkwrap": null,
-  "_spec": "/private/var/folders/c9/qq12c1lj6c16d183jjx7_gg80000gn/T/d-11786-35400-1unpwi2.cneraa714i/package.tgz",
-  "_where": "/private/var/folders/c9/qq12c1lj6c16d183jjx7_gg80000gn/T/apm-install-dir-11786-35400-1r1ovzg.5t27zoxbt9",
+  "_spec": "/private/var/folders/j1/3vxq1vgj0sg8x9fbr10zwq8h0000gn/T/d-117830-78577-o3x1r5.xclbqn0zfr/package.tgz",
+  "_where": "/private/var/folders/j1/3vxq1vgj0sg8x9fbr10zwq8h0000gn/T/apm-install-dir-117830-78577-ej14c1.sniy7m0a4i",
   "activationCommands": [],
   "bugs": {
     "url": "https://github.com/gandm/language-babel/issues"
@@ -193,7 +193,7 @@
     "type": "git",
     "url": "git+https://github.com/gandm/language-babel.git"
   },
-  "version": "2.74.1",
+  "version": "2.74.4",
   "_atomModuleCache": {
     "version": 1,
     "dependencies": [
@@ -299,7 +299,7 @@
       },
       {
         "name": "debug",
-        "version": "2.6.8",
+        "version": "2.6.9",
         "path": "node_modules/debug/src/index.js"
       },
       {
@@ -389,7 +389,7 @@
       },
       {
         "name": "js-yaml",
-        "version": "3.9.1",
+        "version": "3.10.0",
         "path": "node_modules/js-yaml/index.js"
       },
       {
@@ -479,7 +479,7 @@
       },
       {
         "name": "rimraf",
-        "version": "2.6.1",
+        "version": "2.6.2",
         "path": "node_modules/rimraf/rimraf.js"
       },
       {
@@ -494,7 +494,7 @@
       },
       {
         "name": "source-map-support",
-        "version": "0.4.17",
+        "version": "0.4.18",
         "path": "node_modules/source-map-support/source-map-support.js"
       },
       {
@@ -2480,6 +2480,7 @@
         "node_modules/debug/src/browser.js",
         "node_modules/debug/src/debug.js",
         "node_modules/debug/src/index.js",
+        "node_modules/debug/src/inspector-log.js",
         "node_modules/debug/src/node.js",
         "node_modules/detect-indent/index.js",
         "node_modules/escape-string-regexp/index.js",

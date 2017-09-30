@@ -26,6 +26,8 @@ const isFormatOnSaveEnabled = () => getConfigOption('formatOnSaveOptions.enabled
 const isDisabledIfNotInPackageJson = () =>
   getConfigOption('formatOnSaveOptions.isDisabledIfNotInPackageJson');
 
+const isDisabledIfNoConfigFile = () => getConfigOption('formatOnSaveOptions.isDisabledIfNoConfigFile');
+
 const shouldRespectEslintignore = () => getConfigOption('formatOnSaveOptions.respectEslintignore');
 
 const getJavascriptScopes = () => getConfigOption('formatOnSaveOptions.javascriptScopes');
@@ -79,6 +81,7 @@ const attemptWithErrorNotification = (func: Function, ...args: Array<any>) => {
   try {
     func(...args);
   } catch (e) {
+    console.error(e); // eslint-disable-line no-console
     addErrorNotification(e.message, { dismissable: true, stack: e.stack });
   }
 };
@@ -106,6 +109,7 @@ module.exports = {
   getAllScopes,
   getWhitelistedGlobs,
   isDisabledIfNotInPackageJson,
+  isDisabledIfNoConfigFile,
   isFormatOnSaveEnabled,
   isLinterEslintAutofixEnabled,
   runLinter,
