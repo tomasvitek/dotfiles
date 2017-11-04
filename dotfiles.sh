@@ -3,9 +3,9 @@
 # This script can bootstrap or backup
 # dotfiles into/from the current home directory
 
-cd "$(dirname "${BASH_SOURCE}")";
-
 function doBootstrap() {
+	cd "$(dirname "${BASH_SOURCE}")";
+
 	git pull origin master;
 	git submodule update --init --recursive;
 	git submodule foreach --recursive git fetch;
@@ -19,13 +19,15 @@ function doBootstrap() {
 		--exclude "LICENSE.md" \
 		-avh --no-perms --update ./ ~/;
 
+	echo .
 	echo "dotfiles loaded into your home directory.";
 	source ~/.bash_profile;
 }
 
 function doBackup() {
-  rsync -avh --no-perms ~/.atom ./;
-  rsync --exclude ".oh-my-zsh/" \
+	cd "$(dirname "${BASH_SOURCE}")";	
+  	rsync -avh --no-perms ~/.atom ./;
+  	rsync --exclude ".oh-my-zsh/" \
 		--exclude ".git/" \
 		--exclude ".DS_Store" \
 		--exclude "dotfiles.sh" \
@@ -46,7 +48,7 @@ function doBackup() {
 		--exclude "Work" \
 		\
 		-avh --no-perms --existing ~/ ./;
-		echo .
+	echo .
 	echo "Current dotfiles saved, you may commit changes.";
 }
 
