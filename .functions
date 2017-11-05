@@ -10,13 +10,13 @@ finder() {
     fi
 }
 
-file() {
-    if [[ $i == "hide" ]]; then
-        sudo chflags hidden "${@:2}"
-    elif if [[ $i == "show" ]]; then
-        sudo chflags nohidden "${@:2}"
-    fi
+fileshow() {
+  sudo chflags nohidden ${@}
 }
+filehide() {
+  sudo chflags hidden ${@}
+}
+
 
 edit() {
     if [ "$#" -eq 0 ]; then
