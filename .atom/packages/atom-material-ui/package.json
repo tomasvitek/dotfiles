@@ -2,40 +2,39 @@
   "_args": [
     [
       {
-        "raw": "/private/var/folders/c9/qq12c1lj6c16d183jjx7_gg80000gn/T/d-117424-3933-1mszn4n.xdkx6o5hfr/package.tgz",
+        "raw": "/private/var/folders/j1/3vxq1vgj0sg8x9fbr10zwq8h0000gn/T/d-1171025-20794-1j1i75m.glep8yf1or/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/private/var/folders/c9/qq12c1lj6c16d183jjx7_gg80000gn/T/d-117424-3933-1mszn4n.xdkx6o5hfr/package.tgz",
-        "spec": "/private/var/folders/c9/qq12c1lj6c16d183jjx7_gg80000gn/T/d-117424-3933-1mszn4n.xdkx6o5hfr/package.tgz",
+        "rawSpec": "/private/var/folders/j1/3vxq1vgj0sg8x9fbr10zwq8h0000gn/T/d-1171025-20794-1j1i75m.glep8yf1or/package.tgz",
+        "spec": "/private/var/folders/j1/3vxq1vgj0sg8x9fbr10zwq8h0000gn/T/d-1171025-20794-1j1i75m.glep8yf1or/package.tgz",
         "type": "local"
       },
-      "/private/var/folders/c9/qq12c1lj6c16d183jjx7_gg80000gn/T/apm-install-dir-117424-3933-osv2ja.in1van61or"
+      "/private/var/folders/j1/3vxq1vgj0sg8x9fbr10zwq8h0000gn/T/apm-install-dir-1171025-20794-1l2wgdt.hcm7f4j9k9"
     ]
   ],
-  "_from": "../d-117424-3933-1mszn4n.xdkx6o5hfr/package.tgz",
-  "_id": "atom-material-ui@2.0.4",
+  "_from": "../d-1171025-20794-1j1i75m.glep8yf1or/package.tgz",
+  "_id": "atom-material-ui@2.0.6",
   "_inCache": true,
-  "_installable": true,
   "_location": "/atom-material-ui",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/private/var/folders/c9/qq12c1lj6c16d183jjx7_gg80000gn/T/d-117424-3933-1mszn4n.xdkx6o5hfr/package.tgz",
+    "raw": "/private/var/folders/j1/3vxq1vgj0sg8x9fbr10zwq8h0000gn/T/d-1171025-20794-1j1i75m.glep8yf1or/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/private/var/folders/c9/qq12c1lj6c16d183jjx7_gg80000gn/T/d-117424-3933-1mszn4n.xdkx6o5hfr/package.tgz",
-    "spec": "/private/var/folders/c9/qq12c1lj6c16d183jjx7_gg80000gn/T/d-117424-3933-1mszn4n.xdkx6o5hfr/package.tgz",
+    "rawSpec": "/private/var/folders/j1/3vxq1vgj0sg8x9fbr10zwq8h0000gn/T/d-1171025-20794-1j1i75m.glep8yf1or/package.tgz",
+    "spec": "/private/var/folders/j1/3vxq1vgj0sg8x9fbr10zwq8h0000gn/T/d-1171025-20794-1j1i75m.glep8yf1or/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-117424-3933-1mszn4n.xdkx6o5hfr/package.tgz",
-  "_shasum": "15f7a622abecc54e890b657e1b6dee1ab8227b3c",
+  "_resolved": "file:../d-1171025-20794-1j1i75m.glep8yf1or/package.tgz",
+  "_shasum": "60804c1d4ba1ed8e6c0fe68a8e617375316f83d6",
   "_shrinkwrap": null,
-  "_spec": "/private/var/folders/c9/qq12c1lj6c16d183jjx7_gg80000gn/T/d-117424-3933-1mszn4n.xdkx6o5hfr/package.tgz",
-  "_where": "/private/var/folders/c9/qq12c1lj6c16d183jjx7_gg80000gn/T/apm-install-dir-117424-3933-osv2ja.in1van61or",
+  "_spec": "/private/var/folders/j1/3vxq1vgj0sg8x9fbr10zwq8h0000gn/T/d-1171025-20794-1j1i75m.glep8yf1or/package.tgz",
+  "_where": "/private/var/folders/j1/3vxq1vgj0sg8x9fbr10zwq8h0000gn/T/apm-install-dir-1171025-20794-1l2wgdt.hcm7f4j9k9",
   "bugs": {
     "url": "https://github.com/atom-material/atom-material-ui/issues"
   },
@@ -196,59 +195,5 @@
     "url": "git+https://github.com/atom-material/atom-material-ui.git"
   },
   "theme": "ui",
-  "version": "2.0.4",
-  "_atomModuleCache": {
-    "version": 1,
-    "dependencies": [
-      {
-        "name": "tinycolor2",
-        "version": "1.3.0",
-        "path": "node_modules/tinycolor2/tinycolor.js"
-      }
-    ],
-    "extensions": {
-      ".js": [
-        ".eslintrc.js",
-        "lib/colors/build-color-settings.js",
-        "lib/colors/index.js",
-        "lib/fonts/index.js",
-        "lib/fonts/set-font-size.js",
-        "lib/helper/to-camel-case.js",
-        "lib/helper/toggle-class-name.js",
-        "lib/helper/write-config-file.js",
-        "lib/main.js",
-        "lib/tab-bar/index.js",
-        "lib/user-interface/index.js",
-        "node_modules/tinycolor2/Gruntfile.js",
-        "node_modules/tinycolor2/demo/jquery-1.9.1.js",
-        "node_modules/tinycolor2/dist/tinycolor-min.js",
-        "node_modules/tinycolor2/tinycolor.js"
-      ],
-      ".json": [
-        "lib/color-templates.json",
-        "node_modules/tinycolor2/bower.json",
-        "node_modules/tinycolor2/package.json",
-        "package.json"
-      ]
-    },
-    "folders": [
-      {
-        "paths": [
-          "",
-          "lib",
-          "lib/colors",
-          "lib/fonts",
-          "lib/helper",
-          "lib/tab-bar",
-          "lib/user-interface",
-          "spec/colors",
-          "spec/fonts",
-          "spec/helper"
-        ],
-        "dependencies": {
-          "tinycolor2": "1.3.0"
-        }
-      }
-    ]
-  }
+  "version": "2.0.6"
 }

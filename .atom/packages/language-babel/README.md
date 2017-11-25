@@ -19,7 +19,7 @@ The package also provides
  - Support for [GraphQL code highlighting](https://github.com/gandm/language-babel#graphql-code-highlighting)
  - [Support for adding other language grammars to highlight code inside template literal strings](https://github.com/gandm/language-babel#javascript-tagged-template-literal-grammar-extensions).
 
-By default the language-babel package will detect file types `.js`,`.babel`,`.jsx`, `es`, `es6` and `.flow`. Use the standard ATOM interface to enable it for other file types. This provides a grammar that scopes the file in order to colour the text in a meaningful way. If other JavaScript grammars are enabled these may take precedence over language-babel. Look at the bottom right status bar indicator to determine the language grammar of a file being edited. language-babel will be shown as either `Babel` or `Babel ES6 JavaScript`. Clicking the name will allow the grammar for a file to be changed.
+By default the language-babel package will detect file types `.js`,`.babel`,`.jsx`, `.es`, `.es6`, `.mjs` and `.flow`. Use the standard ATOM interface to enable it for other file types. This provides a grammar that scopes the file in order to colour the text in a meaningful way. If other JavaScript grammars are enabled these may take precedence over language-babel. Look at the bottom right status bar indicator to determine the language grammar of a file being edited. language-babel will be shown as either `Babel` or `Babel ES6 JavaScript`. Clicking the name will allow the grammar for a file to be changed.
 
 language-babel provides [Babel](http://babeljs.io/) V6 & V5 transpiler support. If you only require grammar/syntax highlighting ensure that the package settings `Transpile On Save` and `Allow Local Override` are both off.
 
@@ -71,9 +71,9 @@ You may also turn off automatic indenting for all files by setting the package o
 
 ![indent](https://cloud.githubusercontent.com/assets/2313237/12700780/4074271e-c7e8-11e5-91d7-774f7808bc1d.gif)
 
-## Interface to Babel V6 & V5
+## Interface to Babel v7, v6 & v5.
 
-language-babel fully supports the Babel JavaScript transpiler versions 5 and 6.
+language-babel fully supports the Babel JavaScript transpiler versions 5, 6 and 7.
 
 Options in the language-babel package settings and/or in `.languagebabel` project based JSON files allow for Babel validations to be carried out on a file saves using `.babelrc` options. A file tree context menu - `Language-Babel` - is also provided that allows whole directories to be transpiled obeying any `.babelrc` and `.languagebabel` settings. Even if using a workflow such as gulp, webpack, etc, this can be very useful. Additional options allow the output from Babel (transpiled code and maps ) to be output to other directories.
 
@@ -81,7 +81,7 @@ It is also possible to preview any source file as Babel would output it.
 
 #### Previewing
 
-Babel v5 and Babel v6 code can be previewed as shown below. Source mapping keeps the ES201x file's cursor in step with the transpiled code's cursor. This feature requires the Atom package [source-preview](https://atom.io/packages/source-preview) in which `language-babel`becomes a provider of transpiled output which `source-preview` consumes.
+Babel code can be previewed as shown below. Source mapping keeps the ES201x file's cursor in step with the transpiled code's cursor. This feature requires the Atom package [source-preview](https://atom.io/packages/source-preview) in which `language-babel`becomes a provider of transpiled output which `source-preview` consumes.
 
 **Please note** that the following two packages should be disabled or uninstalled to stop multiple packages contending for the same transpile - [source-preview-babel](https://atom.io/packages/source-preview-babel) and [source-preview-react](https://atom.io/packages/source-preview-react).
 
@@ -91,7 +91,7 @@ Babel v5 and Babel v6 code can be previewed as shown below. Source mapping keeps
 
 #### Transpiling
 
-This package works by using the concept of a project folder which we assume contains a project or even nested projects any of which may contain a Babel project.  In a Babel project, we expect to see one or more `.babelrc` files,  `node_modules` folders at the root's of the project containing an optional `babel-core` (either v5 or v6)  and other babel plugins/presets as determined by the project's `package.json` file. In addition, we may expect to see one or more `.languagebabel` files in the project. Projects are either implicit (an Atom project folder) or explicit (denoted by a `.languagebabel` property of `"projectRoot": true`). If no `babel-core` is found in the project then a version will be provided by the package but this will be a Babel Version 6 instance. Plugins and presets will not be provided by the package.
+This package works by using the concept of a project folder which we assume contains a project or even nested projects any of which may contain a Babel project.  In a Babel project, we expect to see one or more `.babelrc` files,  `node_modules` folders at the root's of the project containing an optional `@babel/core` `babel-core`  and other babel plugins/presets as determined by the project's `package.json` file. In addition, we may expect to see one or more `.languagebabel` files in the project. Projects are either implicit (an Atom project folder) or explicit (denoted by a `.languagebabel` property of `"projectRoot": true`). If no `@babel/core` or `babel-core` is found in the project then a check is made to determine if this is part of a [Yarn workspace](https://yarnpkg.com/en/docs/workspaces) and if so a further check is made in the workspace node_modules for `@babel/core` or `babel-core`. If none are found then a version will be provided by `language-babel` but this will be a Babel Version 6 instance. Plugins and presets will not be provided by the package.
 
 A trivial example project that shows examples of using `.languagebabel` and `.babelrc` files may be found [here](https://github.com/gandm/example-language-babel).
 
@@ -228,6 +228,9 @@ For most projects, it is better to configure `language-babel` via project-based 
   {"createTargetDirectories": false}
   ```
 
+* #### Keep File Extension
+  Keeps the source filename extension as the target filename extension
+
 * #### Auto Indent JSX
   Enables automatic indenting of JSX.
 
@@ -271,6 +274,7 @@ A `.languagebabel` file may contain one or more of the following properties.
   "createTargetDirectories":          true|false,
   "createTranspiledCode":             true|false,
   "disableWhenNoBabelrcFileInPath":   true|false,
+  "keepFileExtension":                true|false,
   "projectRoot":                      true|false,  
   "suppressSourcePathMessages":       true|false,
   "suppressTranspileOnSaveMessages":  true|false,

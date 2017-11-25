@@ -15,6 +15,7 @@ languagebabelSchema = {
     createTargetDirectories:          { type: 'boolean' },
     createTranspiledCode:             { type: 'boolean' },
     disableWhenNoBabelrcFileInPath:   { type: 'boolean' },
+    keepFileExtension:                { type: 'boolean' },
     projectRoot:                      { type: 'boolean' },
     suppressSourcePathMessages:       { type: 'boolean' },
     suppressTranspileOnSaveMessages:  { type: 'boolean' },
@@ -108,7 +109,7 @@ class Transpiler
             if not err?
               if stats.isFile()
                 return if /\.min\.[a-z]+$/.test fqFileName # no minimized files
-                if /\.(js|jsx|es|es6|babel)$/.test fqFileName # only js
+                if /\.(js|jsx|es|es6|babel|mjs)$/.test fqFileName # only js
                   @transpile file, null, @getConfigAndPathTo fqFileName
               else if recursive and stats.isDirectory()
                 @transpileDirectory {directory: fqFileName, recursive: true}
@@ -370,8 +371,14 @@ class Transpiler
 
     parsedSourceFile = path.parse(sourceFile)
     relSourceRootToSourceFile = path.relative(absSourceRoot, parsedSourceFile.dir)
-    absTranspiledFile = path.join(absTranspileRoot, relSourceRootToSourceFile , parsedSourceFile.name  + '.js')
-    absMapFile = path.join(absMapsRoot, relSourceRootToSourceFile , parsedSourceFile.name  + '.js.map')
+
+    # option to keep filename extension name
+    if config.keepFileExtension
+      fnExt = parsedSourceFile.ext
+    else
+      fnExt =  '.js'
+    absTranspiledFile = path.join(absTranspileRoot, relSourceRootToSourceFile , parsedSourceFile.name  + fnExt )
+    absMapFile = path.join(absMapsRoot, relSourceRootToSourceFile , parsedSourceFile.name  + fnExt + '.map')
 
     sourceFileInProject: sourceFileInProject
     sourceFile: sourceFile
@@ -384,9 +391,13 @@ class Transpiler
 # check for prescence of a .babelrc file path fromDir to root
   isBabelrcInPath: (fromDir) ->
     # enviromnents used in babelrc
-    babelrc = '.babelrc'
-    babelrcFile = path.join fromDir, babelrc
-    if fs.existsSync babelrcFile
+    babelrc = [
+      '.babelrc'
+      '.babelrc.js' # Babel 7.0 and newer
+    ]
+    babelrcFiles = babelrc.map (file) -> path.join(fromDir, file)
+
+    if babelrcFiles.some fs.existsSync
       return true
     if fromDir != path.dirname(fromDir)
       return @isBabelrcInPath path.dirname(fromDir)
