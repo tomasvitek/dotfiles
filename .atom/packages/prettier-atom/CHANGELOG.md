@@ -1,3 +1,34 @@
+<a name="0.43.1"></a>
+## [0.43.1](https://github.com/prettier/prettier-atom/compare/v0.43.0...v0.43.1) (2017-12-10)
+
+
+### Bug Fixes
+
+* **async-polyfill:** switch from babel-polyfill to babel-runtime ([61ea645](https://github.com/prettier/prettier-atom/commit/61ea645)), closes [#315](https://github.com/prettier/prettier-atom/issues/315)
+* **linter:** resolve issue with linter not showing error messages properly ([2550a8f](https://github.com/prettier/prettier-atom/commit/2550a8f)), closes [#318](https://github.com/prettier/prettier-atom/issues/318) [#298](https://github.com/prettier/prettier-atom/issues/298)
+
+
+
+<a name="0.43.0"></a>
+# [0.43.0](https://github.com/prettier/prettier-atom/compare/v0.41.0...v0.43.0) (2017-12-05)
+
+
+### Bug Fixes
+
+* **config-schema:** add `text.md` to default markdown scopes ([aa7ecd1](https://github.com/prettier/prettier-atom/commit/aa7ecd1))
+
+
+### Features
+
+* **prettier-stylelint:** Add support for prettier-stylelint ([a34dc24](https://github.com/prettier/prettier-atom/commit/a34dc24)), closes [#288](https://github.com/prettier/prettier-atom/issues/288)
+
+
+### Performance Improvements
+
+* **formatOnSave:** Use setTextViaDiff when updating entire buffer ([c899aaa](https://github.com/prettier/prettier-atom/commit/c899aaa))
+
+
+
 <a name="0.41.0"></a>
 # [0.41.0](https://github.com/prettier/prettier-atom/compare/v0.40.0...v0.41.0) (2017-11-13)
 

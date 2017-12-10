@@ -1,6 +1,46 @@
 // SYNTAX TEST "source.js.jsx"
 
-// Issue 428 
+// Issue #458
+class A {
+a= () =>
+  a(aA)
+//^^^^^  meta.class.body.js
+//^^^^^  meta.function-call.with-arguments.js
+//^      entity.name.function.js
+// ^  ^  meta.brace.round.js
+//  ^^   variable.other.readwrite.js
+
+method() {}
+// <- meta.class.body.js meta.function.method.js entity.name.function.method.js
+ // <- meta.class.body.js meta.function.method.js entity.name.function.method.js
+//^^^^^^ ^^  meta.class.body.js
+//^^^^^^ ^^  meta.function.method.js
+//^^^^       entity.name.function.method.js
+//    ^      punctuation.definition.parameters.begin.js
+//    ^^     meta.brace.round.js
+//     ^     punctuation.definition.parameters.end.js
+//       ^^  meta.brace.curly.js
+}
+// <- punctuation.section.class.end.js
+
+// Issue 456
+const file = await (new File({file})).save(aa)
+// <- storage.type.js
+ // <- storage.type.js
+//^^^                                           storage.type.js
+//    ^^^^                                 ^^   variable.other.readwrite.js
+//         ^                                    keyword.operator.assignment.js
+//           ^^^^^                              keyword.control.flow.js
+//                 ^        ^      ^^     ^  ^  meta.brace.round.js
+//                  ^^^                         keyword.operator.new.js
+//                      ^^^^^^^^^^^^            meta.function-call.with-arguments.js
+//                      ^^^^          ^^^^      entity.name.function.js
+//                           ^    ^             meta.brace.curly.litobj.js
+//                            ^^^^              variable.other.readwrite.shorthandpropertyname.js
+//                                   ^          keyword.operator.accessor.js
+//                                    ^^^^^^^^  meta.method-call.with-arguments.js
+
+// Issue 428
 let x = ( '\'(', "\")", ("",'') ) => {}
 // <- storage.type.js
  // <- storage.type.js

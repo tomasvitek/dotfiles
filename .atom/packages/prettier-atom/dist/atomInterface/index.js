@@ -1,6 +1,10 @@
 'use strict';
 
-function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
+var _toConsumableArray2 = require('babel-runtime/helpers/toConsumableArray');
+
+var _toConsumableArray3 = _interopRequireDefault(_toConsumableArray2);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 // constants
 var LINTER_LINT_COMMAND = 'linter:lint';
@@ -27,6 +31,10 @@ var isLinterEslintAutofixEnabled = function isLinterEslintAutofixEnabled() {
 
 var shouldUseEslint = function shouldUseEslint() {
   return getConfigOption('useEslint');
+};
+
+var shouldUseStylelint = function shouldUseStylelint() {
+  return getConfigOption('useStylelint');
 };
 
 var shouldUseEditorConfig = function shouldUseEditorConfig() {
@@ -74,7 +82,7 @@ var getMarkdownScopes = function getMarkdownScopes() {
 };
 
 var getAllScopes = function getAllScopes() {
-  return [].concat(_toConsumableArray(getJavascriptScopes()), _toConsumableArray(getTypescriptScopes()), _toConsumableArray(getCssScopes()), _toConsumableArray(getJsonScopes()), _toConsumableArray(getGraphQlScopes()), _toConsumableArray(getMarkdownScopes()));
+  return [].concat((0, _toConsumableArray3.default)(getJavascriptScopes()), (0, _toConsumableArray3.default)(getTypescriptScopes()), (0, _toConsumableArray3.default)(getCssScopes()), (0, _toConsumableArray3.default)(getJsonScopes()), (0, _toConsumableArray3.default)(getGraphQlScopes()), (0, _toConsumableArray3.default)(getMarkdownScopes()));
 };
 
 var getWhitelistedGlobs = function getWhitelistedGlobs() {
@@ -169,6 +177,7 @@ module.exports = {
   shouldRespectEslintignore: shouldRespectEslintignore,
   shouldUseEditorConfig: shouldUseEditorConfig,
   shouldUseEslint: shouldUseEslint,
+  shouldUseStylelint: shouldUseStylelint,
   toggleFormatOnSave: toggleFormatOnSave,
   attemptWithErrorNotification: attemptWithErrorNotification
 };
