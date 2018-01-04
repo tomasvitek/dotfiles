@@ -80,7 +80,7 @@ webserver() {
     "config")
       sudo subl /usr/local/etc/httpd/httpd.conf ;;
     "logs")
-      sudo subl /usr/local/var/log/apache2/error_log ;;
+      tail -f /usr/local/var/log/httpd/error_log ;;
     "vhosts")
       sudo subl /usr/local/etc/httpd/extra/httpd-vhosts.conf /etc/hosts ;;
     *)
