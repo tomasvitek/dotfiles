@@ -79,8 +79,10 @@ webserver() {
       sudo apachectl -k restart ;;
     "config")
       sudo subl /usr/local/etc/httpd/httpd.conf ;;
-    "logs")
+    "error_log")
       tail -f /usr/local/var/log/httpd/error_log ;;
+    "access_log")
+      tail -f /usr/local/var/log/httpd/access_log ;;
     "vhosts")
       sudo subl /usr/local/etc/httpd/extra/httpd-vhosts.conf /etc/hosts ;;
     *)
