@@ -86,7 +86,7 @@ webserver() {
     "vhosts")
       sudo subl /usr/local/etc/httpd/extra/httpd-vhosts.conf /etc/hosts ;;
     *)
-      echo "usage: webserver start | stop | restart | config | vhosts | logs" ;;
+      echo "usage: webserver start | stop | restart | config | vhosts | error_log | access_log" ;;
   esac
 }
 
