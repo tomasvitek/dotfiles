@@ -1,6 +1,6 @@
 "use strict";
 
-const {dirname, join} = require("path");
+const {join} = require("path");
 const {FileSystem} = require("atom-fs");
 const {CompositeDisposable, Disposable, Emitter} = require("atom");
 let delayNext = false;
@@ -28,16 +28,16 @@ class UI {
 			}),
 			this.onSaveNewFile(args => {
 				const file = FileSystem.get(args.file);
-				file.addEditor(args.editor);
+				file && file.addEditor(args.editor);
 			}),
 			this.onOpenFile(editor => {
 				const path = editor.getPath();
 				let entity = FileSystem.get(path);
-				if("function" !== typeof entity.addEditor){
+				if(!entity || "function" !== typeof entity.addEditor){
 					FileSystem.paths.delete(path);
 					entity = FileSystem.get(path);
 				}
-				entity.addEditor(editor);
+				entity && entity.addEditor(editor);
 			})
 		);
 	}
@@ -234,7 +234,7 @@ class UI {
 						this.disposables.remove(this.restoreOffset);
 					}
 					
-					this.restoreOffset = new Disposable(_=> rule.style.top = offset);
+					this.restoreOffset = new Disposable(() => rule.style.top = offset);
 					this.disposables.add(this.restoreOffset);
 					return;
 				}
@@ -246,8 +246,8 @@ class UI {
 	waitToSave(editor){
 		return new Promise(resolve => {
 			const cd = new CompositeDisposable(
-				new Disposable(_=> this.disposables.remove(cd)),
-				editor.onDidDestroy(_=> cd.dispose()),
+				new Disposable(() => this.disposables.remove(cd)),
+				editor.onDidDestroy(() => cd.dispose()),
 				editor.onDidChangePath(file => {
 					cd.dispose();
 					resolve(file);

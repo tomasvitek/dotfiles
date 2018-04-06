@@ -1,7 +1,7 @@
 'use babel';
 
-import { isArray, isFunction } from 'underscore';
-import child_process from 'child_process';
+import { isArray, isFunction } from 'lodash';
+import childProcess from 'child_process';
 
 import { parseBlame } from './blameFormatter';
 
@@ -28,24 +28,24 @@ export default class GitCommander {
       return;
     }
 
-    const child = child_process.spawn('git', args, {cwd: this.workingDirectory});
+    const child = childProcess.spawn('git', args, {cwd: this.workingDirectory});
     let stdout = '';
     let stderr = '';
     let processError;
 
-    child.stdout.on('data', function(data) {
+    child.stdout.on('data', function (data) {
       stdout += data;
     });
 
-    child.stderr.on('data', function(data) {
+    child.stderr.on('data', function (data) {
       stderr += data;
     });
 
-    child.on('error', function(error) {
+    child.on('error', function (error) {
       processError = error;
     });
 
-    child.on('close', function(errorCode) {
+    child.on('close', function (errorCode) {
       if (processError) {
         return callback(processError);
       }
@@ -78,7 +78,7 @@ export default class GitCommander {
     args.push(fileName);
 
     // Execute blame command and parse
-    this.exec(args, function(err, blameStdOut) {
+    this.exec(args, function (err, blameStdOut) {
       if (err) {
         return callback(err, blameStdOut);
       }
@@ -87,4 +87,26 @@ export default class GitCommander {
     });
   }
 
+  /**
+   * Executes git config --get
+   *
+   * @param {string} name - the name of the variable to look up eg: "group.varName"
+   * @param {function} callback - callback funtion to call with results or error
+   */
+  config(name, callback) {
+    const args = ['config', '--get', name];
+
+    // Execute config command
+    this.exec(args, function (err, configStdOut) {
+      if (err) {
+        // Error code 1 means, this variable is not present in the config
+        if (err.code === 1) {
+          return callback(null, '');
+        }
+        return callback(err, configStdOut);
+      }
+
+      return callback(null, configStdOut);
+    });
+  }
 }

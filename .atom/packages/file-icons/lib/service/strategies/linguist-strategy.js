@@ -1,10 +1,8 @@
 "use strict";
 
 const path = require("path");
-const Micromatch = require("micromatch");
-const {CompositeDisposable, Disposable} = require("atom");
-const {MappedDisposable, PatternMap, PatternSet} = require("alhadis.utils");
-const {FileSystem} = require("atom-fs");
+const {Disposable} = require("atom");
+const {PatternMap, PatternSet} = require("alhadis.utils");
 const IconTables = require("../../icons/icon-tables.js");
 const Strategy = require("../strategy.js");
 
@@ -75,10 +73,10 @@ class LinguistStrategy extends Strategy {
 			
 			const disposables = this.resourceEvents.get(file);
 			disposables.add(
-				new Disposable(_=> file.unwatchSystem()),
-				file.onDidMove(_=> this.updateSource(file)),
-				file.onDidChangeData(_=> this.updateSource(file)),
-				file.onDidChangeOnDisk(_=> {
+				new Disposable(() => file.unwatchSystem()),
+				file.onDidMove(() => this.updateSource(file)),
+				file.onDidChangeData(() => this.updateSource(file)),
+				file.onDidChangeOnDisk(() => {
 					try{ file.loadData(true); }
 					catch(e){ disposables.dispose(); }
 				})
@@ -152,6 +150,9 @@ class LinguistStrategy extends Strategy {
 				// Only acknowledge languages with icons
 				if(!languageIcon)
 					return null;
+
+				// Lazily require the micromatch dependency due to its weight.
+				const Micromatch = require("micromatch");
 				
 				pattern = path.dirname(filePath) + "/" + (/^\//.test(pattern) ? "" : "**") + "/" + pattern;
 				pattern = path.resolve(pattern);

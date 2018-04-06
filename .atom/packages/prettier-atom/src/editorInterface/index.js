@@ -1,5 +1,5 @@
 // @flow
-const _ = require('lodash/fp');
+
 const path = require('path');
 
 const {
@@ -8,9 +8,18 @@ const {
   getJsonScopes,
   getGraphQlScopes,
   getMarkdownScopes,
+  getVueScopes,
 } = require('../atomInterface');
 
-const EMBEDDED_SCOPES = ['text.html.vue', 'text.html.basic'];
+let flow;
+const lazyFlow = () => {
+  if (!flow) {
+    flow = require('lodash/fp/flow'); // eslint-disable-line global-require
+  }
+  return flow;
+};
+
+const EMBEDDED_SCOPES = ['text.html.basic'];
 
 const getBufferRange = (editor: TextEditor) => editor.getBuffer().getRange();
 
@@ -31,12 +40,16 @@ const isCurrentScopeGraphQlScope = (editor: TextEditor) =>
 const isCurrentScopeMarkdownScope = (editor: TextEditor) =>
   getMarkdownScopes().includes(getCurrentScope(editor));
 
-const getCurrentFilePath = (editor: TextEditor) => (editor.buffer.file ? editor.buffer.file.path : undefined);
+const isCurrentScopeVueScope = (editor: TextEditor) => getVueScopes().includes(getCurrentScope(editor));
 
-const getCurrentDir: (editor: TextEditor) => ?string = _.flow(
-  getCurrentFilePath,
-  (maybeFilePath: ?string) => (typeof maybeFilePath === 'string' ? path.dirname(maybeFilePath) : undefined),
-);
+const getCurrentFilePath: (editor: TextEditor) => ?FilePath = editor =>
+  editor.buffer.file ? editor.buffer.file.getPath() : undefined;
+
+const getCurrentDir: (editor: TextEditor) => ?string = editor =>
+  lazyFlow()(
+    getCurrentFilePath,
+    (maybeFilePath: ?string) => (typeof maybeFilePath === 'string' ? path.dirname(maybeFilePath) : undefined),
+  )(editor);
 
 module.exports = {
   getBufferRange,
@@ -46,6 +59,7 @@ module.exports = {
   isCurrentScopeJsonScope,
   isCurrentScopeGraphQlScope,
   isCurrentScopeMarkdownScope,
+  isCurrentScopeVueScope,
   getCurrentScope,
   getCurrentFilePath,
   getCurrentDir,

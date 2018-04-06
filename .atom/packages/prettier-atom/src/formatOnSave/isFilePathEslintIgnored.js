@@ -10,6 +10,7 @@ const getNearestEslintignorePath = (filePath: FilePath): ?FilePath =>
   findCachedFromFilePath(filePath, '.eslintignore');
 
 const safeRelativePath = _.curry(
+  // $FlowFixMe
   (from: ?FilePath, to: ?FilePath): ?FilePath => (!!from && !!to ? path.relative(from, to) : undefined),
 );
 
@@ -25,7 +26,7 @@ const getIgnoredGlobsFromNearestEslintIgnore: (filePath: FilePath) => Globs = _.
   getLinesFromFilePath,
 );
 
-const isFilePathEslintignored: (filePath: FilePath) => boolean = _.flow(
+const isFilePathEslintignored: (filePath: ?FilePath) => boolean = _.flow(
   _.over([getIgnoredGlobsFromNearestEslintIgnore, getFilePathRelativeToEslintignore]),
   _.spread(someGlobsMatchFilePath),
 );

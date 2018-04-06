@@ -1,6 +1,5 @@
 'use strict';
 
-var _ = require('lodash/fp');
 var path = require('path');
 
 var _require = require('../atomInterface'),
@@ -8,9 +7,18 @@ var _require = require('../atomInterface'),
     getTypescriptScopes = _require.getTypescriptScopes,
     getJsonScopes = _require.getJsonScopes,
     getGraphQlScopes = _require.getGraphQlScopes,
-    getMarkdownScopes = _require.getMarkdownScopes;
+    getMarkdownScopes = _require.getMarkdownScopes,
+    getVueScopes = _require.getVueScopes;
 
-var EMBEDDED_SCOPES = ['text.html.vue', 'text.html.basic'];
+var flow = void 0;
+var lazyFlow = function lazyFlow() {
+  if (!flow) {
+    flow = require('lodash/fp/flow'); // eslint-disable-line global-require
+  }
+  return flow;
+};
+
+var EMBEDDED_SCOPES = ['text.html.basic'];
 
 var getBufferRange = function getBufferRange(editor) {
   return editor.getBuffer().getRange();
@@ -44,13 +52,19 @@ var isCurrentScopeMarkdownScope = function isCurrentScopeMarkdownScope(editor) {
   return getMarkdownScopes().includes(getCurrentScope(editor));
 };
 
-var getCurrentFilePath = function getCurrentFilePath(editor) {
-  return editor.buffer.file ? editor.buffer.file.path : undefined;
+var isCurrentScopeVueScope = function isCurrentScopeVueScope(editor) {
+  return getVueScopes().includes(getCurrentScope(editor));
 };
 
-var getCurrentDir = _.flow(getCurrentFilePath, function (maybeFilePath) {
-  return typeof maybeFilePath === 'string' ? path.dirname(maybeFilePath) : undefined;
-});
+var getCurrentFilePath = function getCurrentFilePath(editor) {
+  return editor.buffer.file ? editor.buffer.file.getPath() : undefined;
+};
+
+var getCurrentDir = function getCurrentDir(editor) {
+  return lazyFlow()(getCurrentFilePath, function (maybeFilePath) {
+    return typeof maybeFilePath === 'string' ? path.dirname(maybeFilePath) : undefined;
+  })(editor);
+};
 
 module.exports = {
   getBufferRange: getBufferRange,
@@ -60,6 +74,7 @@ module.exports = {
   isCurrentScopeJsonScope: isCurrentScopeJsonScope,
   isCurrentScopeGraphQlScope: isCurrentScopeGraphQlScope,
   isCurrentScopeMarkdownScope: isCurrentScopeMarkdownScope,
+  isCurrentScopeVueScope: isCurrentScopeVueScope,
   getCurrentScope: getCurrentScope,
   getCurrentFilePath: getCurrentFilePath,
   getCurrentDir: getCurrentDir

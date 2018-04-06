@@ -2,6 +2,59 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.6.0"></a>
+# [1.6.0](https://github.com/alexcorre/git-blame/compare/v1.5.1...v1.6.0) (2018-02-23)
+
+
+### Features
+
+* **copy:** when no template is found for the repo, copy the hash to the clipboard and notify on click (#226) ([e7897be](https://github.com/alexcorre/git-blame/commit/e7897be))
+
+
+
+<a name="1.5.1"></a>
+## [1.5.1](https://github.com/alexcorre/git-blame/compare/v1.5.0...v1.5.1) (2018-02-23)
+
+
+### Bug Fixes
+
+* **blamer:** fix the non-working blame functionality for certain files (#219) ([cbef3ab](https://github.com/alexcorre/git-blame/commit/cbef3ab)), closes [#219](https://github.com/alexcorre/git-blame/issues/219)
+
+
+
+<a name="1.5.0"></a>
+# [1.5.0](https://github.com/alexcorre/git-blame/compare/v1.4.0...v1.5.0) (2018-01-25)
+
+
+### Bug Fixes
+
+* **config:** change .gitconfig entry keypath to atom-git-blame.repositoryUrlTemplate ([98ccf82](https://github.com/alexcorre/git-blame/commit/98ccf82))
+
+
+### Features
+
+* **config:** set custom repository URL in git config file (#222) ([264405d](https://github.com/alexcorre/git-blame/commit/264405d)), closes [#125](https://github.com/alexcorre/git-blame/issues/125)
+
+
+
+<a name="1.4.0"></a>
+# [1.4.0](https://github.com/alexcorre/git-blame/compare/v1.3.1...v1.4.0) (2017-12-11)
+
+
+### Bug Fixes
+
+* **ux:** default color commit authors to false ([60aeb01](https://github.com/alexcorre/git-blame/commit/60aeb01))
+* **ux:** text overflow in gutter (#216) ([0237c96](https://github.com/alexcorre/git-blame/commit/0237c96))
+* **ux:** tweak color styles. lint. ([efcb9af](https://github.com/alexcorre/git-blame/commit/efcb9af))
+
+
+### Features
+
+* **errors:** use atom build in error notier. remove legacy space pen custom view ([91274ab](https://github.com/alexcorre/git-blame/commit/91274ab))
+* **ux:** color commit authors (#205) ([3236257](https://github.com/alexcorre/git-blame/commit/3236257))
+
+
+
 <a name="1.3.1"></a>
 ## [1.3.1](https://github.com/alexcorre/git-blame/compare/v1.3.0...v1.3.1) (2017-09-24)
 

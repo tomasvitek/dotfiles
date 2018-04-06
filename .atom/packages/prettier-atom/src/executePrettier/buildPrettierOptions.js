@@ -1,5 +1,7 @@
 // @flow
 const _ = require('lodash/fp');
+const editorconfig = require('editorconfig');
+const editorconfigToPretter = require('editorconfig-to-prettier');
 const {
   getCurrentFilePath,
   isCurrentScopeTypescriptScope,
@@ -7,12 +9,23 @@ const {
   isCurrentScopeJsonScope,
   isCurrentScopeGraphQlScope,
   isCurrentScopeMarkdownScope,
+  isCurrentScopeVueScope,
 } = require('../editorInterface');
 const { shouldUseEditorConfig, getPrettierOptions, getAtomTabLength } = require('../atomInterface');
-const buildEditorConfigOptions = require('./buildEditorConfigOptions');
 const { getPrettierInstance } = require('../helpers');
 
+type EditorConfigToPretterResult = {
+  tabWidth?: number,
+  printWidth?: number,
+  useTabs?: boolean,
+};
+
 const isDefined: (x: any) => boolean = _.negate(_.isNil);
+
+const buildEditorConfigOptions: (file: FilePath) => EditorConfigToPretterResult = _.flow(
+  editorconfig.parseSync,
+  editorconfigToPretter,
+);
 
 const isAppropriateToBuildEditorConfigOptions: (filePath: FilePath) => boolean = _.overEvery([
   isDefined,
@@ -27,46 +40,87 @@ const buildEditorConfigOptionsIfAppropriate: (editor: TextEditor) => ?{} = _.flo
 const getPrettierConfigOptions: (editor: TextEditor) => ?{} = _.cond([
   [
     _.flow(getCurrentFilePath, isDefined),
-    editor =>
-      isDefined(getPrettierInstance(editor).resolveConfig.sync)
-        ? getPrettierInstance(editor).resolveConfig.sync(getCurrentFilePath(editor))
-        : null,
+    editor => {
+      // $FlowFixMe
+      const hasResolveConfigSync = isDefined(getPrettierInstance(editor).resolveConfig.sync);
+      if (!hasResolveConfigSync) return null;
+
+      // $FlowFixMe
+      const resolveConfigSync = getPrettierInstance(editor).resolveConfig.sync;
+      const filePath = getCurrentFilePath(editor);
+
+      // TODO: when davidtheclark/cosmiconfig#107 is merged, this logic should
+      //   be modified to treat an empty file as an empty object.
+      let prettierConfig = resolveConfigSync(filePath);
+
+      // We only want to resolve with editorconfig when a prettier configuration
+      //   is found in the first place.
+      if (prettierConfig && shouldUseEditorConfig()) {
+        prettierConfig = resolveConfigSync(filePath, { editorconfig: true });
+      }
+
+      return prettierConfig || null;
+    },
   ],
 ]);
 
-const buildPrettierOptions = (editor: TextEditor) => {
+const getScopeSpecificSettings = (editor: TextEditor) => {
+  const scopeSpecificSettings = {};
+
+  if (isCurrentScopeTypescriptScope(editor)) {
+    scopeSpecificSettings.parser = 'typescript';
+  }
+
+  if (isCurrentScopeCssScope(editor)) {
+    scopeSpecificSettings.parser = 'postcss';
+  }
+
+  if (isCurrentScopeJsonScope(editor)) {
+    scopeSpecificSettings.parser = 'json';
+    scopeSpecificSettings.trailingComma = 'none';
+  }
+
+  if (isCurrentScopeGraphQlScope(editor)) {
+    scopeSpecificSettings.parser = 'graphql';
+  }
+
+  if (isCurrentScopeMarkdownScope(editor)) {
+    scopeSpecificSettings.parser = 'markdown';
+  }
+
+  if (isCurrentScopeVueScope(editor)) {
+    scopeSpecificSettings.parser = 'vue';
+  }
+
+  return scopeSpecificSettings;
+};
+
+const getOptionsFromSettings = (editor: TextEditor, scopeSpecificSettings: Object) => {
   const optionsFromSettings = getPrettierOptions();
 
   if (optionsFromSettings.tabWidth === 'auto') {
     optionsFromSettings.tabWidth = getAtomTabLength(editor);
   }
 
-  if (isCurrentScopeTypescriptScope(editor)) {
-    optionsFromSettings.parser = 'typescript';
-  }
-
-  if (isCurrentScopeCssScope(editor)) {
-    optionsFromSettings.parser = 'postcss';
-  }
-
-  if (isCurrentScopeJsonScope(editor)) {
-    optionsFromSettings.parser = 'json';
-    optionsFromSettings.trailingComma = 'none';
-  }
-
-  if (isCurrentScopeGraphQlScope(editor)) {
-    optionsFromSettings.parser = 'graphql';
-  }
-
-  if (isCurrentScopeMarkdownScope(editor)) {
-    optionsFromSettings.parser = 'markdown';
-  }
-
   return {
     ...optionsFromSettings,
+    ...scopeSpecificSettings,
     ...buildEditorConfigOptionsIfAppropriate(editor),
-    ...getPrettierConfigOptions(editor),
   };
+};
+
+const buildPrettierOptions = (editor: TextEditor) => {
+  const prettierConfigOptions = getPrettierConfigOptions(editor);
+  const scopeSpecificSettings = getScopeSpecificSettings(editor);
+
+  if (prettierConfigOptions) {
+    return {
+      ...scopeSpecificSettings,
+      ...prettierConfigOptions,
+    };
+  }
+
+  return getOptionsFromSettings(editor, scopeSpecificSettings);
 };
 
 module.exports = buildPrettierOptions;

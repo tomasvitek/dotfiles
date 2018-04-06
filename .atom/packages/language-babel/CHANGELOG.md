@@ -1,6 +1,37 @@
+### 2.84.0
+  - Add PR #481
+  
+### 2.83.4
+  - Remove PR #473 which causes Atom to ignore the grammar at startup.
+  
+### 2.83.3
+  - Parse <T>( as flowtype. Before, the paren had to be terminated by a new line. Relax this condition. [#480](https://github.com/gandm/language-babel/issues/480)
+    
+### 2.83.2
+  - Change grammar to correctly support function braces in the Allman style. [#478](https://github.com/gandm/language-babel/issues/478)
+
+### 2.83.1
+  - Mistakenly removed the line added by the PR in 2.83.0!
+
+### 2.83.0
+  - PR from @Aerijo that adds an injection selector allowing this grammar to be used within language-gfm.
+  - Fix arrow functions with a flow return type having a negative integer being parsed correctly. [#473](https://github.com/gandm/language-babel/issues/473)
+
+### 2.82.0
+  - Add support for GraphQL empty types - [#471](https://github.com/gandm/language-babel/issues/471)
+  - Add support for Apollo GraphQL `extend type` - [#472](https://github.com/gandm/language-babel/issues/472)
+  - Check for .eslintrc as a file - Thanks @SpainTrain for the [PR#470](https://github.com/gandm/language-babel/issues/470)
+  - Add guard check for Atom not passing back a valid TextEditor id - [#468](https://github.com/gandm/language-babel/issues/468)
+
+### 2.81.1
+  - Fix names of source file and map file relative URL's when transpiling separate Babel map files. Issue [#462](https://github.com/gandm/language-babel/issues/462)
+
+### 2.81.0
+  - Lazy load some requires - Thanks @hansonw for the [PR#459](https://github.com/gandm/language-babel/issues/459)
+
 ### 2.80.3
   - Fix regression introduced in 2.80.2
-  
+
 ### 2.80.2
   - Fix [#458](https://github.com/gandm/language-babel/issues/458)
 

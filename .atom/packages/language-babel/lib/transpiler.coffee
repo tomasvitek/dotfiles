@@ -1,7 +1,13 @@
 {Task, CompositeDisposable } = require 'atom'
-fs = require 'fs-plus'
 path = require 'path'
 pathIsInside = require '../node_modules/path-is-inside'
+
+# Lazily require fs-plus to avoid blocking startup.
+fs = new Proxy({}, {
+  get: (target, key) ->
+    target.fs ?= require 'fs-plus'
+    target.fs[key]
+})
 
 # setup JSON Schema to parse .languagebabel configs
 languagebabelSchema = {
@@ -202,7 +208,9 @@ class Transpiler
 
           # add source map url to code if file isn't ignored
           if config.babelMapsAddUrl
-            msgRet.result.code = msgRet.result.code + '\n' + '//# sourceMappingURL='+pathTo.mapFile
+            # Make unix type path - map file location relative to transpiled file
+            f = path.join(path.relative(pathTo.transpiledFileDir, pathTo.mapFileDir), pathTo.mapFileName).split(path.sep).join('/')
+            msgRet.result.code = msgRet.result.code + '\n' + '//# sourceMappingURL='+f
 
           fs.writeFileSync pathTo.transpiledFile, msgRet.result.code
 
@@ -210,16 +218,18 @@ class Transpiler
           if config.createMap and msgRet.result.map?.version
             if config.createTargetDirectories
               fs.makeTreeSync(path.parse(pathTo.mapFile).dir)
+
+            # Make unix type path - original source file  relative to map file
+            f = path.join(path.relative(pathTo.mapFileDir, pathTo.sourceFileDir ), pathTo.sourceFileName).split(path.sep).join('/')
+
             mapJson =
               version: msgRet.result.map.version
-              sources:  pathTo.sourceFile
-              file: pathTo.transpiledFile
-              sourceRoot: ''
+              sources:  [f]
+              file: f
               names: msgRet.result.map.names
               mappings: msgRet.result.map.mappings
-            xssiProtection = ')]}\n'
-            fs.writeFileSync pathTo.mapFile,
-              xssiProtection + JSON.stringify mapJson, null, ' '
+            #xssiProtection = ')]}\n'    # removed this line as Firefox doesn't support removal of xssi prefix!
+            fs.writeFileSync pathTo.mapFile, JSON.stringify mapJson, null, ' '
 
   # clean notification messages
   cleanNotifications: (pathTo) ->
@@ -377,14 +387,22 @@ class Transpiler
       fnExt = parsedSourceFile.ext
     else
       fnExt =  '.js'
-    absTranspiledFile = path.join(absTranspileRoot, relSourceRootToSourceFile , parsedSourceFile.name  + fnExt )
-    absMapFile = path.join(absMapsRoot, relSourceRootToSourceFile , parsedSourceFile.name  + fnExt + '.map')
+
+    sourceFileName = parsedSourceFile.name  + fnExt
+    mapFileName = parsedSourceFile.name  + fnExt + '.map'
+
+    absTranspiledFile = path.normalize(path.join(absTranspileRoot, relSourceRootToSourceFile , sourceFileName ))
+    absMapFile = path.normalize(path.join(absMapsRoot, relSourceRootToSourceFile, mapFileName ))
 
     sourceFileInProject: sourceFileInProject
     sourceFile: sourceFile
     sourceFileDir: parsedSourceFile.dir
+    sourceFileName: sourceFileName
     mapFile: absMapFile
+    mapFileDir: path.parse(absMapFile).dir
+    mapFileName: mapFileName
     transpiledFile: absTranspiledFile
+    transpiledFileDir: path.parse(absTranspiledFile).dir
     sourceRoot: absSourceRoot
     projectPath: absProjectPath
 

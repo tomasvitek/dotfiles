@@ -1,5 +1,99 @@
 // SYNTAX TEST "source.js.jsx"
 
+// Issue #480
+const thing :THING =<S>() => {}
+// <- storage.type.js
+ // <- storage.type.js
+//^^^                            storage.type.js
+//    ^^^^^                      variable.other.readwrite.js
+//          ^                    punctuation.type.flowtype
+//           ^^^^^   ^           support.type.class.flowtype
+//                 ^             keyword.operator.assignment.js
+//                  ^^^^^ ^^ ^^  meta.function.arrow.js
+//                  ^ ^          punctuation.flowtype
+//                     ^         punctuation.definition.parameters.begin.js
+//                     ^^        meta.brace.round.js
+//                      ^        punctuation.definition.parameters.end.js
+//                        ^^     storage.type.function.arrow.js
+//                           ^^  meta.brace.curly.js
+const thing :THING =<S:Stuff>() => {}
+// <- storage.type.js
+ // <- storage.type.js
+//^^^                                  storage.type.js
+//    ^^^^^                            variable.other.readwrite.js
+//          ^         ^                punctuation.type.flowtype
+//           ^^^^^   ^ ^^^^^           support.type.class.flowtype
+//                 ^                   keyword.operator.assignment.js
+//                  ^^^^^^^^^^^ ^^ ^^  meta.function.arrow.js
+//                  ^       ^          punctuation.flowtype
+//                    ^                support.type.builtin.primitive.flowtype
+//                           ^         punctuation.definition.parameters.begin.js
+//                           ^^        meta.brace.round.js
+//                            ^        punctuation.definition.parameters.end.js
+//                              ^^     storage.type.function.arrow.js
+//                                 ^^  meta.brace.curly.js
+const thing :THING =<S :Stuff>() => {}
+// <- storage.type.js
+ // <- storage.type.js
+//^^^                                   storage.type.js
+//    ^^^^^                             variable.other.readwrite.js
+//          ^          ^                punctuation.type.flowtype
+//           ^^^^^   ^  ^^^^^           support.type.class.flowtype
+//                 ^                    keyword.operator.assignment.js
+//                  ^^ ^^^^^^^^^ ^^ ^^  meta.function.arrow.js
+//                  ^        ^          punctuation.flowtype
+//                     ^                support.type.builtin.primitive.flowtype
+//                            ^         punctuation.definition.parameters.begin.js
+//                            ^^        meta.brace.round.js
+//                             ^        punctuation.definition.parameters.end.js
+//                               ^^     storage.type.function.arrow.js
+//                                  ^^  meta.brace.curly.js
+
+// Issue #478
+function a(aaa: number) : number | Array<T>
+// <- meta.function.js storage.type.function.js
+ // <- meta.function.js storage.type.function.js
+//^^^^^^ ^^^^^^ ^^^^^^^ ^ ^^^^^^ ^ ^^^^^^^^  meta.function.js
+//^^^^^^                                     storage.type.function.js
+//       ^                                   entity.name.function.js
+//        ^                                  punctuation.definition.parameters.begin.js
+//        ^           ^                      meta.brace.round.js
+//         ^^^^ ^^^^^^                       meta.function.parameters.js
+//         ^^^                               variable.other.readwrite.js
+//            ^         ^                    punctuation.type.flowtype
+//              ^^^^^^    ^^^^^^             support.type.builtin.primitive.flowtype
+//                    ^                      punctuation.definition.parameters.end.js
+//                               ^           kewyword.operator.union.flowtype
+//                                 ^^^^^     support.type.builtin.class.flowtype
+//                                      ^ ^  punctuation.flowtype
+//                                       ^   support.type.class.flowtype
+{
+}
+
+// Issue #474
+let sortFn = (a :number, b :number) :-1|0|1 => {
+// <- storage.type.js
+ // <- storage.type.js
+//^                                               storage.type.js
+//  ^^^^^^ ^ ^^ ^^^^^^^^ ^ ^^^^^^^^ ^^^^^^^ ^^ ^  meta.function.arrow.js
+//  ^^^^^^                                        entity.name.function.js
+//         ^                                      keyword.operator.assignment.js
+//           ^                                    punctuation.definition.parameters.begin.js
+//           ^                    ^               meta.brace.round.js
+//            ^ ^^^^^^^^ ^ ^^^^^^^                meta.function.parameters.js
+//            ^          ^                        variable.other.readwrite.js
+//              ^          ^        ^             punctuation.type.flowtype
+//               ^^^^^^     ^^^^^^                support.type.builtin.primitive.flowtype
+//                     ^                          meta.delimiter.comma.js
+//                                ^               punctuation.definition.parameters.end.js
+//                                   ^^ ^ ^       constant.numeric.js
+//                                     ^ ^        kewyword.operator.union.flowtype
+//                                          ^^    storage.type.function.arrow.js
+//                                             ^  meta.brace.curly.js
+  if (a === b) return 0
+  return a < b ? 1 : -1
+}
+
 // Issue #458
 class A {
 a= () =>
@@ -9,7 +103,7 @@ a= () =>
 //^      entity.name.function.js
 // ^  ^  meta.brace.round.js
 //  ^^   variable.other.readwrite.js
-
+ 
 method() {}
 // <- meta.class.body.js meta.function.method.js entity.name.function.method.js
  // <- meta.class.body.js meta.function.method.js entity.name.function.method.js
