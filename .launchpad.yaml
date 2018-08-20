@@ -1,0 +1,213 @@
+apps:
+  pages:
+  - number: 1
+    items:
+    - Safari
+    - Boxy
+    - GCalendar
+    - Notes
+    - Reminders
+    - OmniFocus
+    - Wunderlist
+    - Alfred 3
+    - Moom
+    - CloudPull
+    - KeepingYouAwake
+    - TogglDesktop
+    - Tunnelblick
+    - Paws for Trello
+    - Cloudup
+    - Spotify
+    - 1Password
+    - Photos
+    - CrashPlan
+    - iA Writer
+    - Dropbox
+    - App Store
+    - Google Chrome
+    - Atom
+    - iTerm
+    - System Preferences
+    - Maps
+    - folder: Social Networking
+      pages:
+      - number: 1
+        items:
+        - Messages
+        - Skype
+        - Caprine
+        - WhatsApp
+        - FaceTime
+        - Slack
+        - Android Messages
+    - folder: Office
+      pages:
+      - number: 1
+        items:
+        - Pages
+        - Numbers
+        - Keynote
+        - OmniGraffle
+        - Preview
+        - Contacts
+        - Soulver
+        - Account Tracker
+        - LibreOffice
+        - Calendar
+        - Calculator
+        - BookletCreator
+    - folder: Entertainment
+      pages:
+      - number: 1
+        items:
+        - Steam
+        - iBooks
+        - Photo Booth
+        - GarageBand
+        - MusicBrainz Picard
+        - iTunes
+    - folder: Developer Tools
+      pages:
+      - number: 1
+        items:
+        - Xcode
+        - NetBeans 8.2
+        - Android Studio
+        - Apache CouchDB
+        - Firefox
+        - SourceTree
+        - Cyberduck
+        - Sublime Text
+        - DB Browser for SQLite
+        - Activity Monitor
+        - Now
+        - Neo4j Community Edition 3.1.0
+        - Eclipse
+        - BlueJ
+        - Terminal
+        - PyCharm
+        - IntelliJ IDEA
+        - Anaconda-Navigator
+        - Keybase
+    - folder: Utilities
+      pages:
+      - number: 1
+        items:
+        - The Unarchiver
+        - AppCleaner
+        - Siri
+        - DaisyDisk
+        - MyHarmony
+        - Cloud Printer
+        - CloudPrintSimpleProxy
+        - dupeGuru
+        - Transmission
+        - AnyDesk
+    - folder: Graphics & AV
+      pages:
+      - number: 1
+        items:
+        - Sketch
+        - Pixelmator
+        - ImageOptim
+        - Classic Color Meter
+        - iMovie
+        - HandBrake
+        - HitFilm 4 Express
+        - Photos Duplicate Cleaner
+        - Autodesk Fusion 360
+        - Print Studio
+        - Remove Autodesk Fusion 360
+        - Audacity
+        - VLC
+        - Kap
+        - Gifski
+        - AllToMP3
+    - folder: TeX
+      pages:
+      - number: 1
+        items:
+        - Excalibur
+        - TeXShop
+        - TeX Live Utility
+        - LaTeXiT
+        - BibDesk
+        - texmaker
+        - Mendeley Desktop
+    - folder: System
+      pages:
+      - number: 1
+        items:
+        - QuickTime Player
+        - TextEdit
+        - Grapher
+        - DVD Player
+        - Time Machine
+        - Font Book
+        - Chess
+        - Stickies
+        - Image Capture
+        - VoiceOver Utility
+        - AirPort Utility
+        - Migration Assistant
+        - Console
+        - Keychain Access
+        - System Information
+        - Automator
+        - Script Editor
+        - Disk Utility
+        - Boot Camp Assistant
+        - Digital Color Meter
+        - ColorSync Utility
+        - Grab
+        - Bluetooth File Exchange
+        - Audio MIDI Setup
+        - XQuartz
+        - Dictionary
+        - Mission Control
+        - Dashboard
+        - Mail
+  - number: 2
+    items:
+    - folder: Adobe
+      pages:
+      - number: 1
+        items:
+        - Adobe Lightroom 3
+        - Adobe Photoshop CC 2015
+        - Adobe InDesign CC 2015
+        - Adobe Illustrator CC 2015
+        - AAMLauncherUtil
+        - AdobeApplicationManager
+widgets:
+  pages:
+  - number: 1
+    items:
+    - Calculator
+    - Calendar
+    - Contacts
+    - Dictionary
+    - Movies
+    - Stickies
+    - Stocks
+    - Tile Game
+    - Unit Converter
+    - Weather
+    - Web Clip
+    - World Clock
+dock_items:
+- Spotify
+- Safari
+- OmniFocus
+- Wunderlist
+- Boxy
+- GCalendar
+- Messages
+- Caprine
+- WhatsApp
+- Sublime Text
+- iTerm
+- System Preferences
+- ============
+- Downloads
+desktop: {}
