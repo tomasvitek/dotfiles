@@ -25,7 +25,8 @@ function doBootstrap() {
 }
 
 function doBackup() {
-	cd "$(dirname "${BASH_SOURCE}")";	
+	cd "$(dirname "${BASH_SOURCE}")";
+	lporg save;	
   	rsync -avh --no-perms ~/.atom ./;
   	rsync --exclude ".oh-my-zsh/" \
 		--exclude ".git/" \

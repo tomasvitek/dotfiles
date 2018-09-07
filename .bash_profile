@@ -16,3 +16,6 @@ export DOTFILES="${HOME}/Dropbox/Backup/Setup/macOS/dotfiles"
 alias work="cd $WORK"
 alias clwk="cd $CLWK"
 alias research="cd $RESEARCH"
+
+# added by Anaconda3 5.1.0 installer
+export PATH="/Users/tomik/anaconda3/bin:$PATH"
