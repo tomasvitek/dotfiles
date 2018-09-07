@@ -1,6 +1,6 @@
 div {
-  // Active file not in supported scopes: hide tile.
-  &[data-prettier-match-scope='false'] {
+  // Active file not formattable: hide tile.
+  &[data-prettier-can-format-file='false'] {
     display: none;
   }
 
@@ -12,7 +12,7 @@ div {
 
   // If Format on Save is enabled, make the label more visible.
   &[data-prettier-format-on-save='enabled'] {
-    color: #8bc34a;
+    // color is handled by adding or removing the text-success class when updating the status tile
     &::after {
       content: ' ✓';
     }

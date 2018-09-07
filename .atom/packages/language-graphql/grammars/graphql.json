@@ -21,7 +21,10 @@
         { "include": "#graphql-union" },
         { "include": "#graphql-schema" },
         { "include": "#graphql-operation-def" },
-        { "include": "#graphql-comment" }
+        { "include": "#graphql-comment" },
+        { "include": "#graphql-directive" },
+        { "include": "#graphql-blockstring-value"},
+        { "include": "#graphql-string-value"}
       ]
     },
     "graphql-operation-def": {
@@ -69,13 +72,15 @@
       },
       "patterns": [
         {
-          "match": "\\s*\\b(implements)\\b\\s*([_A-Za-z][_0-9A-Za-z]*)",
+          "match": "\\s*(?:\\b(implements)\\b|(&))\\s*([_A-Za-z][_0-9A-Za-z]*)",
           "captures": {
-            "1": { "name": "keyword.implements.grapahql" },
-            "2": { "name": "support.type.graphql" }
+            "1": { "name": "keyword.implements.graphql" },
+            "2": { "name": "keyword.implements.graphql" },
+            "3": { "name": "support.type.graphql" }
           }
         },
         { "include": "#graphql-comment" },
+        { "include": "#graphql-directive" },
         { "include": "#graphql-type-object" }
       ]
     },
@@ -106,6 +111,7 @@
         "5": { "name": "punctuation.comma.graphql" }
       },
       "patterns": [
+        { "include": "#graphql-directive" },
         { "include": "#graphql-comment" },
         { "include": "#graphql-variable-definitions" },
         { "include": "#graphql-type-object" },
@@ -148,6 +154,7 @@
                 },
                 { "include": "#graphql-colon" },
                 { "include": "#graphql-comment" },
+                { "include": "#graphql-directive" },
                 { "include": "#graphql-skip-newlines" }
               ]
             },
@@ -155,6 +162,7 @@
             { "include": "#graphql-skip-newlines" }
           ]
         },
+        { "include": "#graphql-directive" },
         { "include": "#graphql-comment" },
         { "include": "#graphql-skip-newlines" }
       ]
@@ -409,6 +417,22 @@
         "1": { "name": "constant.boolean.graphql" }
       }
     },
+    "graphql-blockstring-value": {
+      "contentName": "string.quoted.block.graphql",
+      "begin": "\\s*+((\"\"\"))",
+      "end": "\\s*+(?:((\"\"\")))",
+      "beginCaptures": {
+        "1": { "name": "string.quoted.block.graphql" },
+        "2": { "name": "punctuation.definition.string.begin.graphql" }
+      },
+      "endCaptures": {
+        "1": { "name": "string.quoted.block.graphql" },
+        "2": { "name": "punctuation.definition.string.end.graphql" }
+      },
+      "patterns": [
+        { "include": "#graphql-string-content" }
+      ]
+    },
     "graphql-string-value": {
       "contentName": "string.quoted.double.graphql",
       "begin": "\\s*+((\"))",
@@ -473,6 +497,7 @@
         { "include":  "#graphql-variable-name" },
         { "include":  "#graphql-float-value" },
         { "include":  "#graphql-int-value" },
+        { "include":  "#graphql-blockstring-value" },
         { "include":  "#graphql-string-value" },
         { "include":  "#graphql-boolean-value" },
         { "include":  "#graphql-enum-value" },

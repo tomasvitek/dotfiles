@@ -2,39 +2,39 @@
   "_args": [
     [
       {
-        "raw": "/private/var/folders/c9/qq12c1lj6c16d183jjx7_gg80000gn/T/d-11836-52115-1nnnqw6.1ea6as8aor/package.tgz",
+        "raw": "/private/var/folders/j1/3vxq1vgj0sg8x9fbr10zwq8h0000gn/T/d-11887-61628-err1u5.z71zag7gb9/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/private/var/folders/c9/qq12c1lj6c16d183jjx7_gg80000gn/T/d-11836-52115-1nnnqw6.1ea6as8aor/package.tgz",
-        "spec": "/private/var/folders/c9/qq12c1lj6c16d183jjx7_gg80000gn/T/d-11836-52115-1nnnqw6.1ea6as8aor/package.tgz",
+        "rawSpec": "/private/var/folders/j1/3vxq1vgj0sg8x9fbr10zwq8h0000gn/T/d-11887-61628-err1u5.z71zag7gb9/package.tgz",
+        "spec": "/private/var/folders/j1/3vxq1vgj0sg8x9fbr10zwq8h0000gn/T/d-11887-61628-err1u5.z71zag7gb9/package.tgz",
         "type": "local"
       },
-      "/private/var/folders/c9/qq12c1lj6c16d183jjx7_gg80000gn/T/apm-install-dir-11836-52115-oqhcqc.wsgzxgvi"
+      "/private/var/folders/j1/3vxq1vgj0sg8x9fbr10zwq8h0000gn/T/apm-install-dir-11887-61628-1pgw4g.beoziu23xr"
     ]
   ],
-  "_from": "../d-11836-52115-1nnnqw6.1ea6as8aor/package.tgz",
+  "_from": "../d-11887-61628-err1u5.z71zag7gb9/package.tgz",
   "_id": "linter-ui-default@1.7.1",
   "_inCache": true,
   "_location": "/linter-ui-default",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/private/var/folders/c9/qq12c1lj6c16d183jjx7_gg80000gn/T/d-11836-52115-1nnnqw6.1ea6as8aor/package.tgz",
+    "raw": "/private/var/folders/j1/3vxq1vgj0sg8x9fbr10zwq8h0000gn/T/d-11887-61628-err1u5.z71zag7gb9/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/private/var/folders/c9/qq12c1lj6c16d183jjx7_gg80000gn/T/d-11836-52115-1nnnqw6.1ea6as8aor/package.tgz",
-    "spec": "/private/var/folders/c9/qq12c1lj6c16d183jjx7_gg80000gn/T/d-11836-52115-1nnnqw6.1ea6as8aor/package.tgz",
+    "rawSpec": "/private/var/folders/j1/3vxq1vgj0sg8x9fbr10zwq8h0000gn/T/d-11887-61628-err1u5.z71zag7gb9/package.tgz",
+    "spec": "/private/var/folders/j1/3vxq1vgj0sg8x9fbr10zwq8h0000gn/T/d-11887-61628-err1u5.z71zag7gb9/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-11836-52115-1nnnqw6.1ea6as8aor/package.tgz",
+  "_resolved": "file:../d-11887-61628-err1u5.z71zag7gb9/package.tgz",
   "_shasum": "f83559dc90262f6c6a1d451d063366c6df546d18",
   "_shrinkwrap": null,
-  "_spec": "/private/var/folders/c9/qq12c1lj6c16d183jjx7_gg80000gn/T/d-11836-52115-1nnnqw6.1ea6as8aor/package.tgz",
-  "_where": "/private/var/folders/c9/qq12c1lj6c16d183jjx7_gg80000gn/T/apm-install-dir-11836-52115-oqhcqc.wsgzxgvi",
+  "_spec": "/private/var/folders/j1/3vxq1vgj0sg8x9fbr10zwq8h0000gn/T/d-11887-61628-err1u5.z71zag7gb9/package.tgz",
+  "_where": "/private/var/folders/j1/3vxq1vgj0sg8x9fbr10zwq8h0000gn/T/apm-install-dir-11887-61628-1pgw4g.beoziu23xr",
   "bugs": {
     "url": "https://github.com/steelbrain/linter-ui-default/issues"
   },

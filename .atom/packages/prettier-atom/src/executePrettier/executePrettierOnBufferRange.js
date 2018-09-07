@@ -10,14 +10,20 @@ const {
   shouldUseStylelint,
   runLinter,
 } = require('../atomInterface');
-const { getCurrentFilePath, isCurrentScopeCssScope } = require('../editorInterface');
+const { getCurrentFilePath, isCurrentScopeStyleLintScope } = require('../editorInterface');
 const { getPrettierInstance } = require('../helpers');
-const buildPrettierOptions = require('./buildPrettierOptions');
 const handleError = require('./handleError');
+
+const getPrettierOptions = (editor: TextEditor) =>
+  // $FlowFixMe
+  getPrettierInstance(editor).resolveConfig.sync(getCurrentFilePath(editor));
 
 const executePrettier = (editor: TextEditor, text: string) =>
   // $FlowFixMe
-  getPrettierInstance(editor).format(text, buildPrettierOptions(editor));
+  getPrettierInstance(editor).format(text, {
+    filepath: getCurrentFilePath(editor),
+    ...getPrettierOptions(editor),
+  });
 
 const executePrettierWithCursor = (
   editor: TextEditor,
@@ -26,14 +32,14 @@ const executePrettierWithCursor = (
 ): Prettier$CursorResult =>
   // $FlowFixMe
   getPrettierInstance(editor).formatWithCursor(text, {
-    ...buildPrettierOptions(editor),
     cursorOffset,
+    filepath: getCurrentFilePath(editor),
+    ...getPrettierOptions(editor),
   });
 
 const buildPrettierEslintOptions = (editor: TextEditor, text: string) => ({
   text,
   ...getPrettierEslintOptions(),
-  fallbackPrettierOptions: buildPrettierOptions(editor),
   filePath: getCurrentFilePath(editor),
 });
 
@@ -42,7 +48,6 @@ const executePrettierEslint = (editor: TextEditor, text: string): string =>
 
 const buildPrettierStylelintOptions = (editor: TextEditor, text: string) => ({
   text,
-  prettierOptions: buildPrettierOptions(editor),
   filePath: getCurrentFilePath(editor),
 });
 
@@ -54,7 +59,7 @@ const executePrettierOrIntegration = async (
   text: string,
   cursorOffset: number,
 ): Promise<{ formatted: string, cursorOffset: number }> => {
-  if (shouldUseStylelint() && isCurrentScopeCssScope(editor)) {
+  if (shouldUseStylelint() && isCurrentScopeStyleLintScope(editor)) {
     // TODO: add support for cursor position - https://github.com/hugomrdias/prettier-stylelint/issues/13
     const formatted = await executePrettierStylelint(editor, text);
 

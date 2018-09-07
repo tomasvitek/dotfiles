@@ -62,7 +62,7 @@ module.exports = class Rubocop extends Beautifier
       rubocopArguments = [
         "--auto-correct"
         "--force-exclusion"
-        "--stdin", "atom-beautify.rb" # filename is required but not used
+        "--stdin", fullPath or "atom-beautify.rb" # --stdin requires an argument
       ]
       exeOptions = {
         ignoreReturnCode: true,
@@ -81,6 +81,8 @@ module.exports = class Rubocop extends Beautifier
         return text if stdout.length == 0
 
         result = stdout.split("====================\n")
+        result = stdout.split("====================\r\n") if result.length == 1
+
         result[result.length - 1]
       )
     )

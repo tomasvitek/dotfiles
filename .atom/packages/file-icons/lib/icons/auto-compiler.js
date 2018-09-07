@@ -1,8 +1,7 @@
 "use strict";
 
 const path = require("path");
-const {CompositeDisposable, Task} = require("atom");
-const {normalisePath} = require("alhadis.utils");
+const {CompositeDisposable, Disposable, Task} = require("atom");
 const {FileSystem} = require("atom-fs");
 const Options      = require("../options.js");
 const Storage      = require("../storage.js");
@@ -45,10 +44,10 @@ class AutoCompiler{
 		const source = path.join(__dirname, "..", "..", "config.cson");
 		const target = path.join(__dirname, ".icondb.js");
 		this.compileConfig(source, target)
-			.then(() => atom.notifications.addInfo("Config recompiled", {dismissable: true}))
-			.catch(e => atom.notifications.addError(e.message, {
-				detail: e.detail || e.toString(),
-				stack:  e.stack  || null,
+			.then(result => atom.notifications.addInfo("Config recompiled", {dismissable: true}))
+			.catch(error => atom.notifications.addError(error.message, {
+				detail: error.detail || error.toString(),
+				stack:  error.stack  || null,
 				dismissable: true
 			}));
 	}
@@ -63,11 +62,11 @@ class AutoCompiler{
 	 * @return {Promise}
 	 */
 	compileConfig(source, target){
-		source = normalisePath(source);
-		target = normalisePath(target);
+		source = path.resolve(path.join(...source.split(/[\\\/]/)));
+		target = path.resolve(path.join(...target.split(/[\\\/]/)));
 		
 		if(this.currentJob)
-			return source !== this.jobs.get(this.currentJob)
+			return source !== this.jobs.get(currentJob)
 				? this.currentJob.then(() => this.compileConfig(source, target))
 				: this.currentJob;
 		else
@@ -134,6 +133,8 @@ class AutoCompiler{
 		const [message = "Compile error", detail] = error;
 		log("COMPILER: Failed - " + message, {
 			compilerPath: COMPILER_PATH,
+			sourceFile: source,
+			targetFile: source,
 			statusCode: code,
 			detail, signal
 		});
@@ -149,7 +150,8 @@ class AutoCompiler{
 	findTarget(){
 		const fn = (source, target) => {
 			const sourceFile = FileSystem.get(source);
-			sourceFile.onDidChangeData(() => {
+			const targetFile = FileSystem.get(target);
+			sourceFile.onDidChangeData(changes => {
 				this.compileConfig(source, target)
 			});
 		};

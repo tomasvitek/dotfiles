@@ -67,20 +67,32 @@
   schema {
 ##^^^^^^    keyword.schema.graphql
 ##       ^  punctuation.operation.graphql
-     widget: Widget
-##   ^^^^^^          variable.arguments.graphql
-##         ^         punctuation.colon.graphql
-##           ^^^^^^  support.type.graphql
+     widget: Widget @dir(x: Y)
+##                   ^^^      entity.name.function.directive.graphql
+##                       ^  ^ meta.arguments.graphql
+##   ^^^^^^                   variable.arguments.graphql
+##         ^                  punctuation.colon.graphql
+##           ^^^^^^           support.type.graphql
    }
 ## ^  punctuation.operation.graphql
 
-  type Starship  implements Character {
-##^^^^ ^^^^^^^^  ^^^^^^^^^^ ^^^^^^^^^ ^  meta.type.interface.graphql
-##^^^^                                   keyword.type.graphql
-##     ^^^^^^^^             ^^^^^^^^^    support.type.graphql
-##               ^^^^^^^^^^              keyword.implements.grapahql
-##                                    ^  meta.type.object.graphql
-##                                    ^  punctuation.operation.graphql
+  schema @dir(ok: true) {
+##^^^^^^                  keyword.schema.graphql
+##        ^^^             entity.name.function.directive.graphql
+##            ^^^ ^^^^    meta.arguments.graphql
+##           ^        ^   meta.brace.round.directive.graphql
+##                      ^ punctuation.operation.graphql
+  }
+
+  type Starship  implements Character & Other @dir(x: Y){
+##^^^^ ^^^^^^^^  ^^^^^^^^^^ ^^^^^^^^^                   ^  meta.type.interface.graphql
+##^^^^                                                     keyword.type.graphql
+##     ^^^^^^^^             ^^^^^^^^^   ^^^^^              support.type.graphql
+##               ^^^^^^^^^^           ^                    keyword.implements.graphql
+##                                                      ^  meta.type.object.graphql
+##                                                      ^  punctuation.operation.graphql
+##                                             ^^^         entity.name.function.directive.graphql
+##                                                 ^  ^    meta.arguments.graphql
     id: ID!
 ##  ^^^ ^^^  meta.type.interface.graphql
 ##  ^^^ ^^^  meta.type.object.graphql
@@ -88,13 +100,15 @@
 ##    ^      punctuation.colon.graphql
 ##      ^^   support.type.builtin.graphql
 ##        ^  keyword.operator.nulltype.graphql
-    name: String!
-##  ^^^^^ ^^^^^^^  meta.type.interface.graphql
-##  ^^^^^ ^^^^^^^  meta.type.object.graphql
-##  ^^^^           variable.graphql
-##      ^          punctuation.colon.graphql
-##        ^^^^^^   support.type.builtin.graphql
-##              ^  keyword.operator.nulltype.graphql
+    name: String! @dir(ok: true)
+##  ^^^^^ ^^^^^^^                 meta.type.interface.graphql
+##  ^^^^^ ^^^^^^^                 meta.type.object.graphql
+##  ^^^^                          variable.graphql
+##      ^                         punctuation.colon.graphql
+##        ^^^^^^                  support.type.builtin.graphql
+##              ^                 keyword.operator.nulltype.graphql
+##                ^^^             entity.name.function.directive.graphql
+##                     ^^^ ^^^^   meta.arguments.graphql
     length(unit: LengthUnit = METER): Float
 ##  ^^^^^^^^^^^^ ^^^^^^^^^^ ^ ^^^^^^^ ^^^^^  meta.type.interface.graphql
 ##  ^^^^^^^^^^^^ ^^^^^^^^^^ ^ ^^^^^^^ ^^^^^  meta.type.object.graphql
@@ -168,9 +182,24 @@
 ## ^  meta.type.object.graphql
 ## ^  punctuation.operation.graphql
 
-  scalar Date
-##^^^^^^       keyword.scalar.graphql
-##       ^^^^  entity.scalar.graphql
+  scalar Date @dir(x: Y)
+##^^^^^^                keyword.scalar.graphql
+##       ^^^^           entity.scalar.graphql
+##             ^^^      entity.name.function.directive.graphql
+##                 ^  ^ meta.arguments.graphql
+  """
+##^^^ punctuation.definition.string.begin.graphql
+##^^^ string.quoted.block.graphql
+  Type Description
+##^^^^ ^^^^^^^^^^^  string.quoted.block.graphql
+  """
+##^^^ punctuation.definition.string.end.graphql
+##^^^ string.quoted.block.graphql
+
+  "Inline type description"
+##^                         punctuation.definition.string.begin.graphql
+## ^^^^^^ ^^^^ ^^^^^^^^^^^  string.quoted.double.graphql
+##                        ^ punctuation.definition.string.end.graphql
   union SearchResult = Human # maybe spans
 ##^^^^^                                     keyword.union.graphql
 ##      ^^^^^^^^^^^^   ^^^^^                support.type.graphql
@@ -296,6 +325,17 @@
 ##  ^^^^^^^^^^^    entity.name.function.directive.graphql
 ##              ^  meta.arguments.graphql
 ##              ^  meta.brace.round.directive.graphql
+      blockString: """
+##    ^^^^^^^^^^^       variable.arguments.graphql
+##               ^      punctuation.colon.graphql
+##                 ^^^  string.quoted.block.graphql
+##                 ^^^  punctuation.definition.string.begin.graphql
+        String stuff goes here
+##      ^^^^^^ ^^^^^ ^^^^ ^^^^  string.quoted.block.graphql
+      """
+##    ^^^  string.quoted.block.graphql
+##    ^^^  punctuation.definition.string.end.graphql
+
       number: 1
 ##    ^^^^^^^ ^  meta.arguments.graphql
 ##    ^^^^^^     variable.arguments.graphql

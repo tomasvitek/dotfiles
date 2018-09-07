@@ -3,6 +3,9 @@
     php:
       beautify_on_save: true
   core:
+    disabledPackages: [
+      "file-icons"
+    ]
     telemetryConsent: "no"
     themes: [
       "atom-material-ui"

@@ -1,3 +1,65 @@
+<a name="0.55.2"></a>
+## [0.55.2](https://github.com/prettier/prettier-atom/compare/v0.55.1...v0.55.2) (2018-08-23)
+
+
+### Bug Fixes
+
+* **prettierignore:** properly ignore files again ([dd4c849](https://github.com/prettier/prettier-atom/commit/dd4c849)), closes [#446](https://github.com/prettier/prettier-atom/issues/446)
+
+
+
+<a name="0.55.1"></a>
+## [0.55.1](https://github.com/prettier/prettier-atom/compare/v0.55.0...v0.55.1) (2018-08-21)
+
+
+### Bug Fixes
+
+* properly use prettier config when formatting ([fef2441](https://github.com/prettier/prettier-atom/commit/fef2441)), closes [#441](https://github.com/prettier/prettier-atom/issues/441)
+
+
+
+<a name="0.55.0"></a>
+# [0.55.0](https://github.com/prettier/prettier-atom/compare/v0.54.0...v0.55.0) (2018-08-20)
+
+
+### Bug Fixes
+
+* **styles:** status color will now match theme ([cf2ef16](https://github.com/prettier/prettier-atom/commit/cf2ef16))
+
+
+### Features
+
+* **errors:** do not display a popup for "undefined" error messages ([d6a25f5](https://github.com/prettier/prettier-atom/commit/d6a25f5))
+* **prettier:** use Prettier to determine whether a file is formattable ([03275d1](https://github.com/prettier/prettier-atom/commit/03275d1))
+* **settings:** simplify settings by relying on users setting their prettierrc files ([27d3012](https://github.com/prettier/prettier-atom/commit/27d3012))
+
+
+### BREAKING CHANGES
+
+* **prettier:** Because prettier-atom now relies on the new `getFileInfo` method recently added to
+Prettier, if you are having prettier-atom use a local version of Prettier instead of the version
+that is packaged with the plugin, you will need to manually update your project's local Prettier
+version.
+
+
+
+<a name="0.54.0"></a>
+# [0.54.0](https://github.com/prettier/prettier-atom/compare/v0.53.0...v0.54.0) (2018-06-05)
+
+
+### Bug Fixes
+
+* **.babelrc:** Fix usage of babel-preset-env. ([78c10e3](https://github.com/prettier/prettier-atom/commit/78c10e3))
+* **dist/:** Rebuild dist to properly target electron[@1](https://github.com/1).4.0 ([831f086](https://github.com/prettier/prettier-atom/commit/831f086))
+
+
+### Features
+
+* **prettier:** bump to 1.13.4 ([1c7c30d](https://github.com/prettier/prettier-atom/commit/1c7c30d))
+* **prettier:** bump to version 1.12.1 ([b6638d2](https://github.com/prettier/prettier-atom/commit/b6638d2))
+
+
+
 <a name="0.53.0"></a>
 # [0.53.0](https://github.com/prettier/prettier-atom/compare/v0.52.0...v0.53.0) (2018-03-24)
 

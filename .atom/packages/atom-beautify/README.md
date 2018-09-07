@@ -1,12 +1,14 @@
 # :lipstick: [atom-beautify](https://github.com/Glavin001/atom-beautify)
 [![apm](https://img.shields.io/apm/dm/atom-beautify.svg)](https://atom.io/packages/atom-beautify)
-[![Greenkeeper badge](https://badges.greenkeeper.io/Glavin001/atom-beautify.svg)](https://greenkeeper.io/)
-[![GitHub issues](https://img.shields.io/github/issues/Glavin001/atom-beautify.svg?style=flat-square)](https://github.com/Glavin001/atom-beautify/issues)
 [![GitHub stars](https://img.shields.io/github/stars/Glavin001/atom-beautify.svg?style=flat-square)](https://github.com/Glavin001/atom-beautify/stargazers)
+[![GitHub issues](https://img.shields.io/github/issues/Glavin001/atom-beautify.svg?style=flat-square)](https://github.com/Glavin001/atom-beautify/issues)
+[![Greenkeeper badge](https://badges.greenkeeper.io/Glavin001/atom-beautify.svg)](https://greenkeeper.io/)
+
+[![Slack](https://unibeautify-slack.glitch.me/badge.svg)](https://unibeautify-slack.glitch.me/)
+[![Twitter Follow](https://img.shields.io/twitter/follow/unibeautify.svg?style=social&label=Follow)](https://twitter.com/unibeautify)
 [![Gitter](https://img.shields.io/gitter/room/Glavin001/atom-beautify.svg?style=flat-square)](https://gitter.im/Glavin001/atom-beautify)
 [![Bountysource](https://img.shields.io/bountysource/team/atom-beautify/activity.svg?style=flat-square)](https://www.bountysource.com/teams/atom-beautify)
 [![Paypal Donations](https://www.paypalobjects.com/en_US/i/btn/btn_donate_SM.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=X2RK5DKN6YXPJ&lc=CA&item_name=Atom%2dBeautify&item_number=atom%2dbeautify&currency_code=CAD&bn=PP%2dDonationsBF%3abtn_donate_LG%2egif%3aNonHosted)
-[![Twitter URL](https://img.shields.io/twitter/url/http/shields.io.svg?style=social)](https://twitter.com/unibeautify)
 
 **Sign up for Unibeautify CI: [https://goo.gl/jmM4QN](https://goo.gl/jmM4QN)**
 
@@ -151,6 +153,7 @@ See [all supported options in the documentation at  `docs/options.md`](docs/opti
 | Apex | `Apex` |`.cls`, `.trigger` | **[`Uncrustify`](https://github.com/uncrustify/uncrustify)** |
 | Arduino | `Arduino` |`.ino`, `.pde` | **[`Uncrustify`](https://github.com/uncrustify/uncrustify)** |
 | Bash | `Shell Script` |`.bash`, `.sh` | **[`beautysh`](https://github.com/bemeurer/beautysh)** |
+| Blade | `Blade` |`.blade.php` | **[`JS Beautify`](https://github.com/beautify-web/js-beautify)** |
 | C | `C`, `opencl` |`.h`, `.c`, `.cl` | **[`Uncrustify`](https://github.com/uncrustify/uncrustify)**, [`clang-format`](https://clang.llvm.org/docs/ClangFormat.html) |
 | Coldfusion | `html` |`.cfm`, `.cfml`, `.cfc` | **[`Pretty Diff`](https://github.com/prettydiff/prettydiff)** |
 | Clojure | `Clojure` |`.clj`, `.cljs`, `.edn` | **[`cljfmt`](https://github.com/snoe/node-cljfmt)** |
