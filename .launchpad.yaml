@@ -90,6 +90,12 @@ apps:
         - IntelliJ IDEA
         - Anaconda-Navigator
         - Keybase
+        - BlueJ
+        - Anaconda
+        - Terminal
+        - RStudio
+        - Opera
+
     - folder: Utilities
       pages:
       - number: 1
@@ -104,6 +110,7 @@ apps:
         - dupeGuru
         - Transmission
         - AnyDesk
+        - Monity
     - folder: Graphics & AV
       pages:
       - number: 1

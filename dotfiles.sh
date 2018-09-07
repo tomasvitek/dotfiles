@@ -19,6 +19,8 @@ function doBootstrap() {
 		--exclude "LICENSE.md" \
 		-avh --no-perms --update ./ ~/;
 
+	lporg load ~/.launchpad.yaml
+
 	echo .
 	echo "dotfiles loaded into your home directory.";
 	source ~/.bash_profile;
