@@ -4,7 +4,7 @@ apps:
     items:
     - Safari
     - Boxy
-    - GCalendar
+    - Boxy for Calendar
     - Notes
     - Reminders
     - OmniFocus
@@ -57,6 +57,8 @@ apps:
         - Calculator
         - BookletCreator
         - Maps
+        - Boxy for Gmail
+        - Boxy Dashboard
     - folder: Entertainment
       pages:
       - number: 1
@@ -186,7 +188,6 @@ widgets:
   - number: 1
     items:
     - Calculator
-    - Calendar
     - Contacts
     - Dictionary
     - Movies
@@ -203,7 +204,7 @@ dock_items:
 - OmniFocus
 - Wunderlist
 - Boxy
-- GCalendar
+- Boxy for Calendar
 - Messages
 - Caprine
 - WhatsApp
