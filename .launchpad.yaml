@@ -14,19 +14,19 @@ apps:
     - CloudPull
     - KeepingYouAwake
     - TogglDesktop
-    - Tunnelblick
-    - Paws for Trello
+    - NordVPN IKE
+    - SelfControl
+    - 1Password 7
     - Cloudup
     - Spotify
-    - 1Password
     - Photos
-    - CrashPlan
     - iA Writer
+    - Sublime Text
     - Dropbox
     - App Store
     - Google Chrome
+    - Maps
     - Atom
-    - SelfControl
     - iTerm
     - System Preferences
     - folder: Social Networking
@@ -35,11 +35,11 @@ apps:
         items:
         - Messages
         - Skype
-        - Caprine
         - WhatsApp
         - FaceTime
         - Slack
         - Android Messages
+        - Caprine
     - folder: Office
       pages:
       - number: 1
@@ -50,112 +50,75 @@ apps:
         - OmniGraffle
         - Preview
         - Contacts
-        - Soulver
         - Account Tracker
-        - LibreOffice
         - Calendar
         - Calculator
-        - BookletCreator
-        - Maps
+        - GhosteryLite
+        - TweetDeck
         - Boxy for Gmail
         - Boxy Dashboard
     - folder: Entertainment
       pages:
       - number: 1
         items:
-        - Steam
         - iBooks
-        - Photo Booth
         - GarageBand
-        - MusicBrainz Picard
         - iTunes
+        - Photo Booth
     - folder: Developer Tools
       pages:
       - number: 1
         items:
         - Xcode
-        - NetBeans 8.2
-        - Android Studio
         - Apache CouchDB
-        - Firefox
-        - SourceTree
         - Cyberduck
-        - Sublime Text
-        - DB Browser for SQLite
+        - SiteSucker
+        - Sourcetree
         - Activity Monitor
-        - Now
-        - Neo4j Community Edition 3.1.0
-        - Eclipse
-        - BlueJ
-        - Terminal
-        - PyCharm
-        - IntelliJ IDEA
         - Anaconda-Navigator
         - Keybase
-        - BlueJ
-        - Anaconda
         - Terminal
-        - RStudio
-        - Opera
-
+        - DB Browser for SQLite
     - folder: Utilities
       pages:
       - number: 1
         items:
         - The Unarchiver
         - AppCleaner
-        - Siri
         - DaisyDisk
-        - MyHarmony
         - Cloud Printer
         - CloudPrintSimpleProxy
-        - dupeGuru
-        - Transmission
         - AnyDesk
         - Monity
+        - Siri
+        - dupeGuru
     - folder: Graphics & AV
       pages:
       - number: 1
         items:
         - Sketch
-        - Pixelmator
         - ImageOptim
         - Classic Color Meter
-        - iMovie
-        - HandBrake
-        - HitFilm 4 Express
         - Photos Duplicate Cleaner
-        - Autodesk Fusion 360
-        - Print Studio
-        - Remove Autodesk Fusion 360
-        - Audacity
-        - VLC
-        - Kap
+        - MPlayerX
         - Gifski
-        - AllToMP3
+        - Pixelmator
+        - VLC
+        - HandBrake
     - folder: TeX
       pages:
       - number: 1
         items:
-        - Excalibur
-        - TeXShop
-        - TeX Live Utility
-        - LaTeXiT
-        - BibDesk
-        - texmaker
         - Mendeley Desktop
         - Zotero
     - folder: System
       pages:
       - number: 1
         items:
-        - QuickTime Player
         - TextEdit
         - Grapher
-        - DVD Player
         - Time Machine
         - Font Book
-        - Chess
         - Stickies
         - Image Capture
         - VoiceOver Utility
@@ -178,44 +141,38 @@ apps:
         - Mission Control
         - Dashboard
         - Mail
+        - DVD Player
+        - QuickTime Player
+        - Chess
   - number: 2
-    items:
-    - folder: Adobe
-      pages:
-      - number: 1
-        items:
-        - Adobe Lightroom 3
-        - Adobe Photoshop CC 2015
-        - Adobe InDesign CC 2015
-        - Adobe Illustrator CC 2015
-        - AAMLauncherUtil
-        - AdobeApplicationManager
 widgets:
   pages:
   - number: 1
     items:
-    - Calculator
-    - Contacts
-    - Dictionary
-    - Movies
-    - Stickies
-    - Stocks
-    - Tile Game
     - Unit Converter
-    - Weather
+    - Stocks
+    - Stickies
+    - Dictionary
     - Web Clip
+    - Calculator
+    - Movies
+    - Tile Game
+    - Weather
+    - Contacts
     - World Clock
+  - number: 2
+    items:
+    - Calendar
 dock_items:
-- Spotify
 - Safari
-- OmniFocus
-- Wunderlist
 - Boxy
 - Boxy for Calendar
+- Notes
+- Photos
 - Messages
 - Caprine
-- WhatsApp
-- Sublime Text
+- App Store
+- Spotify
 - iTerm
 - System Preferences
 - ============
