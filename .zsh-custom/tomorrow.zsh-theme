@@ -30,16 +30,16 @@ ZSH_THEME_GIT_PROMPT_PREFIX=""
 ZSH_THEME_GIT_PROMPT_SUFFIX=""
 
 # Format for parse_git_dirty()
-ZSH_THEME_GIT_PROMPT_DIRTY="%{$RESET_COLOR%} %{$RED%}⨯"
+ZSH_THEME_GIT_PROMPT_DIRTY="%{$RESET_COLOR%} %{$YELLOW%}✷"
 ZSH_THEME_GIT_PROMPT_CLEAN="%{$RESET_COLOR%}"
 
 # Format for git_prompt_status()
-# ZSH_THEME_GIT_PROMPT_UNMERGED=" %{$RED%}⤮%{$RESET_COLOR%}"
-# ZSH_THEME_GIT_PROMPT_DELETED=" %{$RED%}⨯%{$RESET_COLOR%}"
-# ZSH_THEME_GIT_PROMPT_RENAMED=" %{$YELLOW%}➜%{$RESET_COLOR%}"
-# ZSH_THEME_GIT_PROMPT_MODIFIED=" %{$YELLOW%}∗%{$RESET_COLOR%}"
-# ZSH_THEME_GIT_PROMPT_ADDED=" %{$GREEN%}➕%{$RESET_COLOR%}"
-# ZSH_THEME_GIT_PROMPT_UNTRACKED=" %{$WHITE%}⛀%{$RESET_COLOR%}"
+ZSH_THEME_GIT_PROMPT_UNMERGED=" %{$RED%}⤮%{$RESET_COLOR%}"
+ZSH_THEME_GIT_PROMPT_DELETED=" %{$RED%}⨯%{$RESET_COLOR%}"
+ZSH_THEME_GIT_PROMPT_RENAMED=" %{$YELLOW%}➜%{$RESET_COLOR%}"
+ZSH_THEME_GIT_PROMPT_MODIFIED=" %{$YELLOW%}∗%{$RESET_COLOR%}"
+ZSH_THEME_GIT_PROMPT_ADDED=" %{$GREEN%}➕%{$RESET_COLOR%}"
+ZSH_THEME_GIT_PROMPT_UNTRACKED=" %{$WHITE%}⛀%{$RESET_COLOR%}"
 
 # Format for git_prompt_ahead()
 ZSH_THEME_GIT_PROMPT_AHEAD=" %{$BLUE%}↣%{$RESET_COLOR%}"
@@ -65,7 +65,8 @@ prompt_char() {
 
 # Fishy collapsed working dir
 cpwd() {
-	echo $(pwd | perl -pe "s|^$HOME|~|g; s|/([^/][^/]*)(?=/)|/\$1|g")
+	#echo $(pwd | perl -pe "s|^$HOME|~|g; s|/([^/][^/]*)(?=/)|/\$1|g")
+	echo $(pwd)
 }
 
 # Prompt format
