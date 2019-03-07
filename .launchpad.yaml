@@ -40,6 +40,7 @@ apps:
         - Slack
         - Android Messages
         - Caprine
+        - TweetDeck
     - folder: Office
       pages:
       - number: 1
@@ -57,6 +58,13 @@ apps:
         - TweetDeck
         - Boxy for Gmail
         - Boxy Dashboard
+        - Compare Folders
+        - Home
+        - Backblaze
+        - Spillo
+        - Suspicious Package
+        - Stocks
+        - OmniFocus
     - folder: Entertainment
       pages:
       - number: 1
@@ -64,21 +72,31 @@ apps:
         - iBooks
         - GarageBand
         - iTunes
+        - Books
+        - Steam
+        - News
+        - Worms Special Edition
+        - Transmission
         - Photo Booth
     - folder: Developer Tools
       pages:
       - number: 1
         items:
         - Xcode
-        - Apache CouchDB
         - Cyberduck
         - SiteSucker
-        - Sourcetree
         - Activity Monitor
         - Anaconda-Navigator
         - Keybase
         - Terminal
+        - Android Studio
+        - IntelliJ IDEA CE
+        - Katalon Studio
+        - Apache CouchDB
+        - NetBeans 8.2
         - DB Browser for SQLite
+        - Sourcetree
+        - PyCharm CE
     - folder: Utilities
       pages:
       - number: 1
@@ -90,6 +108,7 @@ apps:
         - CloudPrintSimpleProxy
         - AnyDesk
         - Monity
+        - Screenshot
         - Siri
         - dupeGuru
     - folder: Graphics & AV
@@ -102,15 +121,31 @@ apps:
         - Photos Duplicate Cleaner
         - MPlayerX
         - Gifski
-        - Pixelmator
-        - VLC
         - HandBrake
+        - Adobe Lightroom 3
+        - Affinity Publisher Beta
+        - Audacity
+        - MusicBrainz Picard
+        - Motion FX
+        - HitFilm 4 Express
+        - Digital Colour Meter
+        - iMovie
+        - Voice Memos
+        - VLC
+        - Pixelmator
     - folder: TeX
       pages:
       - number: 1
         items:
         - Mendeley Desktop
         - Zotero
+        - BibDesk
+        - JabRef
+        - TeXShop
+        - TeX Live Utility
+        - LaTeXiT
+        - Excalibur
+        - texmaker
     - folder: System
       pages:
       - number: 1
@@ -165,8 +200,10 @@ widgets:
     - Calendar
 dock_items:
 - Safari
+- Spotify
 - Boxy
 - Boxy for Calendar
+- OmniFocus
 - Notes
 - Photos
 - Messages
