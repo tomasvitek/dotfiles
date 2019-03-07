@@ -66,7 +66,7 @@ prompt_char() {
 # Fishy collapsed working dir
 cpwd() {
 	#echo $(pwd | perl -pe "s|^$HOME|~|g; s|/([^/][^/]*)(?=/)|/\$1|g")
-	echo $(pwd)
+	echo $(pwd | perl -pe "s|^$HOME|~|g")
 }
 
 # Prompt format
