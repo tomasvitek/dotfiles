@@ -1,4 +1,29 @@
-# Changelog
+## [8.5.2](https://github.com/AtomLinter/linter-eslint/compare/v8.5.1...v8.5.2) (2019-02-03)
+
+
+### Bug Fixes
+
+* behavior when endColumn or endLine is null ([40760c6](https://github.com/AtomLinter/linter-eslint/commit/40760c6)), closes [#1197](https://github.com/AtomLinter/linter-eslint/issues/1197) [#1196](https://github.com/AtomLinter/linter-eslint/issues/1196) [#1195](https://github.com/AtomLinter/linter-eslint/issues/1195) [#1192](https://github.com/AtomLinter/linter-eslint/issues/1192)
+
+## [8.5.1](https://github.com/AtomLinter/linter-eslint/compare/v8.5.0...v8.5.1) (2019-01-28)
+
+
+### Bug Fixes
+
+* **deps:** update dependency atom-package-deps to v5 ([9007292](https://github.com/AtomLinter/linter-eslint/commit/9007292))
+* **deps:** update dependency eslint-rule-documentation to v1.0.22 ([57e29a4](https://github.com/AtomLinter/linter-eslint/commit/57e29a4))
+* remove v8.4.2 from the changelog ([878361c](https://github.com/AtomLinter/linter-eslint/commit/878361c))
+
+## v8.5.0
+*  Organize configuration options ([#1042][])
+*  Add source.flow to default scopes ([#1194][])
+*  Upgrade dependencies (various)
+*  Migrate to CircleCi 2.0
+*  Add Renovate for dependency management
+*  Add commitlint
+
+[#1042]: https://github.com/AtomLinter/linter-eslint/pull/1042
+[#1194]: https://github.com/AtomLinter/linter-eslint/pull/1194
 
 ## v8.4.1
 

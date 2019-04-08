@@ -1,4 +1,6 @@
 // @flow
+const path = require('path');
+const _ = require('lodash/fp');
 
 // constants
 const LINTER_LINT_COMMAND = 'linter:lint';
@@ -67,6 +69,25 @@ const runLinter = (editor: TextEditor) =>
   isLinterLintCommandDefined(editor) &&
   atom.commands.dispatch(atom.views.getView(editor), LINTER_LINT_COMMAND);
 
+const invokeAtomRelativizePath = _.flow(
+  filePath => atom.project.relativizePath(filePath), // NOTE: fat arrow necessary for `this`
+  _.get('[1]'),
+);
+
+const relativizePathToDirname = (filePath: string) => path.relative(path.dirname(filePath), filePath);
+
+const relativizePathFromAtomProject: (filePath: ?string) => ?string = _.cond([
+  [_.isNil, _.constant(null)],
+  [
+    _.flow(
+      invokeAtomRelativizePath,
+      path.isAbsolute,
+    ),
+    relativizePathToDirname,
+  ],
+  [_.stubTrue, invokeAtomRelativizePath],
+]);
+
 module.exports = {
   addErrorNotification,
   addInfoNotification,
@@ -81,6 +102,7 @@ module.exports = {
   isDisabledIfNoConfigFile,
   isFormatOnSaveEnabled,
   isLinterEslintAutofixEnabled,
+  relativizePathFromAtomProject,
   runLinter,
   shouldRespectEslintignore,
   shouldUseEslint,

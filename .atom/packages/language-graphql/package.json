@@ -1,44 +1,30 @@
 {
-  "_args": [
-    [
-      {
-        "raw": "/private/var/folders/j1/3vxq1vgj0sg8x9fbr10zwq8h0000gn/T/d-11887-61601-1vt6c7v.4wjfnipb9/package.tgz",
-        "scope": null,
-        "escapedName": null,
-        "name": null,
-        "rawSpec": "/private/var/folders/j1/3vxq1vgj0sg8x9fbr10zwq8h0000gn/T/d-11887-61601-1vt6c7v.4wjfnipb9/package.tgz",
-        "spec": "/private/var/folders/j1/3vxq1vgj0sg8x9fbr10zwq8h0000gn/T/d-11887-61601-1vt6c7v.4wjfnipb9/package.tgz",
-        "type": "local"
-      },
-      "/private/var/folders/j1/3vxq1vgj0sg8x9fbr10zwq8h0000gn/T/apm-install-dir-11887-61601-1mfp1ln.9tptu766r"
-    ]
-  ],
-  "_from": "../d-11887-61601-1vt6c7v.4wjfnipb9/package.tgz",
-  "_id": "language-graphql@0.10.1",
-  "_inCache": true,
+  "_from": "https://www.atom.io/api/packages/language-graphql/versions/1.0.0/tarball",
+  "_id": "language-graphql@1.0.0",
+  "_inBundle": false,
+  "_integrity": "sha512-TYR0YilD2iH2/ZBYYBCiHTLtDSUIdr+6C0lm/WrBMI01VKrhTQKbs34uZlqNKJnMYruypY5hi9ylV085szLkkg==",
   "_location": "/language-graphql",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/private/var/folders/j1/3vxq1vgj0sg8x9fbr10zwq8h0000gn/T/d-11887-61601-1vt6c7v.4wjfnipb9/package.tgz",
-    "scope": null,
-    "escapedName": null,
-    "name": null,
-    "rawSpec": "/private/var/folders/j1/3vxq1vgj0sg8x9fbr10zwq8h0000gn/T/d-11887-61601-1vt6c7v.4wjfnipb9/package.tgz",
-    "spec": "/private/var/folders/j1/3vxq1vgj0sg8x9fbr10zwq8h0000gn/T/d-11887-61601-1vt6c7v.4wjfnipb9/package.tgz",
-    "type": "local"
+    "type": "remote",
+    "raw": "https://www.atom.io/api/packages/language-graphql/versions/1.0.0/tarball",
+    "rawSpec": "https://www.atom.io/api/packages/language-graphql/versions/1.0.0/tarball",
+    "saveSpec": "https://www.atom.io/api/packages/language-graphql/versions/1.0.0/tarball",
+    "fetchSpec": "https://www.atom.io/api/packages/language-graphql/versions/1.0.0/tarball"
   },
   "_requiredBy": [
-    "#USER"
+    "#USER",
+    "/"
   ],
-  "_resolved": "file:../d-11887-61601-1vt6c7v.4wjfnipb9/package.tgz",
-  "_shasum": "4d85e1f0b53d10d1598b90db80d80fac61cde012",
-  "_shrinkwrap": null,
-  "_spec": "/private/var/folders/j1/3vxq1vgj0sg8x9fbr10zwq8h0000gn/T/d-11887-61601-1vt6c7v.4wjfnipb9/package.tgz",
-  "_where": "/private/var/folders/j1/3vxq1vgj0sg8x9fbr10zwq8h0000gn/T/apm-install-dir-11887-61601-1mfp1ln.9tptu766r",
+  "_resolved": "https://www.atom.io/api/packages/language-graphql/versions/1.0.0/tarball",
+  "_shasum": "08163aec6aab904cf0779f803b2ee4a55250f6d7",
+  "_spec": "https://www.atom.io/api/packages/language-graphql/versions/1.0.0/tarball",
+  "_where": "/private/var/folders/1x/7h2mqxds47gf7crvny75tdtr0000gn/T/apm-install-dir-11938-2608-d59ot7.dcej",
   "bugs": {
     "url": "https://github.com/rmosolgo/language-graphql/issues"
   },
-  "dependencies": {},
+  "bundleDependencies": false,
+  "deprecated": false,
   "description": "Syntax highlighting for GraphQL queries",
   "devDependencies": {
     "atom-grammar-test": "^0.6.3"
@@ -55,12 +41,9 @@
   ],
   "license": "MIT",
   "name": "language-graphql",
-  "optionalDependencies": {},
-  "readme": "# language-graphql [![Build Status](https://travis-ci.org/rmosolgo/language-graphql.svg?branch=master)](https://travis-ci.org/rmosolgo/language-graphql)  [![Version](https://img.shields.io/apm/v/language-graphql.svg)](https://atom.io/packages/language-graphql)\n\nAtom syntax highlighting for GraphQL, ported from [language-babel](https://github.com/gandm/language-babel).\n\n![image](https://cloud.githubusercontent.com/assets/2231765/21265892/9ed466cc-c371-11e6-934f-1579baf24309.png)\n\n## Todo\n\n- Autocompletion based on a JSON or pretty-printed schema.\n\n## Development\n\n- Run tests: `apm test`\n- Open with grammar reloading:\n  - Add the project to Atom's packages `apm link .`\n  - Open the project in development mode `atom --dev .`\n  - Create a `scratch.graphql` file to check highlighting\n\n## License\n\nMIT\n",
-  "readmeFilename": "README.md",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/rmosolgo/language-graphql.git"
   },
-  "version": "0.10.1"
+  "version": "1.0.0"
 }

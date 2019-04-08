@@ -229,8 +229,8 @@ const generateInvalidTrace = async ({
 
   return {
     severity: 'error',
-    excerpt: `${titleText}. See the description for details. ` +
-      'Click the URL to open a new issue!',
+    excerpt: `${titleText}. See the description for details. `
+      + 'Click the URL to open a new issue!',
     url: newIssueURL,
     location,
     description: `${rangeText}\nOriginal message: ${message}`
@@ -274,7 +274,7 @@ export async function processESLintMessages(messages, textEditor, showRule) {
      keep doing so in later uses.
      */
     const msgLine = line - 1
-    if (typeof endColumn !== 'undefined' && typeof endLine !== 'undefined') {
+    if (typeof endColumn === 'number' && typeof endLine === 'number') {
       eslintFullRange = true
       // Here we always want the column to be a number
       msgCol = Math.max(0, column - 1)
@@ -283,7 +283,7 @@ export async function processESLintMessages(messages, textEditor, showRule) {
     } else {
       // We want msgCol to remain undefined if it was initially so
       // `generateRange` will give us a range over the entire line
-      msgCol = typeof column !== 'undefined' ? column - 1 : column
+      msgCol = typeof column === 'number' ? column - 1 : column
     }
 
     let ret = {

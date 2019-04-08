@@ -4,6 +4,7 @@
   "foldingStartMarker": "(/\\*|{|\\()",
   "foldingEndMarker": "(\\*/|\\}|\\))",
   "fileTypes": [
+    "prisma",
     "graphqls",
     "graphql",
     "gql"
@@ -97,7 +98,9 @@
       "patterns": [
         { "include": "#graphql-object-type" },
         { "include": "#graphql-comment" },
-        { "include": "#graphql-type-definition" }
+        { "include": "#graphql-type-definition" },
+        { "include": "#graphql-blockstring-value"},
+        { "include": "#graphql-string-value"}
       ]
     },
     "graphql-type-definition": {
@@ -183,7 +186,9 @@
       },
       "patterns": [
         { "include": "#graphql-comment" },
-        { "include": "#graphql-variable-definition"}
+        { "include": "#graphql-variable-definition"},
+        { "include": "#graphql-blockstring-value"},
+        { "include": "#graphql-string-value"}
       ]
     },
     "graphql-variable-definition": {
@@ -481,9 +486,10 @@
           },
           "patterns": [
             { "include": "#graphql-object-type" },
-
             { "include": "#graphql-comment" },
-            { "include": "#graphql-enum-value" }
+            { "include": "#graphql-enum-value" },
+            { "include": "#graphql-blockstring-value"},
+            { "include": "#graphql-string-value"}
           ]
         }
       ]

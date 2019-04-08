@@ -1,40 +1,25 @@
 {
-  "_args": [
-    [
-      {
-        "raw": "/private/var/folders/j1/3vxq1vgj0sg8x9fbr10zwq8h0000gn/T/d-11887-61564-1xuoqdx.y48jckgldi/package.tgz",
-        "scope": null,
-        "escapedName": null,
-        "name": null,
-        "rawSpec": "/private/var/folders/j1/3vxq1vgj0sg8x9fbr10zwq8h0000gn/T/d-11887-61564-1xuoqdx.y48jckgldi/package.tgz",
-        "spec": "/private/var/folders/j1/3vxq1vgj0sg8x9fbr10zwq8h0000gn/T/d-11887-61564-1xuoqdx.y48jckgldi/package.tgz",
-        "type": "local"
-      },
-      "/private/var/folders/j1/3vxq1vgj0sg8x9fbr10zwq8h0000gn/T/apm-install-dir-11887-61564-1nad2sc.dc6aoo5hfr"
-    ]
-  ],
-  "_from": "../d-11887-61564-1xuoqdx.y48jckgldi/package.tgz",
-  "_id": "git-blame@1.7.0",
-  "_inCache": true,
+  "_from": "https://www.atom.io/api/packages/git-blame/versions/1.8.0/tarball",
+  "_id": "git-blame@1.8.0",
+  "_inBundle": false,
+  "_integrity": "sha512-dnSd85aPNZimcdtob/wjwlMHTQAA+bu4wakpQSOyPBuhU7UrP8ar4MCO/USo9neo6PB3Fj3Y+rVzNF3P8LM99Q==",
   "_location": "/git-blame",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/private/var/folders/j1/3vxq1vgj0sg8x9fbr10zwq8h0000gn/T/d-11887-61564-1xuoqdx.y48jckgldi/package.tgz",
-    "scope": null,
-    "escapedName": null,
-    "name": null,
-    "rawSpec": "/private/var/folders/j1/3vxq1vgj0sg8x9fbr10zwq8h0000gn/T/d-11887-61564-1xuoqdx.y48jckgldi/package.tgz",
-    "spec": "/private/var/folders/j1/3vxq1vgj0sg8x9fbr10zwq8h0000gn/T/d-11887-61564-1xuoqdx.y48jckgldi/package.tgz",
-    "type": "local"
+    "type": "remote",
+    "raw": "https://www.atom.io/api/packages/git-blame/versions/1.8.0/tarball",
+    "rawSpec": "https://www.atom.io/api/packages/git-blame/versions/1.8.0/tarball",
+    "saveSpec": "https://www.atom.io/api/packages/git-blame/versions/1.8.0/tarball",
+    "fetchSpec": "https://www.atom.io/api/packages/git-blame/versions/1.8.0/tarball"
   },
   "_requiredBy": [
-    "#USER"
+    "#USER",
+    "/"
   ],
-  "_resolved": "file:../d-11887-61564-1xuoqdx.y48jckgldi/package.tgz",
-  "_shasum": "8006c5ebd30e9e6dd787f2e9051cd6943f99444e",
-  "_shrinkwrap": null,
-  "_spec": "/private/var/folders/j1/3vxq1vgj0sg8x9fbr10zwq8h0000gn/T/d-11887-61564-1xuoqdx.y48jckgldi/package.tgz",
-  "_where": "/private/var/folders/j1/3vxq1vgj0sg8x9fbr10zwq8h0000gn/T/apm-install-dir-11887-61564-1nad2sc.dc6aoo5hfr",
+  "_resolved": "https://www.atom.io/api/packages/git-blame/versions/1.8.0/tarball",
+  "_shasum": "e12ba71b1a4ad2a3b4a3645b58dd60ea382c3891",
+  "_spec": "https://www.atom.io/api/packages/git-blame/versions/1.8.0/tarball",
+  "_where": "/private/var/folders/1x/7h2mqxds47gf7crvny75tdtr0000gn/T/apm-install-dir-11938-2588-1q9b92c.1ypo",
   "activationCommands": {
     "atom-text-editor": [
       "git-blame:toggle"
@@ -43,6 +28,7 @@
   "bugs": {
     "url": "https://github.com/alexcorre/git-blame/issues"
   },
+  "bundleDependencies": false,
   "dependencies": {
     "lodash": "^4.17.4",
     "loophole": "1.0.x",
@@ -51,6 +37,7 @@
     "react-dom": "^15.6.1",
     "recompose": "^0.22.0"
   },
+  "deprecated": false,
   "description": "Toggle git-blame annotations in the gutter of atom editor.",
   "devDependencies": {
     "@workpop/eslint-config-workpop": "^1.0.0",
@@ -66,9 +53,6 @@
   "license": "MIT",
   "main": "./lib/index",
   "name": "git-blame",
-  "optionalDependencies": {},
-  "readme": "# git-blame\n\n> Toggle git-blame annotations in Atom.\n\n[![Travis](https://img.shields.io/travis/alexcorre/git-blame.svg)](https://travis-ci.org/alexcorre/git-blame)\n[![apm](https://img.shields.io/apm/v/git-blame.svg)](https://atom.io/packages/git-blame)\n[![apm](https://img.shields.io/apm/dm/git-blame.svg)](https://atom.io/packages/git-blame)\n\n![screenshot](/images/screenshot2.png?raw=true)\n\n## Usage\n\nUse `ctrl-b` to activate blame. Alternatively, right click the file you want to blame and select `Toggle Git Blame` from the dropdown.\n\n![right-click-activate](https://raw.githubusercontent.com/alexcorre/git-blame/master/images/right-click-activate.png)\n\n### See the revision diff\n\nClick on the revision hash in the gutter to visit the configured repository diff site. Hosts supported out of the box are:\n\n* [GitHub](https://github.com/)\n* [Bitbucket](https://bitbucket.org/)\n* [GitLab](https://gitlab.com/)\n\nCustom remotes can be set globally via options. See below.\n\n## Options\n\n### Ignore White Space Diffs\n\nIf this option is selected, the `git blame` command will be run with `-w` option.\n\n### Show Only Last Names\n\nIf this option is selected, only the last word of the author's name will be displayed.\n\n### Date Format String\n\nDefault date format is `YYYY-MM-DD`. This feature is backed by [moment.js](http://momentjs.com/). Any formats [supported by moment](http://momentjs.com/docs/#/displaying/format/) are valid here.\n\n### Color commit authors\nIf this option is selected, the commit authors will appear with a unique color to make them easily recognisable.\n\n### Custom Remote Repo Url\nThis plugin will first check to see if your repo is backed by **GitHub**, **Bitbucket**, or **GitLab** so nothing is required if your repo is hosted on one of these.\n\n\nIf its not, you can easily set a custom revision URL string like so:\n- From the settings view go to settings for this package *Git Blame*\n- Check the box for \"Use Custom Url Template If Standard Remotes Fail\"\n- Set your url format string in the box labeled Custom Commit Url String\n\n![url-settings](https://raw.githubusercontent.com/alexcorre/git-blame/master/images/url-settings.png)\n\nThe URL string should contain the following three placeholder variables wrapped in underscore template delimiters like so: `<%- variable %>`.\n- `project` - Will be replaced with the name of the project in your remote git repository. For this repo it would be `alexcorre`.\n- `repo` - Will be replaced with the name of the repository. For this repo it would be `git-blame`.\n- `revision` - Will be replaced with the full git revision hash you clicked on.\n\nI'll use github as an example. Its already supported out of the box, but if it wasn't its custom url string would be:\n\n```\nhttps://github.com/<%- project %>/<%- repo %>/commit/<%- revision %>\n```\nSo when you clicked on hash revision 12345 in this git-blame repository, you would visit the following url:\n\n```\nhttps://github.com/alexcorre/git-blame/commit/12345\n```\n\nYou can also set a custom URL in your git config. If present, it will be used insted of the one in the package settings.\nYou can add or change it with this command:\n```bash\ngit config --local atom-git-blame.repositoryUrlTemplate \"http://my_server/gitweb/?p=<%- repo %>.git;a=commit;h=<%- revision %>\"\n```\n\nOr by edit your `.git/config` and add an entry like this:\n```ini\n[atom-git-blame]\n\trepositoryUrlTemplate = \"http://my_server/gitweb/?p=<%- repo %>.git;a=commit;h=<%- revision %>\"\n```\n\n## Release History\n\nThis project uses [standard-version](https://github.com/conventional-changelog/standard-version). Commit messages should use these [conventions](https://github.com/bcoe/conventional-changelog-standard/blob/master/convention.md). `fix`, `feat`, and `perf` commits will show in the [CHANGELOG.md](CHANGELOG.md) generated upon release.\n",
-  "readmeFilename": "README.md",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/alexcorre/git-blame.git"
@@ -79,5 +63,5 @@
     "lint:fix": "eslint --fix .",
     "test": "npm run lint"
   },
-  "version": "1.7.0"
+  "version": "1.8.0"
 }

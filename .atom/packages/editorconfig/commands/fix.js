@@ -1,16 +1,17 @@
 /** @babel */
 
-const init = () => {
+const init = (displaySummary = true) => {
 	const editor = atom.workspace.getActiveTextEditor();
 	if (!editor) {
 		return;
 	}
+
 	const buffer = editor.getBuffer();
 	if (typeof buffer.editorconfig === 'undefined') {
 		return;
 	}
 
-	const settings = buffer.editorconfig.settings;
+	const {settings} = buffer.editorconfig;
 	const softTabs = settings.indent_style === 'space';
 	const checkpoint = buffer.createCheckpoint();
 	const fixedProperties = {
@@ -18,8 +19,8 @@ const init = () => {
 		indentStyle: 0
 	};
 
-	// fix end_of_line, if necessary
-	if (settings.end_of_line !== 'auto') {
+	// Fix end_of_line, if necessary
+	if (settings.end_of_line !== 'unset') {
 		const lastRow = buffer.getLastRow();
 		for (let i = 0; i < lastRow; i++) {
 			if (buffer.lineEndingForRow(i) !== settings.end_of_line &&
@@ -37,8 +38,8 @@ const init = () => {
 		}
 	}
 
-	// fix indent_style, if necessary
-	if (settings.indent_style !== 'auto') {
+	// Fix indent_style, if necessary
+	if (settings.indent_style !== 'unset') {
 		const spaceChar = {true: ' ', false: '\\t'};
 		const tabLength = editor.getTabLength();
 		// Match only malformed (containing at least one wrong tab-char) lines
@@ -52,6 +53,7 @@ const init = () => {
 					if (curr === ' ') {
 						return prev + 1;
 					}
+
 					return prev + tabLength - (prev % tabLength);
 				}, 0);
 
@@ -74,35 +76,49 @@ const init = () => {
 			fixedProperties.indentStyle / editor.getTabLength()
 		);
 	}
+
 	let changesInTotal = 0;
 	Object.keys(fixedProperties).forEach(k => {
 		changesInTotal += fixedProperties[k];
 	});
 
-	// Prepare notification & save changes
-	const notificationOptions = {dismissable: true};
+	// Save changes, if they were any
 	if (changesInTotal > 0) {
-		const styleName = softTabs === true ? 'Tab(s)' : 'Space(s)';
-
 		buffer.groupChangesSinceCheckpoint(checkpoint);
-		notificationOptions.description = `
-|Fixed EditorConfig-Properties||
-|--------|------:|
-|\`end_of_line\`|${fixedProperties.endOfLine}|
-|\`indent_style\`|${fixedProperties.indentStyle} ${styleName}|
-|Changes in total|**${changesInTotal}**|
+	}
+
+	// Display how many changes were made (for some reason)
+	if (displaySummary) {
+		let description;
+
+		if (changesInTotal > 0) {
+			const styleName = softTabs === true ? 'Tab(s)' : 'Space(s)';
+			description = `
+| Properties       | Fixes                                       |
+|------------------|---------------------------------------------|
+| `end_of_line`    | ${fixedProperties.endOfLine}                |
+| `indent_style`   | ${fixedProperties.indentStyle} ${styleName} |
+| Total changes    | **${changesInTotal}**                       |
 `;
-	} else {
-		notificationOptions.description = `
-The file ${editor.getTitle()} conformed to the \`end_of_line\` and \`indent_style\` properties.
+		} else {
+			description = `
+The file ${editor.getTitle()} conformed to the `end_of_line` and `indent_style` properties.
 No changes were applied.
 `;
+		}
+
+		atom.notifications.addSuccess(editor.getTitle(), {
+			description: description.replace(/`/g, '`'),
+			dismissable: true
+		});
 	}
-	atom.notifications.addSuccess(editor.getTitle(), notificationOptions);
 };
 
 const subscriber = () => {
-	atom.commands.add('atom-workspace', 'EditorConfig:fix-file', init);
+	atom.commands.add('atom-workspace', {
+		'EditorConfig:fix-file': () => init(),
+		'EditorConfig:fix-file-quietly': () => init(false)
+	});
 };
 
 export {subscriber as default, init};
