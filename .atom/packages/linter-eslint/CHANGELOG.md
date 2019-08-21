@@ -1,3 +1,24 @@
+## [8.5.5](https://github.com/AtomLinter/linter-eslint/compare/v8.5.4...v8.5.5) (2019-04-22)
+
+
+### Bug Fixes
+
+* **deps:** update dependency atom-package-deps to v5.1.0 ([d547679](https://github.com/AtomLinter/linter-eslint/commit/d547679))
+
+## [8.5.4](https://github.com/AtomLinter/linter-eslint/compare/v8.5.3...v8.5.4) (2019-04-12)
+
+
+### Bug Fixes
+
+* **deps:** update dependency eslint-rule-documentation to v1.0.23 ([06e280c](https://github.com/AtomLinter/linter-eslint/commit/06e280c))
+
+## [8.5.3](https://github.com/AtomLinter/linter-eslint/compare/v8.5.2...v8.5.3) (2019-04-09)
+
+
+### Bug Fixes
+
+* **deps:** update dependency crypto-random-string to v2 ([56f479d](https://github.com/AtomLinter/linter-eslint/commit/56f479d))
+
 ## [8.5.2](https://github.com/AtomLinter/linter-eslint/compare/v8.5.1...v8.5.2) (2019-02-03)
 
 

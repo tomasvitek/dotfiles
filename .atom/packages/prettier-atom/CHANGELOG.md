@@ -1,3 +1,54 @@
+## [0.57.2](https://github.com/prettier/prettier-atom/compare/v0.57.1...v0.57.2) (2019-07-25)
+
+
+### Bug Fixes
+
+* **deps:** correctly use new pkg-up, fixup f5a0b18, [#507](https://github.com/prettier/prettier-atom/issues/507) ([88285be](https://github.com/prettier/prettier-atom/commit/88285be)), closes [#510](https://github.com/prettier/prettier-atom/issues/510)
+
+
+
+## [0.57.1](https://github.com/prettier/prettier-atom/compare/v0.57.0...v0.57.1) (2019-07-19)
+
+
+### Bug Fixes
+
+* **debug:** read-pkg-up@6 BC break, renamed pkg to package ([114cfb1](https://github.com/prettier/prettier-atom/commit/114cfb1))
+
+
+
+# [0.57.0](https://github.com/prettier/prettier-atom/compare/v0.56.6...v0.57.0) (2019-07-10)
+
+
+### Features
+
+* **prettier:** bump to version 1.18.2 ([16ecb0d](https://github.com/prettier/prettier-atom/commit/16ecb0d))
+* **prettier-eslint:** bump to version 9.0.0 ([3019316](https://github.com/prettier/prettier-atom/commit/3019316))
+
+
+
+## [0.56.6](https://github.com/prettier/prettier-atom/compare/v0.56.5...v0.56.6) (2019-05-21)
+
+
+### Bug Fixes
+
+* **prettierignore:** Revert mistake with path passed to prettier.getFileInfo ([850d639](https://github.com/prettier/prettier-atom/commit/850d639))
+
+
+
+## [0.56.5](https://github.com/prettier/prettier-atom/compare/v0.56.4...v0.56.5) (2019-05-16)
+
+
+### Bug Fixes
+
+* **prettierignore:** Pass relative instead of absolute path to prettier.getFileInfo ([f045749](https://github.com/prettier/prettier-atom/commit/f045749))
+
+
+### Features
+
+* Add option to enable format-on-save for files in node_modules ([6e8a506](https://github.com/prettier/prettier-atom/commit/6e8a506))
+
+
+
 ## [0.56.4](https://github.com/prettier/prettier-atom/compare/v0.56.3...v0.56.4) (2019-02-20)
 
 

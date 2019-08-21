@@ -19,7 +19,7 @@
   "_resolved": "https://www.atom.io/api/packages/git-blame/versions/1.8.0/tarball",
   "_shasum": "e12ba71b1a4ad2a3b4a3645b58dd60ea382c3891",
   "_spec": "https://www.atom.io/api/packages/git-blame/versions/1.8.0/tarball",
-  "_where": "/private/var/folders/1x/7h2mqxds47gf7crvny75tdtr0000gn/T/apm-install-dir-11938-2588-1q9b92c.1ypo",
+  "_where": "/private/var/folders/sr/rt__qx0n0yz_kfc58_kfkp8c0000gn/T/apm-install-dir-119721-44224-kdqeuh.12mbn",
   "activationCommands": {
     "atom-text-editor": [
       "git-blame:toggle"
