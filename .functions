@@ -10,6 +10,7 @@ finder() {
     fi
 }
 
+# Hide and show hidden files on Mac
 fileshow() {
   sudo chflags nohidden ${@}
 }
@@ -17,7 +18,56 @@ filehide() {
   sudo chflags hidden ${@}
 }
 
+# Mount and eject drive with Pictures 
+# (also creates symlinks in Dropbox)
+DRIVE_NAME=Tomik\ Pictures
+DRIVE_PATH="/Volumes/$DRIVE_NAME/"
 
+mountpics() {
+	if diskutil info "$DRIVE_NAME" | grep -q 'Could not find disk:'; then
+		echo "Drive not plugged in!"
+	else
+		# Mount the drive
+		diskutil mount "$DRIVE_NAME"
+
+		# Create symlinks
+		if [ -d "$DRIVE_PATH" ]; then
+			cd ~/Dropbox/Pictures
+			ln -s "$DRIVE_PATH" ./Archive
+
+			cd ~/Pictures
+			ln -s ~/Dropbox/Pictures/Archive ./Archive
+
+			echo "Drive mounted!"
+		else
+			echo "Couldn't mount the drive!"
+		fi
+	fi
+}
+
+ejectpics() {
+	if diskutil info "$DRIVE_NAME" | grep -q 'Could not find disk:'; then
+		echo "Drive not plugged in!"
+	else
+		# Eject the drive
+		diskutil eject "$DRIVE_NAME"
+
+		# Remove all symlinks
+		if [ ! -d "$DRIVE_PATH" ]; then
+			cd ~/Dropbox/Pictures
+			rm ./Archive
+
+			cd ~/Pictures
+			em ./Archive
+
+			echo "Drive ejected!"
+		else
+			echo "Couldn't eject the drive!"
+		fi
+	fi
+}
+
+# Launch a text editor
 edit() {
     if [ "$#" -eq 0 ]; then
       subl .
