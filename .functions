@@ -20,25 +20,33 @@ filehide() {
 
 # Mount and eject drive with Pictures 
 # (also creates symlinks in Dropbox)
+PICTURES_DRIVE_UUID=60B0F4F5-68F3-4B26-AD12-77906A0283A5
+
 DRIVE_NAME=Tomik\ Pictures
 DRIVE_PATH="/Volumes/$DRIVE_NAME/"
 
+DROPBOX_PICTURES_ARCHIVE_PATH="/Users/tomik/Dropbox/Pictures"
+LOCAL_PICTURES_ARCHIVE_PATH="/Users/tomik/Pictures"
+
 mountpics() {
-	if diskutil info "$DRIVE_NAME" | grep -q 'Could not find disk:'; then
+	if diskutil info "$PICTURES_DRIVE_UUID" | grep -q 'Could not find disk:'; then
 		echo "Drive not plugged in!"
 	else
-		# Mount the drive
-		diskutil mount "$DRIVE_NAME"
+    # Mount the drive
+    if [ ! -d "$DRIVE_PATH" ]; then
+      diskutil mount "$PICTURES_DRIVE_UUID" >/dev/null
+    fi
 
 		# Create symlinks
 		if [ -d "$DRIVE_PATH" ]; then
-			cd ~/Dropbox/Pictures
-			ln -s "$DRIVE_PATH" ./Archive
+      cd "$DROPBOX_PICTURES_ARCHIVE_PATH"
+      ln -s "$DRIVE_PATH/Pictures" ./Archive
 
-			cd ~/Pictures
-			ln -s ~/Dropbox/Pictures/Archive ./Archive
+      cd "$LOCAL_PICTURES_ARCHIVE_PATH"
+      ln -s "$DRIVE_PATH/Pictures" ./Archive
 
-			echo "Drive mounted!"
+      echo "Drive mounted!"
+      exit 0
 		else
 			echo "Couldn't mount the drive!"
 		fi
@@ -46,19 +54,17 @@ mountpics() {
 }
 
 ejectpics() {
-	if diskutil info "$DRIVE_NAME" | grep -q 'Could not find disk:'; then
+	if diskutil info "$PICTURES_DRIVE_UUID" | grep -q 'Could not find disk:'; then
 		echo "Drive not plugged in!"
 	else
 		# Eject the drive
-		diskutil eject "$DRIVE_NAME"
+    diskutil eject "$PICTURES_DRIVE_UUID" >/dev/null
 
 		# Remove all symlinks
 		if [ ! -d "$DRIVE_PATH" ]; then
-			cd ~/Dropbox/Pictures
-			rm ./Archive
+			rm "$LOCAL_PICTURES_ARCHIVE_PATH/Archive"
 
-			cd ~/Pictures
-			em ./Archive
+      rm "$DROPBOX_PICTURES_ARCHIVE_PATH/Archive"
 
 			echo "Drive ejected!"
 		else
