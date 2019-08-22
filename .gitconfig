@@ -5,7 +5,9 @@
 [core]
 	editor = subl -n -w
 	excludesfile = /Users/tomik/.gitignore_global
-	autocrlf = true
+
+	# to use mac/linux line endings
+	autocrlf = input
 
 [color]
 	ui = always
