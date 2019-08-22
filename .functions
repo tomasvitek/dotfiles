@@ -2,6 +2,7 @@
 
 ## macOS
 
+# Show and hide hidden files in Finder
 finder() {
     if [[ $1 == "hide" ]]; then
         defaults write com.apple.finder AppleShowAllFiles NO && killall Finder
@@ -10,6 +11,7 @@ finder() {
     fi
 }
 
+# Set hidden flags for Finder
 fileshow() {
   sudo chflags nohidden ${@}
 }
