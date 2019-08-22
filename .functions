@@ -19,7 +19,7 @@ filehide() {
   sudo chflags hidden ${@}
 }
 
-
+# Launch editor
 edit() {
     if [ "$#" -eq 0 ]; then
       subl .
