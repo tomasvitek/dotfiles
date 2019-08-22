@@ -10,12 +10,20 @@ finder() {
     fi
 }
 
-# Hide and show hidden files on Mac
 fileshow() {
   sudo chflags nohidden ${@}
 }
 filehide() {
   sudo chflags hidden ${@}
+}
+
+
+edit() {
+    if [ "$#" -eq 0 ]; then
+      subl .
+    else
+      subl ${@}
+    fi
 }
 
 ## Utils
