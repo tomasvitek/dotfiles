@@ -5,8 +5,8 @@
 # (Needs Git plugin for current_branch method)
 # ------------------------------------------------------------------------
 
-local default_username='sain'
-local default_host='gimli'
+local default_username='tomik'
+local default_host='10.0.0.44'
 
 # Color shortcuts
 RED=$fg[red]
@@ -46,10 +46,19 @@ ZSH_THEME_GIT_PROMPT_AHEAD=" %{$BLUE%}↣%{$RESET_COLOR%}"
 
 # Only show username if not default
 username() {
-	if [[ $USER != $default_username || $HOST != $default_host || -n "$SSH_CLIENT" ]]
+	#if [[ $USER != $default_username || $HOST != $default_host || -n "$SSH_CLIENT" ]]
+	#then
+	#	echo '%n@%m:'
+	#fi
+
+	echo -e "%n\c"
+
+	if [[ $HOST != $default_host || -n "$SSH_CLIENT" ]]
 	then
-		echo '%n@%m:'
+		echo -e "@%m\c"
 	fi
+
+	echo -e ":\c"
 }
 
 # Set prompt char
