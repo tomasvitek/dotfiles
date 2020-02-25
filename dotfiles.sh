@@ -48,7 +48,7 @@ function doBackup() {
 		--exclude "Pictures" \
 		--exclude "Public" \
 		--exclude "Trash" \
-		--exclude "Work" \
+		--exclude "Development" \
 		\
 		-avh --no-perms --existing ~/ ./;
 	echo .
