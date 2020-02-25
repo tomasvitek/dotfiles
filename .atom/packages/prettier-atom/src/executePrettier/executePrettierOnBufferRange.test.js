@@ -1,4 +1,4 @@
-jest.mock('prettier-eslint');
+jest.mock('@lewisl9029/prettier-eslint');
 jest.mock('prettier-stylelint');
 jest.mock('prettier');
 jest.mock('../atomInterface');
@@ -7,12 +7,13 @@ jest.mock('../helpers');
 jest.mock('./handleError');
 
 const prettier = require('prettier');
-const prettierEslint = require('prettier-eslint');
+const prettierEslint = require('@lewisl9029/prettier-eslint');
 const prettierStylelint = require('prettier-stylelint');
 const {
   getPrettierEslintOptions,
   shouldUseEslint,
   shouldUseStylelint,
+  shouldUseEditorConfig,
   runLinter,
 } = require('../atomInterface');
 const { getCurrentFilePath, isCurrentScopeStyleLintScope } = require('../editorInterface');
@@ -35,6 +36,24 @@ beforeEach(() => {
   prettier.formatWithCursor.mockImplementation(() => formattedFixture);
   getPrettierInstance.mockImplementation(() => prettier);
   prettier.resolveConfig.sync.mockImplementation(() => optionsFixture);
+});
+
+it('uses editor config', async () => {
+  getCurrentFilePath.mockImplementation(() => 'foo.js');
+  shouldUseEditorConfig.mockImplementation(() => true);
+
+  await executePrettierOnBufferRange(editor, bufferRangeFixture);
+
+  expect(prettier.resolveConfig.sync).toHaveBeenCalledWith('foo.js', { editorconfig: true });
+});
+
+it('does not use editor config', async () => {
+  getCurrentFilePath.mockImplementation(() => 'foo.js');
+  shouldUseEditorConfig.mockImplementation(() => false);
+
+  await executePrettierOnBufferRange(editor, bufferRangeFixture);
+
+  expect(prettier.resolveConfig.sync).toHaveBeenCalledWith('foo.js', { editorconfig: false });
 });
 
 it('sets the transformed text in the buffer range', async () => {

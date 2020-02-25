@@ -2,7 +2,6 @@ File Icons
 ==========
 
 [![Build status: TravisCI](https://travis-ci.org/file-icons/atom.svg?branch=master)](https://travis-ci.org/file-icons/atom)
-[![Build status: AppVeyor](https://ci.appveyor.com/api/projects/status/6p3e1pj327ee7ylu?svg=true)](https://ci.appveyor.com/project/Alhadis/atom)
 [![Latest package version](https://img.shields.io/apm/v/file-icons.svg?colorB=brightgreen)](https://github.com/file-icons/atom/releases/latest)
 
 File-specific icons in Atom for improved visual grepping.
@@ -26,7 +25,7 @@ Open **Settings** → **Install** and search for `file-icons`.
 
 Alternatively, install through command-line:
 
-	apm install file-icons
+	apm install --production file-icons
 
 
 Customisation
@@ -41,7 +40,7 @@ Consult the package stylesheets to see what classes are used:
 
 
 #### Icon reference
-* [**File-Icons**](https://github.com/file-icons/source/blob/master/charmap.md) 
+* [**File-Icons**](https://github.com/file-icons/icons/blob/master/charmap.md) 
 * [**FontAwesome 4.7.0**](https://fontawesome.com/v4.7.0/cheatsheet/)
 * [**Mfizz**](https://github.com/file-icons/MFixx/blob/master/charmap.md)
 * [**Devicons**](https://github.com/file-icons/DevOpicons/blob/master/charmap.md)

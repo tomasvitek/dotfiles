@@ -1,5 +1,14 @@
 # Changelog
 
+## 1.8.1
+
+* Fix `showPanel` being set to `true` on Editor restart (Thanks @Osmose)
+
+## 1.8.0
+
+* Remove support for Legacy Linter messages
+* Fix Panel hide/inactive detection (Thanks @willy2dg)
+
 ## 1.7.1
 
 * Restore old hiding behavior

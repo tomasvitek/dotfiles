@@ -1,6 +1,6 @@
 // @flow
 const _ = require('lodash/fp');
-const prettierEslint = require('prettier-eslint');
+const prettierEslint = require('@lewisl9029/prettier-eslint');
 const prettierStylelint = require('prettier-stylelint');
 const { allowUnsafeNewFunction } = require('loophole');
 
@@ -8,6 +8,7 @@ const {
   getPrettierEslintOptions,
   shouldUseEslint,
   shouldUseStylelint,
+  shouldUseEditorConfig,
   runLinter,
 } = require('../atomInterface');
 const { getCurrentFilePath, isCurrentScopeStyleLintScope } = require('../editorInterface');
@@ -16,7 +17,9 @@ const handleError = require('./handleError');
 
 const getPrettierOptions = (editor: TextEditor) =>
   // $FlowFixMe
-  getPrettierInstance(editor).resolveConfig.sync(getCurrentFilePath(editor));
+  getPrettierInstance(editor).resolveConfig.sync(getCurrentFilePath(editor), {
+    editorconfig: shouldUseEditorConfig(),
+  });
 
 const executePrettier = (editor: TextEditor, text: string) =>
   // $FlowFixMe

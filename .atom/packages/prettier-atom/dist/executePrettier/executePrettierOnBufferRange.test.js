@@ -6,11 +6,11 @@ var _defineProperty2 = _interopRequireDefault(require("@babel/runtime/helpers/de
 
 var _asyncToGenerator2 = _interopRequireDefault(require("@babel/runtime/helpers/asyncToGenerator"));
 
-function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { keys.push.apply(keys, Object.getOwnPropertySymbols(object)); } if (enumerableOnly) keys = keys.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); return keys; }
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(source, true).forEach(function (key) { (0, _defineProperty2["default"])(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(source).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
 
-jest.mock('prettier-eslint');
+jest.mock('@lewisl9029/prettier-eslint');
 jest.mock('prettier-stylelint');
 jest.mock('prettier');
 jest.mock('../atomInterface');
@@ -20,7 +20,7 @@ jest.mock('./handleError');
 
 const prettier = require('prettier');
 
-const prettierEslint = require('prettier-eslint');
+const prettierEslint = require('@lewisl9029/prettier-eslint');
 
 const prettierStylelint = require('prettier-stylelint');
 
@@ -28,6 +28,7 @@ const {
   getPrettierEslintOptions,
   shouldUseEslint,
   shouldUseStylelint,
+  shouldUseEditorConfig,
   runLinter
 } = require('../atomInterface');
 
@@ -75,6 +76,26 @@ beforeEach(() => {
   getPrettierInstance.mockImplementation(() => prettier);
   prettier.resolveConfig.sync.mockImplementation(() => optionsFixture);
 });
+it('uses editor config',
+/*#__PURE__*/
+(0, _asyncToGenerator2["default"])(function* () {
+  getCurrentFilePath.mockImplementation(() => 'foo.js');
+  shouldUseEditorConfig.mockImplementation(() => true);
+  yield executePrettierOnBufferRange(editor, bufferRangeFixture);
+  expect(prettier.resolveConfig.sync).toHaveBeenCalledWith('foo.js', {
+    editorconfig: true
+  });
+}));
+it('does not use editor config',
+/*#__PURE__*/
+(0, _asyncToGenerator2["default"])(function* () {
+  getCurrentFilePath.mockImplementation(() => 'foo.js');
+  shouldUseEditorConfig.mockImplementation(() => false);
+  yield executePrettierOnBufferRange(editor, bufferRangeFixture);
+  expect(prettier.resolveConfig.sync).toHaveBeenCalledWith('foo.js', {
+    editorconfig: false
+  });
+}));
 it('sets the transformed text in the buffer range',
 /*#__PURE__*/
 (0, _asyncToGenerator2["default"])(function* () {
