@@ -13,7 +13,7 @@ export PATH="/Users/tomik/anaconda3/bin:$PATH"
 # Project shortcuts
 export DEV="${HOME}/Development"
 export RESEARCH="${HOME}/Dropbox/University/Research/Code"
-export DOTFILES="${HOME}/Dropbox/Backup/Setup/macOS/dotfiles"
+export DOTFILES="${HOME}/Dropbox/Backup/Setup/macOS/Tools/dotfiles"
 
 alias dev="cd $DEV"
 alias research="cd $RESEARCH"
