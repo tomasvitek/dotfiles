@@ -25,6 +25,7 @@ function doBootstrap() {
 		--exclude ".launchpad.yaml" \
 		--exclude ".zprofile" \
 		--exclude "dotfiles.sh" \
+		--exclude ".gitmodules" \
 		--exclude "README.md" \
 		--exclude "LICENSE.md" \
 		-avh --no-perms --update ./ ~/
