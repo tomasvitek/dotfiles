@@ -11,7 +11,7 @@ ZSH_THEME="tomorrow"
 COMPLETION_WAITING_DOTS="true"
 
 # Plugins
-plugins=(gitfast autojump zsh-syntax-highlighting zsh-autosuggestions)
+plugins=(gitfast zsh-syntax-highlighting zsh-autosuggestions)
 
 ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets)
 
