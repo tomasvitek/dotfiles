@@ -36,7 +36,7 @@ function doBootstrap() {
 
 	echo .
 	echo "dotfiles loaded into your home directory."
-	source ~/.bash_profile
+	## no need on server --> source ~/.bash_profile
 }
 
 function doBackup() {
