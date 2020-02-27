@@ -15,6 +15,7 @@ function doBootstrap() {
 		--exclude ".git/" \
 		--exclude ".DS_Store" \
 		--exclude "dotfiles.sh" \
+		--exclude ".gitmodules" \
 		--exclude "README.md" \
 		--exclude "LICENSE.md" \
 		-avh --no-perms --update ./ ~/
