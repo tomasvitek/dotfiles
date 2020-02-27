@@ -44,6 +44,32 @@ ZSH_THEME_GIT_PROMPT_UNTRACKED=" %{$WHITE%}⛀%{$RESET_COLOR%}"
 # Format for git_prompt_ahead()
 ZSH_THEME_GIT_PROMPT_AHEAD=" %{$BLUE%}↣%{$RESET_COLOR%}"
 
+# ------------------------------------------------------------------------------
+#
+# List of vcs_info format strings:
+#
+# %b => current branch
+# %a => current action (rebase/merge)
+# %s => current version control system
+# %r => name of the root directory of the repository
+# %S => current path relative to the repository root directory
+# %m => in case of Git, show information about stashes
+# %u => show unstaged changes in the repository
+# %c => show staged changes in the repository
+#
+# List of prompt format strings:
+#
+# prompt:
+# %F => color dict
+# %f => reset color
+# %~ => current path
+# %* => time
+# %n => username
+# %m => shortname host
+# %(?..) => prompt conditional - %(condition.true.false)
+#
+# ------------------------------------------------------------------------------
+
 # Only show username if not default
 username() {
 	#if [[ $USER != $default_username || $HOST != $default_host || -n "$SSH_CLIENT" ]]
@@ -83,4 +109,4 @@ PROMPT='
 %{$GREEN_BOLD%}`username`%{$BLUE_BOLD%}`cpwd`%u$(parse_git_dirty)$(git_remote_status)%{$RESET_COLOR%}
 `prompt_char`%{$RESET_COLOR%} '
 
-RPROMPT='$(git_prompt_status)  %{$GREEN_BOLD%}$(current_branch)%{$RESET_COLOR%}'
+RPROMPT='$(git_prompt_status)  %{$GREEN_BOLD%}$(git_current_branch)%{$RESET_COLOR%}'
