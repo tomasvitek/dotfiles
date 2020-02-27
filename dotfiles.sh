@@ -12,8 +12,18 @@ function doBootstrap() {
 	git submodule foreach git merge origin master
 
 	rsync --include ".oh-my-zsh/.git" \
+		--exclude ".atom/" \
+		--exclude ".gnupg/" \
+		--exclude ".ssh/" \
 		--exclude ".git/" \
 		--exclude ".DS_Store" \
+		--exclude ".bash_profile" \
+		--exclude ".aliases" \
+		--exclude ".functions" \
+		--exclude ".gitmodules" \
+		--exclude ".launchpad.uni.yaml" \
+		--exclude ".launchpad.yaml" \
+		--exclude ".zprofile" \
 		--exclude "dotfiles.sh" \
 		--exclude "README.md" \
 		--exclude "LICENSE.md" \

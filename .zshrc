@@ -21,12 +21,12 @@ DISABLE_UNTRACKED_FILES_DIRTY="true"
 source $ZSH/oh-my-zsh.sh
 
 # Functions export
-source $HOME/.functions
+## no need on server --> source $HOME/.functions
 
 # Aliases export
-source $HOME/.aliases
+## no need on server --> source $HOME/.aliases
 
 # Use fancy ZSH completion
 zstyle ':completion:*' expand prefix suffix
 
-export EDITOR="edit"
+## no need on server --> export EDITOR="edit"
