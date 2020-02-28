@@ -18,7 +18,6 @@ function doBootstrap() {
 		--exclude ".gitmodules" \
 		--exclude "README.md" \
 		--exclude "LICENSE.md" \
-        --chown=$USER:$USER \
         -avh --no-perms --update ./ ~/
 
 
