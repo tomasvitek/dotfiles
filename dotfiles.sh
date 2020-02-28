@@ -93,6 +93,7 @@ case $1 in
 				echo ""
 				if [[ $REPLY =~ ^[Yy]$ ]]; then
 					apm install --packages-file ~/.atom/packages.list
+					rm ./package-lock.json
 				fi
 			fi
 		fi
