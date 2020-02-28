@@ -11,6 +11,7 @@ ZSH_THEME="tomorrow"
 COMPLETION_WAITING_DOTS="true"
 
 # Plugins
+# previously used plugins: autojump
 plugins=(gitfast zsh-syntax-highlighting zsh-autosuggestions)
 
 ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets)
@@ -21,12 +22,12 @@ DISABLE_UNTRACKED_FILES_DIRTY="true"
 source $ZSH/oh-my-zsh.sh
 
 # Functions export
-## no need on server --> source $HOME/.functions
+source $HOME/.functions
 
 # Aliases export
-## no need on server --> source $HOME/.aliases
+source $HOME/.aliases
 
 # Use fancy ZSH completion
 zstyle ':completion:*' expand prefix suffix
 
-## no need on server --> export EDITOR="edit"
+export EDITOR="edit"
