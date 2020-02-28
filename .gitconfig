@@ -1,10 +1,9 @@
 [user]
 	name = Tomáš Vítek
 	email = me@tomasvitek.com
-	signingkey = 37BA8410BE4A49AA
 
 [core]
-	editor = subl -n -w
+	editor = nano
 	excludesfile = /Users/tomik/.gitignore_global
 
 	# to use mac/linux line endings
