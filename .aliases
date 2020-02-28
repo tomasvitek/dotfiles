@@ -3,5 +3,8 @@
 ## Editor
 alias e='edit'
 
+## Git
+alias gst='git st'
+
 ## Github tool
 eval "$(hub alias -s)"
