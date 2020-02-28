@@ -15,6 +15,3 @@ export DEV="${HOME}/Development"
 export RESEARCH="${HOME}/Dropbox/University/Research/Code"
 export TOOLS="${HOME}/Dropbox/Backup/Setup/macOS/Tools"
 export DOTFILES="${HOME}/Dropbox/Backup/Setup/macOS/Tools/dotfiles"
-
-alias dev="cd $DEV"
-alias research="cd $RESEARCH"
