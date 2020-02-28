@@ -27,10 +27,10 @@
 	c = commit
 	ca = commit --amend
 	st = status -s
-  s = status -s
+  	s = status -s
 	com = checkout master
 	r = reset
-  l = log
+  	l = log
 	rh = reset --hard
 	pf = push --force
 	rb = rebase
@@ -43,8 +43,8 @@
 
 	# Shortcuts
 	amend = commit --amend
-	wip = commit -am "WIP"
-	save = !git add -A && git commit -m 'WIP'
+	wip = !git add -A && git commit -m 'WIP'
+	save = !git add -A && git commit -m 
 	patch = !git show origin..HEAD > "~/Downloads/$(basename `git rev-parse --show-toplevel`).patch"
 	undo = reset HEAD~1 --mixed
 	wipe = reset --hard
