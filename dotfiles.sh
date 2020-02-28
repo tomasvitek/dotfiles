@@ -39,8 +39,6 @@ function doBackup() {
 
 	# lporg save;	
 
-  	rsync -avh --no-perms ~/.atom ./
-
   	rsync --exclude ".oh-my-zsh/" \
 		--exclude ".git/" \
 		--exclude ".DS_Store" \
@@ -63,6 +61,9 @@ function doBackup() {
 		--exclude "Development" \
 		\
 		-avh --no-perms --existing ~/ ./;
+
+	apm list --installed --bare > ./.atom/packages.list
+
 	echo .
 	echo "Current dotfiles saved, you may commit changes."
 }
@@ -76,6 +77,12 @@ case $1 in
 			echo ""
 			if [[ $REPLY =~ ^[Yy]$ ]]; then
 				doBootstrap
+
+				read -p "Do you also want to install Atom packages? (y/n) " -n 1;
+				echo ""
+				if [[ $REPLY =~ ^[Yy]$ ]]; then
+					apm install --packages-file ~/.atom/packages.list
+				fi
 			fi
 		fi
 		;;
