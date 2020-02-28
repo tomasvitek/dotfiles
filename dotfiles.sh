@@ -6,7 +6,7 @@
 function doBootstrap() {
 	cd "$(dirname "${BASH_SOURCE}")";
 
-	git pull origin master
+	git pull
 	git submodule update --init --recursive
 	git submodule foreach --recursive git fetch
 	git submodule foreach git merge origin master
