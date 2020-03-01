@@ -137,9 +137,3 @@ dotfiles() {
       ;;
   esac
 }
-
-## Dropbox config
-
-dropbox() {
-  cd ~/Dropbox/Backup/Setup/macOS/Dropbox $1
-}
