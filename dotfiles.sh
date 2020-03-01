@@ -14,6 +14,7 @@ function doBootstrap() {
 	rsync --include ".oh-my-zsh/.git" \
 		--exclude ".git/" \
 		--exclude ".DS_Store" \
+		--exclude "todo" \
 		--exclude "dotfiles.sh" \
 		--exclude ".gitmodules" \
 		--exclude "README.md" \
