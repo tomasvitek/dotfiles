@@ -48,6 +48,7 @@
 	patch = !git show origin..HEAD > "~/Downloads/$(basename `git rev-parse --show-toplevel`).patch"
 	undo = reset HEAD~1 --mixed
 	wipe = reset --hard
+	sdf = "!sh -c 'git save \"$1\" ; git co server ; git cp master ; git com ; git pa' -"
 
 	# Branches
 	br = branch --verbose --verbose        # be very verbose (with names of tracking branches)
