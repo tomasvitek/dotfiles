@@ -21,6 +21,7 @@
 [alias]
 
 	# Aliases
+	pa = push --all -u 
 	cd = !echo "Try without the git, you git."
 	co = checkout
 	c = commit
