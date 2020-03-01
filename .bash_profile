@@ -18,6 +18,11 @@ export PATH="/Users/tomik/anaconda3/bin:$PATH"
 # Project shortcuts
 export DEV="${HOME}/Development"
 export RESEARCH="${HOME}/Dropbox/University/Research/Code"
+
+export KRYTEN="${HOME}/Dropbox/Backup/Setup/Servers/Kryten Server @London"
+
 export TOOLS="${HOME}/Dropbox/Backup/Setup/macOS/Tools"
 export DOTFILES="${HOME}/Dropbox/Backup/Setup/macOS/Tools/dotfiles"
-export KRYTEN="${HOME}/Dropbox/Backup/Setup/Servers/Kryten Server @London"
+export DROPBOX_BACKUP_SERVICE="${HOME}/Dropbox/Backup/Setup/macOS/Tools/dropbox-backup-service"
+export MOUNT_REMOTE_FOLDER="${HOME}/Dropbox/Backup/Setup/macOS/Tools/mount-remote-folder"
+
