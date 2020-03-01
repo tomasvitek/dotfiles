@@ -6,6 +6,15 @@
 function doBootstrap() {
 	cd "$(dirname "${BASH_SOURCE}")";
 
+	if [ ! -f ./.togglsheet ]; then
+		echo ""
+		echo "No '.togglsheet' found, please run the following command and update the config file:"
+		echo ""
+		echo "cp .togglsheet.example .togglsheet" | pbcopy
+		echo "> cp .togglsheet.example .togglsheet (copied in your clipboard)"
+		exit
+	fi
+
 	git pull
 	git submodule update --init --recursive
 	git submodule foreach --recursive git fetch
@@ -25,6 +34,7 @@ function doBootstrap() {
 		--exclude ".launchpad.yaml" \
 		--exclude ".zprofile" \
 		--exclude "dotfiles.sh" \
+		--exclude ".togglsheet.example" \
 		--exclude ".gitmodules" \
 		--exclude "README.md" \
 		--exclude "LICENSE.md" \
@@ -54,6 +64,7 @@ function doBackup() {
 		--exclude ".git/" \
 		--exclude ".DS_Store" \
 		--exclude "dotfiles.sh" \
+		--exclude ".togglsheet.example" \
 		--exclude "README.md" \
 		--exclude "LICENSE.md" \
 		\
