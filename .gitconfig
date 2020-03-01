@@ -49,7 +49,7 @@
 	patch = !git show origin..HEAD > "~/Downloads/$(basename `git rev-parse --show-toplevel`).patch"
 	undo = reset HEAD~1 --mixed
 	wipe = reset --hard
-	sdf = "!sh -c 'git save \"$1\" ; git co server ; git cp master ; git com ; git pa' -"
+	sdf = "!sh -c 'echo \"Do you really want to commit to >master<, cherry-pick to >server< and then push both? (y/n)\"; read REPLY; echo \"\"; if [[ $REPLY =~ ^[Yy]$ ]]; then git save \"$1\" ; git co server ; git cp master ; git com ; git pa ; fi' -"
 
 	# Branches
 	br = branch --verbose --verbose        # be very verbose (with names of tracking branches)
