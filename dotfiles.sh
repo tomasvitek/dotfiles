@@ -34,7 +34,6 @@ function doBootstrap() {
 		--exclude ".launchpad.yaml" \
 		--exclude ".zprofile" \
 		--exclude "dotfiles.sh" \
-		--exclude ".togglsheet.example" \
 		--exclude ".gitmodules" \
 		--exclude "README.md" \
 		--exclude "LICENSE.md" \
@@ -64,7 +63,6 @@ function doBackup() {
 		--exclude ".git/" \
 		--exclude ".DS_Store" \
 		--exclude "dotfiles.sh" \
-		--exclude ".togglsheet.example" \
 		--exclude "README.md" \
 		--exclude "LICENSE.md" \
 		\
