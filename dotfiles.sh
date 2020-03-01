@@ -24,6 +24,7 @@ function doBootstrap() {
 		--exclude ".launchpad.uni.yaml" \
 		--exclude ".launchpad.yaml" \
 		--exclude ".zprofile" \
+		--exclude "todo" \
 		--exclude "dotfiles.sh" \
 		--exclude ".gitmodules" \
 		--exclude "README.md" \
