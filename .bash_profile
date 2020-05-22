@@ -15,6 +15,9 @@ export PATH=/usr/local/bin:/usr/local/sbin:$PATH
 # added by Anaconda3, but to use run `conda_init`
 export PATH="/Users/tomik/anaconda3/bin:$PATH"
 
+export ANDROID_HOME=/usr/local/share/android-sdk
+
+
 # Project shortcuts
 export DEV="${HOME}/Development"
 export RESEARCH="${HOME}/Dropbox/University/Research/Code"
