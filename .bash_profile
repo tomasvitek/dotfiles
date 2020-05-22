@@ -18,9 +18,9 @@ export PATH=/usr/local/bin:/usr/local/sbin:$PATH
 # added by Anaconda3, but to use run `conda_init`
 export PATH="/Users/tomik/anaconda3/bin:$PATH"
 
-# Android SDK
-export ANDROID_HOME=/usr/local/share/android-sdk
-export PATH=${PATH}:/usr/local/share/android-sdk/platform-tools:/usr/local/share/android-sdk/tools
+# Android SDK (make sure Android Studio is installed!)
+export ANDROID_HOME=/Users/$USER/Library/Android/sdk
+export PATH=${PATH}:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools
 
 # Project shortcuts
 export DEV="${HOME}/Development"
