@@ -4,9 +4,9 @@ ulimit -S -n 4096
 # Load SSH key passwords from Keychain
 ssh-add -A 2>/dev/null;
 
-# Java (OpenJDK)
-export PATH="/usr/local/opt/openjdk/bin:$PATH"
-export CPPFLAGS="-I/usr/local/opt/openjdk/include"
+# Java (OpenJDK) (use `jdk 1.8` instead)
+# export PATH="/usr/local/opt/openjdk/bin:$PATH"
+# export CPPFLAGS="-I/usr/local/opt/openjdk/include"
 
 # Go
 export GOPATH=$HOME/go
