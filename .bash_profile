@@ -4,8 +4,11 @@ ulimit -S -n 4096
 # Load SSH key passwords from Keychain
 ssh-add -A 2>/dev/null;
 
-# Go
+# Java (OpenJDK)
+export PATH="/usr/local/opt/openjdk/bin:$PATH"
+export CPPFLAGS="-I/usr/local/opt/openjdk/include"
 
+# Go
 export GOPATH=$HOME/go
 export PATH=$PATH:$GOPATH/bin
 
@@ -15,6 +18,7 @@ export PATH=/usr/local/bin:/usr/local/sbin:$PATH
 # added by Anaconda3, but to use run `conda_init`
 export PATH="/Users/tomik/anaconda3/bin:$PATH"
 
+# Android SDK
 export ANDROID_HOME=/usr/local/share/android-sdk
 
 # Project shortcuts
