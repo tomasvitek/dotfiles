@@ -11,6 +11,13 @@ finder() {
     fi
 }
 
+# Switch Java version
+jdk() {
+    version=$1
+    export JAVA_HOME=$(/usr/libexec/java_home -v"$version");
+    java -version
+ }
+
 # Set hidden flags for Finder
 fileshow() {
   sudo chflags nohidden ${@}
