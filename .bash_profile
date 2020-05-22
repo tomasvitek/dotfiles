@@ -15,6 +15,8 @@ export PATH=/usr/local/bin:/usr/local/sbin:$PATH
 # added by Anaconda3, but to use run `conda_init`
 export PATH="/Users/tomik/anaconda3/bin:$PATH"
 
+export ANDROID_HOME=/usr/local/share/android-sdk
+
 # Project shortcuts
 export DEV="${HOME}/Development"
 export RESEARCH="${HOME}/Dropbox/University/Research/Code"
@@ -25,4 +27,3 @@ export TOOLS="${HOME}/Dropbox/Backup/Setup/macOS/Tools"
 export DOTFILES="${HOME}/Dropbox/Backup/Setup/macOS/Tools/dotfiles"
 export DROPBOX_BACKUP_SERVICE="${HOME}/Dropbox/Backup/Setup/macOS/Tools/dropbox-backup-service"
 export MOUNT_REMOTE_FOLDER="${HOME}/Dropbox/Backup/Setup/macOS/Tools/mount-remote-folder"
-
