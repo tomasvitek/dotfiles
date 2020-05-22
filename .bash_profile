@@ -20,6 +20,7 @@ export PATH="/Users/tomik/anaconda3/bin:$PATH"
 
 # Android SDK
 export ANDROID_HOME=/usr/local/share/android-sdk
+export PATH=${PATH}:/usr/local/share/android-sdk/platform-tools:/usr/local/share/android-sdk/tools
 
 # Project shortcuts
 export DEV="${HOME}/Development"
