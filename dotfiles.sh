@@ -9,7 +9,7 @@ function doBootstrap() {
 	echo "upgrading your oh-my-zsh installation..."
 
 	env ZSH="$(dirname "${BASH_SOURCE}")/.oh-my-zsh" sh "$(dirname "${BASH_SOURCE}")/.oh-my-zsh/tools/upgrade.sh"
-	command rm -rf "$DOTZSH/log/update.lock"
+	command rm -rf "$ZSH/log/update.lock"
 
 	echo "done."
 	echo ""
