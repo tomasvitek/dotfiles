@@ -144,3 +144,7 @@ dotfiles() {
       ;;
   esac
 }
+
+upgrade_oh_my_zsh () {
+    dotfiles bootstrap
+}

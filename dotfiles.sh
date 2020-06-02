@@ -6,6 +6,16 @@
 function doBootstrap() {
 	cd "$(dirname "${BASH_SOURCE}")";
 
+	echo "upgrading your oh-my-zsh installation..."
+
+	env DOTZSH="$(dirname "${BASH_SOURCE}")/.oh-my-zsh" sh "$(dirname "${BASH_SOURCE}")/.oh-my-zsh/tools/upgrade.sh"
+	command rm -rf "$DOTZSH/log/update.lock"
+
+	echo "done."
+	echo ""
+
+	echo "upgrading your dottools and oh-my-zsh plugins..."
+
 	git pull
 	git submodule update --init --recursive
 	git submodule foreach --recursive git fetch
@@ -27,7 +37,10 @@ function doBootstrap() {
 
 	# lporg load ~/.launchpad.yaml
 
-	echo .
+	echo "done."
+	echo ""
+
+	echo ""
 	echo "dotfiles loaded into your home directory."
 	source ~/.bash_profile
 }

@@ -9,3 +9,7 @@ Run `./dotfiles.sh bootstrap` to load all dotfiles into your home directory.
 ## Backup
 
 To backup your current dotfiles, run `./dotfiles.sh backup`.
+
+## Todo
+
+- unify `master` and `server` branches, use conditionals to load stuff
