@@ -26,7 +26,6 @@ apps:
     - App Store
     - Google Chrome
     - Maps
-    - Atom
     - iTerm
     - System Preferences
     - folder: Social Networking
