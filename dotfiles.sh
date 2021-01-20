@@ -77,8 +77,6 @@ function doBackup() {
 		\
 		-avh --no-perms --existing ~/ ./;
 
-	apm list --installed --bare > ./.atom/packages.list
-
 	echo .
 	echo "Current dotfiles saved, you may commit changes."
 }
@@ -92,13 +90,6 @@ case $1 in
 			echo ""
 			if [[ $REPLY =~ ^[Yy]$ ]]; then
 				doBootstrap
-
-				read -p "Do you also want to install Atom packages? (y/n) " -n 1;
-				echo ""
-				if [[ $REPLY =~ ^[Yy]$ ]]; then
-					apm install --packages-file ~/.atom/packages.list
-					rm ./package-lock.json
-				fi
 			fi
 		fi
 		;;
