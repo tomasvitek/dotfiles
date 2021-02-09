@@ -15,6 +15,9 @@ export PATH=$PATH:$GOPATH/bin
 # Brew
 export PATH=/usr/local/bin:/usr/local/sbin:$PATH
 
+## Anaconda
+# conda config --set auto_activate_base false
+
 # added by Anaconda3, but to use run `conda_init`
 export PATH="/Users/tomik/anaconda3/bin:$PATH"
 
