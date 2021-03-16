@@ -1,0 +1,9 @@
+#!/bin/sh
+
+# references:
+# - https://superuser.com/questions/1075956/homebrew-installed-sleepwatcher-wanted-to-run-suggested-service-command-got
+# - https://formulae.brew.sh/formula/sleepwatcher
+# - http://hints.macworld.com/article.php?story=20080329201951648
+# - https://stackoverflow.com/questions/2049758/is-there-a-way-to-eject-all-external-hard-drives-from-the-command-line-os-x#7222469
+
+osascript -e 'tell application "Finder" to eject (every disk whose ejectable is true and local volume is true and free space is not equal to 0)'
