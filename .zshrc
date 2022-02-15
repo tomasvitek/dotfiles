@@ -95,13 +95,19 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="code ~/.oh-my-zsh"
 
 # Functions export
-source $HOME/.functions
+if [ -f $HOME/.functions ]; then
+    source $HOME/.functions
+fi
 
 # Aliases export
-source $HOME/.aliases
+if [ -f $HOME/.aliases ]; then
+    source $HOME/.aliases
+fi
 
 # Aliases secret export
-source $HOME/.aliases.secret
+if [ -f $HOME/.aliases.secret ]; then
+    source $HOME/.aliases.secret
+fi
 
 # Use fancy ZSH completion
 zstyle ':completion:*' expand prefix suffix
