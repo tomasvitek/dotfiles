@@ -91,14 +91,17 @@ source $ZSH/oh-my-zsh.sh
 # For a full list of active aliases, run `alias`.
 #
 # Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
+# alias zshconfig="code ~/.zshrc"
+# alias ohmyzsh="code ~/.oh-my-zsh"
 
 # Functions export
 source $HOME/.functions
 
 # Aliases export
 source $HOME/.aliases
+
+# Aliases secret export
+source $HOME/.secret-aliases
 
 # Use fancy ZSH completion
 zstyle ':completion:*' expand prefix suffix

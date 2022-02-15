@@ -5,3 +5,7 @@
 
 # Project TODO
 todo
+
+# Secret stuff
+.secret
+.sec
