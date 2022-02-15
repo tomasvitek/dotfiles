@@ -8,3 +8,4 @@ alias gst='git st'
 
 ## Github tool
 eval "$(hub alias -s)"
+alias gst='git st'

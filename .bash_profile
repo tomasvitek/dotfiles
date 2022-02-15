@@ -53,7 +53,7 @@ export TINEOLA="/Users/tomik/Dropbox/Development/Projects/Archive/2021/Tineola.c
 export PYT="/Users/tomik/Dropbox/Development/Projects/PYT/website"
 
 ## Kryten
-export KRYTEN="${HOME}/Dropbox/Backup/Setup/Servers/Kryten"
+export KRYTEN="${HOME}/Dropbox/Backup/Setup/Servers/Kryten/STANDALONE"
 export KRYTEN_SETUP="${HOME}/Dropbox/Backup/Setup/Servers/Kryten/config/.setup"
 
 ## Tools

@@ -101,7 +101,7 @@ source $HOME/.functions
 source $HOME/.aliases
 
 # Aliases secret export
-source $HOME/.secret-aliases
+source $HOME/.aliases.secret
 
 # Use fancy ZSH completion
 zstyle ':completion:*' expand prefix suffix
