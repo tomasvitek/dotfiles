@@ -16,6 +16,9 @@
 [push]
 	default = upstream
 
+[pull]
+	rebase = false
+
 [diff]
 	renames = true
 
@@ -29,7 +32,7 @@
 	ca = commit --amend
 	st = status -s
   	s = status -s
-	com = checkout master
+	com = !git checkout master || git checkout main
 	r = reset
   	l = log
 	rh = reset --hard

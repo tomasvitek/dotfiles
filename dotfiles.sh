@@ -29,7 +29,8 @@ function doBootstrap() {
 		--exclude ".gitmodules" \
 		--exclude "README.md" \
 		--exclude "LICENSE.md" \
-		--chown=$USER:$USER \
+		--owner \
+		--group \
         -avh --no-perms --update ./ ~/
 
 
@@ -74,6 +75,10 @@ function doBackup() {
 		--exclude "Trash" \
 		--exclude ".Trash" \
 		--exclude "Development" \
+		--exclude "Basecamp" \
+		--exclude "VirtualBox VMs" \
+		--exclude "Pro Lidku" \
+		
 		\
 		-avh --no-perms --existing ~/ ./;
 
