@@ -58,6 +58,7 @@ function doBackup() {
   	rsync --exclude ".oh-my-zsh/" \
 		--exclude ".git/" \
 		--exclude ".DS_Store" \
+		--exclude "*.secret" \
 		--exclude "dotfiles.sh" \
 		--exclude "README.md" \
 		--exclude "LICENSE.md" \
