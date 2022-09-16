@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>com.tomasvitek.startup</string>
+
+    <key>OnDemand</key>
+    <false/>
+
+    <key>LaunchOnlyOnce</key>
+    <true/>
+
+    <key>UserName</key>
+    <string>tomik</string>
+
+    <key>ProgramArguments</key>
+    <array>
+        <string>/Users/tomik/.share-printer.sh</string>
+    </array>
+</dict>
+</plist>
